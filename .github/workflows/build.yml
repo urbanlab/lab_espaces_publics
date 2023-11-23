@@ -21,4 +21,3 @@ jobs:
         with:
           push: true
           tags: erasme/labeps-wordpress:${{ github.ref == 'refs/heads/main' && 'latest' || 'dev' }}
-          context: "{{defaultContext}}:templates/wordpress"
