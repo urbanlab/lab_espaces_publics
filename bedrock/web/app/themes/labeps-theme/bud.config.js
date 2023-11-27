@@ -47,6 +47,10 @@ export default async (app) => {
    */
   app.wpjson
     .setSettings({
+      layout: {
+        contentSize: "840px",
+        wideSize: "1100px"
+      },
       color: {
         custom: false,
         customDuotone: false,
