@@ -20,8 +20,14 @@
   },
   "devDependencies": {
     "@roots/bud": "6.16.1",
+    "@roots/bud-eslint": "^6.17.0",
+    "@roots/bud-prettier": "^6.17.0",
+    "@roots/bud-stylelint": "^6.17.0",
     "@roots/bud-tailwindcss": "6.16.1",
+    "@roots/eslint-config": "^6.17.0",
     "@roots/sage": "6.16.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "caniuse-lite": "^1.0.30001565"
+  }
 }
