@@ -4,6 +4,9 @@ const config = {
   theme: {
     extend: {
       colors: {}, // Extend Tailwind's default colors
+      fontFamily: {
+                sans: 'Roboto Regular, sans-serif',
+             },
     },
   },
   plugins: [],

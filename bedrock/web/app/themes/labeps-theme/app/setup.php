@@ -134,33 +134,3 @@ add_action('widgets_init', function () {
         'id' => 'sidebar-footer',
     ] + $config);
 });
-
-
-/**
- * Register CPT ressources.
- * 
- * @return void
- */
-add_action( 'init', function () {
-    // CPT Ressources
-    $labels = array(
-        'name' => 'Ressources',
-        'all_items' => 'Toutes les ressources', 
-        'singular_name' => 'Ressource',
-        'add_new_item' => 'Ajouter une ressource',
-        'edit_item' => 'Modifier la ressource',
-        'menu_name' => 'Ressources'
-    );
-
-	$args = array(
-        'labels' => $labels,
-        'public' => true,
-        'show_in_rest' => true,
-        'has_archive' => true,
-        'supports' => array( 'title', 'editor','thumbnail' ),
-        'menu_position' => 5, 
-        'menu_icon' => 'dashicons-admin-customizer',
-	);
-
-	register_post_type( 'ressources', $args );
-});

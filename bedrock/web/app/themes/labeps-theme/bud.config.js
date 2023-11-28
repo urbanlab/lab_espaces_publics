@@ -33,8 +33,8 @@ export default async (app) => {
    * @see {@link https://bud.js.org/docs/bud.watch}
    */
   app
-    .setUrl('http://localhost:1200')
-    .setProxyUrl('http://localhost:1200')
+    // .setUrl('http://localhost:1200')
+    // .setProxyUrl('http://localhost:1200')
     .watch(['resources/views', 'app']);
 
   /**
@@ -46,6 +46,11 @@ export default async (app) => {
    * @see {@link https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json}
    */
   app.wpjson
+  .setOption('styles', {
+    typography: {
+      fontFamily: 'var(--wp--preset--font-family--sans)',
+    },
+  })
     .setSettings({
       layout: {
         contentSize: "840px",
