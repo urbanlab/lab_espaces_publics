@@ -7,7 +7,10 @@ This wordpress stack uses bedrock for easy wordpress development.
 First you need to install the dependencies. This is done by running the following command:
 
 **Update bedrock with composer"
-`docker run --rm -v $(pwd):/app -u $(id -u):$(id -g) composer update`
+```
+cd bedrock
+docker run --rm -v $(pwd):/app -u $(id -u):$(id -g) composer update
+```
 
 You can now start the stack by running the following command:
 `docker-compose up --profile dev -d`
