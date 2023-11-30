@@ -4,24 +4,30 @@ namespace App;
 
 add_action( 'init', function() {
 
+	
     # CPT Ressources
 	register_extended_post_type( 'ressources', [
 
         'show_in_feed' => false,
         'menu_icon'    => 'dashicons-pressthis',
-
+        'public' => true,
+        'show_in_rest' => true,
+        'supports' => array( 'title', 'editor','thumbnail' ),
+        'menu_position' => 5, 
         # Add some custom columns to the admin screen:
         'admin_cols' => [
             'featured_image' => [
                 'title'          => 'Image',
                 'featured_image' => 'thumbnail'
             ],
-			'course_dept' => [
-                'taxonomy' => 'type'
-			],
 			'ressource-types' => [
 				'taxonomy' => 'ressource-types'
-		    ]
+		    ],
+			'published' => array(
+				'title'       => 'Published',
+				'meta_key'    => 'published_date',
+				'date_format' => 'd/m/Y'
+			),
 		],
 
         # Add some custom archive page:
@@ -30,17 +36,15 @@ add_action( 'init', function() {
 		],
 
 	], [
-
 		'singular' => 'Ressource',
 		'plural'   => 'Ressources',
 		'slug'     => 'ressources',
-
 	] );
 
 	register_extended_taxonomy( 'ressource-types', 'ressources', array(
 
 		'dashboard_glance' => true,
-
+		'show_in_rest' => true,
 		'admin_cols' => array(
 				'updated' => array(
 						'title'       => 'Updated',
@@ -57,26 +61,42 @@ add_action( 'init', function() {
 
     ) );
 
+
     # CPT Inspiration
     register_extended_post_type( 'inspirations', [
 
         'show_in_feed' => false,
         'menu_icon'    => 'dashicons-cover-image',
-
+		'show_in_rest' => true,        
+		'supports' => array( 'title', 'editor','thumbnail' ),
+        'menu_position' => 5, 
         # Add some custom columns to the admin screen:
         'admin_cols' => [
             'featured_image' => [
                 'title'          => 'Image',
-                'featured_image' => 'thumbnail'
+                'featured_image' => 'thumbnail',
+				'width'          => 80,
+				'height'         => 80,
             ],
-			'course_dept' => [
-                'taxonomy' => 'defis',
-                'taxonomy' => 'localisation',
-                'taxonomy' => 'mots-clés'
+			'published' => [
+				'title'       => 'Publiée',
+				'meta_key'    => 'published_date',
+				'date_format' => 'd/m/Y'
 			],
-			'inspirations' => [
-				'taxonomy' => 'inspiration-types'
-		    ]
+			'mots-clés' => [
+                'taxonomy' => 'inspiration-mots-clés',
+				'title'    => 'Mots-clés',
+				'link'     => 'edit',
+			],
+			'defis' => [
+				'title'    => 'Défis',
+				'taxonomy' => 'inspiration-defis',
+				'link'     => 'edit',
+		    ],
+		],
+
+		'archive' => [
+			'posts_per_page' => 10,
 		],
 
         # Add some custom archive page:
@@ -92,9 +112,11 @@ add_action( 'init', function() {
 
 	] );
 
-	register_extended_taxonomy( 'inspiration-types', 'inspirations', array(
+	register_extended_taxonomy( 'inspiration-defis', 'inspirations', array(
 
 		'dashboard_glance' => true,
+		'show_in_rest' => true,
+		'hierarchical' => true, 
 
 		'admin_cols' => array(
 				'updated' => array(
@@ -104,12 +126,62 @@ add_action( 'init', function() {
 				),
 		),
 
-    ), array(
+    ), 	
+		array(
 
-            'singular' => 'Défi',
-            'plural'   => 'Défis',
-            'slug'     => 'inspiration-défis'
+				'singular' => 'Défi',
+				'plural'   => 'Défis',
+				'slug'     => 'inspiration-défis'
 
-    ) );
+		) 
+	);
+
+	register_extended_taxonomy( 'inspiration-localisation', 'inspirations', array(
+
+		'dashboard_glance' => true,
+		'show_in_rest' => true,
+		'hierarchical' => true, 
+
+		'admin_cols' => array(
+				'updated' => array(
+						'title'       => 'Updated',
+						'meta_key'    => 'updated_date',
+						'date_format' => 'd/m/Y'
+				),
+		),
+
+    ), 	
+		array(
+
+				'singular' => 'Localisation',
+				'plural'   => 'Localisations',
+				'slug'     => 'inspiration-localisation'
+
+		) 
+	);
+
+	register_extended_taxonomy( 'inspiration-mots-clés', 'inspirations', array(
+
+		'dashboard_glance' => true,
+		'show_in_rest' => true,
+		'hierarchical' => false, 
+
+		'admin_cols' => array(
+				'updated' => array(
+						'title'       => 'Updated',
+						'meta_key'    => 'updated_date',
+						'date_format' => 'd/m/Y'
+				),
+		),
+
+    ), 	
+		array(
+
+				'singular' => 'Mot Clé',
+				'plural'   => 'Mots Clés',
+				'slug'     => 'mots-clés'
+
+		) 
+	);
 
 });
