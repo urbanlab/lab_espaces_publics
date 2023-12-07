@@ -1,3 +1,32 @@
+FROM composer:2.0 as vendor
+
+WORKDIR /app
+
+COPY ./bedrock ./bedrock
+
+WORKDIR /app/bedrock
+
+RUN composer update
+
+WORKDIR /app/bedrock/web/app/themes/labeps-theme
+
+RUN composer install
+
+FROM node:lts as node 
+
+WORKDIR /app
+
+COPY --from=vendor /app/bedrock/ ./bedrock
+
+WORKDIR /app/bedrock/web/app/themes/labeps-theme
+
+RUN npm install
+
+RUN npm run build
+
+RUN rm -r node_modules
+
+
 FROM php:8.0-apache
 
 # install php extensions mysqli PHP
@@ -8,7 +37,9 @@ RUN a2enmod rewrite
 # copy vhost config apache/vhost.conf
 COPY ./apache/vhost.conf /etc/apache2/sites-available/000-default.conf
 
-COPY ./bedrock /var/www/html/bedrock
+# copy bedrock files from node
+COPY --from=node /app/bedrock /var/www/html/bedrock
+
 RUN chown -R www-data:www-data /var/www/html/
 
 ENTRYPOINT [ "apache2-foreground" ]

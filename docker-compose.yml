@@ -11,11 +11,15 @@ services:
       - WP_SITEURL=${WP_SITEURL:-http://localhost:${EXPOSED_WORDPRESS_PORT}/wp}
       - DATABASE_URL=${DATABASE_URL:-mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@mysql:3306/${MYSQL_DATABASE}}
     volumes:
-      - ./bedrock/web:/var/www/html/bedrock/web
+      - ./bedrock/web/app:/var/www/html/bedrock/web/app
+      - ./bedrock/web/index.php:/var/www/html/bedrock/web/index.php
+      - ./bedrock/web/wp-config.php:/var/www/html/bedrock/web/wp-config.php
     ports:
       - ${EXPOSED_WORDPRESS_PORT:-8080}:80
     depends_on:
       - mysql
+
+    
 
   apache-prod:
     profiles:
