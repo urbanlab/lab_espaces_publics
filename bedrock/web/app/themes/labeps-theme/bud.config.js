@@ -52,6 +52,10 @@ export default async (app) => {
     },
   })
     .setSettings({
+      variables: null,
+      presets: null,
+      appearanceTools: false,
+
       layout: {
         contentSize: "840px",
         wideSize: "1100px"
@@ -63,7 +67,7 @@ export default async (app) => {
         defaultDuotone: false,
         defaultGradients: false,
         defaultPalette: false,
-        duotone: [],
+        duotone: []
       },
       custom: {
         spacing: {},
@@ -82,5 +86,5 @@ export default async (app) => {
     })
     .useTailwindColors()
     .useTailwindFontFamily()
-    .useTailwindFontSize();
+    // .useTailwindFontSize();
 };
