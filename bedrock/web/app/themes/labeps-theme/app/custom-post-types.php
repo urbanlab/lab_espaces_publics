@@ -110,7 +110,7 @@ add_action( 'init', function() {
 		'slug'     => 'inspirations',
 
 	] );
-
+ 	# Taxonomy Inspiration
 	register_extended_taxonomy( 'inspiration-defis', 'inspirations', array(
 
 		'dashboard_glance' => true,
@@ -147,7 +147,7 @@ add_action( 'init', function() {
 				),
 		),
 
-    ), 	
+	), 	
 		array(
 
 				'singular' => 'Localisation',
@@ -157,12 +157,10 @@ add_action( 'init', function() {
 		) 
 	);
 
-	register_extended_taxonomy( 'inspiration-mots-clés', 'inspirations', array(
-
+		register_extended_taxonomy( 'inspiration-mots-clés', 'inspirations', array(
 		'dashboard_glance' => true,
 		'show_in_rest' => true,
 		'hierarchical' => true, 
-
 		'admin_cols' => array(
 				'updated' => array(
 						'title'       => 'Updated',
@@ -180,55 +178,7 @@ add_action( 'init', function() {
 
 		) 
 	);
-		) 
-	);
-	register_extended_taxonomy( 'inspiration-localisation', 'inspirations', array(
 
-		'dashboard_glance' => true,
-		'show_in_rest' => true,
-		'hierarchical' => true, 
-
-		'admin_cols' => array(
-				'updated' => array(
-						'title'       => 'Updated',
-						'meta_key'    => 'updated_date',
-						'date_format' => 'd/m/Y'
-				),
-		),
-
-    ), 	
-		array(
-
-				'singular' => 'Localisation',
-				'plural'   => 'Localisations',
-				'slug'     => 'inspiration-localisation'
-
-		) 
-	);
-
-	register_extended_taxonomy( 'inspiration-mots-clés', 'inspirations', array(
-
-		'dashboard_glance' => true,
-		'show_in_rest' => true,
-		'hierarchical' => true, 
-
-		'admin_cols' => array(
-				'updated' => array(
-						'title'       => 'Updated',
-						'meta_key'    => 'updated_date',
-						'date_format' => 'd/m/Y'
-				),
-		),
-
-    ), 	
-		array(
-
-				'singular' => 'Mot Clé',
-				'plural'   => 'Mots Clés',
-				'slug'     => 'mots-clés'
-
-		) 
-	);
 
 	    # CPT Projets pilotes
 		register_extended_post_type( 'projects', [
@@ -280,7 +230,7 @@ add_action( 'init', function() {
 	
 		] );
 	
-		register_extended_taxonomy( 'projets-defis', 'projets', array(
+		register_extended_taxonomy( 'projects-defis', 'projects', array(
 	
 			'dashboard_glance' => true,
 			'show_in_rest' => true,
@@ -299,12 +249,12 @@ add_action( 'init', function() {
 	
 					'singular' => 'Défi',
 					'plural'   => 'Défis',
-					'slug'     => 'projets-défis'
+					'slug'     => 'projects-defis'
 	
 			) 
 		);
 
-		register_extended_taxonomy( 'projets-localisation', 'projets', array(
+		register_extended_taxonomy( 'projects-localisation', 'projects', array(
 
 			'dashboard_glance' => true,
 			'show_in_rest' => true,
@@ -323,12 +273,12 @@ add_action( 'init', function() {
 	
 					'singular' => 'Localisation',
 					'plural'   => 'Localisations',
-					'slug'     => 'inspiration-localisation'
+					'slug'     => 'projects-localisation'
 	
 			) 
 		);
 	
-		register_extended_taxonomy( 'projets-mots-clés', 'projets', array(
+		register_extended_taxonomy( 'projects-mots-clés', 'projects', array(
 	
 			'dashboard_glance' => true,
 			'show_in_rest' => true,
@@ -347,129 +297,7 @@ add_action( 'init', function() {
 	
 					'singular' => 'Mot Clé',
 					'plural'   => 'Mots Clés',
-					'slug'     => 'mots-clés'
-	
-			) 
-		);
-
-	    # CPT Projets pilotes
-		register_extended_post_type( 'projects', [
-
-			'show_in_feed' => false,
-			'menu_icon'    => 'dashicons-buddicons-topics',
-			'show_in_rest' => true,        
-			'supports' => array( 'title', 'editor','thumbnail' ),
-			'menu_position' => 5, 
-			# Add some custom columns to the admin screen:
-			'admin_cols' => [
-				'featured_image' => [
-					'title'          => 'Image',
-					'featured_image' => 'thumbnail',
-					'width'          => 80,
-					'height'         => 80,
-				],
-				'published' => [
-					'title'       => 'Publiée',
-					'meta_key'    => 'published_date',
-					'date_format' => 'd/m/Y'
-				],
-				'mots-clés' => [
-					'taxonomy' => 'inspiration-mots-clés',
-					'title'    => 'Mots-clés',
-					'link'     => 'edit',
-				],
-				'defis' => [
-					'title'    => 'Défis',
-					'taxonomy' => 'inspiration-defis',
-					'link'     => 'edit',
-				],
-			],
-	
-			'archive' => [
-				'posts_per_page' => 10,
-			],
-	
-			# Add some custom archive page:
-			'archive' => [
-				'posts_per_page' => 10,
-			],
-	
-		], [
-	
-			'singular' => 'Projet pilote',
-			'plural'   => 'Projets pilotes',
-			'slug'     => 'projets-pilotes',
-	
-		] );
-	
-		register_extended_taxonomy( 'projets-defis', 'projets', array(
-	
-			'dashboard_glance' => true,
-			'show_in_rest' => true,
-			'hierarchical' => true, 
-	
-			'admin_cols' => array(
-					'updated' => array(
-							'title'       => 'Updated',
-							'meta_key'    => 'updated_date',
-							'date_format' => 'd/m/Y'
-					),
-			),
-	
-		), 	
-			array(
-	
-					'singular' => 'Défi',
-					'plural'   => 'Défis',
-					'slug'     => 'projets-défis'
-	
-			) 
-		);
-
-		register_extended_taxonomy( 'projets-localisation', 'projets', array(
-
-			'dashboard_glance' => true,
-			'show_in_rest' => true,
-			'hierarchical' => true, 
-	
-			'admin_cols' => array(
-					'updated' => array(
-							'title'       => 'Updated',
-							'meta_key'    => 'updated_date',
-							'date_format' => 'd/m/Y'
-					),
-			),
-	
-		), 	
-			array(
-	
-					'singular' => 'Localisation',
-					'plural'   => 'Localisations',
-					'slug'     => 'inspiration-localisation'
-	
-			) 
-		);
-	
-		register_extended_taxonomy( 'projets-mots-clés', 'projets', array(
-	
-			'dashboard_glance' => true,
-			'show_in_rest' => true,
-			'hierarchical' => true, 
-	
-			'admin_cols' => array(
-					'updated' => array(
-							'title'       => 'Updated',
-							'meta_key'    => 'updated_date',
-							'date_format' => 'd/m/Y'
-					),
-			),
-	
-		), 	
-			array(
-	
-					'singular' => 'Mot Clé',
-					'plural'   => 'Mots Clés',
-					'slug'     => 'mots-clés'
+					'slug'     => 'projects-mots-clés'
 	
 			) 
 		);
