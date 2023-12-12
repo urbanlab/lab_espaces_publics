@@ -200,7 +200,19 @@
   },
   "styles": {
     "spacing": {
-      "blockGap": "1.5rem"
+      "blockGap": "1.5rem",
+      "margin": {
+        "top": "0px",
+        "right": "0px",
+        "bottom": "60px",
+        "left": "0px"
+      },
+      "padding": {
+        "top": "100px",
+        "right": "0px",
+        "bottom": "0px",
+        "left": "0px"
+      }
     },
     "blocks": {
       "core/paragraph": {

@@ -6,6 +6,8 @@
  *
  * @type {import('@roots/bud').Config}
  */
+import bs from 'browser-sync-webpack-plugin';
+
 export default async (app) => {
   /**
    * Application assets & entrypoints
@@ -16,7 +18,9 @@ export default async (app) => {
   app
     .entry('app', ['@scripts/app', '@styles/app'])
     .entry('editor', ['@scripts/editor', '@styles/editor'])
-    .assets(['images']);
+    .assets(['images'])
+    .watch('resources/views/**/*', 'app/**/*')
+    .use(new bs({proxy: 'http://localhost:8080/'}));
 
   /**
    * Set public path
@@ -48,7 +52,19 @@ export default async (app) => {
   app.wpjson
     .setOption('styles', {
       spacing: {
-        blockGap: "1.5rem"
+        blockGap: "1.5rem",
+        margin: {
+          top: "0px",
+          right: "0px",
+          bottom: "60px",
+          left: "0px"
+        },
+        padding: {
+          top: "100px",
+          right: "0px",
+          bottom: "0px",
+          left  : "0px"
+        }
       },
       blocks: {
         "core/paragraph": {
