@@ -134,3 +134,14 @@ add_action('widgets_init', function () {
         'id' => 'sidebar-footer',
     ] + $config);
 });
+
+/**
+ * Register custom logo
+ *
+ * @return void
+ */
+add_theme_support('custom-logo', [
+    'height' => 150,
+    'width' => 150,
+    'flex-width' => true,
+  ]);
