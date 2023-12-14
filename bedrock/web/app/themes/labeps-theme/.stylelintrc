@@ -1,6 +1,16 @@
 {
   "extends": [
     "@roots/sage/stylelint-config",
-    "@roots/bud-tailwindcss/stylelint-config"
-  ]
+    "@roots/bud-sass/stylelint-config",
+    "@roots/bud-tailwindcss/stylelint-config",
+    "stylelint-config-recommended-scss"
+  ],
+  "rules": {
+    "function-no-unknown": null,
+    "rule-empty-line-before": null,
+    "scss/at-rule-no-unknown": null,
+    "at-rule-empty-line-before": null,
+    "selector-class-pattern": null,
+    "no-empty-source": null
+  }
 }
