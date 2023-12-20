@@ -1,0 +1,18 @@
+.banner{
+    @apply border-b border-black;
+    .nav {
+    @apply flex flex-col text-lg font-bold;
+        li{
+            @apply hover:text-primary active:text-primary focus:outline-none focus:ring focus:ring-primary;
+        }
+        @screen md{
+            @apply flex-row text-xs font-normal justify-around tracking-wide;
+        }
+        .sub-menu{
+            @apply text-primary text-base font-normal py-1;
+            @screen md{
+                @apply hidden hover:block text-xs;
+            }
+        }   
+    }
+}

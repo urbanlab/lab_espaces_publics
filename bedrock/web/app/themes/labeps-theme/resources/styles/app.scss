@@ -1,3 +1,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import 'utils/svg-encode';
+@import 'parts/navbar/navbar';
+@import 'parts/footer/footer';
+@import 'blocks/archive-hero';

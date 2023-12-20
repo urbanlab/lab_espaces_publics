@@ -1,0 +1,27 @@
+$encoding-reference: (
+	("<", "%3C"),
+	(">", "%3E"),
+	('"', "\'"),
+	("#", "%23"),
+	("&", "%26")
+);
+
+@function str-replace($search, $replace, $string) {
+	$index: str-index($string, $search);
+
+	@if $index {
+
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace($search, $replace, str-slice($string, $index + str-length($search)));
+	}
+
+	@return $string;
+}
+
+@function svg-encode($svg) {
+
+	@each $char, $encoded in $encoding-reference {
+		$svg: str-replace($char, $encoded, $svg);
+	}
+
+	@return "data:image/svg+xml," + $svg;
+}

@@ -20,21 +20,22 @@ const config = {
       black: "#000000",
     },
     fontSize:{
-      xs: '14px',
-      sm: '16px',
-      base: '18px',
-      lg: '20px',
-      xl: '25px',
-      '2xl': '30px',
-      '3xl': '40px',
-      '4xl': '60px',
+      xs: '0.875rem',
+      sm: '1rem',
+      base: '1.125rem',
+      lg: '1.25rem',
+      xl: '1.563rem',
+      '2xl': '1.875rem',
+      '3xl': '2.5rem',
+      '4xl': '3.75rem',
     },
+    fontFamily: {
+      sans: 'Inter var, sans-serif',
+      mono: 'Roboto Regular, sans-serif',
+   },
     extend: {
       colors: {}, // Extend Tailwind's default colors
-      fontFamily: {
-                sans: '"Inter var", sans-serif',
-                robo: 'Roboto Regular, sans-serif',
-             },
+
     },
   },
   plugins: [
