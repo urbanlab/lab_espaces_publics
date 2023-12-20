@@ -144,4 +144,4 @@ add_theme_support('custom-logo', [
     'height' => 150,
     'width' => 150,
     'flex-width' => true,
-  ]);
+]);

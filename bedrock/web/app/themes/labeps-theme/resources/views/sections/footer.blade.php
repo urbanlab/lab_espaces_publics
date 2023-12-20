@@ -1,3 +1,3 @@
-<footer class="content-info flex-col bg-primary text-white p-4 sm:p-10">
+<footer class="content-info flex-col text-white justify-center overflow-x-visible">
   @php(dynamic_sidebar('sidebar-footer'))
 </footer>
