@@ -42,4 +42,10 @@ COPY --from=node /app/bedrock /var/www/html/bedrock
 
 RUN chown -R www-data:www-data /var/www/html/
 
+# install wp-cli
+RUN apt-get update && apt-get install less
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+RUN chmod +x wp-cli.phar
+RUN mv wp-cli.phar /usr/local/bin/wp
+
 ENTRYPOINT [ "apache2-foreground" ]

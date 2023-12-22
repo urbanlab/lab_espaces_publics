@@ -1,6 +1,7 @@
 version: '3'
 services:
   apache-dev:
+    image: lab-espaces
     profiles:
       - dev 
     build:
