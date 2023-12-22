@@ -20,9 +20,9 @@ COPY --from=vendor /app/bedrock/ ./bedrock
 
 WORKDIR /app/bedrock/web/app/themes/labeps-theme
 
-RUN npm install
+RUN yarn install
 
-RUN npm run build
+RUN yarn build
 
 RUN rm -r node_modules
 
