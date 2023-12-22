@@ -20,9 +20,9 @@ COPY --from=vendor /app/bedrock/ ./bedrock
 
 WORKDIR /app/bedrock/web/app/themes/labeps-theme
 
-RUN npm install
+RUN yarn install
 
-RUN npm run build
+RUN yarn build
 
 RUN rm -r node_modules
 
@@ -41,5 +41,11 @@ COPY ./apache/vhost.conf /etc/apache2/sites-available/000-default.conf
 COPY --from=node /app/bedrock /var/www/html/bedrock
 
 RUN chown -R www-data:www-data /var/www/html/
+
+# install wp-cli
+RUN apt-get update && apt-get install less
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+RUN chmod +x wp-cli.phar
+RUN mv wp-cli.phar /usr/local/bin/wp
 
 ENTRYPOINT [ "apache2-foreground" ]

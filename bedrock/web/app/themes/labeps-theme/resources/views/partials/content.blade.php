@@ -7,6 +7,7 @@
     </h2>
 
     @include('partials.entry-meta')
+    @include('components.breadcrumb')
   </header>
 
   <div class="entry-summary">
