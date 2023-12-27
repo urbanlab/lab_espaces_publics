@@ -76,6 +76,7 @@
       }
     },
     "typography": {
+      "fluid": true,
       "customFontSize": false,
       "fontSizes": [
         {
@@ -90,37 +91,35 @@
         },
         {
           "name": "base",
-          "size": "1.125rem",
+          "size": "1.25rem",
           "slug": "base"
         },
         {
           "name": "lg",
-          "size": "1.25rem",
+          "size": "1.563rem",
           "slug": "lg"
         },
         {
           "name": "xl",
-          "size": "1.563rem",
+          "size": "1.875rem",
           "slug": "xl"
         },
         {
           "name": "2xl",
-          "size": "1.875rem",
+          "size": "2.5rem",
           "slug": "2xl"
         },
         {
           "name": "3xl",
-          "size": "2.5rem",
-          "slug": "3xl"
-        },
-        {
-          "name": "4xl",
           "size": "3.75rem",
-          "slug": "4xl"
+          "slug": "3xl"
         }
       ],
       "fontWeight": false,
       "fontStyle": false,
+      "letterSpacing": false,
+      "textDecoration": false,
+      "textTransform": false,
       "fontFamilies": [
         {
           "fontFamily": "Inter var, sans-serif",
@@ -143,8 +142,19 @@
         "layout": {},
         "spacing": {},
         "typography": {
+          "fluid": true,
           "customFontSize": false,
-          "fontSizes": [],
+          "fontSizes": [
+            {
+              "name": "base",
+              "size": "1.25rem",
+              "slug": "base",
+              "fluid": {
+                "min": "1rem",
+                "max": "1.25rem"
+              }
+            }
+          ],
           "fontFamilies": [
             {
               "fontFamily": "Roboto Regular, sans-serif",
@@ -180,8 +190,19 @@
           ]
         },
         "typography": {
+          "fluid": true,
           "customFontSize": false,
-          "fontSizes": [],
+          "fontSizes": [
+            {
+              "name": "4xl",
+              "size": "3.75rem",
+              "slug": "4xl",
+              "fluid": {
+                "min": "2.5rem",
+                "max": "3.75rem"
+              }
+            }
+          ],
           "dropCap": false,
           "lineHeight": false,
           "fontFamilies": [
@@ -293,6 +314,7 @@
               "text": "var(--wp--preset--color--primary)"
             },
             "typography": {
+              "scale": 1.25,
               "fontSize": "var(--wp--preset--font-size--4-xl)",
               "lineHeight": "2.986rem"
             }

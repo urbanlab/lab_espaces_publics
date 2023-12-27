@@ -139,6 +139,7 @@ export default async (app) => {
                   text: 'var(--wp--preset--color--primary)',
                 },
                 typography: {
+                  scale: 1.25,
                   fontSize: 'var(--wp--preset--font-size--4-xl)',
                   lineHeight: '2.986rem',
                 },
@@ -217,10 +218,14 @@ export default async (app) => {
         },
       },
       typography: {
+        fluid: true,
         customFontSize: false,
         fontSizes: [],
         fontWeight: false,
         fontStyle: false,
+        letterSpacing: false,
+        textDecoration: false,
+        textTransform: false,
       },
       blocks: {
         'core/paragraph': {
@@ -231,8 +236,19 @@ export default async (app) => {
           layout: {},
           spacing: {},
           typography: {
+            fluid: true,
             customFontSize: false,
-            fontSizes: [],
+            fontSizes: [
+              {
+                name: 'base',
+                size: '1.25rem',
+                slug: 'base',
+                fluid: {
+                  min: '1rem',
+                  max: '1.25rem',
+                },
+              },
+            ],
             fontFamilies: [
               {
                 fontFamily: 'Roboto Regular, sans-serif',
@@ -268,8 +284,19 @@ export default async (app) => {
             ],
           },
           typography: {
+            fluid: true,
             customFontSize: false,
-            fontSizes: [],
+            fontSizes: [
+              {
+                name: '4xl',
+                size: '3.75rem',
+                slug: '4xl',
+                fluid: {
+                  min: '2.5rem',
+                  max: '3.75rem',
+                },
+              },
+            ],
             dropCap: false,
             lineHeight: false,
             fontFamilies: [
