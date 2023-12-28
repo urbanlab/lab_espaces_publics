@@ -9,7 +9,7 @@
 .home-hero{
     h1{
         @apply flow-root translate-x-20 -translate-y-10;
-        
+
         width: 60vw;
         span{
             @apply font-light text-2xl;
@@ -51,4 +51,23 @@
 
 .icon-hero{
     @apply w-36 h-auto;
+}
+
+.actualite-hero{
+    @apply p-0;
+    .block-heading-text {
+        @apply relative inset-24 -top-16;
+        h1{
+            @apply mb-0;
+            @screen md{
+                @apply mb-4;
+            }
+        }
+        p{
+            @apply w-80;
+            @screen md{
+                @apply w-auto;
+            }
+        }
+    }
 }
