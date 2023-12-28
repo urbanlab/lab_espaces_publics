@@ -71,19 +71,24 @@ export default async (app) => {
               text: 'var(--wp--preset--color--primary)',
             },
             typography: {
-              fontSize: 'var(--wp--preset--font-size--4-xl)',
+              scale: 1.25,
+              fontSize: 'var(--wp--preset--font-size--3-xl)',
               lineHeight: '2.986rem',
             },
           },
           h2: {
+            color: {
+              text: 'var(--wp--preset--color--white)',
+            },
             typography: {
-              fontSize: 'var(--wp--preset--font-size--3-xl)',
-              lineHeight: '2.488rem',
+              scale: 1.25,
+              fontSize: 'var(--wp--preset--font-size--2xl)',
+              lineHeight: '2.986rem',
             },
           },
           h3: {
             typography: {
-              fontSize: 'var(--wp--preset--font-size--2-xl)',
+              fontSize: 'var(--wp--preset--font-size--xl)',
               lineHeight: '2.074rem',
             },
           },

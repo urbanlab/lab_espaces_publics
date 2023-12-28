@@ -5,7 +5,8 @@
 @include('partials.page-header')
 
   <x-hero/>
-
+  @include('partials.category')
+  <h2 class="text-primary text-xl md:text-2xl font-bold">Dernières actus</h2>
   @if (! have_posts())
     <x-alert type="warning">
       {!! __('Sorry, no results were found.', 'sage') !!}
