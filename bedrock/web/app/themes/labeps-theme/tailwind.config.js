@@ -1,8 +1,14 @@
 /** @type {import('tailwindcss').Config} config */
 import plugin from 'tailwindcss/plugin.js';
+import flowbite from 'flowbite/plugin.js';
 
 const config = {
-  content: ['./index.php', './app/**/*.php', './resources/**/*.{php,vue,js}'],
+  content: [
+    './index.php',
+    './app/**/*.php',
+    './resources/**/*.{php,vue,js}',
+    './node_modules/flowbite/**/*.js',
+  ],
   safelist: [
     {
       pattern: /^has-/,
@@ -47,6 +53,7 @@ const config = {
     },
   },
   plugins: [
+    flowbite,
     plugin(function ({addUtilities, theme, variants}) {
       const colors = theme('colors');
 
