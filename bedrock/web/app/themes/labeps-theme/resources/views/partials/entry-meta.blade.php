@@ -1,10 +1,12 @@
-<time class="dt-published" datetime="{{ get_post_time('c', true) }}">
-  {{ get_the_date() }}
-</time>
+<ul class="entry-meta flex justify-evenly my-2 md:justify-normal">
+  @foreach ((get_the_category()) as $item)
+  <li class="bg-orange text-white p-2 rounded-md me-8"> {{$item->name}}</li>
+  @endforeach
+  <li class="bg-grey  text-white p-2 rounded-md">
+    <time class="dt-published" datetime="{{ get_post_time('c', true) }}">
+      {{ get_the_date() }}
+    </time>
+  </li>
+</ul>
 
-<p>
-  <span>{{ __('By', 'sage') }}</span>
-  <a href="{{ get_author_posts_url(get_the_author_meta('ID')) }}" class="p-author h-card">
-    {{ get_the_author() }}
-  </a>
-</p>
+

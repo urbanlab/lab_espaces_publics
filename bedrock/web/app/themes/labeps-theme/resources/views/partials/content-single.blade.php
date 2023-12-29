@@ -1,4 +1,5 @@
 <article @php(post_class('h-entry'))>
+  <x-breadcrumb />
   <header>
     <h1 class="p-name">
       {!! $title !!}
