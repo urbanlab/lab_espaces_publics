@@ -25,4 +25,4 @@ By default the stack will start with the following services:
 **Create a bedrock project**
 `docker run --rm -v $(pwd):/app -u $(id -u):$(id -g) composer create-project roots/bedrock`
 
-`docker run --rm -v $(pwd):/app -u $(id -u):$(id -g) lab_espaces_publics-apache-dev-1 wp acorn vendor:publish --provider="Log1x\Crumb\CrumbServiceProvider"`
+`docker run --rm -v $(pwd):/app -u $(id -u):$(id -g) lab_espaces_publics-apache-dev-1 wp acorn vendor:publish`

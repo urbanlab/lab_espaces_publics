@@ -50,6 +50,5 @@
           <span class="sr-only">Next</span>
       </span>
   </button>
-</div>
-
+  </div>
 </section>
