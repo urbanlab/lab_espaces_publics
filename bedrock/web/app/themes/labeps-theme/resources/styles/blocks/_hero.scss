@@ -6,32 +6,34 @@
     }
     }
 }
-
 .home-hero{
+    @apply px-0;
     h1{
-        @apply flow-root translate-x-20 -translate-y-10 text-3xl;
+        @apply flow-root relative -top-16 left-20 text-3xl;
 
-        width: 60vw;
+        width: 70vw;
         span{
             @apply font-light text-2xl;
         }
         @screen md{
-            @apply w-max translate-y-10 -translate-x-20;
+            @apply w-max top-16 -left-16;
         }
         @screen lg{
 
-            @apply flex flex-col translate-x-24 -translate-y-16;
+            @apply flex flex-col -top-16 left-24;
 
             width: 30vw;
         }
         @screen xl{
-            width: 25vw;
-        }
-        @screen 2xl{
-            width : 10vw;
+            
+            @apply -top-16 left-20;
+
+            width: 20vw;
         }
     }
     p{
+        @apply py-0;
+
         @screen lg{
             width: 50vw;
         }
@@ -48,10 +50,18 @@
             @apply flex;
         }
     }
+
+    .is-layout-flow > .alignleft{
+            @apply me-2;
+    }
 }
 
 .icon-hero{
-    @apply w-36 h-auto;
+    @apply w-32;
+    @screen md{
+        @apply w-36 h-auto;
+
+    }
 }
 
 .actualite-hero{
