@@ -64,6 +64,12 @@ export default async (app) => {
             left: '1.5rem',
             right: '1.5rem',
           },
+          padding: {
+            top: '100px',
+            right: '0px',
+            bottom: '0px',
+            left: '0px',
+          },
         },
         elements: {
           h1: {
@@ -71,8 +77,7 @@ export default async (app) => {
               text: 'var(--wp--preset--color--primary)',
             },
             typography: {
-              scale: 1.25,
-              fontSize: 'var(--wp--preset--font-size--3-xl)',
+              fontSize: 'var(--wp--preset--font-size--3xl)',
               lineHeight: '2.986rem',
             },
           },
@@ -81,7 +86,6 @@ export default async (app) => {
               text: 'var(--wp--preset--color--white)',
             },
             typography: {
-              scale: 1.25,
               fontSize: 'var(--wp--preset--font-size--2xl)',
               lineHeight: '2.986rem',
             },
@@ -108,9 +112,9 @@ export default async (app) => {
               text: 'var(--wp--preset--color--black)',
             },
             spacing: {
-              margin: {
-                top: '4rem',
-                bottom: '4rem',
+              padding: {
+                top: '1rem',
+                bottom: '1rem',
               },
             },
           },
@@ -144,8 +148,7 @@ export default async (app) => {
                   text: 'var(--wp--preset--color--primary)',
                 },
                 typography: {
-                  scale: 1.25,
-                  fontSize: 'var(--wp--preset--font-size--4-xl)',
+                  fontSize: 'var(--wp--preset--font-size--3xl)',
                   lineHeight: '2.986rem',
                 },
               },
@@ -204,16 +207,16 @@ export default async (app) => {
         defaultDuotone: false,
         defaultGradients: false,
         defaultPalette: false,
-        background: false,
+        background: true,
         duotone: [],
         gradients: [],
-        link: false,
-        palette: [],
-        text: false,
+        link: true,
+        text: true,
       },
       spacing: {
-        padding: false,
-        blockGap: false,
+        margin: true,
+        padding: true,
+        blockGap: true,
         spacingScale: {
           operator: '*',
           increment: 2,
@@ -235,7 +238,29 @@ export default async (app) => {
       blocks: {
         'core/paragraph': {
           color: {
-            custom: false,
+            defaultPalette: false,
+            palette: [
+              {
+                color: '#e2092f',
+                name: 'Primary',
+                slug: 'primary',
+              },
+              {
+                color: '#00a887',
+                name: 'Secondary',
+                slug: 'secondary',
+              },
+              {
+                color: '#000000',
+                name: 'Black',
+                slug: 'black',
+              },
+              {
+                color: '#ffffff',
+                name: 'White',
+                slug: 'white',
+              },
+            ],
           },
           custom: {},
           layout: {},
@@ -243,9 +268,19 @@ export default async (app) => {
           typography: {
             fluid: true,
             customFontSize: false,
+            fontWeight: true,
             fontSizes: [
               {
-                name: 'base',
+                name: 'Small',
+                size: '1rem',
+                slug: 'small',
+                fluid: {
+                  min: '0.875rem',
+                  max: '1rem',
+                },
+              },
+              {
+                name: 'Base',
                 size: '1.25rem',
                 slug: 'base',
                 fluid: {
@@ -293,9 +328,36 @@ export default async (app) => {
             customFontSize: false,
             fontSizes: [
               {
-                name: '4xl',
+                name: 'h4',
+                size: '1.563rem',
+                slug: 'h4',
+                fluid: {
+                  min: '1.25rem',
+                  max: '1.563rem',
+                },
+              },
+              {
+                name: 'h3',
+                size: '1.875rem',
+                slug: 'h3',
+                fluid: {
+                  min: '1.563rem',
+                  max: '1.875rem',
+                },
+              },
+              {
+                name: 'h2',
+                size: '2.5rem',
+                slug: 'h2',
+                fluid: {
+                  min: '1.875rem',
+                  max: '2.5rem',
+                },
+              },
+              {
+                name: 'h1',
                 size: '3.75rem',
-                slug: '4xl',
+                slug: 'h1',
                 fluid: {
                   min: '2.5rem',
                   max: '3.75rem',
@@ -314,15 +376,7 @@ export default async (app) => {
           },
         },
         'core/button': {
-          typography: {
-            fontSizes: [
-              {
-                slug: 'medium',
-                size: '1.5rem',
-                name: 'medium',
-              },
-            ],
-          },
+          typography: {},
         },
       },
     })
