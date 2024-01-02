@@ -8,7 +8,7 @@
 }
 .home-hero{
     h1{
-        @apply flow-root translate-x-20 -translate-y-10;
+        @apply flow-root translate-x-20 -translate-y-10 text-3xl;
 
         width: 60vw;
         span{
@@ -32,7 +32,7 @@
     }
     p{
         @screen lg{
-            width: 60vw;
+            width: 50vw;
         }
         @screen xl{
             width: 40vw;
@@ -41,7 +41,7 @@
             width : 25vw;
         }
     }
-    figure{
+    .wp-block-column:nth-child(2){
         @apply hidden;
         @screen lg{
             @apply flex;
