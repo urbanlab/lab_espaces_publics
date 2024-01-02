@@ -77,7 +77,7 @@ export default async (app) => {
               text: 'var(--wp--preset--color--primary)',
             },
             typography: {
-              fontSize: 'var(--wp--preset--font-size--3xl)',
+              fontSize: 'var(--wp--preset--font-size--2xl)',
               lineHeight: '2.986rem',
             },
           },
@@ -148,7 +148,7 @@ export default async (app) => {
                   text: 'var(--wp--preset--color--primary)',
                 },
                 typography: {
-                  fontSize: 'var(--wp--preset--font-size--3xl)',
+                  fontSize: 'var(--wp--preset--font-size--h1)',
                   lineHeight: '2.986rem',
                 },
               },
