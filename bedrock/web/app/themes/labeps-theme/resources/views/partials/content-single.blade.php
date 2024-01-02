@@ -1,6 +1,9 @@
 <article @php(post_class('h-entry'))>
   <x-breadcrumb />
   <header>
+    <figure class="rounded-md w-full h-40">
+      {!!get_the_post_thumbnail()!!}
+    </figure>
     <h1 class="p-name">
       {!! $title !!}
     </h1>
