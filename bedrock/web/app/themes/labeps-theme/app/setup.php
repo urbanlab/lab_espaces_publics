@@ -145,3 +145,13 @@ add_theme_support('custom-logo', [
     'width' => 150,
     'flex-width' => true,
 ]);
+
+add_filter('register_block_type_args', function ($args, $name) {
+    if ($name === 'core/filter-posts') {
+        $args['render_callback'] = function ($attributes, $content) {
+            return view('blocks/filter-posts', compact('attributes', 'content'));
+        };
+    }
+
+    return $args;
+}, 10, 2);

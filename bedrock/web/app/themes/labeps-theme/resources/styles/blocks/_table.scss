@@ -1,0 +1,28 @@
+.block-table{
+    table{
+        border-collapse: separate;
+        border-spacing: 1em;
+        thead{
+            @apply border-none;
+            tr{
+                th{
+                    @apply text-2xl text-primary;
+                }
+            }
+        }
+        tbody{
+            tr{
+                &:nth-child(odd){
+                    background-color: white !important;
+                }
+                td{
+                    border-radius: 20px;
+                    padding: 15px;
+                    background-color: rgb(0 168 135 / 50%);
+                }
+            }
+        }
+
+    }
+
+}
