@@ -20,7 +20,7 @@ COPY --from=vendor /app/bedrock/ ./bedrock
 
 WORKDIR /app/bedrock/web/app/themes/labeps-theme
 
-RUN yarn install
+RUN yarn install 
 
 RUN yarn build
 
@@ -31,6 +31,18 @@ FROM php:8.0-apache
 
 # install php extensions mysqli PHP
 RUN docker-php-ext-install mysqli pdo pdo_mysql
+
+RUN apt-get update && apt-get install -y \
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    libpng-dev \
+    libwebp-dev \
+    libxpm-dev \
+    zlib1g-dev && \
+    docker-php-ext-configure gd --enable-gd --with-webp --with-jpeg \
+    --with-xpm --with-freetype && \
+    docker-php-ext-install -j$(nproc) gd && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN a2enmod rewrite
 
