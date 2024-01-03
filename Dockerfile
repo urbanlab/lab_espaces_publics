@@ -20,7 +20,7 @@ COPY --from=vendor /app/bedrock/ ./bedrock
 
 WORKDIR /app/bedrock/web/app/themes/labeps-theme
 
-RUN yarn install
+RUN yarn install 
 
 RUN yarn build
 
