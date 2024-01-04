@@ -1,4 +1,4 @@
-<header class="banner flex h-screen sm:h-20 p-5 justify-between items-center border-b border-black">
+<header class="banner flex h-screen sm:h-20 px-16 justify-between items-center border-b border-black">
   <a class="brand hidden sm:flex" href="{{ home_url('/') }}">
     <img src="@asset('images/logo-labeps.png'))" alt="Logo Lab espace public">
   </a>
@@ -15,5 +15,5 @@
       {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav', 'echo' => false]) !!}
     </nav>
   @endif
-  {!! get_custom_logo() !!}
+  @svg('images.logo-metro')
 </header>
