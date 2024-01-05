@@ -141,8 +141,8 @@ add_action('widgets_init', function () {
  * @return void
  */
 add_theme_support('custom-logo', [
-    'height' => 150,
-    'width' => 150,
+    'height' => 50,
+    'width' => 130,
     'flex-width' => true,
 ]);
 
