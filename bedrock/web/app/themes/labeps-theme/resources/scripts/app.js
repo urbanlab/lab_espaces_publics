@@ -1,11 +1,10 @@
 import domReady from '@roots/sage/client/dom-ready';
 import 'flowbite';
+import '@scripts/filters/button.filter';
 /**
  * Application entrypoint
  */
-domReady(async () => {
-  // ...
-});
+domReady(async () => {});
 
 /**
  * @see {@link https://webpack.js.org/api/hot-module-replacement/}
