@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8b25f055033187b35286193e8f78993d",
+    "content-hash": "cebf0dc6938130a9aaccae25fef8ec4b",
     "packages": [
         {
             "name": "brick/math",
@@ -5433,6 +5433,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/all-in-one-wp-security-and-firewall/"
+        },
+        {
+            "name": "wpackagist-plugin/carousel-block",
+            "version": "1.0.10",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/carousel-block/",
+                "reference": "tags/1.0.10"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/carousel-block.1.0.10.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/carousel-block/"
         },
         {
             "name": "wpackagist-plugin/mappress-google-maps-for-wordpress",
