@@ -78,7 +78,7 @@ export default async (app) => {
             },
             typography: {
               fontSize: 'var(--wp--preset--font-size--2xl)',
-              lineHeight: '2.986rem',
+              lineHeight: '2.5rem',
             },
           },
           h2: {
@@ -87,19 +87,19 @@ export default async (app) => {
             },
             typography: {
               fontSize: 'var(--wp--preset--font-size--2xl)',
-              lineHeight: '2.986rem',
+              lineHeight: '2.3rem',
             },
           },
           h3: {
             typography: {
               fontSize: 'var(--wp--preset--font-size--xl)',
-              lineHeight: '2.074rem',
+              lineHeight: '2rem',
             },
           },
           h4: {
             typography: {
               fontSize: 'var(--wp--preset--font-size--xl)',
-              lineHeight: '1.728rem',
+              lineHeight: '1.3rem',
             },
           },
         },
@@ -151,6 +151,53 @@ export default async (app) => {
                   fontSize: 'var(--wp--preset--font-size--h1)',
                   lineHeight: '2.986rem',
                 },
+              },
+            },
+          },
+          'core/button': {
+            typography: {
+              fontWeight: 700,
+            },
+            border: {
+              radius: '3px',
+            },
+            spacing: {
+              padding: {
+                top: '0.5rem',
+                bottom: '0.5rem',
+                left: '1.5rem',
+                right: '1.5rem',
+              },
+            },
+            variations: {
+              outline: {
+                border: {
+                  color: 'var( --wp--preset--color--black )',
+                  radius: '3px',
+                  style: 'solid',
+                  width: '1px',
+                },
+                spacing: {
+                  padding: {
+                    top: '0.5rem',
+                    bottom: '0.5rem',
+                    left: '1.5rem',
+                    right: '1.5rem',
+                  },
+                },
+              },
+            },
+          },
+          'core/list-item': {
+            typography: {
+              fontFamily: 'var(--wp--preset--font-family--mono)',
+            },
+            color: {
+              text: 'var(--wp--preset--color--black)',
+            },
+            spacing: {
+              padding: {
+                bottom: '15px',
               },
             },
           },
@@ -376,7 +423,131 @@ export default async (app) => {
           },
         },
         'core/button': {
-          typography: {},
+          margin: false,
+          padding: false,
+          color: {
+            palette: [
+              {
+                color: '#e2092f',
+                name: 'Primary',
+                slug: 'primary',
+              },
+              {
+                color: '#00a887',
+                name: 'Secondary',
+                slug: 'secondary',
+              },
+              {
+                color: '#ffffff',
+                name: 'White',
+                slug: 'white',
+              },
+              {
+                color: '#000000',
+                name: 'Black',
+                slug: 'black',
+              },
+            ],
+          },
+          typography: {
+            fluid: true,
+            customFontSize: false,
+            fontSizes: [
+              {
+                name: 'Small',
+                size: '1rem',
+                slug: 'small',
+                fluid: {
+                  min: '0.875rem',
+                  max: '1rem',
+                },
+              },
+              {
+                name: 'Base',
+                size: '1.25rem',
+                slug: 'base',
+                fluid: {
+                  min: '1rem',
+                  max: '1.25rem',
+                },
+              },
+            ],
+            fontFamilies: [
+              {
+                fontFamily: 'Roboto Regular, sans-serif',
+                name: 'Roboto Regular',
+                slug: 'mono',
+              },
+            ],
+          },
+        },
+        'core/list': {},
+        'core/list-item': {
+          color: {
+            palette: [
+              {
+                color: '#e2092f',
+                name: 'Primary',
+                slug: 'primary',
+              },
+              {
+                color: '#00a887',
+                name: 'Secondary',
+                slug: 'secondary',
+              },
+              {
+                color: '#ffffff',
+                name: 'White',
+                slug: 'white',
+              },
+              {
+                color: '#000000',
+                name: 'Black',
+                slug: 'black',
+              },
+            ],
+          },
+          typography: {
+            fluid: true,
+            customFontSize: false,
+            fontWeight: true,
+            fontSizes: [
+              {
+                name: 'Small',
+                size: '1rem',
+                slug: 'small',
+                fluid: {
+                  min: '0.875rem',
+                  max: '1rem',
+                },
+              },
+              {
+                name: 'Base',
+                size: '1.25rem',
+                slug: 'base',
+                fluid: {
+                  min: '1rem',
+                  max: '1.25rem',
+                },
+              },
+              {
+                name: 'Large',
+                size: '1.563rem',
+                slug: 'large',
+                fluid: {
+                  min: '1.25rem',
+                  max: '1.563rem',
+                },
+              },
+            ],
+            fontFamilies: [
+              {
+                fontFamily: 'Roboto Regular, sans-serif',
+                name: 'Roboto Regular',
+                slug: 'mono',
+              },
+            ],
+          },
         },
       },
     })

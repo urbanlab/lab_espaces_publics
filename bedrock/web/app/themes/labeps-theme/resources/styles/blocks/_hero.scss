@@ -69,9 +69,9 @@
     .block-heading-text {
         @apply relative inset-24 -top-16;
         h1{
-            @apply mb-0;
+            @apply mb-0 text-2xl;
             @screen md{
-                @apply mb-4;
+                @apply mb-4 text-3xl;
             }
         }
         p{

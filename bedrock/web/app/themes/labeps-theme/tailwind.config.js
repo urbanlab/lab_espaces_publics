@@ -14,6 +14,7 @@ const config = {
       pattern: /^has-/,
     },
   ],
+  important: true,
   theme: {
     container: {
       padding: {
