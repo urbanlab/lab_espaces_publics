@@ -53,7 +53,8 @@
     "wpackagist-plugin/wp-sync-for-notion": "^1.3",
     "wpackagist-plugin/all-in-one-wp-security-and-firewall": "^5.2",
     "wpackagist-plugin/wordpress-seo": "^21.7",
-    "wpackagist-plugin/mappress-google-maps-for-wordpress": "^2.88"
+    "wpackagist-plugin/mappress-google-maps-for-wordpress": "^2.88",
+    "wpackagist-plugin/carousel-block": "^1.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.1",

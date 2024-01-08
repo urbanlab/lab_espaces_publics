@@ -10,14 +10,16 @@
         ))) 
        @while( $the_query->have_posts() ) @php($the_query->the_post())
       <div class="hidden duration-700 ease-in-out" data-carousel-item>
-        <div class="flex flex-col w-full bg-white p-4 border rounded-md md:flex-row md:h-72 ">
-          <figure class="rounded-md  w-full h-40 md:w-1/2">
+        <div class="flex flex-col w-full bg-white p-4 border rounded-md md:flex-row md:h-80 ">
+          <figure class="rounded-md self-center w-full h-40 md:w-1/2">
             <?php the_post_thumbnail('large');?>
           </figure>
-          <div class="carousel-caption md:p-4">
+          <div class="carousel-caption md:p-4 md:w-1/2 overflow-hidden">
             @include('partials.entry-meta')
-            <h3 class="text-base font-bold md:text-lg"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
-            <p><?php the_excerpt();?></p>
+            <h3 class="text-base font-bold md:text-lg">
+              <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+            </h4>
+            <?php the_excerpt();?>
           </div>
         </div>
       </div>      
