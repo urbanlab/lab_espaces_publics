@@ -1,0 +1,679 @@
+# Translation of Plugins - WP Sync for Notion &#8211; Notion to WordPress - Stable (latest release) in French (France)
+# This file is distributed under the same license as the Plugins - WP Sync for Notion &#8211; Notion to WordPress - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-12-04 14:54:43+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/4.0.0-alpha.11\n"
+"Language: fr\n"
+"Project-Id-Version: Plugins - WP Sync for Notion &#8211; Notion to WordPress - Stable (latest release)\n"
+
+#. Plugin Name of the plugin
+msgid "Notion to WordPress - WP Sync for Notion"
+msgstr "Notion to WordPress - WP Sync for Notion"
+
+#: views/metabox-import-infos.php:31
+msgid "Cancel"
+msgstr "Annuler"
+
+#: includes/class-notion-wp-sync-importer.php:108
+msgid "A sync is already running."
+msgstr "Une synchronisation est déjà en cours."
+
+#: includes/admin/metaboxes/class-notion-wp-sync-metabox-import-infos.php:213
+msgid "Could not cancel import."
+msgstr "Impossible d’annuler l’importation."
+
+#: includes/admin/metaboxes/class-notion-wp-sync-metabox-import-infos.php:206
+msgid "Canceled."
+msgstr "Annulée."
+
+#. translators: %s percentage
+#: includes/admin/metaboxes/class-notion-wp-sync-metabox-import-infos.php:170
+msgid "In progress... %s"
+msgstr "En cours… %s"
+
+#: includes/admin/class-notion-wp-sync-admin.php:111
+msgid "Upgrade to Pro Version"
+msgstr "Mettre à niveau vers la version Pro"
+
+#: includes/admin/class-notion-wp-sync-admin-connection.php:98
+msgid "Canceling..."
+msgstr "Annulation…"
+
+#: includes/admin/class-notion-wp-sync-admin-connection.php:97
+#: includes/admin/metaboxes/class-notion-wp-sync-metabox-import-infos.php:92
+msgid "In progress..."
+msgstr "En cours…"
+
+#: views/settings-page.php:51
+msgid "Update settings"
+msgstr "Mettre à jour les réglages"
+
+#: views/settings-page.php:39
+msgid "Activate"
+msgstr "Activer"
+
+#: views/settings-page.php:37
+msgid "Your license is valid and activated."
+msgstr "Votre licence est valide et activée."
+
+#: views/settings-page.php:36
+msgid "De-activate"
+msgstr "Désactiver"
+
+#: views/settings-page.php:27
+msgid "License Key"
+msgstr "Clé de licence"
+
+#: views/metabox-sync.php:96
+msgid "Enables instant synchronization of your Notion content. Using webhooks, choose your own trigger and the connection will be updated as soon as the chosen event occurs."
+msgstr "Permet la synchronisation instantanée de votre contenu Notion. En utilisant les crochets web, choisissez votre propre déclencheur et la connexion sera mise à jour dès que l’événement choisi se produira."
+
+#: views/metabox-sync.php:95
+msgid "Instant via webhook (Pro version)"
+msgstr "Instantané via un crochet web (version Pro)"
+
+#: views/metabox-sync.php:87
+msgid "Time"
+msgstr "Heure"
+
+#: views/metabox-sync.php:83
+msgid "Sunday"
+msgstr "Dimanche"
+
+#: views/metabox-sync.php:82
+msgid "Saturday"
+msgstr "Samedi"
+
+#: views/metabox-sync.php:81
+msgid "Friday"
+msgstr "Vendredi"
+
+#: views/metabox-sync.php:80
+msgid "Thursday"
+msgstr "Jeudi"
+
+#: views/metabox-sync.php:79
+msgid "Wednesday"
+msgstr "Mercredi"
+
+#: views/metabox-sync.php:78
+msgid "Tuesday"
+msgstr "Mardi"
+
+#: views/metabox-sync.php:77
+msgid "Monday"
+msgstr "Lundi"
+
+#: views/metabox-sync.php:74
+msgid "Day of week"
+msgstr "Jour de semaine"
+
+#: views/metabox-sync.php:61
+msgid "We recommend <a href=\"https://developer.wordpress.org/plugins/cron/scheduling-wp-cron-events/\" target=\"_blank\">setting up WP-Cron</a> as a cron job for better performance."
+msgstr "Nous recommandons de configurer <a href=\"https://developer.wordpress.org/plugins/cron/scheduling-wp-cron-events/\" target=\"_blank\">WP-Cron</a> comme une tâche cron pour de meilleures performances."
+
+#: views/metabox-sync.php:52
+msgid "Frequency"
+msgstr "Fréquence"
+
+#: views/metabox-sync.php:49
+msgid "Enables recurring synchronization of your Notion content. Choose a frequency and it will take effect from the date and time the connection is updated."
+msgstr "Permet la synchronisation récurrente de votre contenu Notion. Choisissez une fréquence et elle prendra effet à partir de la date et de l’heure de mise à jour de la connexion."
+
+#: views/metabox-sync.php:43
+msgid "Disables automatic synchronization of your Notion content. You can still do it manually by clicking on the 'Sync Now' button in the side panel."
+msgstr "Désactive la synchronisation automatique de votre contenu Notion. Vous pouvez toujours synchroniser manuellement en cliquant sur le bouton « Synchroniser maintenant » dans le panneau latéral."
+
+#: views/metabox-sync.php:23
+msgid "Select the method to synchronize your Notion content with WordPress.<br><br><strong>Add:</strong> only adds new content.<br><br><strong>Add & Update:</strong> same + updates content from modified records.<br><br><strong>Add, Update & Delete:</strong> same + deletes content that is no longer in Notion."
+msgstr "Sélectionnez la méthode de synchronisation de votre contenu Notion avec WordPress.<br><br><strong>Ajout :</strong> ajoute uniquement du nouveau contenu.<br><br><strong>Ajout &amp; Mise à jour :</strong> idem + mise à jour du contenu à partir des enregistrements modifiés.<br><br><strong>Ajout, Mise à jour &amp; Suppression :</strong> idem + suppression du contenu qui n’est plus dans Notion."
+
+#: views/metabox-sync.php:22
+msgid "Strategy"
+msgstr "Stratégie"
+
+#: views/metabox-side/infos.php:45
+msgid "Scheduled Next Sync"
+msgstr "Prochaine synchronisation planifiée"
+
+#: views/metabox-side/infos.php:35
+msgid "Last Sync"
+msgstr "Dernière synchronisation"
+
+#: views/metabox-side/infos.php:23
+msgid "Successful!"
+msgstr "Réussi !"
+
+#: views/metabox-side/infos.php:19
+msgid "Last Sync Status"
+msgstr "État de la dernière synchronisation"
+
+#: views/metabox-post-settings.php:121
+msgid "Post Author"
+msgstr "Auteur/autrice de la publication"
+
+#: views/metabox-post-settings.php:106
+msgid "Post Status"
+msgstr "État de la publication"
+
+#. translators: %s Home URL
+#: views/metabox-post-settings.php:90
+msgid "The prefix used in the URL structure as in <code>%s/<b>prefix/</b>post-name/</code>."
+msgstr "Le préfixe utilisé dans la structure de l’URL, comme dans <code>%s/<b>prefix/</b>post-name/</code>."
+
+#: views/metabox-post-settings.php:84
+msgid "Only lowercase alphanumeric characters, dashes, and underscores are allowed."
+msgstr "Seuls les caractères alphanumériques minuscules, les tirets et les traits de soulignement sont autorisés."
+
+#: views/metabox-post-settings.php:80
+msgid "This slug is already in use, please choose another."
+msgstr "Ce slug est déjà utilisé, veuillez en choisir un autre."
+
+#: views/metabox-post-settings.php:73
+msgid "Url Prefix"
+msgstr "Préfixe de l’URL"
+
+#: views/metabox-post-settings.php:69
+msgid "The name of your Custom Post Type."
+msgstr "Le nom de votre type de publication personnalisé."
+
+#: views/metabox-post-settings.php:63
+msgid "Name"
+msgstr "Nom"
+
+#: views/metabox-post-settings.php:46
+msgid "Choose the type of post in wich you want to import your Notion content: Articles, Pages, Custom Post Types already created or create a new Custom Post Type for your needs."
+msgstr "Choisissez le type de publication dans lequel vous souhaitez importer votre contenu Notion : articles, pages, types de publication personnalisés déjà créés ou créez un nouveau type de publication personnalisé pour vos besoins."
+
+#: views/metabox-post-settings.php:32
+msgid "Shortcode (Pro version)"
+msgstr "Code court (version Pro)"
+
+#: views/metabox-post-settings.php:31
+msgid "Post type"
+msgstr "Type de publication"
+
+#: views/metabox-post-settings.php:26
+msgid "Import your Notion content as Post type (Article, Page or Custom Post Type) or as Shortcode to use is as a block (Pro version)."
+msgstr "Importez votre contenu Notion en tant que type de publication (Article, Page ou Type de publication personnalisé) ou en tant que code court pour l’utiliser dans un bloc (version Pro)."
+
+#: views/metabox-post-settings.php:25
+msgid "Destination"
+msgstr "Destination"
+
+#: views/metabox-notion-settings.php:125
+msgid "No"
+msgstr "Non"
+
+#: views/metabox-notion-settings.php:124
+msgid "Yes"
+msgstr "Oui"
+
+#: views/metabox-notion-settings.php:118
+msgid "During the synchronization, the children linked to the page you have selected will be imported as well."
+msgstr "Lors de la synchronisation, les enfants liés à la page que vous avez sélectionnée seront également importés."
+
+#: views/metabox-notion-settings.php:117 views/metabox-notion-settings.php:123
+msgid "Include children’s pages"
+msgstr "Inclure les pages enfants"
+
+#: views/metabox-notion-settings.php:94
+msgid "Only one database can be selected for the mapping to work."
+msgstr "Une seule base de données peut être sélectionnée pour que le mappage fonctionne."
+
+#: views/metabox-notion-settings.php:93
+msgid "a database (Pro version)"
+msgstr "une base de données (version Pro)"
+
+#: views/metabox-notion-settings.php:90
+msgid "or"
+msgstr "ou"
+
+#: views/metabox-notion-settings.php:82
+msgid "Select one ore more pages to be synchronized."
+msgstr "Sélectionnez une ou plusieurs pages à synchroniser."
+
+#: views/metabox-notion-settings.php:81
+msgid "one or more pages"
+msgstr "une ou plusieurs pages"
+
+#: views/metabox-notion-settings.php:74
+msgid "Select a database or pages from the select boxes."
+msgstr "Sélectionnez une base de données ou des pages dans les cases de sélection."
+
+#: views/metabox-notion-settings.php:71
+msgid "Choose"
+msgstr "Choisir"
+
+#: views/metabox-notion-settings.php:64
+msgid "Remind me later"
+msgstr "Rappelez-le moi plus tard"
+
+#: views/metabox-notion-settings.php:64
+msgid "Yes, it’s already done!"
+msgstr "Oui, c’est déjà fait !"
+
+#: views/metabox-notion-settings.php:54
+msgid "Have you added the connection you just created to the Notion pages you want to import? If not, you may not see your pages in the following fields. To make sure you have shared the connection, follow <a href=\"https://www.notion.so/help/add-and-manage-connections-with-the-api#add-connections-to-pages\" target=\"_blank\">these instructions.</a>"
+msgstr "Avez-vous ajouté la connexion que vous venez de créer aux pages Notion que vous souhaitez importer ? Si ce n’est pas le cas, il se peut que vos pages n’apparaissent pas dans les champs suivants. Pour vous assurer que vous avez partagé la connexion, suivez <a href=\"https://www.notion.so/help/add-and-manage-connections-with-the-api#add-connections-to-pages\" target=\"_blank\">ces instructions</a>."
+
+#: views/metabox-notion-settings.php:28
+msgid "To get your secret token and create an internal integration, please follow <a href=\"https://www.notion.so/help/create-integrations-with-the-notion-api#create-an-internal-integration\" target=\"_blank\">these instructions.</a>"
+msgstr "Pour obtenir votre jeton secret et créer une intégration interne, veuillez suivre <a href=\"https://www.notion.so/help/create-integrations-with-the-notion-api#create-an-internal-integration\" target=\"_blank\">les instructions suivantes</a>."
+
+#: views/metabox-notion-settings.php:23 views/metabox-notion-settings.php:73
+#: views/metabox-post-settings.php:65 views/metabox-post-settings.php:75
+msgid "(required)"
+msgstr "(obligatoire)"
+
+#: views/metabox-notion-settings.php:21
+msgid "Internal integration token"
+msgstr "Jeton d’intégration interne"
+
+#: views/metabox-import-infos.php:33
+msgid "You will be able to sync your Notion content once you have saved this connection."
+msgstr "Vous pourrez synchroniser votre contenu Notion une fois que vous aurez enregistré cette connexion."
+
+#: views/metabox-import-infos.php:27
+msgid "Sync now"
+msgstr "Synchroniser maintenant"
+
+#: views/header.php:27
+msgid "👋 Want more features? <strong>Upgrade to Pro Version</strong>! 🚀"
+msgstr "👋 Vous souhaitez plus de fonctionnalités ? Passez <strong>à la Version Pro</strong> ! 🚀"
+
+#. translators: the field name
+#: includes/notion-fields/class-notion-wp-sync-people-field.php:107
+msgid "%s (avatar file: will import the file)"
+msgstr "%s (fichier avatar : importera le fichier)"
+
+#. translators: %s the field name
+#: includes/notion-fields/class-notion-wp-sync-people-field.php:98
+msgid "%s (avatar url)"
+msgstr "%s (URL de l’avatar)"
+
+#. translators: %s the field name
+#: includes/notion-fields/class-notion-wp-sync-people-field.php:89
+msgid "%s (name)"
+msgstr "%s (nom)"
+
+#. translators: %S the field name
+#: includes/notion-fields/class-notion-wp-sync-people-field.php:80
+msgid "%s (id)"
+msgstr "%s (id)"
+
+#: includes/notion-fields/class-notion-wp-sync-files-field.php:52
+msgctxt "List separator"
+msgid ", "
+msgstr " , "
+
+#: includes/notion-fields/class-notion-wp-sync-date-field.php:134
+msgid "Last edited time"
+msgstr "Heure de la dernière modification"
+
+#: includes/notion-fields/class-notion-wp-sync-date-field.php:123
+msgid "Created time"
+msgstr "Heure de création"
+
+#. translators: %s the date field name
+#: includes/notion-fields/class-notion-wp-sync-date-field.php:89
+msgid "%s (end)"
+msgstr "%s (fin)"
+
+#. translators: %s the date field name
+#: includes/notion-fields/class-notion-wp-sync-date-field.php:77
+msgid "%s (start)"
+msgstr "%s (début)"
+
+#: includes/notion-fields/class-notion-wp-sync-abstract-field.php:101
+msgid "Properties"
+msgstr "Propriétés"
+
+#: includes/destinations/class-notion-wp-sync-taxonomy-destination.php:74
+msgid "Taxonomies"
+msgstr "Taxonomies"
+
+#: includes/destinations/class-notion-wp-sync-post-destination.php:129
+msgid "Publication Date"
+msgstr "Date de publication"
+
+#: includes/destinations/class-notion-wp-sync-post-destination.php:123
+msgid "Slug"
+msgstr "Slug"
+
+#: includes/destinations/class-notion-wp-sync-post-destination.php:117
+msgid "Excerpt"
+msgstr "Extrait"
+
+#: includes/destinations/class-notion-wp-sync-post-destination.php:105
+msgid "Title"
+msgstr "Titre"
+
+#: includes/destinations/class-notion-wp-sync-post-destination.php:91
+msgid "Post"
+msgstr "Publication"
+
+#: includes/destinations/class-notion-wp-sync-meta-destination.php:102
+msgid "Custom Field... (Pro version)"
+msgstr "Champ personnalisé... (version Pro)"
+
+#: includes/destinations/class-notion-wp-sync-meta-destination.php:96
+msgid "Featured Image"
+msgstr "Image mise en avant"
+
+#: includes/class-notion-wp-sync.php:202
+msgid "No Connections found in Trash"
+msgstr "Aucune connexion trouvée dans la corbeille"
+
+#: includes/class-notion-wp-sync.php:201
+msgid "No Connections found"
+msgstr "Aucune connexion trouvée"
+
+#: includes/class-notion-wp-sync.php:200
+msgid "Search Connections"
+msgstr "Recherche de connexions"
+
+#: includes/class-notion-wp-sync.php:199
+msgid "View Connection"
+msgstr "Voir la connexion"
+
+#: includes/class-notion-wp-sync.php:198
+msgid "New Connection"
+msgstr "Nouvelle connexion"
+
+#: includes/class-notion-wp-sync.php:197
+msgid "Edit Connection"
+msgstr "Modifier la connexion"
+
+#: includes/class-notion-wp-sync.php:196
+msgid "Add New Connection"
+msgstr "Ajouter une nouvelle connexion"
+
+#: includes/class-notion-wp-sync.php:194
+msgid "Connection"
+msgstr "Connexion"
+
+#: includes/class-notion-wp-sync.php:193
+msgid "Connections"
+msgstr "Connexions"
+
+#: includes/class-notion-wp-sync.php:179
+msgid "Every 30 minutes"
+msgstr "Toutes les 30 minutes"
+
+#: includes/class-notion-wp-sync.php:175
+msgid "Every 10 minutes"
+msgstr "Toutes les 10 minutes"
+
+#: includes/class-notion-wp-sync.php:171
+msgid "Every 5 minutes"
+msgstr "Toutes les 5 minutes"
+
+#: includes/class-notion-wp-sync.php:127
+msgid "WP Sync for Notion and Notion WP Sync Pro should not be active at the same time. We've automatically deactivated Notion WP Sync Pro."
+msgstr "WP Sync for Notion et Notion WP Sync Pro ne devraient pas être actifs en même temps. Nous avons automatiquement désactivé Notion WP Sync Pro."
+
+#: includes/class-notion-wp-sync.php:125
+msgid "WP Sync for Notion and Notion WP Sync Pro should not be active at the same time. We've automatically deactivated WP Sync for Notion."
+msgstr "WP Sync for Notion et Notion WP Sync Pro ne devraient pas être actifs en même temps. Nous avons automatiquement désactivé WP Sync for Notion."
+
+#: views/metabox-side/infos.php:25
+msgid "Error"
+msgstr "Erreur"
+
+#: includes/class-notion-wp-sync-notion-page.php:210
+#: includes/destinations/class-notion-wp-sync-post-destination.php:111
+msgid "Content"
+msgstr "Contenu"
+
+#: includes/class-notion-wp-sync-notion-page.php:179
+msgid "Page content"
+msgstr "Contenu de la page"
+
+#: includes/class-notion-wp-sync-notion-page.php:158
+msgid "Page cover"
+msgstr "Couverture"
+
+#: includes/class-notion-wp-sync-notion-page.php:110
+msgid "Page icon (emoji)"
+msgstr "Icône de page (emoji)"
+
+#: includes/class-notion-wp-sync-notion-page.php:101
+msgid "Page icon (icon & custom)"
+msgstr "Icône de page (icône et personnalisée)"
+
+#: includes/class-notion-wp-sync-notion-page.php:45
+#: includes/class-notion-wp-sync-notion-page.php:104
+#: includes/class-notion-wp-sync-notion-page.php:113
+#: includes/class-notion-wp-sync-notion-page.php:161
+#: includes/class-notion-wp-sync-notion-page.php:182
+msgid "Page"
+msgstr "Page"
+
+#: includes/class-notion-wp-sync-notion-page.php:44
+msgid "Page title"
+msgstr "Titre de la page"
+
+#: includes/class-notion-wp-sync-importer.php:506
+msgctxt "default imported post title"
+msgid "Notion Imported Content"
+msgstr "Contenu Notion importé"
+
+#: includes/class-notion-wp-sync-helpers.php:107
+msgid "Create new post type... (Pro version)"
+msgstr "Créer un nouveau type de publication… (version Pro)"
+
+#: includes/class-notion-wp-sync-helpers.php:101
+msgid "Notion content (shortcode)"
+msgstr "Contenu Notion (code court)"
+
+#. translators: %s feature name available in pro version
+#: includes/admin/metaboxes/class-notion-wp-sync-metabox-sync-settings.php:81
+#: includes/class-notion-wp-sync-helpers.php:93
+msgid "%s (Pro version)"
+msgstr "%s (version Pro)"
+
+#: includes/admin/metaboxes/class-notion-wp-sync-metabox-sync-settings.php:66
+msgid "Add"
+msgstr "Ajouter"
+
+#: includes/admin/metaboxes/class-notion-wp-sync-metabox-sync-settings.php:65
+msgid "Add & Update"
+msgstr "Ajouter et mettre à jour"
+
+#: includes/admin/metaboxes/class-notion-wp-sync-metabox-sync-settings.php:64
+msgid "Add, Update & Delete"
+msgstr "Ajouter, mettre à jour et supprimer"
+
+#: includes/admin/metaboxes/class-notion-wp-sync-metabox-sync-settings.php:38
+msgid "Sync Settings"
+msgstr "Réglages de synchronisation"
+
+#: includes/admin/metaboxes/class-notion-wp-sync-metabox-post-settings.php:38
+msgid "Import As..."
+msgstr "Importer comme..."
+
+#: includes/admin/metaboxes/class-notion-wp-sync-metabox-import-infos.php:99
+#: includes/admin/metaboxes/class-notion-wp-sync-metabox-import-infos.php:178
+msgid "Finished with errors."
+msgstr "Terminé avec des erreurs."
+
+#: includes/admin/metaboxes/class-notion-wp-sync-metabox-import-infos.php:160
+msgid "Finished!"
+msgstr "Terminé !"
+
+#: includes/admin/metaboxes/class-notion-wp-sync-metabox-import-infos.php:43
+msgid "Actions"
+msgstr "Actions"
+
+#: includes/admin/metaboxes/class-notion-wp-sync-metabox-global-settings.php:30
+msgid "Notion Settings"
+msgstr "Réglages Notion"
+
+#: includes/admin/metaboxes/class-notion-wp-sync-metabox-field-mapping.php:28
+msgid "Field Mapping"
+msgstr "Mappage de champs"
+
+#: includes/admin/metaboxes/class-notion-wp-sync-metabox-field-mapping.php:25
+msgid "Add all the Notion properties you want to synchronize and then select the corresponding data types where they will be imported into your post."
+msgstr "Ajoutez toutes les propriétés Notion que vous souhaitez synchroniser et sélectionnez ensuite les types de données correspondants où elles seront importées dans votre publication."
+
+#: views/settings-page.php:18
+msgid "Settings"
+msgstr "Réglages"
+
+#: includes/admin/class-notion-wp-sync-admin.php:69
+#: includes/admin/class-notion-wp-sync-admin.php:70
+#: includes/class-notion-wp-sync.php:195
+msgid "Add New"
+msgstr "Ajouter"
+
+#: includes/admin/class-notion-wp-sync-admin.php:62
+#: includes/admin/class-notion-wp-sync-admin.php:63
+msgid "All Connections"
+msgstr "Toutes mes connexions"
+
+#: includes/admin/class-notion-wp-sync-admin-connections-list.php:124
+msgctxt "verb"
+msgid "Trash"
+msgstr "Corbeille"
+
+#. translators: %s: Post title.
+#: includes/admin/class-notion-wp-sync-admin-connections-list.php:122
+msgid "Move &#8220;%s&#8221; to the Trash"
+msgstr "Déplacer &#8220;%s&#8221; vers la corbeille"
+
+#: includes/admin/class-notion-wp-sync-admin-connections-list.php:89
+msgid "Instant"
+msgstr "Immédiate"
+
+#: includes/admin/class-notion-wp-sync-admin-connections-list.php:78
+#: views/metabox-sync.php:48
+msgid "Recurring"
+msgstr "Récurrent"
+
+#: includes/admin/class-notion-wp-sync-admin-connections-list.php:75
+#: views/metabox-sync.php:42
+msgid "Manual only"
+msgstr "Manuel uniquement"
+
+#: includes/admin/class-notion-wp-sync-admin-connections-list.php:46
+#: views/metabox-sync.php:36
+msgid "Trigger"
+msgstr "Déclencheur"
+
+#: includes/admin/class-notion-wp-sync-admin-connections-list.php:45
+msgid "Last Synced On"
+msgstr "Dernière synchronisation le"
+
+#: includes/admin/class-notion-wp-sync-admin-connections-list.php:44
+#: views/metabox-post-settings.php:45
+msgid "Post Type"
+msgstr "Type de publication"
+
+#: includes/admin/class-notion-wp-sync-admin-connections-list.php:43
+msgid "Last Modified On"
+msgstr "Dernière modification le"
+
+#: includes/admin/class-notion-wp-sync-admin-connection.php:265
+msgid "Thank you for using the Free Version of our plugin! You already have an active connection. To be able to create as many active connections as you want, <a href=\"https://wpconnect.co/notion-wordpress-integration/#pricing-plan\" target=\"_blank\">Upgrade to Pro Version</a>."
+msgstr "Merci d’utiliser la version gratuite de notre extension ! Vous avez déjà une connexion active. Afin de pouvoir créer autant de connexions actives que vous le souhaitez, passez <a href=\"https://wpconnect.co/notion-wordpress-integration/#pricing-plan\" target=\"_blank\">à la version Pro</a>."
+
+#. translators: %s: Number of connections.
+#: includes/admin/class-notion-wp-sync-admin-connection.php:234
+msgid "%s connection restored from the Trash."
+msgid_plural "%s connections restored from the Trash."
+msgstr[0] "%s connexion restaurée à partir de la corbeille."
+msgstr[1] "%s connexions restaurées à partir de la corbeille."
+
+#. translators: %s: Number of connections.
+#: includes/admin/class-notion-wp-sync-admin-connection.php:232
+msgid "%s connection moved to the Trash."
+msgid_plural "%s connections moved to the Trash."
+msgstr[0] "%s connexion déplacée vers la corbeille."
+msgstr[1] "%s connexions déplacées vers la corbeille."
+
+#. translators: %s: Number of connections.
+#: includes/admin/class-notion-wp-sync-admin-connection.php:230
+msgid "%s connection permanently deleted."
+msgid_plural "%s connections permanently deleted."
+msgstr[0] "%s connexion définitivement supprimée."
+msgstr[1] "%s connexions définitivement supprimées."
+
+#. translators: %s: Number of connections.
+#: includes/admin/class-notion-wp-sync-admin-connection.php:228
+msgid "%s connection not updated, somebody is editing it."
+msgid_plural "%s connections not updated, somebody is editing them."
+msgstr[0] "%s connexion non mise à jour, quelqu’un est en train de la modifier."
+msgstr[1] "%s connexions non mises à jour, quelqu’un est en train de les modifier."
+
+#: includes/admin/class-notion-wp-sync-admin-connection.php:226
+msgid "1 connection not updated, somebody is editing it."
+msgstr "1 connexion non mise à jour, quelqu’un est en train de la modifier."
+
+#. translators: %s: Number of connections.
+#: includes/admin/class-notion-wp-sync-admin-connection.php:225
+msgid "%s connection updated."
+msgid_plural "%s connections updated."
+msgstr[0] "%s connexion mise à jour."
+msgstr[1] "%s connexions mises à jour."
+
+#: includes/admin/class-notion-wp-sync-admin-connection.php:206
+msgid "Connection draft updated."
+msgstr "Brouillon de connexion mis à jour."
+
+#: includes/admin/class-notion-wp-sync-admin-connection.php:205
+msgid "Connection saved."
+msgstr "Connexion sauvegardée."
+
+#: includes/admin/class-notion-wp-sync-admin-connection.php:204
+msgid "Connection published."
+msgstr "Connexion publiée."
+
+#: includes/admin/class-notion-wp-sync-admin-connection.php:202
+#: includes/admin/class-notion-wp-sync-admin-connection.php:203
+msgid "Connection updated."
+msgstr "Connexion mise à jour."
+
+#: includes/admin/class-notion-wp-sync-admin-connection.php:195
+msgid "Back to list"
+msgstr "Retour à la liste"
+
+#: includes/admin/class-notion-wp-sync-admin-connection.php:96
+#: includes/admin/class-notion-wp-sync-admin-connections-list.php:123
+msgid "You have a Custom Post Type declared using this connection. Are you sure to delete it?"
+msgstr "Vous avez un type de publication personnalisé déclaré utilisant cette connexion. Confirmez-vous vouloir la supprimer ?"
+
+#: includes/admin/class-notion-wp-sync-admin-connection.php:67
+msgid "Some required fields are missing."
+msgstr "Certains champs obligatoires sont manquants."
+
+#: includes/admin/class-notion-wp-sync-admin-connection.php:67
+msgid "Error:"
+msgstr "Erreur :"
+
+#. Author URI of the plugin
+msgid "https://wpconnect.co/"
+msgstr "https://wpconnect.co/"
+
+#. Author of the plugin
+msgid "WP connect"
+msgstr "WP connect"
+
+#. Description of the plugin
+msgid "Swiftly sync Notion to your WordPress website!"
+msgstr "Synchronisez rapidement Notion avec votre site WordPress !"
+
+#. Plugin URI of the plugin
+msgid "https://wpconnect.co/notion-wp-sync-plugin/"
+msgstr "https://wpconnect.co/notion-wp-sync-plugin/"
+
+#: includes/admin/class-notion-wp-sync-admin.php:53
+#: includes/admin/class-notion-wp-sync-admin.php:54 views/header.php:22
+msgid "WP Sync for Notion"
+msgstr "WP Sync for Notion"
