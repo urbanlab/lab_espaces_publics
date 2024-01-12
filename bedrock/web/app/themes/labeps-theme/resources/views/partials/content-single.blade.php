@@ -11,7 +11,6 @@
       </h1>
     </div>
 
-
     @include('partials.entry-meta')
   </header>
 
