@@ -16,6 +16,7 @@ class Post extends Composer
         'partials.content',
         'partials.content-*',
         'partials.category',
+        'partials.hero',
     ];
 
     /**
@@ -37,7 +38,7 @@ class Post extends Composer
      */
     public function title()
     {
-        if ($this->view->name() !== 'partials.page-header') {
+        if ($this->view->name() !== 'partials.hero') {
             return get_the_title();
         }
 
@@ -50,7 +51,7 @@ class Post extends Composer
         }
 
         if (is_archive()) {
-            return get_the_archive_title();
+            return post_type_archive_title('', false);
         }
 
         if (is_search()) {

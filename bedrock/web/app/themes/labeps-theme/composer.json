@@ -42,6 +42,7 @@
     "php": "^8.0",
     "johnbillion/extended-cpts": "^5.0",
     "log1x/crumb": "^1.1",
+    "log1x/poet": "^2.0",
     "log1x/sage-svg": "^1.1"
   },
   "require-dev": {

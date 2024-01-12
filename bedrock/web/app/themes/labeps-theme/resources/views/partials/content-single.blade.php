@@ -1,12 +1,16 @@
-<article @php(post_class('h-entry'))>
-  <x-breadcrumb />
-  <header>
-    <figure class="rounded-md w-full h-40">
-      @php(the_post_thumbnail())
+<article @php(post_class('h-entry single-post'))>
+  <header class="h-fit">
+    <x-breadcrumb/>
+    <figure class="rounded-md w-full h-96">
+     {{the_post_thumbnail()}}
     </figure>
-    <h1 class="p-name">
-      {!! $title !!}
-    </h1>
+    <div class="flex flex-col relative -top-52 md:-top-40">
+      <img src="@asset('images/icon-single.svg'))" alt="icon article metropole" class=" bg-white p-7 w-5/6 md:w-6/12 lg:w-5/12">
+      <h1 class="relative left-24 -top-28 md:-top-28 lg:-top-36 md:left-28 text-2xl md:text-3xl font-bold text-wrap w-6/12 md:leading-[3.5rem]">
+        {!! $title !!}
+      </h1>
+    </div>
+
 
     @include('partials.entry-meta')
   </header>
