@@ -13,6 +13,7 @@ class Category extends Composer
      */
     protected static $views = [
         'partials.category',
+        'forms.filter-posts',
     ];
 
     /**
@@ -24,7 +25,7 @@ class Category extends Composer
     {
         $query = new \WP_Query([
             'category_name' => 'evenements',
-            'posts_per_page' => -1,
+            'order' => 'DESC',
         ]);
 
         return [

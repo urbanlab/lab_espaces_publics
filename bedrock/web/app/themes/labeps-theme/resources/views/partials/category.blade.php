@@ -2,13 +2,13 @@
   <h2 class="text-white font-bold text-xl my-4 md:text-2xl">À la une</h2>
   <div id="default-carousel" class="relative w-full" data-carousel="static">
   <div class="relative h-96 overflow-hidden rounded-lg md:h-80 md:w-[60vw] md:m-auto">
-       @if (have_posts())
+    @if (have_posts())
        @php(
        $the_query = new WP_Query(array(
         'category_name' => 'evenements', 
         'order' => 'DESC'  
         ))) 
-       @while( $the_query->have_posts() ) @php($the_query->the_post())
+       @while($the_query->have_posts()) @php($the_query->the_post())
       <div class="hidden duration-700 ease-in-out" data-carousel-item>
         <div class="flex flex-col w-full bg-white p-4 border rounded-md md:flex-row md:h-80 ">
           <figure class="rounded-md self-center w-full h-40 md:w-1/2">
