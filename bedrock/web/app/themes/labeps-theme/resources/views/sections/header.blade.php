@@ -1,6 +1,6 @@
 <header class="banner flex max-sm:flex-wrap justify-between sm:h-20 p-4  md:items-center border-b border-black">
   <a class="brand hidden sm:flex" href="{{ home_url('/') }}">
-    <img src="@asset('images/logo-labeps.png'))" alt="Logo Lab espace public">
+    <img src="@asset('images/logo-labeps.png')" alt="Logo Lab espace public">
   </a>
 
   <button data-collapse-toggle="navbar-hamburger" type="button" class="inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-black focus:outline-none focus:ring-2 focus:ring-primary dark:text-gray-400 dark:focus:ring-primary md:hidden" aria-controls="navbar-hamburger" aria-expanded="false">

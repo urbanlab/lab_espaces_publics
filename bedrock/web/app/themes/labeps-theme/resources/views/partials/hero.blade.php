@@ -3,7 +3,7 @@
     <div class="wp-block-columns">
       <div class="wp-block-column">
         <figure class="wp-block-image size-full">
-          <img src="http://localhost:8080/app/uploads/2023/12/archive-hero.png" alt="" class="wp-image-115"/>
+          <img src="@asset('images/archive-hero.svg')" alt="" class="wp-image-115"/>
         </figure>
         <div class="block-heading-text">
           <h1 class="wp-block-heading">{!! $title !!}</h1>
