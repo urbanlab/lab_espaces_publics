@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 6.4.x - Development - Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-08 16:31:17+0000\n"
+"PO-Revision-Date: 2024-01-08 14:38:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1896,7 +1896,7 @@ msgstr "<strong>Localisation d’évènements communautaires</strong> – adress
 
 #: wp-admin/erase-personal-data.php:38 wp-admin/export-personal-data.php:38
 msgid "<strong>Profile Information</strong> &mdash; user email address, username, display name, nickname, first name, last name, description/bio, and registration date."
-msgstr "<strong>Informations de profil</strong> &mdash; adresse e-mail du compte, identifiant, nom d’affichage, surnom, prénom, nom, description/bio, et date d’inscription."
+msgstr "<strong>Informations de profil</strong> &mdash; adresse e-mail du compte, identifiant, nom affiché, pseudonyme, prénom, nom, description/bio, et date d’inscription."
 
 #: wp-admin/erase-personal-data.php:35 wp-admin/export-personal-data.php:35
 msgid "Default Data"
@@ -11706,7 +11706,7 @@ msgstr "Personnaliser cet écran"
 
 #: wp-admin/options-reading.php:224
 msgid "Note: Neither of these options blocks access to your site &mdash; it is up to search engines to honor your request."
-msgstr "Note : Aucune de ses options ne bloque l’accès à votre site &mdash; c’est au moteur de recherche de respecter votre demande."
+msgstr "Note : Aucune de ces options ne bloque l’accès à votre site &mdash; c’est au moteur de recherche de respecter votre demande."
 
 #: wp-admin/options-permalink.php:270
 msgid "Post name"

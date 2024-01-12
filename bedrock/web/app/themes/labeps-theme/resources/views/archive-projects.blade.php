@@ -12,6 +12,7 @@
   {!! get_search_form(false) !!}
   @endif
   <div class="bg-secondary p-4 h-36 flex justify-around items-center flex-wrap md:h-24">
+    @include('forms.search')
       @foreach($taxonomy_terms as $taxonomy => $terms)
         <select id="taxonomy-select" data-taxonomy="{{ $taxonomy }}" >
           <option value="all">{{ $taxonomy }}</option>
