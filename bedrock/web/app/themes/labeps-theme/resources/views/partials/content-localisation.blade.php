@@ -1,5 +1,5 @@
-<article class='flex md:flex-col content-center bg-white p-4 border border-black rounded-md @php(get_post_class())'>
-    <figure class="rounded-md w-full h-40 me-8">
+<article class='card @php(get_post_class())'>
+    <figure>
       {!!get_the_post_thumbnail()!!}
     </figure>
     <div class="entry-summary md:p-4">

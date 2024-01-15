@@ -1,11 +1,15 @@
-// .archives-hero{
-//     @apply pt-16;
-//     figure{
-//         img{
-//         @apply -translate-x-28 translate-y-16;
-//     }
-//     }
-// }
+.archives-hero{
+    @apply pt-16 ml-20 md:ml-28;
+    figure{
+        img{
+            @apply -translate-x-20 translate-y-16;
+        }
+    }
+    h1{
+        @apply pl-3 mb-0;
+    }
+}
+
 .home-hero{
     @apply px-0;
     h1{
@@ -64,8 +68,13 @@
     }
 }
 
-.actualite-hero , .archives-hero{
+.actualite-hero, .archives-hero{
     @apply p-0;
+    .wp-block-columns{
+        @screen md{
+            @apply  mb-0;
+        }
+    }
     .block-heading-text {
         @apply relative inset-24 -top-16;
         h1{
@@ -75,10 +84,39 @@
             }
         }
         p{
-            @apply w-80;
+            @apply w-72;
             @screen md{
+                @apply w-96;
+            }
+            @screen lg{
                 @apply w-auto;
             }
         }
     }
+}
+
+.hero-single {
+    figure::after{
+            content:" ";
+            position: absolute;
+            background-color: white;
+            width: 220px;
+            height: 220px;
+            top: 110px;
+            left: -70px;
+
+            @screen md{
+                width: 250px;
+                height: 250px;
+                top: 195px;
+                left: -70px;
+            }
+
+            @screen lg{
+                width: 300px;
+                height: 250px;
+                top: 170px;
+                left: -70px; 
+            }
+        }
 }

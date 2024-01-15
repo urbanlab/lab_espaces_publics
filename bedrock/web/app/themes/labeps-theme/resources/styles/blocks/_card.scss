@@ -1,3 +1,12 @@
 .card{
-    @apply px-4 py-3 border border-black rounded-md;
+    @apply md:h-80 px-2 py-3 border border-black rounded-md overflow-hidden;
+    figure{
+        @apply w-full md:h-32 lg:h-72;
+        img{
+            @apply rounded-md object-cover;
+        }
+    }
 }
+
+
+//flex md:flex-col content-center bg-white p-4 border border-black rounded-md
