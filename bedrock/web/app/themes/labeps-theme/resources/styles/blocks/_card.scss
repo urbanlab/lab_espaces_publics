@@ -8,5 +8,7 @@
     }
 }
 
+.card-simple{
+    @apply md:h-80 px-2 py-3 border border-black rounded-md overflow-hidden;
 
-//flex md:flex-col content-center bg-white p-4 border border-black rounded-md
+}
