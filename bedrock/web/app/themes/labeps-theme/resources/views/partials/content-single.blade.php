@@ -1,16 +1,15 @@
 <article @php(post_class('h-entry single-post'))>
-  <header class="h-fit">
+  <header class="hero-single mb-10">
     <x-breadcrumb/>
-    <figure class="rounded-md w-full h-96">
-     {{the_post_thumbnail()}}
-    </figure>
-    <div class="flex flex-col relative -top-52 md:-top-40">
-      <img src="@asset('images/icon-single.svg'))" alt="icon article metropole" class=" bg-white p-7 w-5/6 md:w-6/12 lg:w-5/12">
-      <h1 class="relative left-24 -top-28 md:-top-28 lg:-top-36 md:left-28 text-2xl md:text-3xl font-bold text-wrap w-6/12 md:leading-[3.5rem]">
+    <div class="relative">
+      <figure class="rounded-md w-full md:h-96">
+        {{the_post_thumbnail()}}   
+       </figure>
+       <img src="@asset('images/icon-single.svg'))" alt="icon article metropole" class="absolute top-32 md:top-56 lg:top-48 w-4/6 md:w-6/12 lg:w-5/12">
+    </div>
+      <h1 class="relative z-10 pl-12 md:pl-20 lg:pl-28 lg:pt-3 mb-12 text-2xl md:text-3xl font-bold text-wrap md:leading-[3.5rem]">
         {!! $title !!}
       </h1>
-    </div>
-
     @include('partials.entry-meta')
   </header>
 
@@ -24,3 +23,6 @@
 
   @php(comments_template())
 </article>
+
+{{-- relative left-16 -top-20 md:-top-28 lg:-top-32 md:left-20
+  relative left-16 -top-20 md:-top-28 lg:-top-32 md:left-20 --}}

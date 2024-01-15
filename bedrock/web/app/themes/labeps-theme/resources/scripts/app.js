@@ -5,12 +5,14 @@ import {
   archiveFilterInspirations,
   archiveFilterRessources,
 } from '@scripts/filters/archive-filter';
+import {Matomo} from './matomo';
 /**
  * Application entrypoint
  */
 domReady(async () => {
   archiveFilterRessources();
   archiveFilterInspirations();
+  Matomo();
 });
 
 /**

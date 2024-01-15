@@ -6,11 +6,12 @@
 
     <input
       type="search"
-      placeholder="{!! esc_attr_x('Search &hellip;', 'placeholder', 'sage') !!}"
+      placeholder="{!! esc_attr_x('Rechercher &hellip;', 'placeholder', 'sage') !!}"
       value="{{ get_search_query() }}"
       name="s"
+      class="bg-white p-2 border rounded-md border-black"
     >
   </label>
 
-  <button>{{ _x('Search', 'submit button', 'sage') }}</button>
+  <button class="text-white">{{ _x('Trouver', 'submit button', 'sage') }}</button>
 </form>

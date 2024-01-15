@@ -7,7 +7,7 @@
         </figure>
         <div class="block-heading-text">
           <h1 class="wp-block-heading">{!! $title !!}</h1>
-          {!! $pageIntro !!}
+          <p>{!! $pageIntro !!}</p>
         </div>        
       </div>
       <div class="wp-block-column is-vertically-aligned-bottom"></div>

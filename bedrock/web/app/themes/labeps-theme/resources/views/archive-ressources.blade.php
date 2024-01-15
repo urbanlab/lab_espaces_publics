@@ -12,15 +12,15 @@ En travaillant ensemble pour expérimenter, innover et collaborer, nous pouvons 
 
 {!! get_search_form(false) !!}
 @endif
-<div id="taxonomy-checkboxes" class="bg-secondary p-4 h-36 flex justify-around items-center flex-wrap md:h-24">
+<div id="taxonomy-checkboxes" class="bg-secondary p-4 flex justify-around items-center flex-wrap">
   <label for="all-categories" class="bg-white p-2 border rounded-md border-black">
     <input type="checkbox" id="all-categories" value="all" checked>
-    All Categories
+    Toutes les Catégories
   </label>
 
   @foreach ($taxonomy_terms as $taxonomy => $terms)
       @foreach ($terms as $term)
-      <label for="category-{{ $term->slug }}" class="bg-white p-2 border rounded-md border-black">
+      <label for="category-{{ $term->slug }}" class="bg-white p-2 m-2 border rounded-md border-black">
           <input type="checkbox" id="category-{{ $term->slug }}" value="{{ $term->slug }}">
           {{ $term->name }}
         </label>
@@ -34,7 +34,7 @@ En travaillant ensemble pour expérimenter, innover et collaborer, nous pouvons 
         @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
       </div>     
      @endwhile
-    </div>
+</div>
 
           {!! get_the_posts_navigation() !!}
 @endsection

@@ -40,8 +40,8 @@ return [
                 'posts_per_page' => 10,
             ],
             'labels' => [
-                'singular' => 'Ressource',
-                'plural'   => 'Ressources',
+                'singular' => 'Boite à outils',
+                'plural'   => 'Boite à outils',
                 'slug'     => 'ressources',
             ],
         ],
@@ -177,9 +177,9 @@ return [
     |
     */
 
-    'block' => [
-        'sage/filter-posts',
-    ],
+    // 'block' => [
+    //     'sage/filter-posts',
+    // ],
 
     /*
     |--------------------------------------------------------------------------
