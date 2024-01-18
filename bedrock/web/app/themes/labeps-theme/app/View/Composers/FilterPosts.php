@@ -26,7 +26,6 @@ class FilterPosts extends Composer
     {
         return [
             'taxonomy_terms' => $this->getTaxonomyTerms(), // Pass the taxonomy name here
-            // 'ajax_url' => admin_url('admin-ajax.php'),
         ];
     }
 

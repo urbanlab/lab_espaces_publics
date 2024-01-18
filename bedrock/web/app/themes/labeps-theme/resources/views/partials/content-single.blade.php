@@ -2,10 +2,10 @@
   <header class="hero-single mb-10">
     <x-breadcrumb/>
     <div class="relative">
-      <figure class="rounded-md w-full md:h-96">
+      <figure class="flex rounded-md md:h-96">
         {{the_post_thumbnail()}}   
        </figure>
-       <img src="@asset('images/icon-single.svg'))" alt="icon article metropole" class="absolute top-32 md:top-56 lg:top-48 w-4/6 md:w-6/12 lg:w-5/12">
+        <img src="@asset('images/icon-single.svg'))" alt="icon article metropole" class="absolute top-32 md:top-56 lg:top-48 w-4/6 md:w-6/12 lg:w-5/12">
     </div>
       <h1 class="relative z-10 pl-12 md:pl-20 lg:pl-28 lg:pt-3 mb-12 text-2xl md:text-3xl font-bold text-wrap md:leading-[3.5rem]">
         {!! $title !!}

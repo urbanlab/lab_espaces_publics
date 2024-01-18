@@ -2,7 +2,7 @@
 <div class="wp-block-group actualite-hero">
     <div class="wp-block-columns">
       <div class="wp-block-column">
-        <figure class="wp-block-image size-full">
+        <figure class="wp-block-image">
           <img src="@asset('images/archive-hero.svg')" alt="" class="wp-image-115"/>
         </figure>
         <div class="block-heading-text">

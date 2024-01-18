@@ -23,14 +23,14 @@
     "test": "yarn lint"
   },
   "devDependencies": {
-    "@roots/bud": "6.16.1",
-    "@roots/bud-eslint": "^6.17.0",
-    "@roots/bud-prettier": "^6.17.0",
-    "@roots/bud-sass": "^6.17.0",
-    "@roots/bud-stylelint": "^6.17.0",
-    "@roots/bud-tailwindcss": "6.16.1",
-    "@roots/eslint-config": "^6.17.0",
-    "@roots/sage": "6.16.1",
+    "@roots/bud": "6.20.0",
+    "@roots/bud-eslint": "6.20.0",
+    "@roots/bud-prettier": "6.20.0",
+    "@roots/bud-sass": "6.20.0",
+    "@roots/bud-stylelint": "6.20.0",
+    "@roots/bud-tailwindcss": "6.20.0",
+    "@roots/eslint-config": "6.20.0",
+    "@roots/sage": "6.20.0",
     "browser-sync": "^2.29.3",
     "browser-sync-webpack-plugin": "^2.3.0",
     "flowbite": "^2.2.1"

@@ -1,7 +1,7 @@
 .card{
-    @apply md:h-80 px-2 py-3 border border-black rounded-md overflow-hidden;
+    @apply md:h-96 px-2 py-3 border-2 border-black rounded-md overflow-hidden;
     figure{
-        @apply w-full md:h-32 lg:h-72;
+        @apply flex md:h-32;
         img{
             @apply rounded-md object-cover;
         }
@@ -9,6 +9,6 @@
 }
 
 .card-simple{
-    @apply md:h-80 px-2 py-3 border border-black rounded-md overflow-hidden;
+    @apply md:h-80 px-2 py-3 border-2 border-black rounded-md overflow-hidden;
 
 }
