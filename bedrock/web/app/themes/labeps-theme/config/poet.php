@@ -14,9 +14,9 @@ return [
 
     'post' => [
         'ressources' => [
-            'enter_title_here' => 'Ajouter une ressource',
+            'enter_title_here' => 'Ajouter le titre de votre ressource',
             'menu_icon' => 'dashicons-book-alt',
-            'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail'],
+            'supports' => ['title', 'editor', 'author', 'excerpt', 'thumbnail'],
             'show_in_rest' => true,
             'has_archive' => true,
             'show_in_feed' => false,
@@ -27,8 +27,8 @@ return [
                     'title'          => 'Image',
                     'featured_image' => 'thumbnail'
                 ],
-                'ressource-types' => [
-                    'taxonomy' => 'ressource-types'
+                'types' => [
+                    'taxonomy' => 'types'
                 ],
                 'published' => array(
                     'title'       => 'Published',
@@ -46,9 +46,9 @@ return [
             ],
         ],
         'inspirations' => [
-            'enter_title_here' => 'Enter book title',
+            'enter_title_here' => 'Ajoutez votre titre',
             'menu_icon'    => 'dashicons-cover-image',
-            'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail'],
+            'supports' => ['title', 'editor', 'author', 'excerpt', 'thumbnail'],
             'show_in_rest' => true,
             'has_archive' => true,
             'show_in_feed' => false,
@@ -66,14 +66,19 @@ return [
                     'meta_key'    => 'published_date',
                     'date_format' => 'd/m/Y'
                 ],
-                'mots-clés' => [
-                    'taxonomy' => 'inspiration-mots-clés',
+                'inspirations-mots-clés' => [
+                    'taxonomy' => 'inspirations-mots-clés',
                     'title'    => 'Mots-clés',
                     'link'     => 'edit',
                 ],
                 'defis' => [
+                    'taxonomy' => 'defis',
                     'title'    => 'Défis',
-                    'taxonomy' => 'inspiration-defis',
+                    'link'     => 'edit',
+                ],
+                'localisation' => [
+                    'taxonomy' => 'localisation',
+                    'title'    => 'Localisation',
                     'link'     => 'edit',
                 ],
             ],
@@ -89,12 +94,12 @@ return [
         'projects' => [
             'enter_title_here' => 'Ajouter un projet',
             'menu_icon'    => 'dashicons-buddicons-topics',
-            'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail'],
+            'supports' => ['title', 'editor', 'author', 'excerpt', 'thumbnail'],
             'show_in_rest' => true,
             'has_archive' => true,
             'show_in_feed' => false,
             'public' => true,
-            'menu_position' => 5,
+            'menu_position' => 6,
             'admin_cols' => [
                 'featured_image' => [
                     'title'          => 'Image',
@@ -107,14 +112,19 @@ return [
                     'meta_key'    => 'published_date',
                     'date_format' => 'd/m/Y'
                 ],
-                'mots-clés' => [
-                    'taxonomy' => 'inspiration-mots-clés',
+                'projects-mots-clés' => [
+                    'taxonomy' => 'projects-mots-clés',
                     'title'    => 'Mots-clés',
                     'link'     => 'edit',
                 ],
                 'defis' => [
+                    'taxonomy' => 'defis',
                     'title'    => 'Défis',
-                    'taxonomy' => 'inspiration-defis',
+                    'link'     => 'edit',
+                ],
+                'localisation' => [
+                    'taxonomy' => 'localisation',
+                    'title'    => 'Localisation',
                     'link'     => 'edit',
                 ],
             ],
@@ -139,21 +149,101 @@ return [
     |
     */
 
-    // 'taxonomy' => [
-    //     'ressource-type' => [
-    //         'links' => ['ressources'],
-    //         'meta_box' => 'radio',
-    //         'dashboard_glance' => true,
-    //         'show_in_rest' => true,
-    //         'admin_cols' => [
-    //             'updated' => array(
-    //                 'title'       => 'Updated',
-    //                 'meta_key'    => 'updated_date',
-    //                 'date_format' => 'd/m/Y'
-    //             ),
-    //         ],
-    //     ],
-    // ],
+    'taxonomy' => [
+        'types' => [
+            'links' => ['ressources'],
+            'meta_box' => 'radio',
+            'dashboard_glance' => true,
+            'show_in_rest' => true,
+            'admin_cols' => [
+                'updated' => array(
+                    'title'       => 'Updated',
+                    'meta_key'    => 'updated_date',
+                    'date_format' => 'd/m/Y'
+                ),
+            ],
+            'labels' => [
+                'singular' => 'Type',
+                'plural' => 'Types',
+                'url' => 'ressource-types',
+            ],
+        ],
+        'defis' => [
+            'links' => ['inspirations', 'projects'],
+            'meta_box' => 'radio',
+            'dashboard_glance' => true,
+            'show_in_rest' => true,
+            'admin_cols' => [
+                'updated' => array(
+                    'title'       => 'Updated',
+                    'meta_key'    => 'updated_date',
+                    'date_format' => 'd/m/Y'
+                ),
+            ],
+            'labels' => [
+                'singular' => 'Défi',
+                'plural' => 'Défis',
+                'url' => 'defis-lab',
+            ],
+        ],
+        'localisation' => [
+            'links' => ['inspirations', 'projects'],
+            'dashboard_glance' => true,
+            'show_in_rest' => true,
+            'hierarchical' => true,
+			'has_archive' => true,
+            'admin_cols' => [
+                'updated' => array(
+                    'title'       => 'Updated',
+                    'meta_key'    => 'updated_date',
+                    'date_format' => 'd/m/Y'
+                ),
+            ],
+            'labels' => [
+                'singular' => 'Localisation',
+                'plural' => 'Localisations',
+                'url' => 'localisation-lab',
+            ],
+        ],
+        'projects-mots-clés' => [
+            'links' => ['projects'],
+            'meta_box' => 'radio',
+            'dashboard_glance' => true,
+            'show_in_rest' => true,
+            'hierarchical' => true,
+			'has_archive' => true,
+            'admin_cols' => [
+                'updated' => array(
+                    'title'       => 'Updated',
+                    'meta_key'    => 'updated_date',
+                    'date_format' => 'd/m/Y'
+                ),
+            ],
+            'labels' => [
+                'singular' => 'Mot Clé',
+                'plural' => 'Mot Clés',
+                'url' => 'projects-mots-clés',
+            ],
+        ],
+        'inspirations-mots-clés' => [
+            'links' => ['inspirations'],
+            'meta_box' => 'radio',
+            'dashboard_glance' => true,
+            'show_in_rest' => true,
+            'admin_cols' => [
+                'updated' => array(
+                    'title'       => 'Updated',
+                    'meta_key'    => 'updated_date',
+                    'date_format' => 'd/m/Y'
+                ),
+            ],
+            'labels' => [
+                'singular' => 'Mot Clé',
+                'plural' => 'Mot Clés',
+                'url' => 'inspirations-mots-clés',
+            ],
+        ],
+    ],
 
     /*
     |--------------------------------------------------------------------------

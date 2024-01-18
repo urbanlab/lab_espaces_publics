@@ -3,7 +3,8 @@
 @section('content')
   @include('partials.page-header')
   @include('partials.hero',[
-  'pageIntro' => 'Parmi les actions clés identifiées dans la charte, certaines ont une dimension innovante : elles pourront être expérimentées dans le cadre de « projets pilotes », menés par les maîtres d’ouvrage sur le domaine public métropolitain. Le choix des projets pilotes tendra à couvrir les six défis de la Charte et sera fonction de leurs calendriers d’avancement.'])
+  'pageIntro' => 'Le Lab des espaces publics est une source d’inspiration pour améliorer la qualité de vie dans les villes et les espaces publics. 
+  En travaillant ensemble pour expérimenter, innover et collaborer, nous pouvons créer des espaces publics plus inclusifs, durables et adaptés aux besoins des usagers.'])
   @if (! have_posts())
   <x-alert type="warning">
     {!! __('Sorry, no results were found.', 'sage') !!}
@@ -11,11 +12,24 @@
 
   {!! get_search_form(false) !!}
   @endif
-  <div class="bg-secondary p-4 flex justify-around items-center flex-wrap">
+  <div class="bg-secondary  p-4 flex justify-around items-center flex-wrap">
     @include('forms.search')
       @foreach($taxonomy_terms as $taxonomy => $terms)
         <select id="taxonomy-select" class="my-2 border border-black rounded-md" data-taxonomy="{{ $taxonomy }}" >
-          <option value="all">{{ $taxonomy }}</option>
+          <option value="all">
+            @switch($taxonomy)
+            @case('defis')
+            Défis
+                @break
+            @case('localisation')
+            Localisations
+                @break
+                @case('projects-mots-clés')
+                Mots clés
+                @break
+            @default
+        @endswitch ()
+          </option>
           @foreach($terms as $term)
           <option value="{{ $term->slug }}" id="term-{{ $term->slug }}">{{ $term->name }}</option>
           @endforeach
@@ -24,13 +38,13 @@
   </div>
   <div id="ajax-results" class="grid grid-cols-4 gap-4 my-4 max-sm:grid-cols-none">
     @while(have_posts()) @php(the_post())
-    @php($defis_terms = get_the_terms(get_the_ID(), 'projects-defis'))
-    @php($localisation_terms = get_the_terms(get_the_ID(), 'projects-localisation'))
+    @php($defis_terms = get_the_terms(get_the_ID(), 'defis'))
+    @php($localisation_terms = get_the_terms(get_the_ID(), 'localisation'))
     @php($mots_cles_terms = get_the_terms(get_the_ID(), 'projects-mots-clés'))
 
     <div class="single-post
-        @if($defis_terms) @foreach($defis_terms as $term) term-projects-defis-{{ $term->slug }} @endforeach @endif
-        @if($localisation_terms) @foreach($localisation_terms as $term) term-projects-localisation-{{ $term->slug }} @endforeach @endif
+        @if($defis_terms) @foreach($defis_terms as $term) term-defis-{{ $term->slug }} @endforeach @endif
+        @if($localisation_terms) @foreach($localisation_terms as $term) term-localisation-{{ $term->slug }} @endforeach @endif
         @if($mots_cles_terms) @foreach($mots_cles_terms as $term) term-projects-mots-clés-{{ $term->slug }} @endforeach @endif
     ">
         @includeFirst(['partials.content-' . get_post_type(), 'partials.content-localisation'])

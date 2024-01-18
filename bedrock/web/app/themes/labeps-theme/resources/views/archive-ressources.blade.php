@@ -29,7 +29,7 @@ En travaillant ensemble pour expérimenter, innover et collaborer, nous pouvons 
 </div>
     <div id="ajax-results" class="grid grid-cols-4 gap-4 my-4 max-sm:grid-cols-none">
       @while(have_posts()) @php(the_post())
-      @php($post_terms = get_the_terms(get_the_ID(), 'ressource-types'))
+      @php($post_terms = get_the_terms(get_the_ID(), 'types'))
       <div class="single-post term-{{ $post_terms ? $post_terms[0]->slug : '' }}">
         @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
       </div>     

@@ -5,7 +5,7 @@
     @if (have_posts())
        @php(
        $the_query = new WP_Query(array(
-        'category_name' => 'evenements', 
+        'category_name' => 'a-la-une', 
         'order' => 'DESC'  
         ))) 
        @while($the_query->have_posts()) @php($the_query->the_post())

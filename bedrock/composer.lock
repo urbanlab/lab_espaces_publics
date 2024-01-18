@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cebf0dc6938130a9aaccae25fef8ec4b",
+    "content-hash": "7cc4c74f21661547503fc804deca260f",
     "packages": [
         {
             "name": "brick/math",
@@ -5453,6 +5453,24 @@
             "homepage": "https://wordpress.org/plugins/carousel-block/"
         },
         {
+            "name": "wpackagist-plugin/copy-delete-posts",
+            "version": "1.4.4",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/copy-delete-posts/",
+                "reference": "tags/1.4.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/copy-delete-posts.1.4.4.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/copy-delete-posts/"
+        },
+        {
             "name": "wpackagist-plugin/mappress-google-maps-for-wordpress",
             "version": "2.88.14",
             "source": {
@@ -5471,6 +5489,24 @@
             "homepage": "https://wordpress.org/plugins/mappress-google-maps-for-wordpress/"
         },
         {
+            "name": "wpackagist-plugin/svg-block",
+            "version": "1.1.17",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/svg-block/",
+                "reference": "tags/1.1.17"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/svg-block.1.1.17.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/svg-block/"
+        },
+        {
             "name": "wpackagist-plugin/wordpress-seo",
             "version": "21.7",
             "source": {
@@ -5487,6 +5523,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wordpress-seo/"
+        },
+        {
+            "name": "wpackagist-plugin/wp-carousel-free",
+            "version": "2.6.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wp-carousel-free/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-carousel-free.zip?timestamp=1704969635"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-carousel-free/"
         },
         {
             "name": "wpackagist-plugin/wp-sync-for-notion",

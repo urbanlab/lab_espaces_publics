@@ -1,0 +1,23 @@
+p {
+    @apply break-words;
+}
+
+img{
+    @apply max-h-full max-w-full object-cover;
+}
+
+ol{
+    list-style-type: decimal;
+}
+
+ul{
+    list-style-type: disc;
+}
+
+.loupe{
+    @apply text-lg text-white rotate-45;
+}
+
+mark{
+    @apply p-1;
+}

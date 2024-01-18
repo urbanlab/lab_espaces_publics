@@ -54,7 +54,10 @@
     "wpackagist-plugin/all-in-one-wp-security-and-firewall": "^5.2",
     "wpackagist-plugin/wordpress-seo": "^21.7",
     "wpackagist-plugin/mappress-google-maps-for-wordpress": "^2.88",
-    "wpackagist-plugin/carousel-block": "^1.0"
+    "wpackagist-plugin/carousel-block": "^1.0",
+    "wpackagist-plugin/svg-block": "^1.1",
+    "wpackagist-plugin/copy-delete-posts": "^1.4",
+    "wpackagist-plugin/wp-carousel-free": "^2.6"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.1",

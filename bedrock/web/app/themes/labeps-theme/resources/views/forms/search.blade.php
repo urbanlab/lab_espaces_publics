@@ -13,5 +13,5 @@
     >
   </label>
 
-  <button class="text-white">{{ _x('Trouver', 'submit button', 'sage') }}</button>
+  <button class="loupe">{{ _x('⚲', 'submit button', 'sage') }}</button>
 </form>

@@ -68,7 +68,6 @@ export function archiveFilterInspirations() {
         .map(function (className) {
           return className.replace('term-' + taxonomy + '-', '');
         });
-
       // Use the 'taxonomy' variable within the function
       if (term === 'all' || postTerms.includes(term)) {
         post.style.display = 'block';
