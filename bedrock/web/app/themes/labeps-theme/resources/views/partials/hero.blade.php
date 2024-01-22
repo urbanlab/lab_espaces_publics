@@ -1,5 +1,5 @@
 
-<div class="wp-block-group actualite-hero">
+<div class="wp-block-group actualite-hero container mx-auto">
     <div class="wp-block-columns">
       <div class="wp-block-column">
         <figure class="wp-block-image">
