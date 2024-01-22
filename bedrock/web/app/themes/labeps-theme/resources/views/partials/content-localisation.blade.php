@@ -11,6 +11,6 @@
             {!! $title !!}
           </a>
         </h3>
-        {{ the_excerpt() }}
+        <p class="truncate">{{get_the_excerpt()}}</p>
     </div>
   </article>

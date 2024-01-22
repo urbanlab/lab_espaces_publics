@@ -23,9 +23,10 @@
         }
     }
     h1{
-        @apply flow-root relative -top-10 left-16 text-3xl;
+        @apply flow-root relative -top-10 left-16 text-3xl md:mt-0;
 
         width: 75vw;
+
         span{
             @apply font-light text-2xl;
         }
@@ -48,6 +49,10 @@
     p{
         @apply py-0;
 
+        @screen md{
+            width: 70vw;
+        }
+
         @screen lg{
             width: 50vw;
         }
@@ -55,7 +60,7 @@
             width: 40vw;
         }
         @screen 2xl{
-            width : 25vw;
+            width : 30vw;
         }
     }
     .wp-block-column:nth-child(2){
@@ -114,27 +119,31 @@
 }
 
 .hero-single {
-    figure::after{
+    div{
+        figure::after{
             content:" ";
             position: absolute;
             background-color: white;
-            width: 220px;
+            width: 45vw;
             height: 220px;
             top: 110px;
-            left: -70px;
 
             @screen md{
-                width: 250px;
-                height: 250px;
-                top: 195px;
-                left: -70px;
+                width: 35vw;
+                height: 260px;
+                top: 190px;
             }
 
             @screen lg{
-                width: 300px;
-                height: 250px;
+                width: 31vw;
                 top: 170px;
-                left: -70px; 
+            }
+            @screen xl{
+                width: 28vw;
             }
         }
+            img{
+                @apply w-screen;
+            }
+    }
 }
