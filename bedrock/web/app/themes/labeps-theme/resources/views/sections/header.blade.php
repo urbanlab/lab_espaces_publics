@@ -1,4 +1,4 @@
-<header class="banner flex max-sm:flex-wrap justify-between sm:h-20 p-4  md:items-center border-b border-black">
+<header class="banner flex max-sm:flex-wrap justify-between sm:h-20 p-4 md:py-0  md:items-center border-b border-black">
   <a class="brand hidden sm:flex" href="{{ home_url('/') }}">
     <img src="@asset('images/logo_labdesEP.svg')" alt="Logo Lab espace public">
   </a>

@@ -1,13 +1,15 @@
-.archives-hero{
-    @apply pt-16 ml-20 md:ml-28;
+.about-hero{
+    @apply px-0 text-balance;
     figure{
-        @apply w-6/12 md:w-2/5 lg:w-3/4;
         img{
-            @apply min-w-0 -translate-x-20 translate-y-16;
+            @apply min-w-0 lg:w-60 lg:mx-0;
         }
     }
+    .about-hero-text{
+        @apply mt-0 py-0 translate-x-20 -translate-y-8;
+    }
     h1{
-        @apply pt-7 md:pt-0 md:pl-4 mb-0;
+        @apply md:pt-0 md:pl-4 mb-0;
     }
 }
 
@@ -21,9 +23,10 @@
         }
     }
     h1{
-        @apply flow-root relative -top-10 left-16 text-3xl;
+        @apply flow-root relative -top-10 left-16 text-3xl md:mt-0;
 
         width: 75vw;
+
         span{
             @apply font-light text-2xl;
         }
@@ -46,6 +49,10 @@
     p{
         @apply py-0;
 
+        @screen md{
+            width: 70vw;
+        }
+
         @screen lg{
             width: 50vw;
         }
@@ -53,7 +60,7 @@
             width: 40vw;
         }
         @screen 2xl{
-            width : 25vw;
+            width : 30vw;
         }
     }
     .wp-block-column:nth-child(2){
@@ -73,8 +80,7 @@
     }
 }
 
-.actualite-hero, .archives-hero{
-    @apply p-0;
+.actualite-hero{
     .wp-block-columns{
         @screen md{
             @apply  mb-0;
@@ -86,13 +92,8 @@
         }
     }
     .block-heading-text {
-        @apply relative left-1/4 -top-16 md:left-32;
-        @screen lg{
-            @apply left-36 -top-20;
-        }
-        @screen xl{
-            @apply left-52;
-            }
+        @apply relative left-1/4 -top-16 md:left-28;
+
         h1{
             @apply mb-0 text-2xl;
             @screen md{
@@ -112,27 +113,31 @@
 }
 
 .hero-single {
-    figure::after{
+    div{
+        figure::after{
             content:" ";
             position: absolute;
             background-color: white;
-            width: 220px;
+            width: 45vw;
             height: 220px;
             top: 110px;
-            left: -70px;
 
             @screen md{
-                width: 250px;
-                height: 250px;
-                top: 195px;
-                left: -70px;
+                width: 35vw;
+                height: 260px;
+                top: 190px;
             }
 
             @screen lg{
-                width: 300px;
-                height: 250px;
+                width: 31vw;
                 top: 170px;
-                left: -70px; 
+            }
+            @screen xl{
+                width: 28vw;
             }
         }
+            img{
+                @apply w-screen;
+            }
+    }
 }

@@ -19,10 +19,10 @@ const config = {
     container: {
       padding: {
         DEFAULT: '1rem',
-        sm: '2rem',
-        lg: '4rem',
-        xl: '5rem',
-        '2xl': '6rem',
+        sm: '4rem',
+        lg: '6rem',
+        xl: '7rem',
+        '2xl': '8rem',
       },
     },
     colors: {

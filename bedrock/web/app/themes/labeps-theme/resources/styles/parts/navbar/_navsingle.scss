@@ -1,7 +1,7 @@
 .single-post{
     header{
         nav{
-            @apply flex absolute bg-white/50 w-11/12 pl-3 flex-wrap z-10;
+            @apply flex absolute inset-x-0 bg-white/50 pl-3 z-10;
         }
     }
 }

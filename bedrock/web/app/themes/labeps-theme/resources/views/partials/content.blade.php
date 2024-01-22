@@ -11,6 +11,6 @@
         </a>
       </h3>
     </header>
-    @php(the_excerpt())
+    <p class="truncate">{{get_the_excerpt()}}</p> 
   </div>
 </article>
