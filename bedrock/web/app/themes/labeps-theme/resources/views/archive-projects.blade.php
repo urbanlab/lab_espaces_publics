@@ -12,8 +12,9 @@
 
   {!! get_search_form(false) !!}
   @endif
-  <div class="bg-secondary  p-4 flex justify-around items-center flex-wrap">
-    @include('forms.search')
+  <section class="bg-secondary  p-4">
+    <div class="container mx-auto flex justify-around items-center flex-wrap">
+      @include('forms.search')
       @foreach($taxonomy_terms as $taxonomy => $terms)
         <select id="taxonomy-select" class="my-2 border border-black rounded-md" data-taxonomy="{{ $taxonomy }}" >
           <option value="all">
@@ -35,8 +36,9 @@
           @endforeach
         </select>
       @endforeach
-  </div>
-  <div id="ajax-results" class="grid grid-cols-4 gap-4 my-4 max-sm:grid-cols-none">
+    </div>
+  </section>
+  <div id="ajax-results" class="container mx-auto grid grid-cols-4 gap-4 my-4 max-sm:grid-cols-none">
     @while(have_posts()) @php(the_post())
     @php($defis_terms = get_the_terms(get_the_ID(), 'defis'))
     @php($localisation_terms = get_the_terms(get_the_ID(), 'localisation'))

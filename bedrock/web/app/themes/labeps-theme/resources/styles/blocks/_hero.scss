@@ -81,7 +81,6 @@
 }
 
 .actualite-hero{
-    @apply p-0;
     .wp-block-columns{
         @screen md{
             @apply  mb-0;
@@ -93,13 +92,8 @@
         }
     }
     .block-heading-text {
-        @apply relative left-1/4 -top-16 md:left-32;
-        @screen lg{
-            @apply left-36 -top-20;
-        }
-        @screen xl{
-            @apply left-52;
-            }
+        @apply relative left-1/4 -top-16 md:left-28;
+
         h1{
             @apply mb-0 text-2xl;
             @screen md{
