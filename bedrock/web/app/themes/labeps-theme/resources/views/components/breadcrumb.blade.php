@@ -1,7 +1,7 @@
 @if (! empty($items))
   <nav
     aria-label="Breadcrumb"
-    class="flex items-center py-2 -mx-2 leading-none"
+    class="flex items-center py-2 leading-none"
     vocab="https://schema.org/"
     typeof="BreadcrumbList"
   >
@@ -17,7 +17,7 @@
             typeof="WebPage"
             title="Go to {!! $item['label'] !!}."
             href="{{ $item['url'] }}"
-            class="hover:text-indigo-500"
+            class="hover:text-primary"
           >
             <span property="name">
               @if ($loop->first)
@@ -42,7 +42,7 @@
         </span>
 
         @if (!$loop->last)
-          <svg class="flex-shrink-0 w-5 h-5 text-indigo-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <svg class="flex-shrink-0 w-5 h-5 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
           </svg>
         @endif
