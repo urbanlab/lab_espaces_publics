@@ -1,14 +1,21 @@
 .about-hero{
     @apply px-0 text-balance;
+.about-hero{
+    @apply px-0 text-balance;
     figure{
         img{
+            @apply min-w-0 lg:w-60 lg:mx-0;
             @apply min-w-0 lg:w-60 lg:mx-0;
         }
     }
     .about-hero-text{
         @apply mt-0 py-0 translate-x-20 -translate-y-8;
     }
+    .about-hero-text{
+        @apply mt-0 py-0 translate-x-20 -translate-y-8;
+    }
     h1{
+        @apply md:pt-0 md:pl-4 mb-0;
         @apply md:pt-0 md:pl-4 mb-0;
     }
 }
