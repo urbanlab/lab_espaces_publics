@@ -1,13 +1,15 @@
-.archives-hero{
-    @apply pt-16 ml-20 md:ml-28;
+.about-hero{
+    @apply px-0 text-balance;
     figure{
-        @apply w-6/12 md:w-2/5 lg:w-3/4;
         img{
-            @apply min-w-0 -translate-x-20 translate-y-16;
+            @apply min-w-0 lg:w-60 lg:mx-0;
         }
     }
+    .about-hero-text{
+        @apply mt-0 py-0 translate-x-20 -translate-y-8;
+    }
     h1{
-        @apply pt-7 md:pt-0 md:pl-4 mb-0;
+        @apply md:pt-0 md:pl-4 mb-0;
     }
 }
 
@@ -73,7 +75,7 @@
     }
 }
 
-.actualite-hero, .archives-hero{
+.actualite-hero{
     @apply p-0;
     .wp-block-columns{
         @screen md{
