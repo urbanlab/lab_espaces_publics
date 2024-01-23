@@ -281,6 +281,7 @@ export default async (app) => {
         letterSpacing: false,
         textDecoration: false,
         textTransform: false,
+        lineHeight: true,
       },
       blocks: {
         'core/paragraph': {
@@ -423,8 +424,10 @@ export default async (app) => {
           },
         },
         'core/button': {
-          margin: false,
-          padding: false,
+          spacing: {
+            margin: false,
+            padding: false,
+          },
           color: {
             palette: [
               {
