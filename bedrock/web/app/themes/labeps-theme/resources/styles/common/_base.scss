@@ -23,5 +23,9 @@ mark{
 }
 
 h1,h2,h3,h4,h5,h6 {
-    text-wrap: balance;
-  }
+    @apply text-balance break-words;
+}
+
+.number-title{
+    @apply text-[90px] font-extrabold;
+}

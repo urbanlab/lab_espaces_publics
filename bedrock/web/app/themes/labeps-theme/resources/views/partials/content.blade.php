@@ -5,12 +5,12 @@
   <div class="entry-summary md:p-4">
     <header>
       @include('partials.entry-meta')
-      <h3 class="entry-title text-base font-bold md:text-lg">
+      <h3 class="entry-title text-base leading-6 font-bold lg:text-lg">
         <a href="{{ get_permalink() }}">
           {!! $title !!}
         </a>
       </h3>
     </header>
-    <p class="truncate">{{get_the_excerpt()}}</p> 
+    <p class="truncate break-words">{{get_the_excerpt()}}</p> 
   </div>
 </article>
