@@ -616,6 +616,7 @@
       "letterSpacing": false,
       "textDecoration": false,
       "textTransform": false,
+      "lineHeight": true,
       "fontFamilies": [
         {
           "fontFamily": "Inter var, sans-serif",
@@ -770,8 +771,10 @@
         }
       },
       "core/button": {
-        "margin": false,
-        "padding": false,
+        "spacing": {
+          "margin": false,
+          "padding": false
+        },
         "color": {
           "palette": [
             {
