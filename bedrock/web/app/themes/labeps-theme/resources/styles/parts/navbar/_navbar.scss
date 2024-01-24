@@ -3,7 +3,7 @@
     .menu-main-menu-container {
         @apply w-full h-full px-3;
         .nav {
-            @apply flex flex-col h-full text-lg font-bold;
+            @apply flex flex-col h-full text-lg font-bold ml-0;
             @screen md{
                 @apply flex-row text-xs font-normal tracking-wide justify-around items-end;
             }

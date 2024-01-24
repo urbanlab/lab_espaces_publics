@@ -267,9 +267,16 @@ return [
     |
     */
 
-    // 'block' => [
-    //     'sage/filter-posts',
-    // ],
+    'block' => [
+        'sage/accordion' => [
+            'attributes' => [
+                'title' => [
+                    'default' => 'Lorem ipsum',
+                    'type' => 'string',
+                ],
+            ],
+        ],
+    ],
 
     /*
     |--------------------------------------------------------------------------
