@@ -14,10 +14,6 @@ En travaillant ensemble pour expérimenter, innover et collaborer, nous pouvons 
 @endif
 <section id="taxonomy-checkboxes" class="bg-secondary p-4">
   <div class="container mx-auto flex justify-around items-center flex-wrap">
-    <label for="all-categories" class="bg-white p-2 border rounded-md border-black">
-      <input type="checkbox" id="all-categories" value="all" checked>
-      Toutes les Catégories
-    </label>
     @foreach ($taxonomy_terms as $taxonomy => $terms)
         @foreach ($terms as $term)
         <label for="category-{{ $term->slug }}" class="bg-white p-2 m-2 border rounded-md border-black">

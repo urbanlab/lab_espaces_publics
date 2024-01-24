@@ -1,5 +1,5 @@
 <article @php(post_class('h-entry single-post'))>
-  <header class="hero-single mb-10">
+  <header class="hero-single">
     <x-breadcrumb/>
     <div class="relative">
       <figure class="flex md:h-96">
@@ -8,8 +8,8 @@
       </div>
   </header>
   <div class="e-content container mx-auto">
-    <img src="@asset('images/icon-single.svg'))" alt="icon article metropole" class="absolute w-11/12 top-60 md:w-3/5 md:top-80 lg:w-1/2 xl:w-1/3 lg:top-72">
-    <h1 class="relative z-10 left-20 top-0 -inset-6 text-balance md:pl-7 mb-12 text-2xl md:text-3xl font-bold md:leading-[3.5rem]">
+    <img src="@asset('images/icon-single.svg'))" alt="icon article metropole" class="absolute w-11/12 top-[230px] md:w-3/5 md:top-80 lg:w-1/2 xl:w-1/3 lg:top-72">
+    <h1 class="relative z-10 left-20 top-0 -inset-6 pt-4 text-balance md:pl-7 mb-12 text-2xl md:text-3xl lg:pt-8 font-bold md:leading-[3.5rem]">
       {!! $title !!}
     </h1>
     <section class="lg:mt-24">

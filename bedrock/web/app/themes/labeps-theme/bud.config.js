@@ -557,4 +557,6 @@ export default async (app) => {
     .useTailwindColors()
     .useTailwindFontFamily()
     .useTailwindFontSize();
+
+  app.register.blocks('./');
 };
