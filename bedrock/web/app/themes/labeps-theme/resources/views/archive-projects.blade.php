@@ -12,42 +12,17 @@
 
   {!! get_search_form(false) !!}
   @endif
-  <section class="bg-secondary  p-4">
-    <div class="container mx-auto flex justify-around items-center flex-wrap">
-      @include('forms.search')
-      @foreach($taxonomy_terms as $taxonomy => $terms)
-        <select id="taxonomy-select" class="my-2 border border-black rounded-md" data-taxonomy="{{ $taxonomy }}" >
-          <option value="all">
-            @switch($taxonomy)
-            @case('defis')
-            Défis
-                @break
-            @case('localisation')
-            Localisations
-                @break
-                @case('projects-mots-clés')
-                Mots clés
-                @break
-            @default
-        @endswitch ()
-          </option>
-          @foreach($terms as $term)
-          <option value="{{ $term->slug }}" id="term-{{ $term->slug }}">{{ $term->name }}</option>
-          @endforeach
-        </select>
-      @endforeach
-    </div>
-  </section>
+  @include('forms.select')
   <div id="ajax-results" class="container mx-auto grid grid-cols-4 gap-4 my-4 max-sm:grid-cols-none">
     @while(have_posts()) @php(the_post())
     @php($defis_terms = get_the_terms(get_the_ID(), 'defis'))
     @php($localisation_terms = get_the_terms(get_the_ID(), 'localisation'))
-    @php($mots_cles_terms = get_the_terms(get_the_ID(), 'projects-mots-clés'))
+    @php($mots_cles_terms = get_the_terms(get_the_ID(), 'mots-clés'))
 
     <div class="single-post
         @if($defis_terms) @foreach($defis_terms as $term) term-defis-{{ $term->slug }} @endforeach @endif
         @if($localisation_terms) @foreach($localisation_terms as $term) term-localisation-{{ $term->slug }} @endforeach @endif
-        @if($mots_cles_terms) @foreach($mots_cles_terms as $term) term-projects-mots-clés-{{ $term->slug }} @endforeach @endif
+        @if($mots_cles_terms) @foreach($mots_cles_terms as $term) term-mots-clés-{{ $term->slug }} @endforeach @endif
     ">
         @includeFirst(['partials.content-' . get_post_type(), 'partials.content-localisation'])
     </div>

@@ -254,6 +254,7 @@ export default async (app) => {
         defaultDuotone: false,
         defaultGradients: false,
         defaultPalette: false,
+        palette: [],
         background: true,
         duotone: [],
         gradients: [],
@@ -484,7 +485,7 @@ export default async (app) => {
             ],
           },
         },
-        'core/list': {},
+        'core/group': {},
         'core/list-item': {
           color: {
             palette: [
