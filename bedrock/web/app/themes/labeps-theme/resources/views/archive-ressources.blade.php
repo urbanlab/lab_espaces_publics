@@ -12,28 +12,16 @@ En travaillant ensemble pour expérimenter, innover et collaborer, nous pouvons 
 
 {!! get_search_form(false) !!}
 @endif
-<section id="taxonomy-checkboxes" class="bg-secondary p-4">
-  <div class="container mx-auto flex justify-around items-center flex-wrap">
-    @foreach ($taxonomy_terms as $taxonomy => $terms)
-        @foreach ($terms as $term)
-        <label for="category-{{ $term->slug }}" class="bg-white p-2 m-2 border rounded-md border-black">
-            <input type="checkbox" id="category-{{ $term->slug }}" value="{{ $term->slug }}">
-            {{ $term->name }}
-          </label>
-        @endforeach
-    @endforeach
-  </div>
-</section>
-    <div id="ajax-results" class="container mx-auto grid grid-cols-4 gap-4 my-4 max-sm:grid-cols-none">
-      @while(have_posts()) @php(the_post())
-      @php($post_terms = get_the_terms(get_the_ID(), 'types'))
-      <div class="single-post term-{{ $post_terms ? $post_terms[0]->slug : '' }}">
-        @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
-      </div>     
-     @endwhile
+@include('forms.checkbox')
+<div id="ajax-results" class="container mx-auto grid grid-cols-4 gap-4 my-4 max-sm:grid-cols-none">
+  @while(have_posts()) @php(the_post())
+    @php($post_terms = get_the_terms(get_the_ID(), 'types'))
+    <div class="single-post term-{{ $post_terms ? $post_terms[0]->slug : '' }}">
+      @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
+    </div>     
+  @endwhile
 </div>
-
-          {!! get_the_posts_navigation() !!}
+  {!! get_the_posts_navigation() !!}
 @endsection
 
 @section('sidebar')
