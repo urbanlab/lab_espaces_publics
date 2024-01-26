@@ -28,7 +28,14 @@ return [
                     'featured_image' => 'thumbnail'
                 ],
                 'types' => [
-                    'taxonomy' => 'types'
+                    'taxonomy' => 'types',
+                    'title'    => 'Types',
+                    'link'     => 'edit',
+                ],
+                'mots-clés' => [
+                    'taxonomy' => 'mots-clés',
+                    'title'    => 'Mots-clés',
+                    'link'     => 'edit',
                 ],
                 'published' => array(
                     'title'       => 'Published',
@@ -66,8 +73,8 @@ return [
                     'meta_key'    => 'published_date',
                     'date_format' => 'd/m/Y'
                 ],
-                'inspirations-mots-clés' => [
-                    'taxonomy' => 'inspirations-mots-clés',
+                'mots-clés' => [
+                    'taxonomy' => 'mots-clés',
                     'title'    => 'Mots-clés',
                     'link'     => 'edit',
                 ],
@@ -112,8 +119,8 @@ return [
                     'meta_key'    => 'published_date',
                     'date_format' => 'd/m/Y'
                 ],
-                'projects-mots-clés' => [
-                    'taxonomy' => 'projects-mots-clés',
+                'mots-clés' => [
+                    'taxonomy' => 'mots-clés',
                     'title'    => 'Mots-clés',
                     'link'     => 'edit',
                 ],
@@ -169,10 +176,11 @@ return [
             ],
         ],
         'defis' => [
-            'links' => ['inspirations', 'projects'],
+            'links' => ['inspirations', 'projects', 'post', 'ressources'],
             'meta_box' => 'radio',
             'dashboard_glance' => true,
             'show_in_rest' => true,
+            'hierarchical' => true,
             'admin_cols' => [
                 'updated' => array(
                     'title'       => 'Updated',
@@ -205,8 +213,8 @@ return [
                 'url' => 'localisation-lab',
             ],
         ],
-        'projects-mots-clés' => [
-            'links' => ['projects'],
+        'mots-clés' => [
+            'links' => ['projects', 'inspirations', 'ressources'],
             'meta_box' => 'radio',
             'dashboard_glance' => true,
             'show_in_rest' => true,
@@ -223,24 +231,6 @@ return [
                 'singular' => 'Mot Clé',
                 'plural' => 'Mot Clés',
                 'url' => 'projects-mots-clés',
-            ],
-        ],
-        'inspirations-mots-clés' => [
-            'links' => ['inspirations'],
-            'meta_box' => 'radio',
-            'dashboard_glance' => true,
-            'show_in_rest' => true,
-            'admin_cols' => [
-                'updated' => array(
-                    'title'       => 'Updated',
-                    'meta_key'    => 'updated_date',
-                    'date_format' => 'd/m/Y'
-                ),
-            ],
-            'labels' => [
-                'singular' => 'Mot Clé',
-                'plural' => 'Mot Clés',
-                'url' => 'inspirations-mots-clés',
             ],
         ],
     ],

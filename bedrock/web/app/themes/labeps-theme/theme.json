@@ -16,11 +16,6 @@
       "defaultDuotone": false,
       "defaultGradients": false,
       "defaultPalette": false,
-      "background": true,
-      "duotone": [],
-      "gradients": [],
-      "link": true,
-      "text": true,
       "palette": [
         {
           "color": "#e2092f",
@@ -557,7 +552,12 @@
           "name": "Indigo 900",
           "slug": "indigo-900"
         }
-      ]
+      ],
+      "background": true,
+      "duotone": [],
+      "gradients": [],
+      "link": true,
+      "text": true
     },
     "spacing": {
       "margin": true,
@@ -831,7 +831,7 @@
           ]
         }
       },
-      "core/list": {},
+      "core/group": {},
       "core/list-item": {
         "color": {
           "palette": [
