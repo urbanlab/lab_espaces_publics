@@ -77,8 +77,9 @@ export default async (app) => {
               text: 'var(--wp--preset--color--primary)',
             },
             typography: {
-              fontSize: 'var(--wp--preset--font-size--2xl)',
-              lineHeight: '2.5rem',
+              fontFamily: 'var(--wp--preset--font-family--sans)',
+              fontSize: '60px',
+              lineHeight: '4rem',
             },
           },
           h2: {
@@ -86,7 +87,7 @@ export default async (app) => {
               text: 'var(--wp--preset--color--white)',
             },
             typography: {
-              fontSize: 'var(--wp--preset--font-size--2xl)',
+              fontSize: '40px',
               lineHeight: '2.3rem',
             },
           },

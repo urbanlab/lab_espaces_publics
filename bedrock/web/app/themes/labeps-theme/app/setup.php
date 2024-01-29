@@ -145,4 +145,3 @@ add_theme_support('custom-logo', [
     'width' => 130,
     'flex-width' => true,
 ]);
-

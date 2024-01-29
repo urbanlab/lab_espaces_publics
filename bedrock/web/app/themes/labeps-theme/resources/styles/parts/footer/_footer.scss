@@ -2,9 +2,12 @@
     @apply bg-white p-4 w-full;
     .menu-menu-footer-container{
         .menu{
-            @apply flex flex-col text-black list-none;
+            @apply flex flex-col text-black list-none ml-0;
             @screen md{
                 @apply w-full flex-row justify-around;
+            }
+            li{
+                @apply px-1;
             }
         }
     }

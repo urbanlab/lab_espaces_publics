@@ -13,15 +13,17 @@ En travaillant ensemble pour expérimenter, innover et collaborer, nous pouvons 
 {!! get_search_form(false) !!}
 @endif
 @include('forms.checkbox')
-<div id="ajax-results" class="container mx-auto grid grid-cols-4 gap-4 my-4 max-sm:grid-cols-none">
-  @while(have_posts()) @php(the_post())
+<section id="ajax-results" class="container mx-auto my-4">
+  <div class="grid grid-cols-4 content-stretch gap-4 max-sm:flex max-sm:flex-col">
+    @while(have_posts()) @php(the_post())
     @php($post_terms = get_the_terms(get_the_ID(), 'types'))
-    <div class="single-post term-{{ $post_terms ? $post_terms[0]->slug : '' }}">
+    <div class="single-post flex flex-wrap break-words term-{{ $post_terms ? $post_terms[0]->slug : '' }}">
       @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
     </div>     
   @endwhile
-</div>
+  </div>
   {!! get_the_posts_navigation() !!}
+</section>
 @endsection
 
 @section('sidebar')
