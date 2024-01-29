@@ -13,7 +13,7 @@
   {!! get_search_form(false) !!}
   @endif
   @include('forms.select')
-  <div id="ajax-results" class="container mx-auto grid grid-cols-4 gap-4 my-4 max-sm:grid-cols-none">
+  <div id="ajax-results" class="container mx-auto grid grid-cols-4 gap-4 my-4 max-sm:flex max-sm:flex-col">
     @while(have_posts()) @php(the_post())
     @php($defis_terms = get_the_terms(get_the_ID(), 'defis'))
     @php($localisation_terms = get_the_terms(get_the_ID(), 'localisation'))

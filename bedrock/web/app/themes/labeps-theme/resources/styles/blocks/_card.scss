@@ -1,5 +1,5 @@
 .card{
-    @apply md:h-96 px-2 py-3 border-2 border-black rounded-md overflow-hidden;
+    @apply px-2 py-3 border-2 border-black rounded-md overflow-hidden;
     figure{
         @apply flex md:h-32;
         img{

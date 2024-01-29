@@ -1,20 +1,5 @@
-p {
-    @apply break-words;
-}
-
-img{
-    @apply max-h-full max-w-full object-cover;
-}
-
-ol{
-    list-style-type: decimal;
-    margin-left: 30px;
-}
-
-ul{
-    list-style-type: disc;
-    margin-left: 30px;
-}
+@import './text';
+@import './lists';
 
 .loupe{
     @apply text-lg text-white rotate-45;

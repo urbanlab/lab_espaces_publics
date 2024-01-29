@@ -1,0 +1,7 @@
+.nav-links{
+    @apply flex justify-end;
+    a{
+        @apply text-primary font-bold text-base;
+
+    }
+}
