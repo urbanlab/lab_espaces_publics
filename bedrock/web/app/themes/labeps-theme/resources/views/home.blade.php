@@ -7,7 +7,7 @@
   @include('partials.hero',[
     'pageIntro' => 'Le Lab met à votre disposition divers guides techniques et méthodologiques, ainsi que des fiches réflex afin de 
     vous outiller sur vos projets.'])
-  @include('partials.category')
+  @include('components.loop-posts')
   <section class="container mx-auto">
     <h2 class="text-primary py-5 text-xl md:text-2xl font-bold">Dernières actus</h2>
     @if (! have_posts())

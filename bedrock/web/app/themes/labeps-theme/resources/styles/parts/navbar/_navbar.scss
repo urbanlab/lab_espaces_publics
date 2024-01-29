@@ -12,6 +12,9 @@
             }
                 li{
                     @apply font-bold hover:text-primary active:text-primary focus:outline-none focus:ring focus:ring-primary space-x-8 list-none;
+                    @screen md{
+                        @apply px-2;
+                    }
                     .sub-menu{
                         @apply text-primary text-base font-normal py-1 px-0;
                         @screen md{

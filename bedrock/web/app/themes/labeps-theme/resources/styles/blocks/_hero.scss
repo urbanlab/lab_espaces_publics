@@ -92,23 +92,16 @@
 }
 
 .actualite-hero{
-    .wp-block-columns{
-        @screen md{
-            @apply  mb-0;
-        }
-        .wp-block-column{
-            .wp-block-image{
-                @apply w-6/12 md:w-2/5 lg:w-3/4;
-            }
-        }
+    .wp-block-image{
+        @apply w-6/12 md:w-2/5 lg:w-3/4;
     }
     .block-heading-text {
-        @apply relative left-1/4 -top-16 md:left-28;
+        @apply relative w-3/4 left-1/4 -top-16 md:left-28 md:w-1/2;
 
         h1{
-            @apply mb-0 text-2xl;
+            @apply mb-0 text-2xl text-wrap;
             @screen md{
-                @apply mb-4 text-3xl;
+                @apply mb-4 text-3xl leading-[4rem] w-full;
             }
         }
         p{
@@ -124,30 +117,28 @@
 }
 
 .hero-single {
-    div{
-        figure::after{
-            content:" ";
-            position: absolute;
-            background-color: white;
-            width: 45vw;
-            height: 220px;
-            top: 110px;
+        // .icon-background::after{
+        //     content:" ";
+        //     position: absolute;
+        //     background-color: white;
+        //     width: 45vw;
+        //     height: 220px;
+        //     top: 110px;
 
-            @screen md{
-                width: 35vw;
-                height: 260px;
-                top: 190px;
-            }
-            @screen lg{
-                width: 31vw;
-                top: 170px;
-            }
-            @screen xl{
-                width: 28vw;
-            }
-        }
-            img{
-                @apply w-screen;
-            }
-    }
+        //     @screen md{
+        //         width: 35vw;
+        //         height: 260px;
+        //         top: 190px;
+        //     }
+        //     @screen lg{
+        //         width: 31vw;
+        //         top: 170px;
+        //     }
+        //     @screen xl{
+        //         width: 28vw;
+        //     }
+        // }
+            // img{
+            //     @apply w-screen;
+            // }
 }

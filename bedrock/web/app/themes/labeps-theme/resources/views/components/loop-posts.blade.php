@@ -11,9 +11,9 @@
             ))) 
           @while($the_query->have_posts()) @php($the_query->the_post())
           <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <div class="flex flex-col w-full bg-white p-4 border rounded-md md:flex-row md:h-80 ">
-              <figure class="rounded-md self-center w-full h-40 md:w-1/2">
-                <?php the_post_thumbnail('large');?>
+            <div class="flex flex-col w-full bg-white p-4 border rounded-md md:flex-row md:h-80 overflow-hidden">
+              <figure class="flex size-auto md:w-1/2">
+                <?php the_post_thumbnail('large', ['class' => 'img-rounded', 'title' => 'Feature image']);?>
               </figure>
               <div class="carousel-caption md:p-4 md:w-1/2 overflow-hidden">
                 @include('partials.entry-meta')

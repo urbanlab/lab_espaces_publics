@@ -2,7 +2,7 @@
     <div class="container mx-auto flex justify-around items-center flex-wrap">
       @include('forms.search')
       @foreach($taxonomy_terms as $taxonomy => $terms)
-        <select id="taxonomy-select" class="my-2 border border-black rounded-md" data-taxonomy="{{ $taxonomy }}" >
+        <select id="taxonomy-select" class="my-2 border w-full md:size-auto border-black rounded-md" data-taxonomy="{{ $taxonomy }}" >
           <option value="all">
             @switch($taxonomy)
             @case('defis')
