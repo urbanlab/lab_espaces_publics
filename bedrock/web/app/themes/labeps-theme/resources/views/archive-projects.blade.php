@@ -19,7 +19,7 @@
     @php($localisation_terms = get_the_terms(get_the_ID(), 'localisation'))
     @php($mots_cles_terms = get_the_terms(get_the_ID(), 'mots-clés'))
 
-    <div class="single-post
+    <div class="single-post flex flex-wrap
         @if($defis_terms) @foreach($defis_terms as $term) term-defis-{{ $term->slug }} @endforeach @endif
         @if($localisation_terms) @foreach($localisation_terms as $term) term-localisation-{{ $term->slug }} @endforeach @endif
         @if($mots_cles_terms) @foreach($mots_cles_terms as $term) term-mots-clés-{{ $term->slug }} @endforeach @endif
