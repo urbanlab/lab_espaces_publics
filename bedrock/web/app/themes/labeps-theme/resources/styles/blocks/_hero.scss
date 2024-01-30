@@ -116,29 +116,27 @@
     }
 }
 
-.hero-single {
-        // .icon-background::after{
-        //     content:" ";
-        //     position: absolute;
-        //     background-color: white;
-        //     width: 45vw;
-        //     height: 220px;
-        //     top: 110px;
+.icon-hero-single::before{
+    content:" ";
+    position: absolute;
+    background-color: white;
+    width: 160px;
+    height: 130px;
+    top: -10px;
+    left: -20px;
+    @screen md{
+        width: 38vw;
+        height: 220px;
+        top: 0;
+        left: -90px
+    }
+    @screen lg{
+        width: 28vw;
+        left: -100px
 
-        //     @screen md{
-        //         width: 35vw;
-        //         height: 260px;
-        //         top: 190px;
-        //     }
-        //     @screen lg{
-        //         width: 31vw;
-        //         top: 170px;
-        //     }
-        //     @screen xl{
-        //         width: 28vw;
-        //     }
-        // }
-            // img{
-            //     @apply w-screen;
-            // }
+    }
+    @screen xl{
+        left: -200px
+
+    }
 }
