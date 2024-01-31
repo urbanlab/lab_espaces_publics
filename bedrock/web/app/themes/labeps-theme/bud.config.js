@@ -18,7 +18,7 @@ export default async (app) => {
   app
     .entry('app', ['@scripts/app', '@styles/app'])
     .entry('editor', ['@scripts/editor', '@styles/editor'])
-    .assets(['images'])
+    .assets(['images', 'fonts'])
     .watch('resources/views/**/*', 'app/**/*')
     .use(new bs({proxy: 'http://localhost:8080/'}));
 
@@ -27,7 +27,7 @@ export default async (app) => {
    *
    * @see {@link https://bud.js.org/docs/bud.setPublicPath}
    */
-  app.setPublicPath('/app/themes/sage/public/');
+  app.setPublicPath('/app/themes/labeps-theme/public/');
 
   /**
    * Development server settings
@@ -100,7 +100,7 @@ export default async (app) => {
           h4: {
             typography: {
               fontSize: 'var(--wp--preset--font-size--xl)',
-              lineHeight: '1.3rem',
+              lineHeight: '1.5rem',
             },
           },
         },

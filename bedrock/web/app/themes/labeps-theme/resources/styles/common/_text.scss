@@ -27,3 +27,45 @@ a{
 .number-title{
     @apply text-[90px] font-extrabold;
 }
+
+.heading-single{
+    h1::before{
+        content:" ";
+        position: absolute;
+        display: block;
+        background: url('/images/icon-single.svg') no-repeat;
+        background-size: 100%;
+        width: 160px;
+        height: 110px;
+        top: 365px;
+        left: 10px;
+        z-index: 10;
+
+        @screen md{
+            width: 300px;
+            height: 250px;
+            top: 380px;
+            left: 30px;
+
+        }
+        @screen lg{
+            width: 400px;
+            height: 350px;
+            top: 330px;
+            left: 40px;
+        }
+        @screen xl{
+            left: 150px;
+        }
+        @screen 2xl{
+            left: 180px;
+        }
+    }
+}
+
+.about-hero-text{
+    @apply pr-0 pl-16;
+    h1{
+        @apply mb-0;
+    }
+}
