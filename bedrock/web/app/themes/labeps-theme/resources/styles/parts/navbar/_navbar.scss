@@ -5,15 +5,15 @@
         #menu-main-menu {
             @apply flex flex-col h-full text-lg font-bold ml-0;
             @screen md{
-                @apply flex-row text-xs font-normal tracking-wide justify-around items-end;
+                @apply flex-row justify-around items-end;
             }
             @screen lg{
-                @apply text-sm
+                @apply text-sm font-bold tracking-wide;
             }
                 li{
                     @apply font-bold hover:text-primary active:text-primary focus:outline-none focus:ring focus:ring-primary space-x-8 list-none;
                     @screen md{
-                        @apply px-2;
+                        @apply px-2 text-xs;
                     }
                     .sub-menu{
                         @apply text-primary text-base font-normal py-1 px-0;

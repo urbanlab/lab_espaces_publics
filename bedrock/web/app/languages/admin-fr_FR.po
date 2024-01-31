@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 6.4.x - Development - Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-08 14:38:39+0000\n"
+"PO-Revision-Date: 2024-01-16 15:58:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -751,7 +751,7 @@ msgstr "<a href=\"https://fr.wordpress.org/support/article/plugins-themes-auto-u
 
 #: wp-admin/options-general.php:430
 msgid "<a href=\"https://wordpress.org/documentation/article/customize-date-and-time-format/\">Documentation on date and time formatting</a>."
-msgstr "<a href=\"https://fr.wordpress.org/support/article/formatting-date-and-time/\">Documentation on date and time formatting</a>."
+msgstr "<a href=\"https://fr.wordpress.org/support/article/formatting-date-and-time/\">Documentation sur le formatage de la date et de l’heure</a>."
 
 #: wp-admin/options-general.php:46 wp-admin/network/settings.php:56
 msgid "You can set the language, and WordPress will automatically download and install the translation files (available if your filesystem is writable)."
@@ -1014,7 +1014,7 @@ msgstr "Un cache objet persistant est utilisé"
 #. translators: Localized Support reference.
 #: wp-admin/includes/class-wp-site-health.php:2620
 msgid "https://wordpress.org/documentation/article/optimization/#persistent-object-cache"
-msgstr "https://wordpress.org/documentation/article/optimization/#persistent-object-cache"
+msgstr "https://wordpress.org/documentation/article/optimization/#persistent-object-cache (en anglais)"
 
 #: wp-admin/includes/class-wp-site-health.php:2595
 msgid "A page cache plugin was not detected."
@@ -1082,7 +1082,7 @@ msgstr "En savoir plus sur la mise en cache des pages"
 
 #: wp-admin/includes/class-wp-site-health.php:2511
 msgid "https://wordpress.org/documentation/article/optimization/#Caching"
-msgstr "https://wordpress.org/documentation/article/optimization/#Caching"
+msgstr "https://wordpress.org/documentation/article/optimization/#Caching (en anglais)"
 
 #: wp-admin/includes/class-wp-site-health.php:2497
 msgid "Page cache is detected by looking for an active page cache plugin as well as making three requests to the homepage and looking for one or more of the following HTTP client caching response headers:"
@@ -3533,7 +3533,7 @@ msgstr "<a href=\"https://fr.wordpress.org/support/article/appearance-menus-scre
 
 #: wp-admin/plugin-editor.php:152
 msgid "<a href=\"https://developer.wordpress.org/plugins/\">Documentation on Writing Plugins</a>"
-msgstr "<a href=\"https://developer.wordpress.org/plugins/\">Documentation sur l’écriture d’extensions</a>"
+msgstr "<a href=\"https://developer.wordpress.org/plugins/\">Documentation sur l’écriture d’extensions en anglais)</a>"
 
 #: wp-admin/plugin-editor.php:151
 msgid "<a href=\"https://wordpress.org/documentation/article/plugins-editor-screen/\">Documentation on Editing Plugins</a>"
@@ -8424,19 +8424,19 @@ msgstr "Vous pouvez également insérer des contenus en provenance de nombreux s
 
 #: wp-admin/includes/class-custom-background.php:107
 msgid "<a href=\"https://codex.wordpress.org/Appearance_Background_Screen\">Documentation on Custom Background</a>"
-msgstr "<a href=\"https://codex.wordpress.org/Appearance_Background_Screen\">Documentation sur l’arrière-plan personnalisé (en)</a>"
+msgstr "<a href=\"https://codex.wordpress.org/Appearance_Background_Screen\">Documentation sur l’arrière-plan personnalisé (en anglais)</a>"
 
 #: wp-admin/edit-tags.php:307
 msgid "<a href=\"https://codex.wordpress.org/Links_Link_Categories_Screen\">Documentation on Link Categories</a>"
-msgstr "<a href=\"https://codex.wordpress.org/Links_Link_Categories_Screen\">Documentation sur les catégories de liens (en)</a>"
+msgstr "<a href=\"https://codex.wordpress.org/Links_Link_Categories_Screen\">Documentation sur les catégories de liens (en anglais)</a>"
 
 #: wp-admin/edit-link-form.php:76
 msgid "<a href=\"https://codex.wordpress.org/Links_Add_New_Screen\">Documentation on Creating Links</a>"
-msgstr "<a href=\"https://codex.wordpress.org/Links_Add_New_Screen\">Documentation sur la création de liens (en)</a>"
+msgstr "<a href=\"https://codex.wordpress.org/Links_Add_New_Screen\">Documentation sur la création de liens (en anglais)</a>"
 
 #: wp-admin/link-manager.php:79
 msgid "<a href=\"https://codex.wordpress.org/Links_Screen\">Documentation on Managing Links</a>"
-msgstr "<a href=\"https://codex.wordpress.org/Links_Screen\">Documentation sur la gestion des liens (en)</a>"
+msgstr "<a href=\"https://codex.wordpress.org/Links_Screen\">Documentation sur la gestion des liens (en anglais)</a>"
 
 #: wp-admin/includes/class-custom-image-header.php:143
 msgid "<a href=\"https://codex.wordpress.org/Appearance_Header_Screen\">Documentation on Custom Header</a>"
@@ -8444,7 +8444,7 @@ msgstr "<a href=\"https://codex.wordpress.org/fr:Appearance_Header_Screen\">Docu
 
 #: wp-admin/my-sites.php:52
 msgid "<a href=\"https://codex.wordpress.org/Dashboard_My_Sites_Screen\">Documentation on My Sites</a>"
-msgstr "<a href=\"https://codex.wordpress.org/Dashboard_My_Sites_Screen\">Documentation sur Mes Sites (en)</a>"
+msgstr "<a href=\"https://codex.wordpress.org/Dashboard_My_Sites_Screen\">Documentation sur Mes Sites (en anglais)</a>"
 
 #: wp-admin/widgets.php:24
 msgid "The theme you are currently using is not widget-aware, meaning that it has no sidebars that you are able to change. For information on making your theme widget-aware, please <a href=\"https://developer.wordpress.org/themes/functionality/widgets/\">follow these instructions</a>."

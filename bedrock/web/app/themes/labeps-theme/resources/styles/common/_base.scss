@@ -10,7 +10,7 @@ mark{
 }
 
 img{
-    @apply max-h-full max-w-full object-cover;
+    @apply min-h-full min-w-full object-cover;
 }
 
 .img-rounded{
