@@ -1,4 +1,4 @@
-<section class="bg-secondary h-[600px] w-full p-8">
+<section class="bg-secondary h-[600px] w-full p-8 carrousel-posts-news">
   <div class="container mx-auto">
     <h2 class="text-white font-bold text-xl my-4 md:text-2xl">À la une</h2>
     <div id="default-carousel" class="relative w-full" data-carousel="static">
