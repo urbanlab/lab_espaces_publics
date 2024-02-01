@@ -949,7 +949,7 @@
       "h4": {
         "typography": {
           "fontSize": "var(--wp--preset--font-size--xl)",
-          "lineHeight": "1.3rem"
+          "lineHeight": "1.5rem"
         }
       }
     },
