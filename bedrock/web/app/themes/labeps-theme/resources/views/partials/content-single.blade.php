@@ -6,12 +6,12 @@
      </figure>
   </header>
   <div class="e-content container mx-auto mb-10">
-    <div class="heading-single z-10">
-      <h1 class="pl-8 pb-6 md:pb-9 text-xl md:text-3xl leading-7 md:leading-[3.5rem] font-bold text-balance">
+    <div class="heading-single">
+      <h1 class="pl-8 text-xl md:text-3xl leading-7 md:leading-[3.5rem] font-bold">
         {!! $title !!}
       </h1>
     </div>
-    <section class="lg:mt-24">
+    <section>
       @include('partials.entry-meta')
       @php(the_content())
     </section>

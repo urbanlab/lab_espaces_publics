@@ -116,7 +116,7 @@
         @apply w-6/12 md:w-2/5 lg:w-1/4;
     }
     .block-heading-text {
-        @apply relative w-3/4 left-1/4 -top-16 md:left-28 md:w-1/2;
+        @apply relative w-3/4 left-1/4 -top-16 md:left-36 md:w-1/2;
 
         h1{
             @apply mb-0 text-2xl text-wrap;
@@ -142,26 +142,25 @@
         position: absolute;
         background-color: white;
         left: 0;
-        top: 356px;
-        width: 80px;
-        height: 80px;
-
+        top: 345px;
+        width: 6rem;
+        height: 6rem;
         @screen md{
             top: 374px;
-            width: 165px;
-            height: 138px;
+            width: 11rem;
+            height: 9rem;
         }
         @screen lg{
-            top: 316px;
-            width: 230px;
-            height: 180px;
+            top: 350px;
+            width: 14rem;
+            height: 10rem;
         }
-        @screen lg{
-            width: 320px;
+        @screen xl{
+            width: 20rem;
         }
         @screen 2xl{
             top: 300px;
-            width: 350px;
+            width: 49rem;
             height: 200px;
         }
     }

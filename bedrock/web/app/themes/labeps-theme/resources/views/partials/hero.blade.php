@@ -1,4 +1,4 @@
-<div class="wp-block-group actualite-hero container mx-auto">
+<div class="wp-block-group actualite-hero container mx-auto header-background">
   <figure class="wp-block-image">
     <img src="@asset('images/archive-hero.svg')" alt="" class="wp-image-115"/>
   </figure>
