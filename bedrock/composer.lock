@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7cc4c74f21661547503fc804deca260f",
+    "content-hash": "b77d77956a90317f3052cc52ecdb30d5",
     "packages": [
         {
             "name": "brick/math",
@@ -5505,6 +5505,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/svg-block/"
+        },
+        {
+            "name": "wpackagist-plugin/ultimate-addons-for-gutenberg",
+            "version": "2.12.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/ultimate-addons-for-gutenberg/",
+                "reference": "tags/2.12.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/ultimate-addons-for-gutenberg.2.12.2.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/ultimate-addons-for-gutenberg/"
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
