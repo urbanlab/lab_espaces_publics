@@ -57,7 +57,8 @@
     "wpackagist-plugin/carousel-block": "^1.0",
     "wpackagist-plugin/svg-block": "^1.1",
     "wpackagist-plugin/copy-delete-posts": "^1.4",
-    "wpackagist-plugin/wp-carousel-free": "^2.6"
+    "wpackagist-plugin/wp-carousel-free": "^2.6",
+    "wpackagist-plugin/ultimate-addons-for-gutenberg": "^2.12"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.1",
