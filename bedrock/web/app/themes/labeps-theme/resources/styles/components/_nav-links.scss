@@ -1,7 +1,10 @@
 .nav-links{
-    @apply flex justify-end;
+    @apply flex justify-end space-x-4 text-primary font-bold text-base ;
     a{
-        @apply text-primary font-bold text-base;
+        @apply space-x-4;
 
+    }
+    span{
+        @apply underline;
     }
 }

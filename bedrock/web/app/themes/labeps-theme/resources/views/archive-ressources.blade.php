@@ -14,7 +14,7 @@ En travaillant ensemble pour expérimenter, innover et collaborer, nous pouvons 
 @endif
 @include('forms.checkbox')
 <section id="ajax-results" class="container mx-auto my-4">
-  <div class="grid grid-cols-4 content-stretch gap-4 max-sm:flex max-sm:flex-col">
+  <div class="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 content-stretch gap-3">
     @while(have_posts()) @php(the_post())
     @php($post_terms = get_the_terms(get_the_ID(), 'types'))
     <div class="single-post flex flex-wrap break-words term-{{ $post_terms ? $post_terms[0]->slug : '' }}">
@@ -22,7 +22,7 @@ En travaillant ensemble pour expérimenter, innover et collaborer, nous pouvons 
     </div>     
   @endwhile
   </div>
-  {!! get_the_posts_navigation() !!}
+  {!! the_posts_pagination() !!}
 </section>
 @endsection
 

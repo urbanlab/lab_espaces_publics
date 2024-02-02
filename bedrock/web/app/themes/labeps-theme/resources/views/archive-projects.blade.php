@@ -13,7 +13,7 @@
   {!! get_search_form(false) !!}
   @endif
   @include('forms.select')
-  <div id="ajax-results" class="container mx-auto grid grid-cols-4 gap-4 my-4 max-sm:flex max-sm:flex-col">
+  <div id="ajax-results" class="container mx-auto flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 content-stretch gap-3">
     @while(have_posts()) @php(the_post())
     @php($defis_terms = get_the_terms(get_the_ID(), 'defis'))
     @php($localisation_terms = get_the_terms(get_the_ID(), 'localisation'))
@@ -28,9 +28,7 @@
     </div>
    @endwhile
   </div>
-
-
-  {!! get_the_posts_navigation() !!}
+  {!! the_posts_pagination() !!}
   @endsection
 
 @section('sidebar')
