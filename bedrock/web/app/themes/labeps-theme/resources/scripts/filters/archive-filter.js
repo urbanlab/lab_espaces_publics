@@ -70,8 +70,9 @@ export function archiveFilterInspirations() {
         });
       // Use the 'taxonomy' variable within the function
       if (term === 'all' || postTerms.includes(term)) {
-        post.style.display = 'block';
+        post.style.display = 'flex';
       } else {
+        console.log(post.style.display);
         post.style.display = 'none';
       }
     });
