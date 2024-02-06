@@ -14,18 +14,18 @@
   @endif
   @include('forms.select')
   <section id="ajax-results" class="container mx-auto my-4">
-    <div class="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 content-stretch gap-3">
+    <div class="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 content-stretch gap-4">
       @while(have_posts()) @php(the_post())
       @php($defis_terms = get_the_terms(get_the_ID(), 'defis'))
-      @php($localisation_terms = get_the_terms(get_the_ID(), 'localisation'))
+      @php($localisation_terms = get_the_terms(get_the_ID(), 'localisation-internationale'))
       @php($mots_cles_terms = get_the_terms(get_the_ID(), 'mots-clés'))
   
-      <div class="single-post flex flex-wrap
+      <div class="single-post
           @if($defis_terms) @foreach($defis_terms as $term) term-defis-{{ $term->slug }} @endforeach @endif
-          @if($localisation_terms) @foreach($localisation_terms as $term) term-localisation-{{ $term->slug }} @endforeach @endif
+          @if($localisation_terms) @foreach($localisation_terms as $term) term-localisation-internationale-{{ $term->slug }} @endforeach @endif
           @if($mots_cles_terms) @foreach($mots_cles_terms as $term) term-mots-clés-{{ $term->slug }} @endforeach @endif
       ">
-          @includeFirst(['partials.content-' . get_post_type(), 'partials.content-localisation'])
+          @includeFirst(['partials.content-' . get_post_type(), 'partials.content-inspiration'])
       </div>
      @endwhile
     </div>

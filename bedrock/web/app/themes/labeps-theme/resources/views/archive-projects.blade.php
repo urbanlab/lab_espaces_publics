@@ -13,18 +13,18 @@
   {!! get_search_form(false) !!}
   @endif
   @include('forms.select')
-  <div id="ajax-results" class="container mx-auto flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 content-stretch gap-3">
+  <div id="ajax-results" class="container mx-auto flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 content-stretch gap-4 my-4">
     @while(have_posts()) @php(the_post())
     @php($defis_terms = get_the_terms(get_the_ID(), 'defis'))
-    @php($localisation_terms = get_the_terms(get_the_ID(), 'localisation'))
+    @php($localisation_terms = get_the_terms(get_the_ID(), 'localisation-metropole'))
     @php($mots_cles_terms = get_the_terms(get_the_ID(), 'mots-clés'))
 
-    <div class="single-post flex flex-wrap
+    <div class="single-post
         @if($defis_terms) @foreach($defis_terms as $term) term-defis-{{ $term->slug }} @endforeach @endif
-        @if($localisation_terms) @foreach($localisation_terms as $term) term-localisation-{{ $term->slug }} @endforeach @endif
+        @if($localisation_terms) @foreach($localisation_terms as $term) term-localisation-metropole-{{ $term->slug }} @endforeach @endif
         @if($mots_cles_terms) @foreach($mots_cles_terms as $term) term-mots-clés-{{ $term->slug }} @endforeach @endif
     ">
-        @includeFirst(['partials.content-' . get_post_type(), 'partials.content-localisation'])
+        @includeFirst(['partials.content-' . get_post_type(), 'partials.content-projects'])
     </div>
    @endwhile
   </div>

@@ -1,7 +1,9 @@
 <article class='card flex flex-col bg-white p-4 my-6 md:flex-row @php(get_post_class())'>
-  <figure class="size-auto">
-    {!!get_the_post_thumbnail()!!}
-  </figure>
+  <a href="{{ get_permalink() }}">
+    <figure class="size-auto">
+      {!!get_the_post_thumbnail()!!}
+    </figure>
+  </a>
   <div class="entry-summary md:p-4">
     <header>
       @include('partials.entry-meta')
