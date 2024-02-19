@@ -12,7 +12,7 @@ En travaillant ensemble pour expérimenter, innover et collaborer, nous pouvons 
 
 {!! get_search_form(false) !!}
 @endif
-@include('forms.checkbox')
+@include('forms.checkbox', ['taxonomies' => $taxonomies, 'cpt' => $cpt])
 <section id="ajax-results" class="container mx-auto my-4">
   <div class="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 content-stretch gap-3">
     @while(have_posts()) @php(the_post())

@@ -1,80 +1,42 @@
-export function archiveFilterRessources() {
-  const taxonomyCheckboxes = document.querySelectorAll(
-    '#taxonomy-checkboxes input[type="checkbox"]',
-  );
-  const allPosts = document.querySelectorAll('.single-post');
+export function checkboxPosts() {
+  var checkboxes = document.querySelectorAll('#filters input[type="checkbox"]');
 
-  taxonomyCheckboxes.forEach(function (checkbox) {
+  // Ajoutez un écouteur d'événements pour chaque case à cocher
+  checkboxes.forEach(function (checkbox) {
     checkbox.addEventListener('change', function () {
-      // Get selected terms
-      const selectedTerms = Array.from(taxonomyCheckboxes)
-        .filter(function (checkbox) {
-          return checkbox.checked && checkbox.value !== 'all';
-        })
-        .map(function (checkbox) {
-          return checkbox.value;
-        });
-
-      // Filter and display posts based on the selected terms
-      filterPosts(selectedTerms);
+      // Soumettez le formulaire lorsque l'état d'une case change
+      document.getElementById('filters').submit();
     });
   });
-
-  function filterPosts(terms) {
-    allPosts.forEach(function (post) {
-      const postTerms = Array.from(post.classList)
-        .filter(function (className) {
-          return className.startsWith('term-');
-        })
-        .map(function (className) {
-          return className.replace('term-', '');
-        });
-
-      // Show or hide posts based on the selected terms
-      if (
-        terms.length === 0 ||
-        terms.some(function (term) {
-          return postTerms.includes(term);
-        })
-      ) {
-        post.style.display = 'block';
-      } else {
-        post.style.display = 'none';
-      }
-    });
-  }
 }
 
-export function archiveFilterInspirations() {
-  const allPosts = document.querySelectorAll('.single-post');
+export function selectPosts() {
+  var form = document.getElementById('filters');
 
-  // Retrieve all selection elements with the data attribute
-  const taxonomySelects = document.querySelectorAll('[data-taxonomy]');
+  // Ajoutez un écouteur d'événements pour les sélections et les cases à cocher
+  form.addEventListener(
+    'change',
+    function (e) {
+      if (e.target.tagName === 'SELECT' || e.target.type === 'checkbox') {
+        // Empêche le formulaire de soumettre normalement
+        e.preventDefault();
 
-  taxonomySelects.forEach(function (taxonomySelect) {
-    taxonomySelect.addEventListener('change', function () {
-      const selectedTerm = taxonomySelect.value;
-      const taxonomy = taxonomySelect.dataset.taxonomy;
-      filterPosts(selectedTerm, taxonomy);
-    });
-  });
+        // Créez un FormData basé sur le formulaire
+        var formData = new FormData(form);
 
-  function filterPosts(term, taxonomy) {
-    allPosts.forEach(function (post) {
-      const postTerms = Array.from(post.classList)
-        .filter(function (className) {
-          return className.startsWith('term-' + taxonomy + '-');
+        // Utilisez fetch pour soumettre le formulaire via AJAX
+        fetch(form.action, {
+          method: 'POST',
+          body: formData,
         })
-        .map(function (className) {
-          return className.replace('term-' + taxonomy + '-', '');
-        });
-      // Use the 'taxonomy' variable within the function
-      if (term === 'all' || postTerms.includes(term)) {
-        post.style.display = 'flex';
-      } else {
-        console.log(post.style.display);
-        post.style.display = 'none';
+          .then((response) => response.json()) // Supposons que le serveur répond avec JSON
+          .then((data) => {
+            // Traitez la réponse ici, par exemple, mettre à jour la partie de la page avec les résultats filtrés
+            console.log(data);
+          })
+          .catch((error) => console.error('Erreur:', error));
       }
-    });
-  }
+    },
+    false,
+  );
 }

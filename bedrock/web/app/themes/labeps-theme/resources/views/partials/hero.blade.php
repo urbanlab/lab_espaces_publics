@@ -4,6 +4,6 @@
   </figure>
   <div class="block-heading-text">
     <h1 class="wp-block-heading">{!! $title !!}</h1>
-    <p>{!! $pageIntro !!}</p>
+    <p>{!! isset($pageIntro) ? $pageIntro : "" !!}</p>
   </div>        
 </div>
