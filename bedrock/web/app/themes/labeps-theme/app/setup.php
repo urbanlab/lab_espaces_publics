@@ -57,7 +57,7 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'sage'),
+        'primary_navigation' => __('Primary Navigation', 'labeps-theme'),
     ]);
 
     /**
@@ -145,3 +145,18 @@ add_theme_support('custom-logo', [
     'width' => 130,
     'flex-width' => true,
 ]);
+
+
+/**
+ * Register ajax.
+ *
+ * @return void
+ */
+
+add_action('wp_enqueue_scripts', function () {
+    wp_enqueue_script('labeps-theme/app.js', asset('scripts/app.js')->uri(), ['jquery'], null, true);
+    wp_localize_script('labeps-theme/app.js', 'ajax_object', [
+        'ajaxurl' => admin_url('ajax.php'), 
+        'nonce' => wp_create_nonce('my_custom_nonce')
+    ]);
+}, 100);

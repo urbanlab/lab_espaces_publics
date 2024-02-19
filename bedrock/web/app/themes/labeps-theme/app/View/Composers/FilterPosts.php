@@ -22,29 +22,36 @@ class FilterPosts extends Composer
      *
      * @return array
      */
-    public function with()
-    {
-        return [
-            'taxonomy_terms' => $this->getTaxonomyTerms(), // Pass the taxonomy name here
+
+     public function with()
+{
+    $queriedObject = get_queried_object();
+    $cpt = $queriedObject instanceof \WP_Post_Type ? $queriedObject->name : null;
+
+    return [
+        'taxonomies' => $this->taxonomies($cpt),
+        'cpt' => $cpt,
+    ];
+}
+
+protected function taxonomies($cpt = null)
+{
+    // Si aucun CPT n'est fourni, retourner un tableau vide ou une valeur par défaut
+    if (!$cpt) {
+        return [];
+    }
+
+    $taxonomies = get_object_taxonomies($cpt, 'objects');
+    $data = [];
+
+    foreach ($taxonomies as $taxonomy) {
+        $terms = get_terms(['taxonomy' => $taxonomy->name, 'hide_empty' => false]);
+        $data[$taxonomy->name] = [
+            'hierarchical' => $taxonomy->hierarchical,
+            'terms' => $terms,
         ];
     }
 
-    protected function getTaxonomyTerms()
-    {
-        $post_type = get_post_type(); // Get the current post type
-
-        if (!$post_type) {
-            return [];
-        }
-
-        $taxonomies = get_object_taxonomies($post_type);
-
-        $terms = [];
-
-        foreach ($taxonomies as $taxonomy) {
-            $terms[$taxonomy] = get_terms(['taxonomy' => $taxonomy, 'hide_empty' => false]);
-        }
-
-        return $terms;
+    return $data;
     }
 }

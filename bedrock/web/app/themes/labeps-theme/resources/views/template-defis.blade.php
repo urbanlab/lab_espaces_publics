@@ -1,5 +1,6 @@
 {{--
-  Template Name: Défis Template
+  Template Name: Pages défis
+  Template Post Type: page, post
 --}}
 
 @extends('layouts.app')

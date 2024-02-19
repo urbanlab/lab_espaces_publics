@@ -1,17 +1,16 @@
 import domReady from '@roots/sage/client/dom-ready';
 import 'flowbite';
 import '@scripts/filters/archive-filter';
-import {
-  archiveFilterInspirations,
-  archiveFilterRessources,
-} from '@scripts/filters/archive-filter';
+import {checkboxPosts, selectPosts} from '@scripts/filters/archive-filter';
 import {Matomo} from './matomo';
+import {callAjax} from './ajax';
 /**
  * Application entrypoint
  */
 domReady(async () => {
-  archiveFilterRessources();
-  archiveFilterInspirations();
+  callAjax();
+  checkboxPosts();
+  selectPosts();
   Matomo();
 });
 
