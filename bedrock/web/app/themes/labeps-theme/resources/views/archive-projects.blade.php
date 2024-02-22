@@ -19,7 +19,7 @@
           @include('partials.content-projects', ['post' => get_post()])
         @endwhile
     </div>
-        <div id="pagination-container" class="col-end-7">
+        <div id="pagination-container">
           {!! the_posts_pagination() !!}
         </div>    
       </section>
