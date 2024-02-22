@@ -7,32 +7,25 @@
   En travaillant ensemble pour expérimenter, innover et collaborer, nous pouvons créer des espaces publics plus inclusifs, durables et adaptés aux besoins des usagers.'])
   @if (! have_posts())
   <x-alert type="warning">
-    {!! __('Sorry, no results were found.', 'sage') !!}
+    {!! __('Sorry, no results were found.', 'labeps') !!}
   </x-alert>
 
   {!! get_search_form(false) !!}
-  @endif
-  @include('forms.select')
-  <section id="ajax-results" class="container mx-auto my-4">
-    <div class="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 content-stretch gap-4">
-      @while(have_posts()) @php(the_post())
-      @php($defis_terms = get_the_terms(get_the_ID(), 'defis'))
-      @php($localisation_terms = get_the_terms(get_the_ID(), 'localisation-internationale'))
-      @php($mots_cles_terms = get_the_terms(get_the_ID(), 'mots-clés'))
   
-      <div class="single-post
-          @if($defis_terms) @foreach($defis_terms as $term) term-defis-{{ $term->slug }} @endforeach @endif
-          @if($localisation_terms) @foreach($localisation_terms as $term) term-localisation-internationale-{{ $term->slug }} @endforeach @endif
-          @if($mots_cles_terms) @foreach($mots_cles_terms as $term) term-mots-clés-{{ $term->slug }} @endforeach @endif
-      ">
-          @includeFirst(['partials.content-' . get_post_type(), 'partials.content-inspiration'])
-      </div>
-     @endwhile
+  @endif
+    @include('forms.select', ['taxonomies' => $taxonomies, 'cpt' => $cpt])
+  <section class="container mx-auto my-4">
+    <div id="results-container" class="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 content-stretch gap-3">
+      @while(have_posts()) @php(the_post())
+        @include('partials.content-inspirations', ['post' => get_post()])
+      @endwhile
     </div>
-    {!! the_posts_pagination() !!}
-
+    <div id="pagination-container" class="self-end">
+      {!! the_posts_pagination() !!}
+    </div>
   </section>
-  @endsection
+
+@endsection
 
 @section('sidebar')
   @include('sections.sidebar')

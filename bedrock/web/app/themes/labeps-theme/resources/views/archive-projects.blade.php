@@ -12,23 +12,17 @@
 
   {!! get_search_form(false) !!}
   @endif
-  @include('forms.select')
-  <div id="ajax-results" class="container mx-auto flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 content-stretch gap-4 my-4">
-    @while(have_posts()) @php(the_post())
-    @php($defis_terms = get_the_terms(get_the_ID(), 'defis'))
-    @php($localisation_terms = get_the_terms(get_the_ID(), 'localisation-metropole'))
-    @php($mots_cles_terms = get_the_terms(get_the_ID(), 'mots-clés'))
-
-    <div class="single-post
-        @if($defis_terms) @foreach($defis_terms as $term) term-defis-{{ $term->slug }} @endforeach @endif
-        @if($localisation_terms) @foreach($localisation_terms as $term) term-localisation-metropole-{{ $term->slug }} @endforeach @endif
-        @if($mots_cles_terms) @foreach($mots_cles_terms as $term) term-mots-clés-{{ $term->slug }} @endforeach @endif
-    ">
-        @includeFirst(['partials.content-' . get_post_type(), 'partials.content-projects'])
+  @include('forms.select', ['taxonomies' => $taxonomies, 'cpt' => $cpt])
+  <section class="container mx-auto my-4">
+    <div id="results-container" class="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 content-stretch gap-3">
+        @while(have_posts()) @php(the_post())
+          @include('partials.content-projects', ['post' => get_post()])
+        @endwhile
     </div>
-   @endwhile
-  </div>
-  {!! the_posts_pagination() !!}
+        <div id="pagination-container" class="col-end-7">
+          {!! the_posts_pagination() !!}
+        </div>    
+      </section>
   @endsection
 
 @section('sidebar')

@@ -12,8 +12,8 @@
           @while($the_query->have_posts()) @php($the_query->the_post())
           <div class="hidden duration-700 ease-in-out" data-carousel-item>
             <div class="flex flex-col w-full bg-white p-4 border rounded-md md:flex-row md:h-80 overflow-hidden">
-              <a href="{{ get_permalink() }}">
-                <figure class="flex size-auto md:w-1/2">
+              <a href="{{ get_permalink() }}" class="flex md:w-1/2">
+                <figure>
                   <?php the_post_thumbnail('large', ['class' => 'img-rounded', 'title' => 'Feature image']);?>
                 </figure>
               </a>

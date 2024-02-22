@@ -1,7 +1,11 @@
-<section class="bg-secondary  p-4">
+<section class="bg-secondary p-4">
     <div class="container mx-auto flex justify-around items-center flex-wrap">
-      <form id="filters">
+      <form id="filters" action="#" method="POST">
+        @php
+          wp_nonce_field('filter_posts_nonce', 'filter_posts_nonce_field');
+        @endphp
         @foreach($taxonomies as $name => $taxonomy)
+        <input type="hidden" name="content_type" value="{{$cpt}}">
         @php
           $taxonomyObj = get_taxonomy($name);
           $taxonomyLabel = !empty($taxonomyObj->labels->singular_name) ? $taxonomyObj->labels->singular_name : ucfirst($name);
