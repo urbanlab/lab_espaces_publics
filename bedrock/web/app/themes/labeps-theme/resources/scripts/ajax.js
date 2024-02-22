@@ -16,19 +16,15 @@ export function callAjax(page = 1) {
       credentials: 'same-origin',
     })
       .then((response) => {
-        console.log(response);
         if (!response.ok) {
           throw new Error('Réponse réseau non OK');
         }
         return response.json();
       })
       .then((data) => {
-        console.log('NARDINE', data);
-
         if (data && data.success) {
           const container = document.getElementById('results-container');
           container.innerHTML = data.data.html;
-          console.log('PAGE :', data.data.pagination);
           document.getElementById('pagination-container').innerHTML =
             data.data.pagination;
         } else {
