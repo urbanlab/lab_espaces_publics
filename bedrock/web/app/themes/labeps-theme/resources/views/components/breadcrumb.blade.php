@@ -1,7 +1,7 @@
 @if (! empty($items))
   <nav
     aria-label="Breadcrumb"
-    class="absolute w-screen bg-white/40 flex items-center py-2 leading-none"
+    class="absolute w-screen bg-white/40 flex items-center py-2 leading-none z-10"
     vocab="https://schema.org/"
     typeof="BreadcrumbList"
   >

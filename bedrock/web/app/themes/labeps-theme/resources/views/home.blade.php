@@ -12,7 +12,7 @@
     <h2 class="text-primary py-5 text-xl md:text-2xl font-bold">Dernières actus</h2>
     @if (! have_posts())
       <x-alert type="warning">
-        {!! __('Sorry, no results were found.', 'sage') !!}
+        {!! __('Désolé le contenu que vous cherchez n\'est pas ici.', 'labeps-theme') !!}
       </x-alert>
       {!! get_search_form(false) !!}
     @endif
@@ -21,8 +21,9 @@
       @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
     @endwhile
   
-    {!! get_the_posts_navigation() !!}
-  @endsection
+    <div id="pagination-container" class="self-end">
+      {!! the_posts_pagination() !!}
+    </div>  @endsection
   
   </section>
 

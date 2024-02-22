@@ -2,18 +2,20 @@
 
 @section('content')
   @include('partials.page-header')
+  @include('partials.hero')
+  <section class="container mx-auto my-4">
+    @if (! have_posts())
+      <x-alert type="warning">
+        {!! __('Sorry, no results were found.', 'sage') !!}
+      </x-alert>
 
-  @if (! have_posts())
-    <x-alert type="warning">
-      {!! __('Sorry, no results were found.', 'sage') !!}
-    </x-alert>
+      {!! get_search_form(false) !!}
+    @endif
 
-    {!! get_search_form(false) !!}
-  @endif
+    @while(have_posts()) @php(the_post())
+      @include('partials.content-search')
+    @endwhile
 
-  @while(have_posts()) @php(the_post())
-    @include('partials.content-search')
-  @endwhile
-
-  {!! get_the_posts_navigation() !!}
+    {!! the_posts_pagination() !!}
+  </section>
 @endsection

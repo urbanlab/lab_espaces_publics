@@ -1,17 +1,18 @@
 import domReady from '@roots/sage/client/dom-ready';
 import 'flowbite';
-import '@scripts/filters/archive-filter';
-import {
-  archiveFilterInspirations,
-  archiveFilterRessources,
-} from '@scripts/filters/archive-filter';
+import {callAjax} from './ajax';
 import {Matomo} from './matomo';
+import {animatePosts, observePosts} from './filters/animatePost';
+import {attachPaginationListeners, handlePaginationClick} from './pagnination';
 /**
  * Application entrypoint
  */
 domReady(async () => {
-  archiveFilterRessources();
-  archiveFilterInspirations();
+  callAjax();
+  animatePosts();
+  observePosts();
+  attachPaginationListeners();
+  handlePaginationClick();
   Matomo();
 });
 
