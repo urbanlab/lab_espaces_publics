@@ -5,5 +5,6 @@ module.exports = {
     wp: true,
     admin_url: true,
     ajax_object: true,
+    labeps: true,
   },
 };

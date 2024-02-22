@@ -1,16 +1,18 @@
 import domReady from '@roots/sage/client/dom-ready';
 import 'flowbite';
-import '@scripts/filters/archive-filter';
-import {checkboxPosts, selectPosts} from '@scripts/filters/archive-filter';
-import {Matomo} from './matomo';
 import {callAjax} from './ajax';
+import {Matomo} from './matomo';
+import {animatePosts, observePosts} from './filters/animatePost';
+import {attachPaginationListeners, handlePaginationClick} from './pagnination';
 /**
  * Application entrypoint
  */
 domReady(async () => {
   callAjax();
-  checkboxPosts();
-  selectPosts();
+  animatePosts();
+  observePosts();
+  attachPaginationListeners();
+  handlePaginationClick();
   Matomo();
 });
 

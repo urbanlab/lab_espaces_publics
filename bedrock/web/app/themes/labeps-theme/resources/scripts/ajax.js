@@ -1,23 +1,40 @@
-export function callAjax() {
-  const form = document.getElementById('filters');
-  form.addEventListener('change', async function (e) {
-    e.preventDefault();
+export function callAjax(page = 1) {
+  const filtersForm = document.getElementById('filters');
 
-    const formData = new FormData(this);
-    formData.append('action', 'my_custom_filter');
-    formData.append('nonce', document.querySelector('#my_custom_nonce').value);
+  filtersForm.addEventListener('change', function () {
+    const formData = new FormData(filtersForm);
+    formData.append('action', 'filter_posts');
+    formData.append('nonce', labeps.nonce);
+    formData.append('page_number', page);
 
-    try {
-      const response = await fetch(ajax_object.ajaxurl, {
-        method: 'POST',
-        body: formData,
-        credentials: 'same-origin',
-      });
-      const data = await response.json();
-      console.log(data);
-      // Traitez ici la réponse, par exemple, mettre à jour le DOM
-    } catch (error) {
-      console.error('Erreur:', error);
-    }
+    fetch(labeps.ajax_url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams(formData),
+      credentials: 'same-origin',
+    })
+      .then((response) => {
+        console.log(response);
+        if (!response.ok) {
+          throw new Error('Réponse réseau non OK');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log('NARDINE', data);
+
+        if (data && data.success) {
+          const container = document.getElementById('results-container');
+          container.innerHTML = data.data.html;
+          console.log('PAGE :', data.data.pagination);
+          document.getElementById('pagination-container').innerHTML =
+            data.data.pagination;
+        } else {
+          console.error('Erreur lors du filtrage des posts.', data);
+        }
+      })
+      .catch((error) => console.error('Erreur AJAX :', error));
   });
 }

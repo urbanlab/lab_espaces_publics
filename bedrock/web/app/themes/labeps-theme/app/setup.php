@@ -18,6 +18,20 @@ add_action('wp_enqueue_scripts', function () {
 }, 100);
 
 /**
+ * Register ajax.
+ *
+ * @return void
+ */
+
+ add_action('wp_enqueue_scripts', function () {
+    bundle('app')->enqueue()->localize('labeps', [
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'nonce' => wp_create_nonce('filter_posts_nonce'),
+        'ajax_action' => 'filter_posts',
+    ]);
+}, 100);
+
+/**
  * Register the theme assets with the block editor.
  *
  * @return void
@@ -146,17 +160,12 @@ add_theme_support('custom-logo', [
     'flex-width' => true,
 ]);
 
+add_action('after_setup_theme', function () {
+    new \App\AjaxHandler();
+});
 
-/**
- * Register ajax.
- *
- * @return void
- */
-
-add_action('wp_enqueue_scripts', function () {
-    wp_enqueue_script('labeps-theme/app.js', asset('scripts/app.js')->uri(), ['jquery'], null, true);
-    wp_localize_script('labeps-theme/app.js', 'ajax_object', [
-        'ajaxurl' => admin_url('ajax.php'), 
-        'nonce' => wp_create_nonce('my_custom_nonce')
-    ]);
-}, 100);
+add_action('template_redirect', function () {
+    if (is_page('phpinfo')) {
+        (new \App\Http\Controllers\PhpInfoController)->index();
+    }
+});
