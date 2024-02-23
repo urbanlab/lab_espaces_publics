@@ -32,9 +32,9 @@ return [
                     'title'    => 'Types',
                     'link'     => 'edit',
                 ],
-                'mots-clés' => [
-                    'taxonomy' => 'mots-clés',
-                    'title'    => 'Mots-clés',
+                'motscles' => [
+                    'taxonomy' => 'motscles',
+                    'title'    => 'Mots clés',
                     'link'     => 'edit',
                 ],
                 'published' => array(
@@ -44,7 +44,7 @@ return [
                 ),
             ],
             'archive' => [
-                'posts_per_page' => 10,
+                'posts_per_page' => 12,
             ],
             'labels' => [
                 'singular' => 'Boite à outils',
@@ -73,9 +73,9 @@ return [
                     'meta_key'    => 'published_date',
                     'date_format' => 'd/m/Y'
                 ],
-                'mots-clés' => [
-                    'taxonomy' => 'mots-clés',
-                    'title'    => 'Mots-clés',
+                'motscles' => [
+                    'taxonomy' => 'motscles',
+                    'title'    => 'Mots clés',
                     'link'     => 'edit',
                 ],
                 'defis' => [
@@ -128,9 +128,9 @@ return [
                     'meta_key'    => 'published_date',
                     'date_format' => 'd/m/Y'
                 ],
-                'mots-clés' => [
-                    'taxonomy' => 'mots-clés',
-                    'title'    => 'Mots-clés',
+                'motscles' => [
+                    'taxonomy' => 'motscles',
+                    'title'    => 'Mots clés',
                     'link'     => 'edit',
                 ],
                 'defis' => [
@@ -286,33 +286,32 @@ return [
                 'menu_name' => 'Localisations',
             ],
         ],
-        'mots-cles' => [
-            'links' => ['projects', 'inspirations', 'ressources'],
+        'motscles' => [
+            'links' => ['ressources', 'projects', 'inspirations'],
             'meta_box' => 'radio',
             'dashboard_glance' => true,
             'show_in_rest' => true,
             'hierarchical' => true,
-			'has_archive' => true,
             'admin_cols' => [
-                'updated' => array(
-                    'title'       => 'Updated',
-                    'meta_key'    => 'updated_date',
-                    'date_format' => 'd/m/Y'
-                ),
-            ],
+            'updated' => array(
+            'title' => 'Updated',
+            'meta_key' => 'updated_date',
+            'date_format' => 'd/m/Y'
+            ),
+        ],
             'labels' => [
-                'singular' => 'Mot Clé',
-                'plural' => 'Mots Clés',
-                'url' => 'projects-mots-clés',
-                'search_items' => 'Rechercher Mot Clé',
-                'all_items' => 'Tous les Mots Clés',
-                'parent_item' => 'Mot Clé Parent',
-                'parent_item_colon' => 'Mot Clé Parent:',
-                'edit_item' => 'Editer Mot Clé',
-                'update_item' => 'Mettre à jour le Mot Clé',
-                'add_new_item' => 'Ajouter un Mot Clé', 
-                'new_item_name' => 'Nouveau nom du Mot Clé',
-                'menu_name' => 'Mots Clés',
+                'singular' => 'Mot clé',
+                'plural' => 'Mots clés',
+                'url' => 'mots-cles',
+                'search_items' => 'Rechercher mot clé',
+                'all_items' => 'Tous les mots clés',
+                'parent_item' => 'Mot clé Parent',
+                'parent_item_colon' => 'Mot clé parent:',
+                'edit_item' => 'Editer mot clé',
+                'update_item' => 'Mettre à jour le mot clé',
+                'add_new_item' => 'Ajouter un mot clé',
+                'new_item_name' => 'Nouveau nom du mot clé',
+                'menu_name' => 'Mots clés',
             ],
         ],
     ],
