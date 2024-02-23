@@ -286,7 +286,7 @@ return [
                 'menu_name' => 'Localisations',
             ],
         ],
-        'mots-clés' => [
+        'mots-cles' => [
             'links' => ['projects', 'inspirations', 'ressources'],
             'meta_box' => 'radio',
             'dashboard_glance' => true,
@@ -302,7 +302,7 @@ return [
             ],
             'labels' => [
                 'singular' => 'Mot Clé',
-                'plural' => 'Mot Clés',
+                'plural' => 'Mots Clés',
                 'url' => 'projects-mots-clés',
                 'search_items' => 'Rechercher Mot Clé',
                 'all_items' => 'Tous les Mots Clés',
