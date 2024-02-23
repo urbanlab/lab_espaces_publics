@@ -8,7 +8,7 @@
         <input type="hidden" name="content_type" value="{{$cpt}}">
         @php
           $taxonomyObj = get_taxonomy($name);
-          $taxonomyLabel = !empty($taxonomyObj->labels->singular_name) ? $taxonomyObj->labels->singular_name : ucfirst($name);
+          $taxonomyLabel = !empty($taxonomyObj->labels->plural) ? $taxonomyObj->labels->plural : ucfirst($name);
         @endphp
           @if($taxonomy['hierarchical'])
                 <select name="{{ $name }}" class="my-2 border w-full md:size-auto border-black rounded-md">

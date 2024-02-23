@@ -15,7 +15,6 @@ class AjaxHandler {
         $tax_query = $this->build_tax_query($_POST);
         $paged = isset($_POST['page_number']) ? intval($_POST['page_number']) : 1;
 
-
         $args = [
             'post_type'      => $contentType,
             'posts_per_page' => 12,
@@ -23,7 +22,6 @@ class AjaxHandler {
             'paged'          => $paged,
             'post_status'    => 'publish',
         ];
-
 
         $query = new \WP_Query($args);
 
@@ -35,7 +33,7 @@ class AjaxHandler {
         $html = view('partials.ajax-response', ['query' => $query])->render();
 
         ob_start();
-        $test = the_posts_pagination(array(
+        $pagination = the_posts_pagination(array(
             'mid_size'  => 2,
             'prev_text' => __('Retour', 'textdomain'),
             'next_text' => __('Suivant', 'textdomain'),
@@ -57,7 +55,7 @@ class AjaxHandler {
             if (in_array($key, ['action', 'nonce', 'content_type']) || empty($value)) {
                 continue;
             }
-
+            
             if (taxonomy_exists($key)) {
                 $conditions[] = [
                     'taxonomy' => sanitize_key($key),
