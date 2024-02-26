@@ -17,7 +17,7 @@ En travaillant ensemble pour expérimenter, innover et collaborer, nous pouvons 
   <div id="results-container" class="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 content-stretch gap-3">
     @while(have_posts()) @php(the_post())
     @php($post_terms = get_the_terms(get_the_ID(), 'types'))
-      @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
+      @include('partials.content-ressources', ['post' => get_post()])
   @endwhile
   </div>
   <div id="pagination-container" class="self-end">
