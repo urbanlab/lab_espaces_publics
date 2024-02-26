@@ -1,4 +1,3 @@
-/*eslint no-undef: "error"*/
 /**
  * @see {@link https://bud.js.org/extensions/bud-preset-wordpress/editor-integration/filters}
  */
