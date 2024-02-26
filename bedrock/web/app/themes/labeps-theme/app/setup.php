@@ -18,6 +18,15 @@ add_action('wp_enqueue_scripts', function () {
 }, 100);
 
 /**
+ * Register the theme assets with the block editor.
+ *
+ * @return void
+ */
+add_action('enqueue_block_editor_assets', function () {
+    bundle('editor')->enqueue();
+}, 100);
+
+/**
  * Register ajax.
  *
  * @return void
@@ -29,15 +38,6 @@ add_action('wp_enqueue_scripts', function () {
         'nonce' => wp_create_nonce('filter_posts_nonce'),
         'ajax_action' => 'filter_posts',
     ]);
-}, 100);
-
-/**
- * Register the theme assets with the block editor.
- *
- * @return void
- */
-add_action('enqueue_block_editor_assets', function () {
-    bundle('editor')->enqueue();
 }, 100);
 
 /**
