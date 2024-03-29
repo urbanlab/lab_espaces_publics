@@ -24,6 +24,7 @@ jobs:
   redeploy:
     name: Redeploy Workload
     runs-on: ubuntu-latest
+    needs: push_to_registry
     steps:
       - name: Make API Request
         uses: fjogeleit/http-request-action@master
