@@ -3,8 +3,12 @@
 @section('content')
   @include('partials.page-header')
   @include('partials.hero',[
-  'pageIntro' => 'Le Lab des espaces publics est une source d’inspiration pour améliorer la qualité de vie dans les villes et les espaces publics. 
-  En travaillant ensemble pour expérimenter, innover et collaborer, nous pouvons créer des espaces publics plus inclusifs, durables et adaptés aux besoins des usagers.'])
+  'pageIntro' => 'Les projets pilotes du Lab des espaces publics sont des projets exemplaires et innovants en lien avec
+les défis de la Charte des espaces publics. Ils ont été réalisés en maitrise d’ouvrage par la Métropole de Lyon,
+ou par ses partenaires maitres d’ouvrages œuvrant sur le périmètre géographique métropolitain.
+
+Vous retrouverez dans ces pages des éléments utiles détaillant les modalités de réalisation de ces projets pour faciliter
+leur réplicabilité (planning, budget, freins, leviers…).'])
   @if (! have_posts())
   <x-alert type="warning">
     {!! __('Sorry, no results were found.', 'sage') !!}

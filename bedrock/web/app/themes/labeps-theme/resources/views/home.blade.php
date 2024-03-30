@@ -5,8 +5,7 @@
 @include('partials.page-header')
 
   @include('partials.hero',[
-    'pageIntro' => 'Le Lab met à votre disposition divers guides techniques et méthodologiques, ainsi que des fiches réflex afin de 
-    vous outiller sur vos projets.'])
+    'pageIntro' => 'Retrouvez toutes les actus du Lab : organisation d’évènements, publication de nouveaux outils, informations sur l’accompagnement des projets pilotes…'])
   @include('components.loop-posts')
   <section class="container mx-auto">
     <h2 class="text-primary py-5 text-xl md:text-2xl font-bold">Dernières actus</h2>

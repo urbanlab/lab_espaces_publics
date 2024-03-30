@@ -3,8 +3,8 @@
 @section('content')
 @include('partials.page-header')
 @include('partials.hero',[
-'pageIntro' => 'Le Lab des espaces publics est une source d’inspiration pour améliorer la qualité de vie dans les villes et les espaces publics. 
-En travaillant ensemble pour expérimenter, innover et collaborer, nous pouvons créer des espaces publics plus inclusifs, durables et adaptés aux besoins des usagers.'])
+'pageIntro' => 'Pour améliorer la qualité de vie dans les villes et les espaces publics, le Lab des espaces publics met à votre 
+disposition divers guides techniques, fiches thématiques (focus sur une thématique de la Charte des espaces publics) et fiches réflex (doctrines internes à la Métropole en matière d’aménagement de voirie et d’espace public).'])
 @if (! have_posts())
 <x-alert type="warning">
   {!! __('Sorry, no results were found.', 'labeps-theme') !!}

@@ -3,8 +3,8 @@
 @section('content')
   @include('partials.page-header')
   @include('partials.hero',[
-  'pageIntro' => 'Le Lab des espaces publics est une source d’inspiration pour améliorer la qualité de vie dans les villes et les espaces publics. 
-  En travaillant ensemble pour expérimenter, innover et collaborer, nous pouvons créer des espaces publics plus inclusifs, durables et adaptés aux besoins des usagers.'])
+  'pageIntro' => 'Les inspirations du Lab des espaces publics sont des fiches
+synthétiques de projets innovants réalisés en France et à l’étranger.'])
   @if (! have_posts())
   <x-alert type="warning">
     {!! __('Sorry, no results were found.', 'labeps') !!}
