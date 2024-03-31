@@ -16,3 +16,7 @@ img{
 .img-rounded{
     @apply rounded-md;
 }
+
+.current-menu-item > a {
+    color: #f00;
+}

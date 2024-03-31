@@ -21,7 +21,9 @@ return [
             'has_archive' => true,
             'show_in_feed' => false,
             'public' => true,
+            'show_in_nav_menus' => true,
             'menu_position' => 5,
+            'order' => 'ASC',
             'admin_cols' => [
                 'featured_image' => [
                     'title'          => 'Image',
@@ -60,6 +62,7 @@ return [
             'has_archive' => true,
             'show_in_feed' => false,
             'public' => true,
+            'show_in_nav_menus' => true,
             'menu_position' => 5,
             'admin_cols' => [
                 'featured_image' => [
@@ -115,6 +118,7 @@ return [
             'has_archive' => true,
             'show_in_feed' => false,
             'public' => true,
+            'show_in_nav_menus' => true,
             'menu_position' => 6,
             'admin_cols' => [
                 'featured_image' => [
@@ -339,7 +343,7 @@ return [
     */
 
     'block' => [
-        'sage/accordion' => [
+        'hero' => [
             'attributes' => [
                 'title' => [
                     'default' => 'Lorem ipsum',
@@ -347,6 +351,14 @@ return [
                 ],
             ],
         ],
+        'accordion' => [
+            'attributes' => [
+                'title' => [
+                    'default' => 'Lorem ipsum',
+                    'type' => 'string',
+                ],
+            ],
+        ]
     ],
 
     /*
@@ -359,12 +371,9 @@ return [
     |
     */
 
-    // 'block_category' => [
-    //     'cta' => [
-    //         'title' => 'Call to Action',
-    //         'icon' => 'star-filled',
-    //     ],
-    // ],
+    'block_category' => [
+        'labeps-theme',
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -385,7 +394,7 @@ return [
     */
 
     // 'block_pattern' => [
-    //     'sage/hero' => [
+    //     'labeps-theme/hero' => [
     //         'title' => 'Page Hero',
     //         'description' => 'Draw attention to the main focus of the page, and highlight key CTAs',
     //         'categories' => ['all'],
@@ -447,7 +456,7 @@ return [
     */
 
     'admin_menu' => [
-        // 'gutenberg',
+        'gutenberg',
     ],
 
 ];

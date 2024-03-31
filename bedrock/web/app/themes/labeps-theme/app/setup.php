@@ -164,8 +164,8 @@ add_action('after_setup_theme', function () {
     new \App\AjaxHandler();
 });
 
-add_action('template_redirect', function () {
-    if (is_page('phpinfo')) {
-        (new \App\Http\Controllers\PhpInfoController)->index();
-    }
-});
+// add_action('template_redirect', function () {
+//     if (is_page('phpinfo')) {
+//         (new \App\Http\Controllers\PhpInfoController)->index();
+//     }
+// });
