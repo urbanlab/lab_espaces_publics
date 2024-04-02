@@ -2,7 +2,7 @@
     @apply h-full items-center;
     .menu-main-menu-container {
         @apply w-full h-full px-3;
-        .nav {
+        .menu {
             @apply flex flex-col h-full text-lg font-bold;
             @screen md{
                 @apply flex-row justify-around items-end;

@@ -45,7 +45,7 @@ protected function taxonomies($cpt = null)
     $data = [];
 
     foreach ($taxonomies as $taxonomy) {
-        $terms = get_terms(['taxonomy' => $taxonomy->name, 'hide_empty' => false]);
+        $terms = get_terms(['taxonomy' => $taxonomy->name, 'hide_empty' => true]);
         $data[$taxonomy->name] = [
             'hierarchical' => $taxonomy->hierarchical,
             'terms' => $terms,
