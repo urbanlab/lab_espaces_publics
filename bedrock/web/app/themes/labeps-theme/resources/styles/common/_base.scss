@@ -9,6 +9,14 @@ mark{
     @apply p-1;
 }
 
-h1,h2,h3,h4,h5,h6 {
-    text-wrap: balance;
-  }
+img{
+    @apply min-h-full min-w-full object-cover;
+}
+
+.img-rounded{
+    @apply rounded-md;
+}
+
+.current-menu-item > a {
+    color: #f00;
+}
