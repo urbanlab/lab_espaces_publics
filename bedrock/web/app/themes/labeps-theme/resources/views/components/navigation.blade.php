@@ -3,7 +3,7 @@
         <div class="menu-main-menu-container">
         <ul id="menu-main-menu" class="menu">
             @foreach ($primaryMenu['items'] as $item)
-                <li class="{{$item->active ? 'bg-primary' : 'Inactive' }}">
+                <li class="{{$item->active ? 'text-primary font-black' : 'Inactive' }}">
                     <a href="{{ $item->url }}">
                         {{ $item->label }}
                     </a>
