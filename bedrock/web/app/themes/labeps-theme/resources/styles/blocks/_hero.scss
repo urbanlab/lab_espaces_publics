@@ -67,10 +67,10 @@
 
 .actualite-hero{
     .wp-block-image{
-            width: 30vw;
-            @screen lg{
-                @apply w-auto;
-            }
+        img{
+            min-width: none;
+            min-height: auto;
+        }
     }
     .block-heading-text {
         @apply pl-2;
