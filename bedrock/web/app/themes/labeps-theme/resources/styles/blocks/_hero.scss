@@ -67,25 +67,22 @@
 
 .actualite-hero{
     .wp-block-image{
-        @apply w-6/12 md:w-2/5 lg:w-1/4;
-    }
-    .block-heading-text {
-        @apply relative w-3/4 left-1/4 -top-16 md:left-36 md:w-1/2;
-
-        h1{
-            @apply mb-0 text-2xl text-wrap;
-            @screen md{
-                @apply mb-4 text-3xl leading-[4rem] w-full;
-            }
-        }
-        p{
-            @apply w-56;
-            @screen md{
-                @apply w-96;
-            }
+            width: 30vw;
             @screen lg{
                 @apply w-auto;
             }
+    }
+    .block-heading-text {
+        @apply pl-2;
+        h1{
+            @apply mb-0 text-2xl font-bold text-wrap;
+            @screen md{
+                @apply text-3xl leading-[4rem] w-full;
+            }
+        }
+        p{
+            @apply w-96 py-0 box-content;
+
         }
     }
 }
