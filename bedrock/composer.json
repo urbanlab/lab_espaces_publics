@@ -58,7 +58,8 @@
     "wpackagist-plugin/svg-block": "^1.1",
     "wpackagist-plugin/copy-delete-posts": "^1.4",
     "wpackagist-plugin/wp-carousel-free": "^2.6",
-    "wpackagist-plugin/ultimate-addons-for-gutenberg": "^2.12"
+    "wpackagist-plugin/ultimate-addons-for-gutenberg": "^2.12",
+    "wpackagist-plugin/contact-form-7": "^5.9"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.1",

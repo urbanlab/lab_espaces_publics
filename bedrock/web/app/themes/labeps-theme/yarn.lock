@@ -2281,7 +2281,7 @@
     tslib "2.6.2"
     webpack "5.89.0"
 
-"@roots/bud-preset-wordpress@6.20.0":
+"@roots/bud-preset-wordpress@6.20.0", "@roots/bud-preset-wordpress@^6.20.0":
   version "6.20.0"
   resolved "https://registry.yarnpkg.com/@roots/bud-preset-wordpress/-/bud-preset-wordpress-6.20.0.tgz#6f1d5c2dd1c93a8db3d1b7fa5999dc8ad43f8979"
   integrity sha512-RoFV8BZkNgrwFiqnRQ86jcWIBkHHUL+W0n9eJwYgqmj8349EHUg4ApeVfs3pV3/U71w6u4qOl9FS43i2AP06mA==
@@ -2424,7 +2424,7 @@
     webpack-manifest-plugin "5.0.0"
     yml-loader "2.1.0"
 
-"@roots/bud-swc@6.20.0":
+"@roots/bud-swc@6.20.0", "@roots/bud-swc@^6.20.0":
   version "6.20.0"
   resolved "https://registry.yarnpkg.com/@roots/bud-swc/-/bud-swc-6.20.0.tgz#6553b73b3226d72fa7154d830e4d37c4bbdeae4b"
   integrity sha512-LR3kCqoEvvsgkP08RMiQyaxH0VVDNnToLfgTrla1KiUs2VQ56M67KhJj77f5QW4uk1Q2wMTDUi7ONGbbIc6qBQ==
@@ -2569,7 +2569,7 @@
     safe-json-stringify "1.2.0"
     tslib "2.6.2"
 
-"@roots/sage@6.20.0":
+"@roots/sage@^6.20.0":
   version "6.20.0"
   resolved "https://registry.yarnpkg.com/@roots/sage/-/sage-6.20.0.tgz#939bb060741ee6d7a29089cd6f2117e783ad7cc6"
   integrity sha512-dUI6cwID5gFoe7r1NMC+04lAWrWuNQhgVxAkdsllTzvQviN1BjkkvjLSujUxP0mCT0v6kXMria8GlzTR5SMvHw==
