@@ -18,6 +18,7 @@ export default async (app) => {
   app
     .entry('app', ['@scripts/app', '@styles/app'])
     .entry('editor', ['@scripts/editor', '@styles/editor'])
+    .entry('blocks', ['@scripts/blocks/index.js', '@styles/blocks/index.scss'])
     .assets(['images', 'fonts'])
     .watch('resources/views/**/*', 'app/**/*')
     .use(new bs({proxy: 'http://localhost:8080/'}));
