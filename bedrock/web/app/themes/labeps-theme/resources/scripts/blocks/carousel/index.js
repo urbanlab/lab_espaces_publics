@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
   carousels.forEach((carousel) => {
     jQuery(carousel).slick({
       dots: true,
+      arrows: true,
       infinite: true,
       speed: 300,
       slidesToShow: 1,

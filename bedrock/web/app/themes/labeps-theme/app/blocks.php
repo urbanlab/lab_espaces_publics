@@ -26,4 +26,5 @@ add_action('wp_enqueue_scripts', function () {
  */
 add_action('init', function () {
     register_block_type(__DIR__ . '/../resources/scripts/blocks/carousel/block.json');
+    register_block_type(__DIR__ . '/../resources/scripts/blocks/hero/block.json');
 });
