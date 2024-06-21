@@ -641,7 +641,7 @@
               "slug": "primary"
             },
             {
-              "color": "#00a887",
+              "color": "#158579",
               "name": "Secondary",
               "slug": "secondary"
             },
@@ -702,7 +702,7 @@
               "slug": "primary"
             },
             {
-              "color": "#00a887",
+              "color": "#158579",
               "name": "Secondary",
               "slug": "secondary"
             },
@@ -742,11 +742,11 @@
             },
             {
               "name": "h2",
-              "size": "2.5rem",
+              "size": "3.75rem",
               "slug": "h2",
               "fluid": {
-                "min": "1.875rem",
-                "max": "2.5rem"
+                "min": "2.5rem",
+                "max": "3.75rem"
               }
             },
             {
@@ -783,7 +783,7 @@
               "slug": "primary"
             },
             {
-              "color": "#00a887",
+              "color": "#158579",
               "name": "Secondary",
               "slug": "secondary"
             },
@@ -841,7 +841,7 @@
               "slug": "primary"
             },
             {
-              "color": "#00a887",
+              "color": "#158579",
               "name": "Secondary",
               "slug": "secondary"
             },
