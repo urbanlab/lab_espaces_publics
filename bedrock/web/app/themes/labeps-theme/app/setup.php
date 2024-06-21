@@ -26,6 +26,7 @@ add_action('enqueue_block_editor_assets', function () {
     bundle('editor')->enqueue();
 }, 100);
 
+
 /**
  * Register ajax.
  *

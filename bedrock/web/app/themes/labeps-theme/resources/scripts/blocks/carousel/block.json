@@ -1,0 +1,19 @@
+{
+  "apiVersion": 2,
+  "name": "theme/carousel",
+  "title": "Carousel",
+  "category": "widgets",
+  "icon": "images-alt2",
+  "description": "A custom carousel block.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "images": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "editorScript": "theme-carousel-block",
+  "style": "theme-carousel-block"
+}

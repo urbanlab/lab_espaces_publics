@@ -27,7 +27,7 @@ const config = {
     },
     colors: {
       primary: '#E2092F',
-      secondary: '#00A887',
+      secondary: '#158579',
       orange: '#FA743E',
       pink: '#FA3EBA',
       lightgreen: '#2EAE2B',
