@@ -297,7 +297,7 @@ export default async (app) => {
                 slug: 'primary',
               },
               {
-                color: '#00a887',
+                color: '#158579',
                 name: 'Secondary',
                 slug: 'secondary',
               },
@@ -358,7 +358,7 @@ export default async (app) => {
                 slug: 'primary',
               },
               {
-                color: '#00a887',
+                color: '#158579',
                 name: 'Secondary',
                 slug: 'secondary',
               },
@@ -398,11 +398,11 @@ export default async (app) => {
               },
               {
                 name: 'h2',
-                size: '2.5rem',
+                size: '3.75rem',
                 slug: 'h2',
                 fluid: {
-                  min: '1.875rem',
-                  max: '2.5rem',
+                  min: '2.5rem',
+                  max: '3.75rem',
                 },
               },
               {
@@ -439,7 +439,7 @@ export default async (app) => {
                 slug: 'primary',
               },
               {
-                color: '#00a887',
+                color: '#158579',
                 name: 'Secondary',
                 slug: 'secondary',
               },
@@ -497,7 +497,7 @@ export default async (app) => {
                 slug: 'primary',
               },
               {
-                color: '#00a887',
+                color: '#158579',
                 name: 'Secondary',
                 slug: 'secondary',
               },

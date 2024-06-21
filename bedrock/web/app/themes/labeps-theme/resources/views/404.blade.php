@@ -9,7 +9,7 @@
         <img src="@asset('images/archive-hero.svg')" alt="" class="wp-image-115"/>
       </figure>
       <div class="block-heading-text">
-        <h1 class="wp-block-heading">404</h1>
+        <h2 class="wp-block-heading">404</h2>
       </div>        
     </div>
   
