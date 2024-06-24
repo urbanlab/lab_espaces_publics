@@ -15,7 +15,11 @@ add_action('enqueue_block_editor_assets', function () {
 
 add_action('wp_enqueue_scripts', function () {
     bundle('blocks')->enqueue();
-    // wp_enqueue_style('theme-blocks', asset('styles/blocks/index.css')->uri(), [], null);
+
+    // Enqueue Slick styles and scripts
+    wp_enqueue_style('slick-carousel', asset('node_modules/slick-carousel/slick/slick.css')->uri(), [], null);
+    wp_enqueue_style('slick-theme', asset('node_modules/slick-carousel/slick/slick-theme.css')->uri(), [], null);
+    wp_enqueue_script('slick-carousel', asset('node_modules/slick-carousel/slick/slick.min.js')->uri(), ['jquery'], null, true);
 
 }, 100);
 
