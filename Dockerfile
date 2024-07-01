@@ -60,4 +60,10 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
 
+# Set upload file size limit to 100MB
+RUN echo "upload_max_filesize = 100M" > /usr/local/etc/php/conf.d/uploads.ini
+RUN echo "post_max_size = 100M" >> /usr/local/etc/php/conf.d/uploads.ini
+
+
+
 ENTRYPOINT [ "apache2-foreground" ]
