@@ -7,8 +7,3 @@
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 require_once dirname(__DIR__) . '/config/application.php';
 require_once ABSPATH . 'wp-settings.php';
-
-
-@ini_set( 'upload_max_size' , '100M' );
-@ini_set( 'post_max_size', '100M');
-@ini_set( 'max_execution_time', '900' );
