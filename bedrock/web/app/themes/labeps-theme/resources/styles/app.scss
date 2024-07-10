@@ -1,16 +1,10 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import "blocks/index.scss";
 @import "parts/navbar/navbar";
 @import "parts/navbar/navsingle";
 @import "parts/footer/footer";
-@import "blocks/card";
-@import "blocks/hero";
-@import "blocks/table";
-@import "blocks/block-cards-home";
-@import "blocks/block-cards-icons";
-@import "blocks/title-block-defi";
-@import "blocks/carrousel-posts";
 @import "common/base";
 @import "common/animation/post-animation";
 @import "components/news-card";

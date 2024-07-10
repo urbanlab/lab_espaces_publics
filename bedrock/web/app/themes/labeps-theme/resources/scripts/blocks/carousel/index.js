@@ -7,6 +7,8 @@ import {
 import {Button} from '@wordpress/components';
 import {__} from '@wordpress/i18n';
 import 'slick-carousel';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 registerBlockType('theme/carousel', {
   title: __('Carousel', 'theme'),
