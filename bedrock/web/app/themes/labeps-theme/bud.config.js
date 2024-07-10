@@ -23,6 +23,10 @@ export default async (app) => {
     .watch('resources/views/**/*', 'app/**/*')
     .use(new bs({proxy: 'http://localhost:8080/'}));
 
+  app.provide({
+    jquery: ['jQuery', '$'],
+  });
+
   /**
    * Set public path
    *
