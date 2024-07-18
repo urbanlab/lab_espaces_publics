@@ -1,0 +1,52 @@
+# Translation of Plugins - Carousel Slider Block for Gutenberg - Stable (latest release) in French (France)
+# This file is distributed under the same license as the Plugins - Carousel Slider Block for Gutenberg - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-06-20 13:00:29+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: fr\n"
+"Project-Id-Version: Plugins - Carousel Slider Block for Gutenberg - Stable (latest release)\n"
+
+#: build/slide/block.json
+msgctxt "block description"
+msgid "A single slide within the carousel."
+msgstr "Diapositive unique dans le carrousel."
+
+#: build/slide/block.json
+msgctxt "block title"
+msgid "Slide"
+msgstr "Diapositive"
+
+#: build/carousel/block.json
+msgctxt "block description"
+msgid "Display a carousel with any blocks in the slides."
+msgstr "Afficher un carrousel avec n’importe quel bloc à l’intérieur des diapositives."
+
+#: build/carousel/block.json
+msgctxt "block title"
+msgid "Carousel Slider"
+msgstr "Carrousel de diapositives"
+
+#. Author URI of the plugin
+#: plugin.php
+msgid "http://virgiliudiaconu.com/"
+msgstr "http://virgiliudiaconu.com/"
+
+#. Description of the plugin
+#: plugin.php
+msgid "A responsive carousel slider block for Gutenberg. Add any blocks to slides."
+msgstr "Un bloc de carrousel de diapositives responsive pour Gutenberg. Ajouter n’importe quel bloc à l’intérieur des diapositives."
+
+#. Plugin URI of the plugin
+#: plugin.php
+msgid "https://wordpress.org/plugins/carousel-block"
+msgstr "https://wordpress.org/plugins/carousel-block"
+
+#. Plugin Name of the plugin
+#: plugin.php
+msgid "Carousel Slider Block"
+msgstr "Carousel Slider Block"

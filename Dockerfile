@@ -27,7 +27,7 @@ RUN yarn build
 RUN rm -r node_modules
 
 
-FROM php:8.0-apache
+FROM php:8.3-apache
 
 # install php extensions mysqli PHP
 RUN docker-php-ext-install mysqli pdo pdo_mysql
