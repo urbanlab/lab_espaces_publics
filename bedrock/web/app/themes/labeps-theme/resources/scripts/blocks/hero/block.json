@@ -6,7 +6,13 @@
   "icon": "megaphone",
   "description": "A custom hero block with an icon, title, subtitle, and tags.",
   "supports": {
-    "html": false
+    "html": false,
+    "color": {
+      "text": true
+    },
+    "typography": {
+      "fontWeight": true
+    }
   },
   "attributes": {
     "title": {
@@ -28,6 +34,7 @@
       "default": []
     }
   },
+
   "editorScript": "theme-hero-block",
   "style": "theme-hero-block"
 }

@@ -1,0 +1,77 @@
+# Translation of Plugins - SVG Block - Stable (latest release) in French (France)
+# This file is distributed under the same license as the Plugins - SVG Block - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-06-28 12:54:02+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: fr\n"
+"Project-Id-Version: Plugins - SVG Block - Stable (latest release)\n"
+
+#: build/block.json
+msgctxt "block keyword"
+msgid "link"
+msgstr "lien"
+
+#: build/block.json
+msgctxt "block keyword"
+msgid "separator"
+msgstr "séparateur"
+
+#: build/block.json
+msgctxt "block keyword"
+msgid "divider"
+msgstr "séparateur"
+
+#: build/block.json
+msgctxt "block keyword"
+msgid "image"
+msgstr "image"
+
+#: build/block.json
+msgctxt "block keyword"
+msgid "icon"
+msgstr "icône"
+
+#: build/block.json
+msgctxt "block keyword"
+msgid "svg"
+msgstr "svg"
+
+#: build/block.json
+msgctxt "block keyword"
+msgid "button"
+msgstr "bouton"
+
+#: build/block.json
+msgctxt "block description"
+msgid "Display an SVG image as a block, which can be used for displaying images, icons, dividers, buttons"
+msgstr "Affiche une image SVG sous forme de bloc, qui peut être utilisé pour afficher des images, des icônes, des séparateurs, des boutons"
+
+#: build/block.json
+msgctxt "block title"
+msgid "SVG Block"
+msgstr "Bloc SVG"
+
+#. Author URI of the plugin
+#: svg-block.php
+msgid "https://boldblocks.net"
+msgstr "https://boldblocks.net"
+
+#. Author of the plugin
+#: svg-block.php
+msgid "Phi Phan"
+msgstr "Phi Phan"
+
+#. Description of the plugin
+#: svg-block.php
+msgid "Display an SVG image as a block, which can be used for displaying images, icons, dividers, buttons"
+msgstr "Affiche une image SVG sous forme de bloc, qui peut être utilisé pour afficher des images, des icônes, des séparateurs, des boutons"
+
+#. Plugin Name of the plugin
+#: svg-block.php
+msgid "SVG Block"
+msgstr "Bloc SVG"

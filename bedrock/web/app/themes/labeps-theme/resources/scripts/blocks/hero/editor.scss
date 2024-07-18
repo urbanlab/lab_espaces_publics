@@ -1,0 +1,32 @@
+.hero-block {
+    text-align: center;
+    padding: 2rem;
+    background: #f0f0f0;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+  
+  .hero-block img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  
+  .tags {
+    margin-top: 1rem;
+  }
+  
+  .tag {
+    background: #e0e0e0;
+    border-radius: 3px;
+    display: inline-block;
+    margin-right: 0.5rem;
+    padding: 0.25rem 0.5rem;
+  }
