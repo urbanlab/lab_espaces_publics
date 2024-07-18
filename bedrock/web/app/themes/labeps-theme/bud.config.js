@@ -18,7 +18,7 @@ export default async (app) => {
   app
     .entry('app', ['@scripts/app', '@styles/app'])
     .entry('editor', ['@scripts/editor', '@styles/editor'])
-    .entry('blocks', ['@scripts/blocks/index.js', '@styles/blocks/index.scss'])
+    .entry('blocks', ['@scripts/blocks/index.js', '@scripts/blocks/style.scss'])
     .assets(['images', 'fonts'])
     .watch('resources/views/**/*', 'app/**/*')
     .use(new bs({proxy: 'http://localhost:8080/'}));
@@ -33,6 +33,8 @@ export default async (app) => {
    * @see {@link https://bud.js.org/docs/bud.setPublicPath}
    */
   app.setPublicPath('/app/themes/labeps-theme/public/');
+
+  app.watch(['resources/views', 'app']);
 
   /**
    * Development server settings
@@ -54,198 +56,199 @@ export default async (app) => {
    * @see {@link https://bud.js.org/extensions/sage/theme.json}
    * @see {@link https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json}
    */
+
   app.wpjson
-    .setOption(
-      'styles',
-      {
-        color: {
-          background: 'var(--wp--preset--color--white)',
+    .setOption('version', 3)
+    .setOption('styles', {
+      color: {
+        background: 'var(--wp--preset--color--white)',
+      },
+      spacing: {
+        blockGap: '2rem',
+        margin: {
+          top: '4rem',
+          bottom: '4rem',
+          left: '1.5rem',
+          right: '1.5rem',
         },
-        spacing: {
-          blockGap: '2rem',
-          margin: {
-            top: '4rem',
-            bottom: '4rem',
-            left: '1.5rem',
-            right: '1.5rem',
-          },
-          padding: {
-            top: '100px',
-            right: '0px',
-            bottom: '0px',
-            left: '0px',
-          },
+        padding: {
+          top: '100px',
+          right: '0px',
+          bottom: '0px',
+          left: '0px',
         },
-        elements: {
-          h1: {
-            color: {
-              text: 'var(--wp--preset--color--primary)',
-            },
-            typography: {
-              fontFamily: 'var(--wp--preset--font-family--sans)',
-              fontSize: '60px',
-              lineHeight: '4rem',
-            },
+      },
+      elements: {
+        h1: {
+          color: {
+            text: 'var(--wp--preset--color--primary)',
           },
-          h2: {
-            color: {
-              text: 'var(--wp--preset--color--white)',
-            },
-            typography: {
-              fontSize: '40px',
-              lineHeight: '2.3rem',
-            },
-          },
-          h3: {
-            typography: {
-              fontSize: 'var(--wp--preset--font-size--xl)',
-              lineHeight: '2rem',
-            },
-          },
-          h4: {
-            typography: {
-              fontSize: 'var(--wp--preset--font-size--xl)',
-              lineHeight: '1.5rem',
-            },
+          typography: {
+            fontFamily: 'var(--wp--preset--font-family--sans)',
+            fontSize: '3.75rem',
+            lineHeight: '4rem',
+            fontWeight: '700',
           },
         },
-        blocks: {
-          'core/paragraph': {
-            typography: {
-              fontFamily: 'var(--wp--preset--font-family--mono)',
+        h2: {
+          color: {
+            text: 'var(--wp--preset--color--primary)',
+          },
+          typography: {
+            fontFamily: 'var(--wp--preset--font-family--sans)',
+            fontSize: '3.75rem',
+            lineHeight: '3.5rem',
+            fontWeight: '700',
+          },
+        },
+        h3: {
+          typography: {
+            fontFamily: 'var(--wp--preset--font-family--sans)',
+            fontSize: '2.5rem',
+            lineHeight: '3rem',
+          },
+        },
+        h4: {
+          typography: {
+            fontFamily: 'var(--wp--preset--font-family--sans)',
+            fontSize: '1.875rem',
+            lineHeight: '2.5rem',
+          },
+        },
+      },
+      blocks: {
+        'core/paragraph': {
+          typography: {
+            fontFamily: 'var(--wp--preset--font-family--mono)',
+            fontSize: '1.25rem',
+            lineHeight: '1.75rem',
+          },
+          color: {
+            text: 'var(--wp--preset--color--black)',
+          },
+          spacing: {
+            padding: {
+              top: '1rem',
+              bottom: '1rem',
             },
-            color: {
-              text: 'var(--wp--preset--color--black)',
+          },
+        },
+        'core/heading': {
+          typography: {
+            fontWeight: '700',
+            fontFamily: 'var(--wp--preset--font-family--sans)',
+            lineHeight: '1.2',
+          },
+          color: {
+            text: 'var(--wp--preset--color--black)',
+          },
+          spacing: {
+            margin: {
+              top: 'var(--wp--preset--spacing--50)',
+              bottom: 'var(--wp--preset--spacing--50)',
             },
-            spacing: {
-              padding: {
-                top: '1rem',
-                bottom: '1rem',
+          },
+          elements: {
+            h3: {
+              fontSize: '2.5rem',
+            },
+          },
+        },
+        'core/group': {
+          spacing: {
+            padding: {
+              top: '2.5rem',
+              bottom: '2.5rem',
+              left: '1.5rem',
+              right: '1.5rem',
+            },
+          },
+        },
+        'core/button': {
+          typography: {
+            fontWeight: '700',
+          },
+          border: {
+            radius: '3px',
+          },
+          spacing: {
+            padding: {
+              top: '0.5rem',
+              bottom: '0.5rem',
+              left: '1.5rem',
+              right: '1.5rem',
+            },
+          },
+          variations: {
+            outline: {
+              border: {
+                color: 'var(--wp--preset--color--black)',
+                radius: '3px',
+                style: 'solid',
+                width: '1px',
+              },
+              spacing: {
+                padding: {
+                  top: '0.5rem',
+                  bottom: '0.5rem',
+                  left: '1.5rem',
+                  right: '1.5rem',
+                },
               },
             },
           },
-          'core/heading': {
-            typography: {
-              fontWeight: '700',
-              fontFamily: 'var(--wp--preset--font-family--sans)',
-            },
-            color: {
-              text: 'var(--wp--preset--color--black)',
-            },
-            spacing: {
-              margin: {
-                top: 'var(--wp--preset--spacing--50)',
-                bottom: 'var(--wp--preset--spacing--50)',
-              },
-            },
+        },
+        'core/list-item': {
+          typography: {
+            fontFamily: 'var(--wp--preset--font-family--mono)',
+            fontSize: '1rem',
+            lineHeight: '1.5rem',
           },
-          'core/group': {
-            spacing: {
-              padding: {
-                top: '2.5rem',
-                bottom: '2.5rem',
-                left: '1.5rem',
-                right: '1.5rem',
-              },
-            },
-            elements: {
-              h1: {
-                color: {
-                  text: 'var(--wp--preset--color--primary)',
-                },
-                typography: {
-                  fontSize: 'var(--wp--preset--font-size--h1)',
-                  lineHeight: '2.986rem',
-                },
-              },
-            },
+          color: {
+            text: 'var(--wp--preset--color--black)',
           },
-          'core/button': {
-            typography: {
-              fontWeight: 700,
-            },
-            border: {
-              radius: '3px',
-            },
-            spacing: {
-              padding: {
-                top: '0.5rem',
-                bottom: '0.5rem',
-                left: '1.5rem',
-                right: '1.5rem',
-              },
-            },
-            variations: {
-              outline: {
-                border: {
-                  color: 'var( --wp--preset--color--black )',
-                  radius: '3px',
-                  style: 'solid',
-                  width: '1px',
-                },
-                spacing: {
-                  padding: {
-                    top: '0.5rem',
-                    bottom: '0.5rem',
-                    left: '1.5rem',
-                    right: '1.5rem',
-                  },
-                },
-              },
-            },
-          },
-          'core/list-item': {
-            typography: {
-              fontFamily: 'var(--wp--preset--font-family--mono)',
-            },
-            color: {
-              text: 'var(--wp--preset--color--black)',
-            },
-            spacing: {
-              padding: {
-                bottom: '15px',
-              },
+          spacing: {
+            padding: {
+              bottom: '15px',
             },
           },
         },
       },
-      'customTemplates',
-      [
-        {
-          name: 'home-page',
-          title: 'Home',
-          postTypes: ['page'],
-        },
-        {
-          name: 'about-page',
-          title: 'About',
-          postTypes: ['page'],
-        },
-        {
-          name: 'ressources-page',
-          title: 'Ressources',
-          postTypes: ['post'],
-        },
-        {
-          name: 'actualités-page',
-          title: 'Actualités',
-          postTypes: ['articles'],
-        },
-        {
-          name: 'archives-page',
-          title: 'Archives cpt',
-          postTypes: ['cpt'],
-        },
-      ],
-      'templateParts',
-      [
-        {
-          name: 'my-template-part',
-          title: 'Header',
-          area: 'header',
-        },
-      ],
-    )
+    })
+    .setOption('customTemplates', [
+      {
+        name: 'home-page',
+        title: 'Home',
+        postTypes: ['page'],
+      },
+      {
+        name: 'about-page',
+        title: 'About',
+        postTypes: ['page'],
+      },
+      {
+        name: 'ressources-page',
+        title: 'Ressources',
+        postTypes: ['post'],
+      },
+      {
+        name: 'actualités-page',
+        title: 'Actualités',
+        postTypes: ['articles'],
+      },
+      {
+        name: 'archives-page',
+        title: 'Archives cpt',
+        postTypes: ['cpt'],
+      },
+    ])
+    .setOption('templateParts', [
+      {
+        name: 'my-template-part',
+        title: 'Header',
+        area: 'header',
+      },
+    ])
     .setSettings({
       appearanceTools: false,
       useRootPaddingAwareAlignments: true,
@@ -375,57 +378,6 @@ export default async (app) => {
                 color: '#000000',
                 name: 'Black',
                 slug: 'black',
-              },
-            ],
-          },
-          typography: {
-            fluid: true,
-            customFontSize: false,
-            fontSizes: [
-              {
-                name: 'h4',
-                size: '1.563rem',
-                slug: 'h4',
-                fluid: {
-                  min: '1.25rem',
-                  max: '1.563rem',
-                },
-              },
-              {
-                name: 'h3',
-                size: '1.875rem',
-                slug: 'h3',
-                fluid: {
-                  min: '1.563rem',
-                  max: '1.875rem',
-                },
-              },
-              {
-                name: 'h2',
-                size: '3.75rem',
-                slug: 'h2',
-                fluid: {
-                  min: '2.5rem',
-                  max: '3.75rem',
-                },
-              },
-              {
-                name: 'h1',
-                size: '3.75rem',
-                slug: 'h1',
-                fluid: {
-                  min: '2.5rem',
-                  max: '3.75rem',
-                },
-              },
-            ],
-            dropCap: false,
-            lineHeight: false,
-            fontFamilies: [
-              {
-                fontFamily: 'Inter var, sans-serif',
-                name: 'Inter var',
-                slug: 'sans',
               },
             ],
           },
@@ -563,5 +515,6 @@ export default async (app) => {
     })
     .useTailwindColors()
     .useTailwindFontFamily()
-    .useTailwindFontSize();
+    .useTailwindFontSize()
+    .useTailwindSpacing();
 };

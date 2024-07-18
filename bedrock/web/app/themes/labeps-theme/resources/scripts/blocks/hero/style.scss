@@ -3,36 +3,41 @@
       max-width: 1200px;
       margin: 0 auto;
     }
-  
-    .actualite-hero {
-      display: flex;
-      align-items: center;
-  
-      .wp-block-image img {
-        max-width: 100px;
-        margin-right: 20px;
+
+    .block-hero{
+      @apply flex items-start;
+
+      .wp-block-image {
+        @apply hidden lg:flex mr-4;
+
+        img{
+        @apply object-contain;
+        }
+      
       }
+      .block-heading-text{
+        @apply flex-col;
   
-      .block-heading-text {
-        h1 {
-          font-size: 2rem;
+        h2{
+          @apply text-2xl md:text-3xl font-bold;
+  
         }
   
-        p {
-          font-size: 1.25rem;
-          margin-top: 0.5rem;
+        p{
+          @apply text-sm md:text-base pt-4;
+  
+        }
+      }
+  
+      .tags {  
+        @apply mt-0;
+  
+        .tag {
+          @apply mr-2  bg-primary text-white;
+  
         }
       }
     }
-  
-    .tags {
-      margin-top: 1rem;
-  
-      .tag {
-        background-color: #f1f1f1;
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
-        margin-right: 0.5rem;
-      }
-    }
+
+
   }

@@ -17,6 +17,8 @@ add_action('wp_enqueue_scripts', function () {
     bundle('blocks')->enqueue();
 }, 100);
 
+
+
 /**
  * Register custom blocks.
  *

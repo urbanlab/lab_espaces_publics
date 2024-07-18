@@ -65,27 +65,27 @@
     }
 }
 
-.actualite-hero{
-    .wp-block-image{
-        img{
-            min-width: none;
-            min-height: auto;
-        }
-    }
-    .block-heading-text {
-        @apply pl-2;
-        h1{
-            @apply mb-0 text-2xl font-bold text-wrap;
-            @screen md{
-                @apply text-3xl leading-[4rem] w-full;
-            }
-        }
-        p{
-            @apply w-96 py-0 box-content;
+// .actualite-hero{
+//     .wp-block-image{
+//         img{
+//             min-width: none;
+//             min-height: auto;
+//         }
+//     }
+//     .block-heading-text {
+//         @apply pl-2;
+//         h1{
+//             @apply mb-0 text-2xl font-bold text-wrap;
+//             @screen md{
+//                 @apply text-3xl leading-[4rem] w-full;
+//             }
+//         }
+//         p{
+//             @apply w-96 py-0 box-content;
 
-        }
-    }
-}
+//         }
+//     }
+// }
 
 .hero-single{
     figure::after{
