@@ -1,1 +1,15 @@
-/* Styles for the block editor */
+.carousel {
+    @apply flex overflow-hidden;
+  
+    img {
+      @apply w-full h-auto;
+    }
+  
+    .carousel-image {
+      @apply relative;
+    }
+  
+    .remove-image-button {
+      @apply absolute top-0 right-0 bg-red-600 text-white;
+    }
+  }

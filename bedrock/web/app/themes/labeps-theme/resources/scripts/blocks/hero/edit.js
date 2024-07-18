@@ -14,6 +14,7 @@ import {
   Card,
   CardBody,
 } from '@wordpress/components';
+import './editor.scss';
 
 const Edit = ({attributes, setAttributes}) => {
   const {title, subtitle, iconUrl, tags, textColor, fontWeight} = attributes;

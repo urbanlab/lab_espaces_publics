@@ -2,8 +2,8 @@
   "apiVersion": 2,
   "name": "theme/carousel",
   "title": "Carousel",
-  "category": "widgets",
-  "icon": "images-alt2",
+  "category": "design",
+  "icon": "images-alt",
   "description": "A custom carousel block.",
   "supports": {
     "html": false

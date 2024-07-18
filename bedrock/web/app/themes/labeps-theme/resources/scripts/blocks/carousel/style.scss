@@ -1,0 +1,30 @@
+.carousel {
+    @apply flex;
+  
+    img {
+      @apply w-full h-auto;
+    }
+
+    .slick-prev,
+    .slick-next {
+      @apply absolute top-1/2 transform -translate-y-1/2 text-primary z-50;
+
+      &::before{
+        @apply text-primary text-3xl;
+
+        &:hover{
+            @apply text-white;
+        }
+      }
+    }
+  
+    .slick-prev {
+      @apply left-8;
+
+    }
+  
+    .slick-next {
+      @apply right-14;
+
+    }
+  }
