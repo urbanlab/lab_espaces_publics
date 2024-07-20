@@ -6,10 +6,13 @@
      </figure>
   </header>
   <div class="e-content container mx-auto mb-10">
-    <div class="heading-single">
-      <h1 class="pl-8 text-xl md:text-3xl leading-7 md:leading-[3.5rem] font-bold">
+    <div class="heading-single flex items-start py-8">
+      <figure class="hidden lg:flex mr-4">
+        @svg('images.icon-hero-single')
+      </figure>
+      <h2 class="text-xl md:text-3xl leading-7 md:leading-[3.5rem] font-bold">
         {!! $title !!}
-      </h1>
+      </h2>
     </div>
     <section>
       @include('partials.entry-meta')

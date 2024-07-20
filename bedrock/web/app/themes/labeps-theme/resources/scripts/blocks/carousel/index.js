@@ -13,17 +13,12 @@ registerBlockType('theme/carousel', {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  const carousels = document.querySelectorAll('.carousel');
-  carousels.forEach((carousel) => {
-    jQuery(carousel).slick({
-      dots: true,
-      arrows: true,
-      infinite: true,
-      speed: 300,
-      slidesToShow: 1,
-      adaptiveHeight: true,
-      prevArrow: '<button type="button" class="slick-prev">Previous</button>',
-      nextArrow: '<button type="button" class="slick-next">Next</button>',
-    });
+  $('.carousel').slick({
+    dots: true,
+    arrows: true,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    adaptiveHeight: false,
   });
 });

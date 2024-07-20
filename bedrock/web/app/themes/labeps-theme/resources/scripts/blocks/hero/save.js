@@ -7,7 +7,7 @@ const Save = ({attributes}) => {
   const blockProps = useBlockProps.save();
 
   return (
-    <section {...blockProps} className="wp-block-group container mx-auto my-10">
+    <section {...blockProps} className="wp-block-group container">
       <div className="block-hero flex">
         <figure className="wp-block-image">
           <img src={iconUrl} alt="Picto Lab" />

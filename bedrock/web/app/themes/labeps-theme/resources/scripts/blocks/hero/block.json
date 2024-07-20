@@ -2,7 +2,7 @@
   "apiVersion": 2,
   "name": "theme/hero",
   "title": "Hero",
-  "category": "widgets",
+  "category": "design",
   "icon": "megaphone",
   "description": "A custom hero block with an icon, title, subtitle, and tags.",
   "supports": {

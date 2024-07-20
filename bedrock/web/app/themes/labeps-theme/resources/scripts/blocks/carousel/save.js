@@ -7,12 +7,14 @@ const Save = ({attributes}) => {
   const blockProps = useBlockProps.save();
 
   return (
-    <div {...blockProps} className="carousel">
-      {images.map((image, index) => (
-        <div key={index}>
-          <img src={image.url} alt={image.alt} />
-        </div>
-      ))}
+    <div {...blockProps} className="carousel-container">
+      <div className="carousel">
+        {images.map((image, index) => (
+          <div key={index}>
+            <img src={image.url} alt={image.alt} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
