@@ -95,7 +95,7 @@ const Edit = ({attributes, setAttributes}) => {
                 className="remove-image-button"
                 onClick={() => removeImage(index)}
                 icon="no-alt">
-                {__('Remove', 'theme')}
+                {__('Supprimé', 'theme')}
               </Button>
             </div>
           ))}
