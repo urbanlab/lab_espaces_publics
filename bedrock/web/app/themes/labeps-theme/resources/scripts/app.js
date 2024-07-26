@@ -7,13 +7,18 @@ import {
   hidePostsAnimation,
   animatePostsOnLoad,
 } from './filters/animatePost';
+import {Accordion} from './filters/accordion';
+import {UpdateTags} from './filters/updateTags';
+import {FilterMenu} from './filters/filterMenu';
+import {ViewTabs} from './filters/viewTabs';
+import {MapLeaflet, fetchPostsAndAddMarkers} from './map-leaflet';
 // import {attachPaginationListeners, handlePaginationClick} from './pagnination';
 /**
  * Application entrypoint
  */
 domReady(async () => {
   callAjax();
-
+  fetchPostsAndAddMarkers();
   function handleSelectionChange() {
     animatePostsOnLoad();
     hidePostsAnimation(() => {
@@ -26,8 +31,20 @@ domReady(async () => {
       element.addEventListener('change', handleSelectionChange);
     });
 
-  // attachPaginationListeners();
-  // handlePaginationClick();
+  FilterMenu();
+  Accordion();
+  ViewTabs();
+  MapLeaflet();
+
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  UpdateTags(checkboxes);
+
+  checkboxes.forEach(function (checkbox) {
+    checkbox.addEventListener('change', function () {
+      UpdateTags(checkboxes);
+    });
+  });
+
   Matomo();
 });
 

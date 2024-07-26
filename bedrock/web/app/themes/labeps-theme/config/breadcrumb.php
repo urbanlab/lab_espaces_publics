@@ -44,7 +44,7 @@ return [
     |
     */
 
-    'author' => __('Posts by %s', 'sage'),
+    'author' => __('Posts by %s', 'labeps-theme'),
 
     /*
     |--------------------------------------------------------------------------
@@ -58,7 +58,7 @@ return [
     |
     */
 
-    'search' => __('Search results for "%s"', 'sage'),
+    'search' => __('Search results for "%s"', 'labeps-theme'),
 
     /*
     |--------------------------------------------------------------------------
@@ -70,5 +70,5 @@ return [
     |
     */
 
-    'not_found' => __('Page not found', 'sage'),
+    'not_found' => __('Page not found', 'labeps-theme'),
 ];

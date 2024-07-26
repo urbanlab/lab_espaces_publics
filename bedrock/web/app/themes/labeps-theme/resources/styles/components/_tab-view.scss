@@ -1,0 +1,13 @@
+.view {
+    display: none;
+}
+
+.view.active {
+    @apply flex;
+    
+}
+
+.view-switcher button.active {
+    @apply bg-secondary text-white;
+
+}

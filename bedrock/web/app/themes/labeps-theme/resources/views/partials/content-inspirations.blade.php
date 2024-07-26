@@ -10,7 +10,7 @@
             {!! $title !!}
           </a>
         </h3>
-        @foreach ((wp_get_post_terms($post->ID, 'localisation-internationale')) as $item)
+        @foreach ((wp_get_post_terms($post->ID, 'localisation-inspiration')) as $item)
         <p class="w-fit text-xs py-1 px-2 m-1 me-8">📍{{$item->name}}</p>
       @endforeach
         {{the_excerpt()}}
