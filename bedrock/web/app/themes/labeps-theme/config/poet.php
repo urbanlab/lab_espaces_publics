@@ -287,6 +287,30 @@ return [
                 'menu_name' => 'Commune',
             ],
         ],
+        'statuts' => [
+            'links' => ['projects'],
+            'dashboard_glance' => true,
+            'show_in_rest' => false,
+            'admin_cols' => [
+                'updated' => array(
+                    'title'       => 'Updated',
+                    'meta_key'    => 'updated_date',
+                    'date_format' => 'd/m/Y'
+                ),
+            ],
+            'labels' => [
+                'singular' => 'statut',
+                'plural' => 'Statuts',
+                'url' => 'statuts',
+                'search_items' => 'Rechercher le statut',
+                'all_items' => 'Tous les statuts',
+                'edit_item' => 'Editer le statut',
+                'update_item' => 'Mettre à jour le statut',
+                'add_new_item' => 'Ajouter un statut', 
+                'new_item_name' => 'Nouveau nom du statut',
+                'menu_name' => 'Statuts',
+            ],
+        ],
         'localisation-inspiration' => [
             'links' => ['inspirations'],
             'dashboard_glance' => true,

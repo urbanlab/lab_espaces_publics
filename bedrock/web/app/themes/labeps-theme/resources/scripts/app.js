@@ -11,14 +11,14 @@ import {Accordion} from './filters/accordion';
 import {UpdateTags} from './filters/updateTags';
 import {FilterMenu} from './filters/filterMenu';
 import {ViewTabs} from './filters/viewTabs';
-import {MapLeaflet, fetchPostsAndAddMarkers} from './map-leaflet';
+import {MapLeaflet} from './map-leaflet';
 // import {attachPaginationListeners, handlePaginationClick} from './pagnination';
 /**
  * Application entrypoint
  */
 domReady(async () => {
   callAjax();
-  fetchPostsAndAddMarkers();
+  // fetchPostsAndAddMarkers();
   function handleSelectionChange() {
     animatePostsOnLoad();
     hidePostsAnimation(() => {
