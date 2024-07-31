@@ -40,14 +40,6 @@
       </div>
       <div id="map-view" class="view md:w-3/4">
         <div id="map"></div>
-        <div id="legend" style="position: absolute; bottom: 20px; left: 20px; background: white; padding: 10px; border-radius: 5px;">
-          <h4>Légende des statuts</h4>
-          <ul>
-            @foreach ($statuts as $statut)
-              <li style="color: {{ $statut['color'] }};">{{ $statut['name'] }}</li>
-            @endforeach
-          </ul>
-        </div>
         @if (!empty($projects))
         <script>
           window.projects = @json($projects);

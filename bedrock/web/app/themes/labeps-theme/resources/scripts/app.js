@@ -12,13 +12,13 @@ import {UpdateTags} from './filters/updateTags';
 import {FilterMenu} from './filters/filterMenu';
 import {ViewTabs} from './filters/viewTabs';
 import {MapLeaflet} from './map-leaflet';
-// import {attachPaginationListeners, handlePaginationClick} from './pagnination';
+
 /**
  * Application entrypoint
  */
+
 domReady(async () => {
   callAjax();
-  // fetchPostsAndAddMarkers();
   function handleSelectionChange() {
     animatePostsOnLoad();
     hidePostsAnimation(() => {

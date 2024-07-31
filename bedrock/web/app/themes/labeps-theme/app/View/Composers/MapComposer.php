@@ -19,13 +19,17 @@ class MapComposer extends Composer
         ];
     }
 
-    public function projects()
+    public function projects($filters = [])
     {
         $projects = [];
         $args = [
             'post_type' => 'projects',
             'posts_per_page' => -1,
         ];
+
+        if (!empty($filters)) {
+            $args['tax_query'] = $this->build_tax_query($filters);
+        }
 
         $query = new WP_Query($args);
 
@@ -79,9 +83,22 @@ class MapComposer extends Composer
             error_log('No posts found for post type "projects".');
         }
 
-        error_log('Projects: ' . print_r($projects, true));
-
         return $projects;
+    }
+
+    private function build_tax_query($filters) {
+        $conditions = [];
+        foreach ($filters as $key => $value) {
+            if (taxonomy_exists($key)) {
+                $conditions[] = [
+                    'taxonomy' => sanitize_key($key),
+                    'field'    => 'slug',
+                    'terms'    => is_array($value) ? array_map('sanitize_text_field', $value) : sanitize_text_field($value),
+                ];
+            }
+        }
+
+        return !empty($conditions) ? ['relation' => 'AND', ...$conditions] : [];
     }
 
     public function statuts()
@@ -93,11 +110,11 @@ class MapComposer extends Composer
             foreach ($terms as $term) {
                 $color = get_term_meta($term->term_id, 'color', true);
                 if (!$color) {
-                    $color = '#000000'; // Default color
+                    $color = '#000000';
                 }
                 $statuts[] = [
                     'name' => $term->name,
-                    'color' => $color,
+                    'class' => strtolower(str_replace(' ', '-', $term->name)),
                 ];
             }
         }
