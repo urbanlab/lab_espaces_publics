@@ -6,6 +6,12 @@ let markers = [];
 
 export function MapLeaflet() {
   try {
+    const mapElement = document.getElementById('map');
+    if (!mapElement) {
+      console.error('Map element not found');
+      return;
+    }
+
     if (
       typeof window.projects === 'undefined' ||
       window.projects.length === 0
