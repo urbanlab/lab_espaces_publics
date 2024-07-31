@@ -18,6 +18,12 @@ import {MapLeaflet} from './map-leaflet';
  */
 
 domReady(async () => {
+  const mapElement = document.getElementById('map');
+  if (mapElement) {
+    MapLeaflet();
+  } else {
+    console.error('Map element not found at DOMContentLoaded');
+  }
   callAjax();
   function handleSelectionChange() {
     animatePostsOnLoad();
@@ -34,7 +40,6 @@ domReady(async () => {
   FilterMenu();
   Accordion();
   ViewTabs();
-  MapLeaflet();
 
   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
   UpdateTags(checkboxes);

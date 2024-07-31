@@ -6,6 +6,7 @@ let markers = [];
 
 export function MapLeaflet() {
   try {
+    console.log('Initializing MapLeaflet...');
     const mapElement = document.getElementById('map');
     if (!mapElement) {
       console.error('Map element not found');
@@ -22,6 +23,7 @@ export function MapLeaflet() {
 
     if (!map) {
       map = L.map('map').setView([45.75, 4.85], 13);
+      console.log('Map initialized');
     }
 
     if (!map) {
@@ -34,17 +36,21 @@ export function MapLeaflet() {
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(map);
 
+    console.log('Tile layer added');
+
     addMarkers(window.projects);
 
     setTimeout(() => {
       map.invalidateSize();
+      console.log('Map size invalidated');
     }, 200);
 
     const observer = new MutationObserver(() => {
       map.invalidateSize();
+      console.log('Map size invalidated by MutationObserver');
     });
 
-    observer.observe(document.getElementById('map-view'), {
+    observer.observe(mapElement, {
       attributes: true,
       attributeFilter: ['style', 'class'],
     });
