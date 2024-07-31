@@ -36,7 +36,6 @@ class FilterPosts extends Composer
 
 protected function taxonomies($cpt = null)
 {
-    // Si aucun CPT n'est fourni, retourner un tableau vide ou une valeur par défaut
     if (!$cpt) {
         return [];
     }

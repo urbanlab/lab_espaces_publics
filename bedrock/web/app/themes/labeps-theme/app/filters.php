@@ -12,7 +12,7 @@ namespace App;
  * @return string
  */
 add_filter('excerpt_more', function () {
-    return sprintf(' &hellip; <a href="%s">%s</a>', get_permalink(), __('En savoir plus', 'sage'));
+    return sprintf(' &hellip; <a href="%s">%s</a>', get_permalink(), __('En savoir plus', 'labeps-theme'));
 });
 
 add_filter('excerpt_length', function() {

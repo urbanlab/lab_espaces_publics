@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\View\Composers\MapComposer;
+
 class AjaxHandler {
     public function __construct() {
         add_action('wp_ajax_filter_posts', [$this, 'handle']);
@@ -9,9 +11,23 @@ class AjaxHandler {
     }
 
     public function handle() {
-
         check_ajax_referer('filter_posts_nonce', 'nonce');
-        $contentType = $_POST['content_type'] ?? 'post';
+
+        $filters = $_POST;
+        unset($filters['action'], $filters['nonce'], $filters['page_number'], $filters['content_type']);
+
+        $mapComposer = new MapComposer();
+        $projects = $mapComposer->projects($filters);
+
+        error_log('Projects data: ' . print_r($projects, true));
+
+        if (empty($projects)) {
+            wp_send_json_error('Aucun post trouvé.');
+            wp_die();
+        }
+
+        // Conserver la logique de pagination et de filtrage existante
+        $contentType = sanitize_text_field($_POST['content_type'] ?? 'post');
         $tax_query = $this->build_tax_query($_POST);
         $paged = isset($_POST['page_number']) ? intval($_POST['page_number']) : 1;
 
@@ -25,6 +41,9 @@ class AjaxHandler {
 
         $query = new \WP_Query($args);
 
+        error_log('Query Args: ' . print_r($args, true));
+        error_log('Query Results: ' . print_r($query->posts, true));
+
         if (!$query->have_posts()) {
             wp_send_json_error('Aucun post trouvé.');
             wp_die();
@@ -33,29 +52,30 @@ class AjaxHandler {
         $html = view('partials.ajax-response', ['query' => $query])->render();
 
         ob_start();
-        $pagination = the_posts_pagination(array(
+        the_posts_pagination([
             'mid_size'  => 2,
             'prev_text' => __('Retour', 'textdomain'),
             'next_text' => __('Suivant', 'textdomain'),
-        ));
-
+        ]);
         $pagination = ob_get_clean();
 
-
         wp_reset_postdata();
-        wp_send_json_success(['html' => $html, 'pagination' => $pagination]);
+        wp_send_json_success([
+            'html' => $html,
+            'pagination' => $pagination,
+            'projects' => $projects,
+        ]);
 
         wp_die();
     }
 
-
     private function build_tax_query($requestData) {
         $conditions = [];
         foreach ($requestData as $key => $value) {
-            if (in_array($key, ['action', 'nonce', 'content_type']) || empty($value)) {
+            if (in_array($key, ['action', 'nonce', 'content_type', 'page_number']) || empty($value)) {
                 continue;
             }
-            
+
             if (taxonomy_exists($key)) {
                 $conditions[] = [
                     'taxonomy' => sanitize_key($key),
@@ -65,8 +85,8 @@ class AjaxHandler {
             }
         }
 
-        $tax_query = !empty($conditions) ? ['relation' => 'OR', ...$conditions] : $conditions;
-
-        return $tax_query;
+        return !empty($conditions) ? ['relation' => 'OR', ...$conditions] : $conditions;
     }
 }
+
+new AjaxHandler();

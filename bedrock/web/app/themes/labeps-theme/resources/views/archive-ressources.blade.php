@@ -12,13 +12,18 @@ disposition divers guides techniques, fiches thématiques (focus sur une thémat
 
 {!! get_search_form(false) !!}
 @endif
-@include('forms.checkbox', ['taxonomies' => $taxonomies, 'cpt' => $cpt])
 <section class="container mx-auto my-4">
-  <div id="results-container" class="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 content-stretch gap-3">
-    @while(have_posts()) @php(the_post())
-    @php($post_terms = get_the_terms(get_the_ID(), 'types'))
-      @include('partials.content-ressources', ['post' => get_post()])
-  @endwhile
+  <div id="filter-overlay" class="fixed inset-0 bg-black opacity-50 hidden lg:hidden"></div>
+
+  <div class="flex flex-col lg:flex-row">
+    <x-button id="filter-button" text="{{ __('FILTRER', 'labeps-theme') }}" class=" w-1/3 text-black border-2 border-black rounded-md p-2 mb-4 lg:hidden" icon="fas fa-filter" />
+    @include('forms.filter', ['taxonomies' => $taxonomies])
+    <div id="results-container" class="flex flex-col mx-auto md:grid md:grid-cols-1 lg:grid-cols-2 content-stretch gap-4 w-full">
+      @while(have_posts()) @php(the_post())
+        @php($post_terms = get_the_terms(get_the_ID(), 'types'))
+        @include('partials.content-ressources', ['post' => get_post()])
+      @endwhile
+  </div>
   </div>
   <div id="pagination-container" class="self-end">
     {!! the_posts_pagination() !!}

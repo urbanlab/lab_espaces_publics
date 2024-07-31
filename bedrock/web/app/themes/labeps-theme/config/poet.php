@@ -55,7 +55,7 @@ return [
             ],
         ],
         'inspirations' => [
-            'enter_title_here' => 'Ajoutez votre titre',
+            'enter_title_here' => 'Ajoutez votre inspiration',
             'menu_icon'    => 'dashicons-cover-image',
             'supports' => ['title', 'editor', 'author', 'excerpt', 'thumbnail'],
             'show_in_rest' => true,
@@ -142,9 +142,9 @@ return [
                     'title'    => 'Défis',
                     'link'     => 'edit',
                 ],
-                'localisation' => [
-                    'taxonomy' => 'localisation-metropole',
-                    'title'    => 'Localisation',
+                'commune' => [
+                    'taxonomy' => 'commune',
+                    'title'    => 'Commune',
                     'link'     => 'edit',
                 ],
             ],
@@ -179,33 +179,6 @@ return [
     */
 
     'taxonomy' => [
-        'types' => [
-            'links' => ['ressources'],
-            'meta_box' => 'radio',
-            'dashboard_glance' => true,
-            'show_in_rest' => true,
-            'admin_cols' => [
-                'updated' => array(
-                    'title'       => 'Updated',
-                    'meta_key'    => 'updated_date',
-                    'date_format' => 'd/m/Y'
-                ),
-            ],
-            'labels' => [
-                'singular' => 'Type',
-                'plural' => 'Types',
-                'url' => 'ressource-types',
-                'search_items' => 'Rechercher type',
-                'all_items' => 'Tous les types',
-                'parent_item' => 'Type parent',
-                'parent_item_colon' => 'Type parent:',
-                'edit_item' => 'Editer type',
-                'update_item' => 'Mettre à jour le type',
-                'add_new_item' => 'Ajouter un type', 
-                'new_item_name' => 'Nouveau nom du type',
-                'menu_name' => 'Types',
-            ],
-        ],
         'defis' => [
             'links' => ['inspirations', 'projects', 'post', 'ressources'],
             'meta_box' => 'radio',
@@ -234,11 +207,40 @@ return [
                 'menu_name' => 'Défis',
             ],
         ],
-        'localisation-metropole' => [
-            'links' => ['projects'],
+        'motscles' => [
+            'links' => ['ressources', 'projects', 'inspirations'],
+            'meta_box' => 'post_tag',
+            'meta_box_cb' => false,
             'dashboard_glance' => true,
             'show_in_rest' => true,
             'hierarchical' => true,
+            'admin_cols' => [
+                'updated' => array(
+                'title' => 'Updated',
+                'meta_key' => 'updated_date',
+                'date_format' => 'd/m/Y'
+                ),
+            ],
+            'labels' => [
+                'singular' => 'Mot clé',
+                'plural' => 'Mots clés',
+                'url' => 'mots-cles',
+                'search_items' => 'Rechercher mot clé',
+                'all_items' => 'Tous les mots clés',
+                'parent_item' => 'Mot clé Parent',
+                'parent_item_colon' => 'Mot clé parent:',
+                'edit_item' => 'Editer mot clé',
+                'update_item' => 'Mettre à jour le mot clé',
+                'add_new_item' => 'Ajouter un mot clé',
+                'new_item_name' => 'Nouveau nom du mot clé',
+                'menu_name' => 'Mots clés',
+            ],
+        ],
+        'ctm' => [
+            'links' => ['projects'],
+            'dashboard_glance' => true,
+            'show_in_rest' => true,
+            'hierarchical' => false,
 			'has_archive' => true,
             'admin_cols' => [
                 'updated' => array(
@@ -248,21 +250,68 @@ return [
                 ),
             ],
             'labels' => [
-                'singular' => 'Localisation',
-                'plural' => 'Localisations',
-                'url' => 'localisations-lab',
-                'search_items' => 'Rechercher localisation',
-                'all_items' => 'Toutes les localisations',
-                'parent_item' => 'Localisation Parente',
-                'parent_item_colon' => 'Localisation Parente:',
-                'edit_item' => 'Editer localisation',
-                'update_item' => 'Mettre à jour localisation',
-                'add_new_item' => 'Ajouter une localisation', 
-                'new_item_name' => 'Nouveau nom de localisation',
-                'menu_name' => 'Localisations',
+                'singular' => 'Conférence territorial des maires',
+                'plural' => 'CTM',
+                'url' => 'ctm-lab',
+                'search_items' => 'Rechercher la CTM',
+                'all_items' => 'Toutes les CTM',
+                'edit_item' => 'Editer la CTM',
+                'update_item' => 'Mettre à jour la CTM',
+                'add_new_item' => 'Ajouter une CTM', 
+                'new_item_name' => 'Nouveau nom de la CTM',
+                'menu_name' => 'Conférence territorial des maires',
             ],
         ],
-        'localisation-internationale' => [
+        'commune' => [
+            'links' => ['projects'],
+            'dashboard_glance' => true,
+            'show_in_rest' => true,
+            'hierarchical' => false,
+            'admin_cols' => [
+                'updated' => [
+                    'title'       => 'Updated',
+                    'meta_key'    => 'updated_date',
+                    'date_format' => 'd/m/Y',
+                ],
+            ],
+            'labels' => [
+                'singular' => 'Commune',
+                'plural' => 'Communes',
+                'url' => 'commune-lab',
+                'search_items' => 'Rechercher commune',
+                'all_items' => 'Toutes les communes',
+                'edit_item' => 'Editer la commune',
+                'update_item' => 'Mettre à jour commune',
+                'add_new_item' => 'Ajouter une commune',
+                'new_item_name' => 'Nouveau nom de commune',
+                'menu_name' => 'Commune',
+            ],
+        ],
+        'statuts' => [
+            'links' => ['projects'],
+            'dashboard_glance' => true,
+            'show_in_rest' => false,
+            'admin_cols' => [
+                'updated' => array(
+                    'title'       => 'Updated',
+                    'meta_key'    => 'updated_date',
+                    'date_format' => 'd/m/Y'
+                ),
+            ],
+            'labels' => [
+                'singular' => 'statut',
+                'plural' => 'Statuts',
+                'url' => 'statuts',
+                'search_items' => 'Rechercher le statut',
+                'all_items' => 'Tous les statuts',
+                'edit_item' => 'Editer le statut',
+                'update_item' => 'Mettre à jour le statut',
+                'add_new_item' => 'Ajouter un statut', 
+                'new_item_name' => 'Nouveau nom du statut',
+                'menu_name' => 'Statuts',
+            ],
+        ],
+        'localisation-inspiration' => [
             'links' => ['inspirations'],
             'dashboard_glance' => true,
             'show_in_rest' => true,
@@ -290,32 +339,31 @@ return [
                 'menu_name' => 'Localisations',
             ],
         ],
-        'motscles' => [
-            'links' => ['ressources', 'projects', 'inspirations'],
+        'types' => [
+            'links' => ['ressources'],
             'meta_box' => 'radio',
             'dashboard_glance' => true,
             'show_in_rest' => true,
-            'hierarchical' => true,
             'admin_cols' => [
-            'updated' => array(
-            'title' => 'Updated',
-            'meta_key' => 'updated_date',
-            'date_format' => 'd/m/Y'
-            ),
-        ],
+                'updated' => array(
+                    'title'       => 'Updated',
+                    'meta_key'    => 'updated_date',
+                    'date_format' => 'd/m/Y'
+                ),
+            ],
             'labels' => [
-                'singular' => 'Mot clé',
-                'plural' => 'Mots clés',
-                'url' => 'mots-cles',
-                'search_items' => 'Rechercher mot clé',
-                'all_items' => 'Tous les mots clés',
-                'parent_item' => 'Mot clé Parent',
-                'parent_item_colon' => 'Mot clé parent:',
-                'edit_item' => 'Editer mot clé',
-                'update_item' => 'Mettre à jour le mot clé',
-                'add_new_item' => 'Ajouter un mot clé',
-                'new_item_name' => 'Nouveau nom du mot clé',
-                'menu_name' => 'Mots clés',
+                'singular' => 'Type',
+                'plural' => 'Types',
+                'url' => 'ressource-types',
+                'search_items' => 'Rechercher type',
+                'all_items' => 'Tous les types',
+                'parent_item' => 'Type parent',
+                'parent_item_colon' => 'Type parent:',
+                'edit_item' => 'Editer type',
+                'update_item' => 'Mettre à jour le type',
+                'add_new_item' => 'Ajouter un type', 
+                'new_item_name' => 'Nouveau nom du type',
+                'menu_name' => 'Types',
             ],
         ],
     ],

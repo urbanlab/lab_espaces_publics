@@ -7,6 +7,8 @@
 namespace App;
 
 use function Roots\bundle;
+use App\Providers\CityFieldsServiceProvider;
+
 
 /**
  * Register the theme assets.
@@ -65,6 +67,12 @@ add_action('after_setup_theme', function () {
      * @link https://wptavern.com/gutenberg-10-5-embeds-pdfs-adds-verse-block-color-options-and-introduces-new-patterns
      */
     remove_theme_support('block-templates');
+
+    /** 
+     * * Make theme available for translation.
+     * Translations can be filed in the /resources/lang/ directory.
+    */ 
+    load_theme_textdomain('labeps-theme', get_template_directory() . '/resources/lang');
 
     /**
      * Register the navigation menus.
@@ -131,6 +139,22 @@ add_action('after_setup_theme', function () {
      * @return void
      */
     require_once __DIR__ . '/mail-custom.php';
+
+     // Register service providers.
+     app()->register(CityFieldsServiceProvider::class);
+
+     // Register theme setup.
+     add_theme_support('title-tag');
+     add_theme_support('post-thumbnails');
+     add_theme_support('customize-selective-refresh-widgets');
+     add_theme_support('html5', ['comment-list', 'comment-form', 'search-form', 'gallery', 'caption']);
+     add_theme_support('custom-logo', [
+         'height' => 100,
+         'width' => 400,
+         'flex-height' => true,
+         'flex-width' => true,
+     ]);
+
 }, 20);
 
 /**
@@ -147,12 +171,16 @@ add_action('widgets_init', function () {
     ];
 
     register_sidebar([
-        'name' => __('Primary', 'sage'),
-        'id' => 'sidebar-primary',
+        'name'          => __('Primary Sidebar', 'labeps-theme'),
+        'id'            => 'primary-sidebar',
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
     ] + $config);
 
     register_sidebar([
-        'name' => __('Footer', 'sage'),
+        'name' => __('Footer', 'labeps-theme'),
         'id' => 'sidebar-footer',
     ] + $config);
 });
@@ -171,6 +199,19 @@ add_theme_support('custom-logo', [
 add_action('after_setup_theme', function () {
     new \App\AjaxHandler();
 });
+
+// add_action('wp_enqueue_scripts', function () {
+//     bundle('app')->enqueue();
+
+//     // Prepare the data to pass to the script
+//     $locations = (new \App\View\Composers\MapComposer)->locations();
+//     $script_data = [
+//         'locations' => $locations,
+//     ];
+
+//     // Add inline script to pass the data
+//     wp_add_inline_script('app', 'const locations = ' . json_encode($script_data['locations']) . ';', 'before');
+// }, 100);
 
 // add_action('template_redirect', function () {
 //     if (is_page('phpinfo')) {

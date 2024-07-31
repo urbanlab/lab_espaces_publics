@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Roots\Acorn\Sage\SageServiceProvider;
-
 class ThemeServiceProvider extends SageServiceProvider
 {
     /**
@@ -24,6 +23,8 @@ class ThemeServiceProvider extends SageServiceProvider
     public function boot()
     {
         parent::boot();
+
+
         add_filter('nav_menu_css_class', [$this, 'addActiveClassToCptMenu'], 10, 2);
 
 
