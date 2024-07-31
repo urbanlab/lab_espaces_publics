@@ -1,6 +1,14 @@
 @import './text';
 @import './lists';
 
+#app{
+    @apply min-h-screen	flex flex-col;
+    main{
+        @apply flex-1;
+        
+    }
+}
+
 .loupe{
     @apply text-lg text-white rotate-45;
 }

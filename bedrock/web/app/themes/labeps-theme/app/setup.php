@@ -200,6 +200,12 @@ add_action('after_setup_theme', function () {
     new \App\AjaxHandler();
 });
 
+function enqueue_leaflet_assets() {
+    wp_enqueue_style('leaflet-css', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css');
+    wp_enqueue_script('leaflet-js', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js', [], null, true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_leaflet_assets');
+
 // add_action('wp_enqueue_scripts', function () {
 //     bundle('app')->enqueue();
 
