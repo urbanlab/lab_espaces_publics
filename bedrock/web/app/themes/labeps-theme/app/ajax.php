@@ -19,8 +19,6 @@ class AjaxHandler {
         $mapComposer = new MapComposer();
         $projects = $mapComposer->projects($filters);
 
-        error_log('Projects data: ' . print_r($projects, true));
-
         if (empty($projects)) {
             wp_send_json_error('Aucun post trouvé.');
             wp_die();
