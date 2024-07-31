@@ -37,6 +37,7 @@ export function callAjax(page = 1) {
         return response.json();
       })
       .then((data) => {
+        console.log('Received AJAX response:', data);
         const container = document.getElementById('results-container');
         const paginationContainer = document.getElementById(
           'pagination-container',
@@ -45,15 +46,18 @@ export function callAjax(page = 1) {
           container.innerHTML = data.data.html;
           paginationContainer.innerHTML = data.data.pagination;
 
+          console.log('Projects received:', data.data.projects);
+
           if (data.data.projects) {
-            clearMarkers(); // Videz les anciens marqueurs
-            addMarkers(data.data.projects); // Met à jour les marqueurs sur la carte
+            clearMarkers();
+            addMarkers(data.data.projects);
           }
         } else {
           container.innerHTML =
             '<p>Aucun projet trouvé pour les filtres sélectionnés.</p>';
           paginationContainer.innerHTML = '';
 
+          console.log('No projects found'); // Log en cas d'absence de projets
           clearMarkers(); // Videz les marqueurs de la carte
         }
       })

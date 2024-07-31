@@ -14,7 +14,9 @@ export function MapLeaflet() {
       return;
     }
 
-    map = L.map('map').setView([45.75, 4.85], 13);
+    if (!map) {
+      map = L.map('map').setView([45.75, 4.85], 13);
+    }
 
     if (!map) {
       console.error('Failed to initialize the map');
@@ -46,7 +48,14 @@ export function MapLeaflet() {
 }
 
 export function addMarkers(projects) {
-  clearMarkers();
+  if (!map) {
+    console.error('Map is not initialized');
+    return;
+  }
+
+  clearMarkers(); // Videz les anciens marqueurs
+
+  console.log('Adding markers for projects:', projects);
 
   const bounds = [];
 
@@ -88,6 +97,11 @@ export function addMarkers(projects) {
 }
 
 export function clearMarkers() {
+  if (!map) {
+    console.error('Map is not initialized');
+    return;
+  }
+
   markers.forEach((marker) => map.removeLayer(marker));
   markers = [];
 }
