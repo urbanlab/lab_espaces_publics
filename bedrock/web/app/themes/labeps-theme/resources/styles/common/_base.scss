@@ -1,6 +1,16 @@
 @import './text';
 @import './lists';
 
+html {
+    box-sizing: border-box;
+  }
+  html * {
+    box-sizing: inherit;
+  }
+  body {
+    margin: 0 !important;
+  }
+
 #app{
     @apply min-h-screen	flex flex-col;
     main{
