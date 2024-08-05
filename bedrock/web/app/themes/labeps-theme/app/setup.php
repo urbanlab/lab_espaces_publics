@@ -202,8 +202,8 @@ add_action('after_setup_theme', function () {
 
 add_action('wp_enqueue_scripts', function () {
     // Enqueue the Leaflet CSS and JS files
-    wp_enqueue_style('leaflet-css', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css', [], null);
-    wp_enqueue_script('leaflet-js', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js', [], null, true);
+    wp_enqueue_style('leaflet-css', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css', [], null);
+    wp_enqueue_script('leaflet-js', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', [], null, true);
 });
 
 // add_action('wp_enqueue_scripts', function () {

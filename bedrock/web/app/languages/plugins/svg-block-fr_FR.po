@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - SVG Block - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-28 12:54:02+0000\n"
+"PO-Revision-Date: 2024-07-21 06:55:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,14 @@ msgstr ""
 "X-Generator: GlotPress/4.0.1\n"
 "Language: fr\n"
 "Project-Id-Version: Plugins - SVG Block - Stable (latest release)\n"
+
+#: includes/icon-library.php:258
+msgid "Sorry, this file couldn't be sanitized so for security reasons wasn't uploaded."
+msgstr "Désolé, ce fichier n’a pas pu être normalisé et n’a donc pas été téléversé pour des raisons de sécurité."
+
+#: includes/icon-library.php:249
+msgid "Sorry, you are not allowed to upload SVG files."
+msgstr "Désolé, vous n’êtes pas autorisé à téléverser des fichiers SVG."
 
 #: build/block.json
 msgctxt "block keyword"
@@ -20,6 +28,11 @@ msgstr "lien"
 msgctxt "block keyword"
 msgid "separator"
 msgstr "séparateur"
+
+#: build/block.json
+msgctxt "block keyword"
+msgid "button"
+msgstr "bouton"
 
 #: build/block.json
 msgctxt "block keyword"
@@ -40,11 +53,6 @@ msgstr "icône"
 msgctxt "block keyword"
 msgid "svg"
 msgstr "svg"
-
-#: build/block.json
-msgctxt "block keyword"
-msgid "button"
-msgstr "bouton"
 
 #: build/block.json
 msgctxt "block description"
