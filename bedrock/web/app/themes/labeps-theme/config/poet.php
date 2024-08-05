@@ -184,7 +184,7 @@ return [
             'meta_box' => 'radio',
             'dashboard_glance' => true,
             'show_in_rest' => true,
-            'hierarchical' => true,
+            'hierarchical' => false,
             'admin_cols' => [
                 'updated' => array(
                     'title'       => 'Updated',
@@ -208,12 +208,10 @@ return [
             ],
         ],
         'motscles' => [
-            'links' => ['ressources', 'projects', 'inspirations'],
-            'meta_box' => 'post_tag',
-            'meta_box_cb' => false,
+            'links' => ['inspirations', 'ressources', 'projects'],
             'dashboard_glance' => true,
             'show_in_rest' => true,
-            'hierarchical' => true,
+            'hierarchical' => false,
             'admin_cols' => [
                 'updated' => array(
                 'title' => 'Updated',
@@ -291,6 +289,7 @@ return [
             'links' => ['projects'],
             'dashboard_glance' => true,
             'show_in_rest' => false,
+            'hierarchical' => false,
             'admin_cols' => [
                 'updated' => array(
                     'title'       => 'Updated',
@@ -315,7 +314,6 @@ return [
             'links' => ['inspirations'],
             'dashboard_glance' => true,
             'show_in_rest' => true,
-            'hierarchical' => true,
 			'has_archive' => true,
             'admin_cols' => [
                 'updated' => array(
@@ -344,6 +342,7 @@ return [
             'meta_box' => 'radio',
             'dashboard_glance' => true,
             'show_in_rest' => true,
+            'hierarchical' => false,
             'admin_cols' => [
                 'updated' => array(
                     'title'       => 'Updated',
