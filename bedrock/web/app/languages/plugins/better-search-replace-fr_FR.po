@@ -1,0 +1,247 @@
+# Translation of Plugins - Better Search Replace - Development (trunk) in French (France)
+# This file is distributed under the same license as the Plugins - Better Search Replace - Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-02-03 00:39:01+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: fr\n"
+"Project-Id-Version: Plugins - Better Search Replace - Development (trunk)\n"
+
+#: includes/class-bsr-plugin-footer.php:89
+msgid "Feedback"
+msgstr "Retour"
+
+#: includes/class-bsr-plugin-footer.php:82
+msgid "Support"
+msgstr "Support"
+
+#: includes/class-bsr-plugin-footer.php:79
+msgid "Documentation"
+msgstr "Documentation"
+
+#. translators: %1$s is a link to BSR's website, and %2$s is a link to WP
+#. Engine's website.
+#: includes/class-bsr-plugin-footer.php:51
+msgid "%1$s is developed and maintained by %2$s."
+msgstr "%1$s est développé et maintenu par %2$s."
+
+#. Author of the plugin
+#: better-search-replace.php
+msgid "WP Engine"
+msgstr "WP Engine"
+
+#: templates/sidebar.php:29
+msgid "Upgrade Now"
+msgstr "Mettre à niveau maintenant"
+
+#: templates/sidebar.php:25
+msgid "Get up to <span>50% off</span> your first year!"
+msgstr "Obtenez jusqu’à <span>50% de réduction</span> sur votre première année !"
+
+#: templates/sidebar.php:21
+msgid "Email support"
+msgstr "Support par e-mail"
+
+#: templates/sidebar.php:18
+msgid "Export and import WordPress databases"
+msgstr "Exportation et importation de bases de données WordPress"
+
+#: templates/sidebar.php:15
+msgid "Migrate full sites including themes, plugins, media, and database"
+msgstr "Migrer des sites complets, y compris les thèmes, les extensions, les médias et la base de données."
+
+#: templates/sidebar.php:12
+msgid "Use regular expressions for complex string replacements"
+msgstr "Utiliser des expressions régulières pour les remplacements complexes de chaînes de caractères"
+
+#: templates/sidebar.php:9
+msgid "Preview database changes before they are saved"
+msgstr "Prévisualisation des modifications apportées à la base de données avant leur enregistrement"
+
+#: templates/sidebar.php:5
+msgid "Gain access to more database and migration features"
+msgstr "Accéder à davantage de fonctionnalités de base de données et de migration"
+
+#: templates/sidebar.php:4
+msgid "Upgrade"
+msgstr "Mettre à niveau"
+
+#: templates/bsr-settings.php:43
+msgid "If you notice timeouts or are unable to backup/import the database, try decreasing this value."
+msgstr "Si vous constatez des dépassements de délai ou si vous ne parvenez pas à sauvegarder/importer la base de données, essayez de diminuer cette valeur."
+
+#: templates/bsr-search-replace.php:95
+msgid "Replace GUIDs"
+msgstr "Remplacer les GUID"
+
+#: templates/bsr-search-replace.php:73
+msgid "Additional Settings"
+msgstr "Réglages supplémentaires"
+
+#: templates/bsr-search-replace.php:37
+msgid "Search and replace text in the database, including serialized arrays and objects. Be sure to back up your database before running this process."
+msgstr "Recherchez et remplacez le texte dans la base de données, y compris les tableaux et les objets sérialisés. Veillez à sauvegarder votre base de données avant d’exécuter ce processus."
+
+#: templates/bsr-help.php:61
+msgid "System Info"
+msgstr "Information système"
+
+#: templates/bsr-help.php:43
+msgid "<a href=\"%s\" style=\"font-weight:bold;\" target=\"_blank\">Upgrade</a> to gain access to premium features and priority email support."
+msgstr "<a href=\"%s\" style=\"font-weight:bold;\" target=\"_blank\">Mettez à niveau</a> pour avoir accès aux fonctions premium et à l’assistance par e-mail prioritaire."
+
+#: templates/bsr-dashboard.php:53
+msgid "Upgrade now and get 50% off"
+msgstr "Mettez à niveau maintenant et obtenez 50% de réduction"
+
+#: includes/class-bsr-admin.php:224
+msgid "<a href=\"%s\" target=\"_blank\">UPGRADE</a> to view details on the exact changes that will be made."
+msgstr "<a href=\"%s\" target=\"_blank\">METTRE À NIVEAU</a> pour voir les détails sur les modifications exactes qui seront effectuées."
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: better-search-replace.php
+msgid "https://bettersearchreplace.com"
+msgstr "https://bettersearchreplace.com"
+
+#: includes/class-bsr-admin.php:235
+msgid " seconds"
+msgstr " secondes"
+
+#: includes/class-bsr-ajax.php:157
+msgid "Processing table %d of %d: %s"
+msgstr "Exécution de la table %d sur %d : %s"
+
+#: includes/class-bsr-admin.php:75
+msgid "Processing..."
+msgstr "Traitement en cours…"
+
+#. Description of the plugin
+#: better-search-replace.php
+msgid "A small plugin for running a search/replace on your WordPress database."
+msgstr "Une petite extension pour effectuer des rechercher/remplacer dans votre base de données WordPress."
+
+#: templates/bsr-settings.php:39
+msgid "Max Page Size"
+msgstr "Taille maximale de la page"
+
+#: templates/bsr-search-replace.php:118
+msgid "Run Search/Replace"
+msgstr "Lancer un rechercher/remplacer"
+
+#: templates/bsr-search-replace.php:107
+msgid "If checked, no changes will be made to the database, allowing you to check the results beforehand."
+msgstr "Si vous cochez cette case, aucun changement ne sera apporté à la base de données, vous aurez un aperçu des modifications possibles."
+
+#: templates/bsr-search-replace.php:106
+msgid "Run as dry run"
+msgstr "Faire un essai"
+
+#: templates/bsr-search-replace.php:96
+msgid "If left unchecked, all database columns titled 'guid' will be skipped."
+msgstr "Si la case n’est pas cochée, toutes les colonnes intitulées « guid » de la base de données seront ignorées."
+
+#: templates/bsr-search-replace.php:85
+msgid "Searches are case-sensitive by default."
+msgstr "Par défaut, les recherches sont sensibles à la casse."
+
+#: templates/bsr-search-replace.php:84
+msgid "Case-Insensitive"
+msgstr "Insensible à la casse"
+
+#: templates/bsr-search-replace.php:61
+msgid "Select multiple tables with Ctrl-Click for Windows or Cmd-Click for Mac."
+msgstr "Sélectionnez plusieurs tables avec la touche Ctrl+clic (sous Windows) ou Cmd+clic (sous Mac)."
+
+#: templates/bsr-search-replace.php:59
+msgid "Select tables"
+msgstr "Sélectionner les tables"
+
+#: templates/bsr-search-replace.php:51
+msgid "Replace with"
+msgstr "Remplacer par"
+
+#: templates/bsr-search-replace.php:46
+msgid "Search for"
+msgstr "Rechercher"
+
+#: templates/bsr-help.php:51
+msgid "Found a bug or have a feature request? Please submit an issue on <a href=\"%s\">GitHub</a>!"
+msgstr "Vous avez trouvé un bogue ou une demande de fonctionnalité ? Veuillez soumettre un sujet sur  <a href=\"%s\">GitHub</a> !"
+
+#: templates/bsr-help.php:35
+msgid "Free support is available on the <a href=\"%s\">plugin support forums</a>."
+msgstr "Un support gratuit est disponible sur le <a href=\"%s\">forum support de l’extension</a>."
+
+#: templates/bsr-help.php:26
+msgid "Help & Troubleshooting"
+msgstr "Aide & Résolution de problème"
+
+#: templates/bsr-dashboard.php:67
+msgid "Help"
+msgstr "Aide"
+
+#: templates/bsr-dashboard.php:66 templates/bsr-settings.php:30
+msgid "Settings"
+msgstr "Réglages"
+
+#: templates/bsr-dashboard.php:65 templates/bsr-search-replace.php:32
+msgid "Search/Replace"
+msgstr "Rechercher/Remplacer"
+
+#: includes/class-bsr-db.php:295
+msgid "Error updating row: %d."
+msgstr "Erreur lors de la mise à jour de la ligne : %d."
+
+#: includes/class-bsr-db.php:85
+msgid "(%s MB)"
+msgstr "(%s MB)"
+
+#: includes/class-bsr-admin.php:285
+msgid "Upgrade to Pro"
+msgstr "Passez à la version Pro"
+
+#: includes/class-bsr-admin.php:213
+msgid "Time"
+msgstr "Durée"
+
+#: includes/class-bsr-admin.php:213
+msgid "Rows Updated"
+msgstr "Lignes mises à jour"
+
+#: includes/class-bsr-admin.php:213
+msgid "Changes Found"
+msgstr "Modifications trouvées"
+
+#: includes/class-bsr-admin.php:213
+msgid "Table"
+msgstr "Table"
+
+#: includes/class-bsr-admin.php:115
+msgid "<p>During the search/replace, <strong>%d</strong> tables were searched, with <strong>%d</strong> cells changed in <strong>%d</strong> updates.</p><p><a href=\"%s\" class=\"thickbox\" title=\"Search/Replace Details\">Click here</a> for more details.</p>"
+msgstr "<p>Pendant le rechercher/remplacer, <strong>%d</strong> tables ont été parcourues, <strong>%d</strong> cellules changées avec <strong>%d</strong> mises à jour.</p><p><a href=\"%s\" class=\"thickbox\" title=\"Plus de détails\">Cliquez ici</a> pour plus de détails.</p>"
+
+#: includes/class-bsr-admin.php:108
+msgid "<p><strong>DRY RUN:</strong> <strong>%d</strong> tables were searched, <strong>%d</strong> cells were found that need to be updated, and <strong>%d</strong> changes were made.</p><p><a href=\"%s\" class=\"thickbox\" title=\"Dry Run Details\">Click here</a> for more details, or use the form below to run the search/replace.</p>"
+msgstr "<p><strong>Résultat de l’essai :</strong> <strong>%d</strong> tables ont été parcourues, <strong>%d</strong> chaînes trouvées qui peuvent être mises à jour et <strong>%d</strong> modifications auraient pu être apportées.</p><p><a href=\"%s\" class=\"thickbox\" title=\"Plus de détails\">Cliquez ici</a> pour plus de détails ou utilisez le formulaire ci-dessous pour exécuter le rechercher/remplacer.</p>"
+
+#. Plugin Name of the plugin
+#: better-search-replace.php includes/class-bsr-admin.php:87
+msgid "Better Search Replace"
+msgstr "Better Search Replace"
+
+#: includes/class-bsr-admin.php:74
+msgid "An error occurred processing your request. Try decreasing the \"Max Page Size\", or contact support."
+msgstr "Une erreur est survenue lors de votre requête. Essayez de diminuer la « Taille maximale de la page » ou contactez le support."
+
+#: includes/class-bsr-admin.php:73
+msgid "Please select the tables that you want to update."
+msgstr "Sélectionnez les tables que vous souhaitez mettre à jour."
+
+#: includes/class-bsr-admin.php:72
+msgid "No search string was defined, please enter a URL or string to search for."
+msgstr "Aucune chaîne de recherche n’a été définie, saisissez une URL ou une chaîne à rechercher."
