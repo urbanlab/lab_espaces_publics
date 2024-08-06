@@ -1,94 +1,54 @@
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-let map;
-let markers = [];
-
 export function MapLeaflet() {
-  try {
-    const mapElement = document.getElementById('map');
+  const mapElement = document.getElementById('map');
+  const initialCommuneData = window.projects;
 
-    if (
-      typeof window.projects === 'undefined' ||
-      window.projects.length === 0
-    ) {
-      console.log('No projects found or projects is undefined.');
-      return;
-    }
-    map = L.map(mapElement).setView([45.75, 4.85], 11);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    }).addTo(map);
-
-    addMarkers(window.projects);
-
-    setTimeout(() => {
-      map.invalidateSize();
-    }, 200);
-
-    const observer = new MutationObserver(() => {
-      map.invalidateSize();
-      console.log('Map size invalidated by MutationObserver');
-    });
-
-    observer.observe(mapElement, {
-      attributes: true,
-      attributeFilter: ['style', 'class'],
-    });
-  } catch (error) {
-    console.error('Error initializing the map:', error);
+  if (
+    typeof initialCommuneData === 'undefined' ||
+    initialCommuneData.length === 0
+  ) {
+    console.log('No projects found or projects is undefined.');
+    return;
   }
 
-  console.log(map);
-}
+  const map = L.map(mapElement).setView([45.75, 4.85], 11);
 
-export function addMarkers(projects) {
-  clearMarkers(); // Videz les anciens marqueurs
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  }).addTo(map);
 
-  const bounds = [];
+  let markers = [];
 
-  projects.forEach((project) => {
-    if (project.latitude && project.longitude) {
-      const marker = L.marker([project.latitude, project.longitude]).addTo(map);
-      markers.push(marker);
+  function updateMap(projects) {
+    // Remove existing markers
+    markers.forEach((marker) => map.removeLayer(marker));
+    markers = [];
 
-      marker.bindPopup(project.simple_popup);
+    // Add new markers
+    projects.forEach(function (project) {
+      if (project.latitude && project.longitude) {
+        const marker = L.marker([project.latitude, project.longitude]).addTo(
+          map,
+        );
+        marker.bindTooltip(project.simple_popup);
+        marker.bindPopup(project.detailed_popup);
+        markers.push(marker);
+      } else {
+        console.warn(
+          `Project "${project.title}" does not have valid coordinates.`,
+        );
+      }
+    });
+  }
 
-      marker.on('mouseover', function () {
-        this.setPopupContent(project.simple_popup);
-        this.openPopup();
-      });
+  // Initial map update
+  updateMap(initialCommuneData);
 
-      marker.on('mouseout', function () {
-        this.closePopup();
-      });
-
-      marker.on('click', function () {
-        this.setPopupContent(project.detailed_popup);
-        this.openPopup();
-      });
-
-      bounds.push([project.latitude, project.longitude]);
-    } else {
-      console.warn(
-        `Project "${project.title}" does not have valid coordinates.`,
-      );
-    }
+  // Listen for custom event to update the map
+  document.addEventListener('projectsUpdated', function (e) {
+    updateMap(e.detail.projects);
   });
-
-  console.log('HOLA' + bounds);
-
-  if (bounds.length > 0) {
-    setTimeout(() => {
-      map.fitBounds(bounds); // Ajuste la vue de la carte pour inclure tous les marqueurs
-      map.invalidateSize(); // Force la carte à vérifier ses dimensions
-    }, 200);
-  }
-}
-
-export function clearMarkers() {
-  markers.forEach((marker) => map.removeLayer(marker));
-  markers = [];
 }

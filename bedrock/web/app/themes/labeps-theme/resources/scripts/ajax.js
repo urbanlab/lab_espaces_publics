@@ -1,5 +1,7 @@
 import {UpdateTags} from './filters/updateTags';
-import {addMarkers, clearMarkers} from './map-leaflet';
+// import {addMarkers, clearMarkers} from './map-leaflet';
+
+// assets/scripts/ajax-filter.js
 
 export function callAjax(page = 1) {
   const form = document.getElementById('taxonomy-filter-form');
@@ -45,20 +47,24 @@ export function callAjax(page = 1) {
         if (data && data.success) {
           container.innerHTML = data.data.html;
           paginationContainer.innerHTML = data.data.pagination;
-
           console.log('Projects received:', data.data.projects);
 
-          if (data.data.projects) {
-            clearMarkers();
-            addMarkers(data.data.projects);
-          }
+          // Trigger custom event to update the map
+          const event = new CustomEvent('projectsUpdated', {
+            detail: {projects: data.data.projects},
+          });
+          document.dispatchEvent(event);
         } else {
           container.innerHTML =
             '<p>Aucun projet trouvé pour les filtres sélectionnés.</p>';
           paginationContainer.innerHTML = '';
-
           console.log('No projects found'); // Log en cas d'absence de projets
-          clearMarkers(); // Videz les marqueurs de la carte
+
+          // Trigger custom event to clear the map
+          const event = new CustomEvent('projectsUpdated', {
+            detail: {projects: []},
+          });
+          document.dispatchEvent(event);
         }
       })
       .catch((error) => console.error('Erreur AJAX :', error));

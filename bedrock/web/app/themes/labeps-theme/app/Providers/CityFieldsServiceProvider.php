@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use Roots\Acorn\ServiceProvider;
+use Roots\Acorn\Sage\SageServiceProvider;
 
-class CityFieldsServiceProvider extends ServiceProvider
+class CityFieldsServiceProvider extends SageServiceProvider
 {
     public function register()
     {
