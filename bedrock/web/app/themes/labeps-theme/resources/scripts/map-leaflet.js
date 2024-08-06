@@ -1,119 +1,54 @@
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-let map;
-let markers = [];
-
 export function MapLeaflet() {
-  try {
-    console.log('Initializing MapLeaflet...');
-    const mapElement = document.getElementById('map');
-    if (!mapElement) {
-      console.error('Map element not found');
-      return;
-    }
+  const mapElement = document.getElementById('map');
+  const initialCommuneData = window.projects;
 
-    if (
-      typeof window.projects === 'undefined' ||
-      window.projects.length === 0
-    ) {
-      console.log('No projects found or projects is undefined.');
-      return;
-    }
-
-    if (!map) {
-      map = L.map('map').setView([45.75, 4.85], 13);
-      console.log('Map initialized');
-    }
-
-    if (!map) {
-      console.error('Failed to initialize the map');
-      return;
-    }
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    }).addTo(map);
-
-    console.log('Tile layer added');
-
-    addMarkers(window.projects);
-
-    setTimeout(() => {
-      map.invalidateSize();
-      console.log('Map size invalidated');
-    }, 200);
-
-    const observer = new MutationObserver(() => {
-      map.invalidateSize();
-      console.log('Map size invalidated by MutationObserver');
-    });
-
-    observer.observe(mapElement, {
-      attributes: true,
-      attributeFilter: ['style', 'class'],
-    });
-  } catch (error) {
-    console.error('Error initializing the map:', error);
-  }
-}
-
-export function addMarkers(projects) {
-  if (!map) {
-    console.error('Map is not initialized');
+  if (
+    typeof initialCommuneData === 'undefined' ||
+    initialCommuneData.length === 0
+  ) {
+    console.log('No projects found or projects is undefined.');
     return;
   }
 
-  clearMarkers(); // Videz les anciens marqueurs
+  const map = L.map(mapElement).setView([45.75, 4.85], 11);
 
-  console.log('Adding markers for projects:', projects);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  }).addTo(map);
 
-  const bounds = [];
+  let markers = [];
 
-  projects.forEach((project) => {
-    if (project.latitude && project.longitude) {
-      const marker = L.marker([project.latitude, project.longitude]).addTo(map);
-      markers.push(marker);
+  function updateMap(projects) {
+    // Remove existing markers
+    markers.forEach((marker) => map.removeLayer(marker));
+    markers = [];
 
-      marker.bindPopup(project.simple_popup);
+    // Add new markers
+    projects.forEach(function (project) {
+      if (project.latitude && project.longitude) {
+        const marker = L.marker([project.latitude, project.longitude]).addTo(
+          map,
+        );
+        marker.bindTooltip(project.simple_popup);
+        marker.bindPopup(project.detailed_popup);
+        markers.push(marker);
+      } else {
+        console.warn(
+          `Project "${project.title}" does not have valid coordinates.`,
+        );
+      }
+    });
+  }
 
-      marker.on('mouseover', function () {
-        this.setPopupContent(project.simple_popup);
-        this.openPopup();
-      });
+  // Initial map update
+  updateMap(initialCommuneData);
 
-      marker.on('mouseout', function () {
-        this.closePopup();
-      });
-
-      marker.on('click', function () {
-        this.setPopupContent(project.detailed_popup);
-        this.openPopup();
-      });
-
-      bounds.push([project.latitude, project.longitude]);
-    } else {
-      console.warn(
-        `Project "${project.title}" does not have valid coordinates.`,
-      );
-    }
+  // Listen for custom event to update the map
+  document.addEventListener('projectsUpdated', function (e) {
+    updateMap(e.detail.projects);
   });
-
-  if (bounds.length > 0) {
-    setTimeout(() => {
-      map.fitBounds(bounds); // Ajuste la vue de la carte pour inclure tous les marqueurs
-      map.invalidateSize(); // Force la carte à vérifier ses dimensions
-    }, 200);
-  }
-}
-
-export function clearMarkers() {
-  if (!map) {
-    console.error('Map is not initialized');
-    return;
-  }
-
-  markers.forEach((marker) => map.removeLayer(marker));
-  markers = [];
 }

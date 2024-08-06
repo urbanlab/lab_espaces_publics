@@ -1,4 +1,4 @@
-<aside id="filters-menu" class="filters slide-in lg:static lg:translate-x-0 lg:flex-col lg:w-1/3 px-6 lg:max">
+<aside id="filters-menu" class="filters slide-in lg:static lg:translate-x-0 lg:flex-col lg:w-1/3 px-6 lg:max z-0">
 <h4 class="bold text-lg">Filtrer par :</h4>
 <div id="selected-filters" class="flex flex-wrap gap-2 mb-4"></div>
 
