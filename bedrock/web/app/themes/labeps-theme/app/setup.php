@@ -44,6 +44,20 @@ add_action('enqueue_block_editor_assets', function () {
 }, 100);
 
 /**
+ * Register Leaflet.
+ *
+ * @return void
+ */
+add_action('wp_enqueue_scripts', function () {
+    // Enqueue the Leaflet CSS and JS files
+    wp_enqueue_style('leaflet-css', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css', [], null);
+    wp_enqueue_script('leaflet-js', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', [], null, true);
+    wp_enqueue_script('map-leaflet', get_template_directory_uri() . '/assets/scripts/map-leaflet.js', array('leaflet-js'), null, true);
+
+    wp_enqueue_script('ajax', get_template_directory_uri() . '/assets/scripts/ajax.js', array('map-leaflet'), null, true);
+  });
+
+/**
  * Register the initial theme setup.
  *
  * @return void
@@ -200,14 +214,7 @@ add_action('after_setup_theme', function () {
     new \App\AjaxHandler();
 });
 
-add_action('wp_enqueue_scripts', function () {
-    // Enqueue the Leaflet CSS and JS files
-    wp_enqueue_style('leaflet-css', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css', [], null);
-    wp_enqueue_script('leaflet-js', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', [], null, true);
-    wp_enqueue_script('map-leaflet', get_template_directory_uri() . '/assets/scripts/map-leaflet.js', array('leaflet-js'), null, true);
 
-    wp_enqueue_script('ajax', get_template_directory_uri() . '/assets/scripts/ajax.js', array('map-leaflet'), null, true);
-  });
 
 // add_action('wp_enqueue_scripts', function () {
 //     bundle('app')->enqueue();
