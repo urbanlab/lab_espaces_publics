@@ -38,16 +38,13 @@
           {!! the_posts_pagination() !!}
         </div>
       </div>
-      <div id="map-view" class="view md:w-3/4">
+      <div id="map-view" class="view md:w-3/4 z-0">
         <div id="map"></div>
         @if (!empty($projects))
         <script>
           window.projects = @json($projects);
           window.statuts = @json($statuts);
-
         </script>
-      @else
-        <p>Aucune commune trouvée.</p>
       @endif
       </div>
     </div>

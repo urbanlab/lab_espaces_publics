@@ -18,13 +18,9 @@ import {MapLeaflet} from './map-leaflet';
  */
 
 domReady(async () => {
-  const mapElement = document.getElementById('map');
-  if (mapElement) {
-    MapLeaflet();
-  } else {
-    console.error('Map element not found at DOMContentLoaded');
-  }
   callAjax();
+  MapLeaflet();
+
   function handleSelectionChange() {
     animatePostsOnLoad();
     hidePostsAnimation(() => {

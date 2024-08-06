@@ -1,5 +1,7 @@
 <?php
 
+use App\View\Composers\CustomTaxonomyField;
+
 return [
 
     /*
@@ -18,6 +20,7 @@ return [
             'menu_icon' => 'dashicons-book-alt',
             'supports' => ['title', 'editor', 'author', 'excerpt', 'thumbnail'],
             'show_in_rest' => true,
+            'hierarchical' => false,
             'has_archive' => true,
             'show_in_feed' => false,
             'public' => true,
@@ -38,6 +41,7 @@ return [
                     'taxonomy' => 'motscles',
                     'title'    => 'Mots clés',
                     'link'     => 'edit',
+                    'meta_box' => 'radio',
                 ],
                 'published' => array(
                     'title'       => 'Published',
@@ -60,6 +64,7 @@ return [
             'supports' => ['title', 'editor', 'author', 'excerpt', 'thumbnail'],
             'show_in_rest' => true,
             'has_archive' => true,
+            'hierarchical' => false,
             'show_in_feed' => false,
             'public' => true,
             'show_in_nav_menus' => true,
@@ -113,9 +118,10 @@ return [
         'projects' => [
             'enter_title_here' => 'Ajouter un projet',
             'menu_icon'    => 'dashicons-buddicons-topics',
-            'supports' => ['title', 'editor', 'author', 'excerpt', 'thumbnail'],
+            'supports' => ['title', 'editor', 'author', 'excerpt', 'thumbnail', 'custom-fields'],
             'show_in_rest' => true,
             'has_archive' => true,
+            'hierarchical' => false,
             'show_in_feed' => false,
             'public' => true,
             'show_in_nav_menus' => true,
@@ -147,6 +153,12 @@ return [
                     'title'    => 'Commune',
                     'link'     => 'edit',
                 ],
+            ],
+
+            'admin_filters' => [
+			'genre' => [
+				'taxonomy' => 'commune',
+			]
             ],
             'archive' => [
                 'posts_per_page' => 10,
@@ -181,10 +193,14 @@ return [
     'taxonomy' => [
         'defis' => [
             'links' => ['inspirations', 'projects', 'post', 'ressources'],
-            'meta_box' => 'radio',
+            'meta_box' => 'dropdown',
             'dashboard_glance' => true,
             'show_in_rest' => true,
-            'hierarchical' => false,
+            'hierarchical' => true,
+            'show_ui' => true,
+            'show_admin_column' => true,
+            'query_var' => true,
+            'rewrite' => array('slug' => 'defis'),
             'admin_cols' => [
                 'updated' => array(
                     'title'       => 'Updated',
@@ -209,14 +225,19 @@ return [
         ],
         'motscles' => [
             'links' => ['inspirations', 'ressources', 'projects'],
+            'meta_box' => 'radio',
             'dashboard_glance' => true,
             'show_in_rest' => true,
-            'hierarchical' => false,
+            'hierarchical' => true,
+            'show_ui' => true,
+            'show_admin_column' => true,
+            'query_var' => true,
+            'rewrite' => array('slug' => 'motscles'),
             'admin_cols' => [
                 'updated' => array(
                 'title' => 'Updated',
                 'meta_key' => 'updated_date',
-                'date_format' => 'd/m/Y'
+                'date_format' => 'd/m/Y',
                 ),
             ],
             'labels' => [
@@ -236,10 +257,15 @@ return [
         ],
         'ctm' => [
             'links' => ['projects'],
+            'meta_box' => 'radio',
             'dashboard_glance' => true,
             'show_in_rest' => true,
-            'hierarchical' => false,
+            'hierarchical' => true,
 			'has_archive' => true,
+            'show_ui' => true,
+            'show_admin_column' => true,
+            'query_var' => true,
+            'rewrite' => array('slug' => 'motscles'),
             'admin_cols' => [
                 'updated' => array(
                     'title'       => 'Updated',
@@ -262,9 +288,14 @@ return [
         ],
         'commune' => [
             'links' => ['projects'],
+            'meta_box' => 'radio',
             'dashboard_glance' => true,
             'show_in_rest' => true,
-            'hierarchical' => false,
+            'hierarchical' => true,
+            'show_ui' => true,
+            'show_admin_column' => true,
+            'query_var' => true,
+            'rewrite' => array('slug' => 'motscles'),
             'admin_cols' => [
                 'updated' => [
                     'title'       => 'Updated',
@@ -289,7 +320,11 @@ return [
             'links' => ['projects'],
             'dashboard_glance' => true,
             'show_in_rest' => false,
-            'hierarchical' => false,
+            'hierarchical' => true,
+            'show_ui' => true,
+            'show_admin_column' => true,
+            'query_var' => true,
+            'rewrite' => array('slug' => 'statuts'),
             'admin_cols' => [
                 'updated' => array(
                     'title'       => 'Updated',
@@ -315,6 +350,11 @@ return [
             'dashboard_glance' => true,
             'show_in_rest' => true,
 			'has_archive' => true,
+            'hierarchical' => true,
+            'show_ui' => true,
+            'show_admin_column' => true,
+            'query_var' => true,
+            'rewrite' => array('slug' => 'localisation-inspiration'),
             'admin_cols' => [
                 'updated' => array(
                     'title'       => 'Updated',
@@ -342,7 +382,11 @@ return [
             'meta_box' => 'radio',
             'dashboard_glance' => true,
             'show_in_rest' => true,
-            'hierarchical' => false,
+            'hierarchical' => true,
+            'show_ui' => true,
+            'show_admin_column' => true,
+            'query_var' => true,
+            'rewrite' => array('slug' => 'types'),
             'admin_cols' => [
                 'updated' => array(
                     'title'       => 'Updated',

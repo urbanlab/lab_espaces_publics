@@ -55,7 +55,7 @@ if (!function_exists('\Roots\bootloader')) {
 |
 */
 
-collect(['setup', 'filters', 'ajax', 'helper', 'blocks'])
+collect(['setup', 'filters', 'ajax', 'helper', 'blocks', 'mail-custom'])
     ->each(function ($file) {
         if (!locate_template($file = "app/{$file}.php", true, true)) {
             wp_die(

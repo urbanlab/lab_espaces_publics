@@ -24,11 +24,10 @@ class ThemeServiceProvider extends SageServiceProvider
     {
         parent::boot();
 
-
         add_filter('nav_menu_css_class', [$this, 'addActiveClassToCptMenu'], 10, 2);
 
-
     }
+
 
     public function addActiveClassToCptMenu($classes, $item)
     {
@@ -42,4 +41,5 @@ class ThemeServiceProvider extends SageServiceProvider
 
         return $classes;
     }
+
 }

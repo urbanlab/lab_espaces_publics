@@ -6,12 +6,7 @@ let markers = [];
 
 export function MapLeaflet() {
   try {
-    console.log('Initializing MapLeaflet...');
     const mapElement = document.getElementById('map');
-    if (!mapElement) {
-      console.error('Map element not found');
-      return;
-    }
 
     if (
       typeof window.projects === 'undefined' ||
@@ -20,29 +15,17 @@ export function MapLeaflet() {
       console.log('No projects found or projects is undefined.');
       return;
     }
-
-    if (!map) {
-      map = L.map('map').setView([45.75, 4.85], 13);
-      console.log('Map initialized');
-    }
-
-    if (!map) {
-      console.error('Failed to initialize the map');
-      return;
-    }
+    map = L.map(mapElement).setView([45.75, 4.85], 11);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(map);
 
-    console.log('Tile layer added');
-
     addMarkers(window.projects);
 
     setTimeout(() => {
       map.invalidateSize();
-      console.log('Map size invalidated');
     }, 200);
 
     const observer = new MutationObserver(() => {
@@ -57,17 +40,12 @@ export function MapLeaflet() {
   } catch (error) {
     console.error('Error initializing the map:', error);
   }
+
+  console.log(map);
 }
 
 export function addMarkers(projects) {
-  if (!map) {
-    console.error('Map is not initialized');
-    return;
-  }
-
   clearMarkers(); // Videz les anciens marqueurs
-
-  console.log('Adding markers for projects:', projects);
 
   const bounds = [];
 
@@ -100,6 +78,8 @@ export function addMarkers(projects) {
     }
   });
 
+  console.log('HOLA' + bounds);
+
   if (bounds.length > 0) {
     setTimeout(() => {
       map.fitBounds(bounds); // Ajuste la vue de la carte pour inclure tous les marqueurs
@@ -109,11 +89,6 @@ export function addMarkers(projects) {
 }
 
 export function clearMarkers() {
-  if (!map) {
-    console.error('Map is not initialized');
-    return;
-  }
-
   markers.forEach((marker) => map.removeLayer(marker));
   markers = [];
 }
