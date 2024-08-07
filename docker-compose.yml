@@ -28,7 +28,7 @@ services:
     build:
       context: .
     environment:
-      - WP_ENV=$${WP_ENV:-production}
+      - WP_ENV=${WP_ENV:-production}
       - WP_HOME=${WP_HOME:-http://localhost:${EXPOSED_WORDPRESS_PORT}}
       - WP_SITEURL=${WP_SITEURL:-http://localhost:${EXPOSED_WORDPRESS_PORT}/wp}
       - DATABASE_URL=${DATABASE_URL:-mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@mysql:3306/${MYSQL_DATABASE}}
