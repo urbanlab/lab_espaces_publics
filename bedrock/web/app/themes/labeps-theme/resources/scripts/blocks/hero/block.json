@@ -1,6 +1,6 @@
 {
-  "apiVersion": 2,
-  "name": "theme/hero",
+  "apiVersion": 3,
+  "name": "labeps-theme/hero",
   "title": "Hero",
   "category": "design",
   "icon": "megaphone",

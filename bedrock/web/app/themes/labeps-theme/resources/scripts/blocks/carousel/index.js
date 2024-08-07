@@ -7,7 +7,8 @@ import 'slick-carousel';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-registerBlockType('theme/carousel', {
+registerBlockType('labeps-theme/carousel', {
+  title: 'Carousel',
   edit,
   save,
 });

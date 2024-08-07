@@ -18,34 +18,82 @@ import {MapLeaflet} from './map-leaflet';
  */
 
 domReady(async () => {
-  MapLeaflet();
-  callAjax();
-  function handleSelectionChange() {
-    animatePostsOnLoad();
-    hidePostsAnimation(() => {
-      animatePosts();
-    });
+  function isPage(urlFragment) {
+    return window.location.href.indexOf(urlFragment) > -1;
   }
-  document
-    .querySelectorAll('select, input[type="checkbox"]')
-    .forEach((element) => {
+
+  // Vérifiez et exécutez MapLeaflet uniquement sur la page spécifique
+  if (isPage('/projets-pilotes/') && typeof MapLeaflet === 'function') {
+    MapLeaflet();
+  }
+
+  // Vérifiez et exécutez callAjax si nécessaire
+  if (typeof callAjax === 'function') {
+    callAjax();
+  }
+
+  function handleSelectionChange() {
+    // Vérifiez et exécutez animatePostsOnLoad si nécessaire
+    if (typeof animatePostsOnLoad === 'function') {
+      animatePostsOnLoad();
+    }
+    // Vérifiez et exécutez hidePostsAnimation si nécessaire
+    if (typeof hidePostsAnimation === 'function') {
+      hidePostsAnimation(() => {
+        // Vérifiez et exécutez animatePosts si nécessaire
+        if (typeof animatePosts === 'function') {
+          animatePosts();
+        }
+      });
+    }
+  }
+
+  // Sélectionnez et ajoutez des écouteurs d'événements si les éléments existent
+  const selectInputs = document.querySelectorAll(
+    'select, input[type="checkbox"]',
+  );
+  if (selectInputs.length > 0) {
+    selectInputs.forEach((element) => {
       element.addEventListener('change', handleSelectionChange);
     });
+  }
 
-  FilterMenu();
-  Accordion();
-  ViewTabs();
+  // Vérifiez et exécutez FilterMenu si nécessaire
+  if (typeof FilterMenu === 'function') {
+    FilterMenu();
+  }
 
+  // Vérifiez et exécutez Accordion si nécessaire
+  if (typeof Accordion === 'function') {
+    Accordion();
+  }
+
+  // Vérifiez et exécutez ViewTabs si nécessaire
+  if (typeof ViewTabs === 'function') {
+    ViewTabs();
+  }
+
+  // Sélectionnez les cases à cocher et ajoutez des écouteurs d'événements si les éléments existent
   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-  UpdateTags(checkboxes);
-
-  checkboxes.forEach(function (checkbox) {
-    checkbox.addEventListener('change', function () {
+  if (checkboxes.length > 0) {
+    // Vérifiez et exécutez UpdateTags si nécessaire
+    if (typeof UpdateTags === 'function') {
       UpdateTags(checkboxes);
-    });
-  });
+    }
 
-  Matomo();
+    checkboxes.forEach(function (checkbox) {
+      checkbox.addEventListener('change', function () {
+        if (typeof UpdateTags === 'function') {
+          UpdateTags(checkboxes);
+        }
+      });
+    });
+  }
+
+  // Vérifiez et exécutez Matomo si nécessaire
+  if (typeof Matomo === 'function') {
+    Matomo();
+  }
 });
 
 /**

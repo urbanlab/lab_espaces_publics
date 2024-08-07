@@ -1,6 +1,6 @@
 {
-  "apiVersion": 2,
-  "name": "theme/carousel",
+  "apiVersion": 3,
+  "name": "labeps-theme/carousel",
   "title": "Carousel",
   "category": "design",
   "icon": "images-alt",
