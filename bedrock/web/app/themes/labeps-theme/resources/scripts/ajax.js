@@ -39,7 +39,6 @@ export function callAjax(page = 1) {
         return response.json();
       })
       .then((data) => {
-        console.log('Received AJAX response:', data);
         const container = document.getElementById('results-container');
         const paginationContainer = document.getElementById(
           'pagination-container',
@@ -47,7 +46,6 @@ export function callAjax(page = 1) {
         if (data && data.success) {
           container.innerHTML = data.data.html;
           paginationContainer.innerHTML = data.data.pagination;
-          console.log('Projects received:', data.data.projects);
 
           // Trigger custom event to update the map
           const event = new CustomEvent('projectsUpdated', {

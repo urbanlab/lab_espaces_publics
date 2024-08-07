@@ -15,6 +15,10 @@ export function MapLeaflet() {
 
   const map = L.map(mapElement).setView([45.75, 4.85], 11);
 
+  setTimeout(function () {
+    map.invalidateSize();
+  }, 100);
+
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
