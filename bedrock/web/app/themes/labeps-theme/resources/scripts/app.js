@@ -18,9 +18,8 @@ import {MapLeaflet} from './map-leaflet';
  */
 
 domReady(async () => {
-  callAjax();
   MapLeaflet();
-
+  callAjax();
   function handleSelectionChange() {
     animatePostsOnLoad();
     hidePostsAnimation(() => {

@@ -1,5 +1,5 @@
-import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
 
 export function MapLeaflet() {
   const mapElement = document.getElementById('map');
