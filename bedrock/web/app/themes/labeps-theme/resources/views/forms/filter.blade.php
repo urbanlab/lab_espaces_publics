@@ -24,7 +24,7 @@
         </button>
         <div class="panel px-4 py-2 hidden">
             @php
-                $terms = get_terms(['taxonomy' => $taxonomy->name, 'hide_empty' => true]);
+                $terms = get_terms(['taxonomy' => $taxonomy->name, 'hide_empty' => true, 'update_term_meta_cache' => false]);
             @endphp
 
             @if (!empty($terms) && !is_wp_error($terms))

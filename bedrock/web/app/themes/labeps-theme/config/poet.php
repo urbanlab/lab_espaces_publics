@@ -92,7 +92,7 @@ return [
                     'link'     => 'edit',
                 ],
                 'localisation' => [
-                    'taxonomy' => 'localisation-internationale',
+                    'taxonomy' => 'localisation-inspiration',
                     'title'    => 'Localisation',
                     'link'     => 'edit',
                 ],
