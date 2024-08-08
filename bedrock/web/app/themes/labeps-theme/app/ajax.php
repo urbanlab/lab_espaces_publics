@@ -16,53 +16,49 @@ class AjaxHandler {
         $filters = $_POST;
         unset($filters['action'], $filters['nonce'], $filters['page_number'], $filters['content_type']);
 
-        $mapComposer = new MapComposer();
-        $projects = $mapComposer->projects($filters);
-
-        if (empty($projects)) {
-            wp_send_json_error('Aucun post trouvé.');
-            wp_die();
-        }
-
-        // Conserver la logique de pagination et de filtrage existante
         $contentType = sanitize_text_field($_POST['content_type'] ?? 'post');
         $tax_query = $this->build_tax_query($_POST);
-        $paged = isset($_POST['page_number']) ? intval($_POST['page_number']) : 1;
+        $page_number = isset($_POST['page_number']) ? intval($_POST['page_number']) : 1;
 
         $args = [
             'post_type'      => $contentType,
             'posts_per_page' => 12,
             'tax_query'      => $tax_query,
-            'paged'          => $paged,
+            'paged'          => $page_number,
             'post_status'    => 'publish',
         ];
 
         $query = new \WP_Query($args);
 
-        error_log('Query Args: ' . print_r($args, true));
-        error_log('Query Results: ' . print_r($query->posts, true));
-
         if (!$query->have_posts()) {
-            wp_send_json_error('Aucun post trouvé.');
+            wp_send_json_error(['html' => 'Aucun post trouvé.', 'projects' => [], 'pagination' => '']);
             wp_die();
         }
 
         $html = view('partials.ajax-response', ['query' => $query])->render();
 
         ob_start();
-        the_posts_pagination([
+        $pagination = paginate_links([
             'mid_size'  => 2,
-            'prev_text' => __('Retour', 'textdomain'),
-            'next_text' => __('Suivant', 'textdomain'),
+            'prev_text' => __('&laquo; Retour', 'textdomain'),
+            'next_text' => __('Suivant &raquo;', 'textdomain'),
         ]);
         $pagination = ob_get_clean();
 
         wp_reset_postdata();
-        wp_send_json_success([
+
+        $response = [
             'html' => $html,
             'pagination' => $pagination,
-            'projects' => $projects,
-        ]);
+        ];
+
+        // Si le type de contenu est "projects", récupérer les données pour la carte
+        if ($contentType === 'projects') {
+            $mapComposer = new MapComposer();
+            $response['projects'] = $mapComposer->projects($_POST, false); // Le second paramètre false indique que nous ne voulons pas les filtres
+        }
+
+        wp_send_json_success($response);
 
         wp_die();
     }
@@ -79,6 +75,7 @@ class AjaxHandler {
                     'taxonomy' => sanitize_key($key),
                     'field'    => 'slug',
                     'terms'    => is_array($value) ? array_map('sanitize_text_field', $value) : sanitize_text_field($value),
+                    'hide_empty'=> true,
                 ];
             }
         }
