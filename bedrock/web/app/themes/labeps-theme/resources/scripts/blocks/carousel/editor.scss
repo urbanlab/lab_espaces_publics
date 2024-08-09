@@ -1,15 +1,23 @@
-.carousel {
-  @apply flex flex-wrap;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-  img {
-    @apply w-1/2 h-auto;
-  }
+.image-preview-wrapper {
+  @apply grid grid-cols-2 gap-4;
 
-  .carousel-image {
-    @apply relative;
-  }
+  .image-preview-item {
+    @apply relative bg-gray-200 p-2;
 
-  .remove-image-button {
-    @apply absolute top-0 right-0 bg-red-600 text-white;
+    .image-preview {
+      @apply w-full h-auto object-cover;
+    }
+
+    button {
+      @apply absolute top-2 right-2 text-white bg-red-600 rounded-full p-1 hover:bg-red-700;
+    }
   }
+}
+
+.block-editor-block-list__block {
+  @apply my-4;
 }

@@ -1,101 +1,64 @@
-import {__} from '@wordpress/i18n';
-import PropTypes from 'prop-types';
 import {
   useBlockProps,
   MediaUpload,
-  MediaUploadCheck,
-  BlockControls,
-  BlockIcon,
   InspectorControls,
-  MediaPlaceholder,
 } from '@wordpress/block-editor';
-import {
-  Button,
-  ToolbarGroup,
-  ToolbarButton,
-  PanelBody,
-} from '@wordpress/components';
-import {plus} from '@wordpress/icons';
+import {PanelBody, Button, RangeControl} from '@wordpress/components';
+import PropTypes from 'prop-types';
 import './editor.scss';
 
 const Edit = ({attributes, setAttributes}) => {
-  const {images} = attributes;
+  const {images, columns} = attributes;
   const blockProps = useBlockProps();
 
   const onSelectImages = (newImages) => {
     setAttributes({
-      images: newImages.map((image) => ({url: image.url, alt: image.alt})),
+      images: newImages.map((img) => ({url: img.url, alt: img.alt})),
     });
   };
 
   const removeImage = (index) => {
-    const newImages = images.slice();
-    newImages.splice(index, 1);
-    setAttributes({images: newImages});
+    setAttributes({
+      images: images.filter((_, i) => i !== index),
+    });
   };
 
   return (
     <div {...blockProps}>
-      <BlockControls>
-        <ToolbarGroup>
-          <MediaUploadCheck>
-            <MediaUpload
-              onSelect={onSelectImages}
-              allowedTypes={['image']}
-              multiple
-              gallery
-              render={({open}) => (
-                <ToolbarButton
-                  icon={<BlockIcon icon={plus} />}
-                  label={__('Add Images', 'theme')}
-                  onClick={open}
-                />
-              )}
-            />
-          </MediaUploadCheck>
-        </ToolbarGroup>
-      </BlockControls>
       <InspectorControls>
-        <PanelBody title={__('Images', 'theme')} initialOpen={true}>
-          <MediaUploadCheck>
-            <MediaUpload
-              onSelect={onSelectImages}
-              allowedTypes={['image']}
-              multiple
-              gallery
-              render={({open}) => (
-                <Button onClick={open} variant="primary" isSecondary>
-                  {__('Upload Images', 'theme')}
-                </Button>
-              )}
-            />
-          </MediaUploadCheck>
+        <PanelBody title="Settings">
+          <RangeControl
+            label="Columns"
+            value={columns}
+            onChange={(value) => setAttributes({columns: value})}
+            min={1}
+            max={5}
+          />
         </PanelBody>
       </InspectorControls>
+
       {images.length === 0 ? (
-        <MediaPlaceholder
-          icon="format-gallery"
-          labels={{
-            title: __('Carousel', 'theme'),
-            instructions: __(
-              'Drag images, upload new ones or select files from your library.',
-              'theme',
-            ),
-          }}
+        <MediaUpload
           onSelect={onSelectImages}
           allowedTypes={['image']}
           multiple
+          gallery
+          render={({open}) => (
+            <Button onClick={open} variant="primary">
+              Select Images
+            </Button>
+          )}
         />
       ) : (
-        <div className="carousel">
-          {images.map((image, index) => (
-            <div key={index} className="carousel-image">
-              <img src={image.url} alt={image.alt} />
+        <div className="image-preview-wrapper">
+          {images.map((img, index) => (
+            <div key={index} className="image-preview-item">
+              <img src={img.url} alt={img.alt} className="image-preview" />
               <Button
-                className="remove-image-button"
                 onClick={() => removeImage(index)}
-                icon="no-alt">
-                {__('Supprimé', 'theme')}
+                variant="secondary"
+                isDestructive>
+                Remove
               </Button>
             </div>
           ))}
@@ -109,10 +72,11 @@ Edit.propTypes = {
   attributes: PropTypes.shape({
     images: PropTypes.arrayOf(
       PropTypes.shape({
-        url: PropTypes.string,
-        alt: PropTypes.string,
+        url: PropTypes.string.isRequired,
+        alt: PropTypes.string.isRequired,
       }),
-    ),
+    ).isRequired,
+    columns: PropTypes.number.isRequired,
   }).isRequired,
   setAttributes: PropTypes.func.isRequired,
 };

@@ -1,11 +1,8 @@
 import {registerBlockType} from '@wordpress/blocks';
 import edit from './edit';
 import save from './save';
-import './style.scss';
-import './editor.scss';
-import 'slick-carousel';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import {initializeSwiper} from './swiper-init';
+import {SWIPER_DEFAULT_OPTIONS} from './swiper-config';
 
 registerBlockType('labeps-theme/carousel', {
   title: 'Carousel',
@@ -13,13 +10,14 @@ registerBlockType('labeps-theme/carousel', {
   save,
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  $('.carousel').slick({
-    dots: true,
-    arrows: true,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 1,
-    adaptiveHeight: false,
+document.addEventListener('DOMContentLoaded', () => {
+  const carousels = document.querySelectorAll('.swiper-container');
+  carousels.forEach((carousel) => {
+    initializeSwiper(carousel, {
+      slidesPerView:
+        carousel.getAttribute('data-columns') ||
+        SWIPER_DEFAULT_OPTIONS.slidesPerView,
+      autoplay: SWIPER_DEFAULT_OPTIONS.autoplay,
+    });
   });
 });

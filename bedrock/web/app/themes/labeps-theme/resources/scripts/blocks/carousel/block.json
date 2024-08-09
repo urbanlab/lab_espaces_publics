@@ -1,19 +1,20 @@
 {
   "apiVersion": 3,
   "name": "labeps-theme/carousel",
-  "title": "Carousel",
+  "title": "Simple Carousel",
   "category": "design",
   "icon": "images-alt",
-  "description": "A custom carousel block.",
-  "supports": {
-    "html": false
-  },
+  "description": "A very basic carousel block.",
   "attributes": {
     "images": {
       "type": "array",
       "default": []
+    },
+    "columns": {
+      "type": "number",
+      "default": 1
     }
   },
-  "editorScript": "theme-carousel-block",
-  "style": "theme-carousel-block"
+  "editorScript": "file:./index.js",
+  "style": "file:./style.css"
 }

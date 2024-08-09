@@ -1,25 +1,59 @@
-.carousel-container {
-  @apply relative flex justify-center overflow-visible;
+/* Conteneur principal */
+.swiper-container {
+  width: 100%;
+  height: 600px; 
+  overflow: hidden; 
+  position: relative;
+  margin: 40px;
 }
 
-.carousel {
-  @apply relative overflow-visible w-10/12;
+/* Slides */
+.swiper-slide {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  flex-shrink: 0;
+  width: auto;
+}
 
-  img {
-    @apply w-full h-auto;
-  }
+/* Images dans les slides */
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+} 
 
-  .slick-prev,
-  .slick-next {
-    @apply absolute top-1/2 transform -translate-y-1/2 ;
-    
-    &::before{
-      color: #158579;
-      font-size: 50px;
-    }
-  }
+/* Pagination */
+.swiper-pagination {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
 
-  .slick-prev {
-    left: -55px;
+/* Flèches de navigation */
+.swiper-button-next, .swiper-button-prev {
+  width: 40px; 
+  height: 40px; 
+  background-color: #158579; 
+  color: #fff; 
+  border-radius: 50%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+  &::after{
+    font-size: 20px;
   }
+}
+
+.swiper-button-next:hover, .swiper-button-prev:hover {
+  background: #158579;
 }
