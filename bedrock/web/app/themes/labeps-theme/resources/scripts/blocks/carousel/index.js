@@ -1,12 +1,12 @@
 import {registerBlockType} from '@wordpress/blocks';
-import edit from './edit';
+import Edit from './edit';
 import save from './save';
 import {initializeSwiper} from './swiper-init';
 import {SWIPER_DEFAULT_OPTIONS} from './swiper-config';
 
 registerBlockType('labeps-theme/carousel', {
   title: 'Carousel',
-  edit,
+  edit: Edit,
   save,
 });
 

@@ -57,3 +57,35 @@
 .swiper-button-next:hover, .swiper-button-prev:hover {
   background: #158579;
 }
+
+.swiper-slide-post{
+  display: flex;
+  flex-direction: row;
+  justify-content: center; 
+  align-items: center;
+  flex-shrink: 0;
+  width: auto;
+
+  .custom-post-image{
+    @apply w-1/5;
+    
+    height: 10%;
+    object-fit: cover; 
+    display: block;
+  }
+
+}
+
+.custom-post-card{
+  @apply bg-white p-6 shadow-md overflow-hidden;
+
+}
+.custom-post-content{
+  @apply w-2/3;
+
+  .custom-post-title{
+    @apply text-black text-base leading-6;
+  
+  }
+
+}

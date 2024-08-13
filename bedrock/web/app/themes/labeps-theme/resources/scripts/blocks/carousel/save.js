@@ -1,19 +1,44 @@
 import {useBlockProps} from '@wordpress/block-editor';
 import PropTypes from 'prop-types';
-import './style.scss';
 
 export default function save({attributes}) {
-  const {images, columns = 1} = attributes;
+  const {images, columns, contentType, postSelections} = attributes;
   const blockProps = useBlockProps.save();
+
+  console.log('Attributes in save:', attributes);
 
   return (
     <div {...blockProps} className="swiper-container" data-columns={columns}>
       <div className="swiper-wrapper">
-        {images.map((img, index) => (
-          <div key={index} className="swiper-slide">
-            <img src={img.url} alt={img.alt} />
-          </div>
-        ))}
+        {contentType === 'images' &&
+          images.map((img, index) => (
+            <div key={index} className="swiper-slide">
+              <img src={img.url} alt={img.alt} />
+            </div>
+          ))}
+
+        {contentType !== 'images' &&
+          postSelections.map((post, index) => (
+            <div key={index} className="swiper-slide-post">
+              {post.featured_media_src_url ? (
+                <img
+                  src={post.featured_media_src_url}
+                  alt={post.title.rendered || 'No title'}
+                  className="custom-post-image"
+                />
+              ) : (
+                <div className="custom-no-image">
+                  <span>No Image Available</span>
+                </div>
+              )}
+              <div className="custom-post-content">
+                <h2 className="custom-post-title">{post.title.rendered}</h2>
+                <p
+                  className="custom-post-excerpt"
+                  dangerouslySetInnerHTML={{__html: post.excerpt.rendered}}></p>
+              </div>
+            </div>
+          ))}
       </div>
       <div className="swiper-pagination"></div>
       <div className="swiper-button-next"></div>
@@ -31,5 +56,17 @@ save.propTypes = {
       }),
     ).isRequired,
     columns: PropTypes.number.isRequired,
+    contentType: PropTypes.string.isRequired,
+    postSelections: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.shape({
+          rendered: PropTypes.string.isRequired,
+        }),
+        excerpt: PropTypes.shape({
+          rendered: PropTypes.string.isRequired,
+        }),
+        featured_media_src_url: PropTypes.string,
+      }),
+    ).isRequired,
   }).isRequired,
 };

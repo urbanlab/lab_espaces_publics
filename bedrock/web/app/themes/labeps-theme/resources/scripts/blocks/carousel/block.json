@@ -1,10 +1,10 @@
 {
   "apiVersion": 3,
   "name": "labeps-theme/carousel",
-  "title": "Simple Carousel",
+  "title": "Complex Carousel",
   "category": "design",
   "icon": "images-alt",
-  "description": "A very basic carousel block.",
+  "description": "A carousel block that supports images, posts, and custom post types.",
   "attributes": {
     "images": {
       "type": "array",
@@ -13,8 +13,25 @@
     "columns": {
       "type": "number",
       "default": 1
+    },
+    "contentType": {
+      "type": "string",
+      "default": "images",
+      "enum": ["images", "posts", "inspirations", "projects", "ressources"]
+    },
+    "posts": {
+      "type": "array",
+      "default": []
+    },
+    "postSelections": {
+      "type": "array",
+      "default": []
+    },
+    "selectedPostId": {
+      "type": "number",
+      "default": 0
     }
   },
-  "editorScript": "file:./index.js",
-  "style": "file:./style.css"
+  "editorScript": "theme-carousel-block",
+  "style": "theme-carousel-block"
 }

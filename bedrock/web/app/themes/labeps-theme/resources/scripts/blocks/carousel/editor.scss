@@ -21,3 +21,30 @@
 .block-editor-block-list__block {
   @apply my-4;
 }
+
+.post-thumbnail-container {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.post-thumbnail-item {
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.post-thumbnail-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.post-thumbnail-title {
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: bold;
+}

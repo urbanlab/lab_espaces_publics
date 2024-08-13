@@ -18,6 +18,7 @@ export default async (app) => {
   app
     .entry('app', ['@scripts/app', '@styles/app'])
     .entry('editor', ['@scripts/editor', '@styles/editor'])
+    .entry('blocks', ['blocks'])
     .entry('blocks', ['@scripts/blocks/index.js', '@scripts/blocks/style.scss'])
     .assets(['images', 'fonts'])
     .watch('resources/views/**/*', 'app/**/*')
