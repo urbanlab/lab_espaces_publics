@@ -24,6 +24,15 @@ export default async (app) => {
     .watch('resources/views/**/*', 'app/**/*')
     .use(new bs({proxy: 'http://localhost:8080/'}));
 
+  // Log to verify entrypoints
+  app.hooks.on('build.before', async () => {
+    console.log('Entry points:', app.entry().get());
+  });
+
+  /**
+   * JQUERY
+   *
+   */
   app.provide({
     jquery: ['jQuery', '$'],
   });
