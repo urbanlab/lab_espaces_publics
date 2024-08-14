@@ -1,5 +1,6 @@
 import {useBlockProps} from '@wordpress/block-editor';
 import PropTypes from 'prop-types';
+import './style.scss';
 
 export default function save({
   attributes: {

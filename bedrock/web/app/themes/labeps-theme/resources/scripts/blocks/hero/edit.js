@@ -57,31 +57,31 @@ const Edit = ({
   return (
     <div {...blockProps}>
       <InspectorControls>
-        <PanelBody title={__('Hero Settings', 'theme')}>
+        <PanelBody title={__('Hero Settings', 'labeps-theme')}>
           <TextControl
-            label={__('Tags', 'theme')}
+            label={__('Tags', 'labeps-theme')}
             value={tags.join(', ')}
             onChange={onChangeTags}
-            help={__('Separate tags with commas.', 'theme')}
+            help={__('Separate tags with commas.', 'labeps-theme')}
           />
           <SelectControl
-            label={__('Font Weight', 'theme')}
+            label={__('Font Weight', 'labeps-theme')}
             value={fontWeight}
             options={[
-              {label: __('Normal', 'theme'), value: 'normal'},
-              {label: __('Bold', 'theme'), value: 'bold'},
+              {label: __('Normal', 'labeps-theme'), value: 'normal'},
+              {label: __('Bold', 'labeps-theme'), value: 'bold'},
             ]}
             onChange={onChangeFontWeight}
           />
         </PanelBody>
         <PanelColorSettings
-          title={__('Color Settings', 'theme')}
+          title={__('Color Settings', 'labeps-theme')}
           initialOpen={true}
           colorSettings={[
             {
               value: textColor,
               onChange: onChangeTextColor,
-              label: __('Text Color', 'theme'),
+              label: __('Text Color', 'labeps-theme'),
             },
           ]}
         />
@@ -93,19 +93,19 @@ const Edit = ({
             allowedTypes={['image']}
             multiple={false}
             labels={{title: 'Select Icon'}}>
-            {iconUrl && <img src={iconUrl} alt={__('Icon', 'theme')} />}
+            {iconUrl && <img src={iconUrl} alt={__('Icon', 'labeps-theme')} />}
           </MediaPlaceholder>
           <RichText
             tagName="h2"
             value={title}
             onChange={onChangeTitle}
-            placeholder={__('Title...', 'theme')}
+            placeholder={__('Title...', 'labeps-theme')}
           />
           <RichText
             tagName="p"
             value={subtitle}
             onChange={onChangeSubtitle}
-            placeholder={__('Subtitle...', 'theme')}
+            placeholder={__('Subtitle...', 'labeps-theme')}
             style={{color: textColor, fontWeight}}
           />
           {tags.length > 0 && (

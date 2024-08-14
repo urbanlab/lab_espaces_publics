@@ -2,7 +2,7 @@ import {useBlockProps, RichText} from '@wordpress/block-editor';
 import PropTypes from 'prop-types';
 import './style.scss';
 
-const Save = ({
+export default function Save({
   attributes: {
     title = '',
     subtitle = '',
@@ -11,7 +11,7 @@ const Save = ({
     textColor = '',
     fontWeight = 'normal',
   } = {},
-}) => {
+}) {
   const blockProps = useBlockProps.save();
 
   return (
@@ -40,7 +40,7 @@ const Save = ({
       </div>
     </section>
   );
-};
+}
 
 Save.propTypes = {
   attributes: PropTypes.shape({
@@ -52,5 +52,3 @@ Save.propTypes = {
     fontWeight: PropTypes.string,
   }).isRequired,
 };
-
-export default Save;
