@@ -16,8 +16,17 @@ import {
 } from '@wordpress/components';
 import './editor.scss';
 
-const Edit = ({attributes, setAttributes}) => {
-  const {title, subtitle, iconUrl, tags, textColor, fontWeight} = attributes;
+const Edit = ({
+  attributes: {
+    title = '',
+    subtitle = '',
+    iconUrl = '',
+    tags = [],
+    textColor = '',
+    fontWeight = 'normal',
+  } = {},
+  setAttributes,
+}) => {
   const blockProps = useBlockProps();
 
   const onChangeTitle = (value) => {

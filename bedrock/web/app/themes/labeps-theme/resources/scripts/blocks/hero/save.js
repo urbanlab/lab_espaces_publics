@@ -2,8 +2,16 @@ import {useBlockProps, RichText} from '@wordpress/block-editor';
 import PropTypes from 'prop-types';
 import './style.scss';
 
-const Save = ({attributes}) => {
-  const {title, subtitle, iconUrl, tags, textColor, fontWeight} = attributes;
+const Save = ({
+  attributes: {
+    title = '',
+    subtitle = '',
+    iconUrl = '',
+    tags = [],
+    textColor = '',
+    fontWeight = 'normal',
+  } = {},
+}) => {
   const blockProps = useBlockProps.save();
 
   return (
