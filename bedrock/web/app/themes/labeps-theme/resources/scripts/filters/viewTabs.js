@@ -1,4 +1,4 @@
-export function ViewTabs() {
+export function ViewTabs(map) {
   const mapViewButton = document.getElementById('map-view-button');
   const listViewButton = document.getElementById('list-view-button');
   const mapView = document.getElementById('map-view');
@@ -9,6 +9,11 @@ export function ViewTabs() {
     listView.classList.remove('active');
     mapViewButton.classList.add('active');
     listViewButton.classList.remove('active');
+
+    // Invalider la taille de la carte lorsque la vue carte devient active
+    if (map) {
+      map.invalidateSize();
+    }
   });
 
   listViewButton.addEventListener('click', function () {

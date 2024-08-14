@@ -8,7 +8,16 @@ export function MapLeaflet() {
     return;
   }
 
-  const initialCommuneData = window.projects || [];
+  const initialCommuneData = window.projects || [
+    {
+      title: 'Project Example',
+      latitude: 45.75,
+      longitude: 4.85,
+      simple_popup: 'Simple popup content',
+      detailed_popup: 'Detailed popup content',
+    },
+  ];
+
   if (initialCommuneData.length === 0) {
     console.warn('No projects found or projects is undefined.');
     return;
@@ -22,20 +31,13 @@ export function MapLeaflet() {
     return;
   }
 
-  // Forcer la réinitialisation de la taille de la carte après un délai
   setTimeout(function () {
-    map.invalidateSize();
-  }, 1000);
-
-  // Réinitialiser la taille de la carte après un redimensionnement de la fenêtre
-  window.addEventListener('resize', function () {
-    map.invalidateSize();
-  });
-
-  // Assurer la réinitialisation de la taille lorsque la carte est prête
-  map.whenReady(function () {
-    map.invalidateSize();
-  });
+    try {
+      map.invalidateSize();
+    } catch (error) {
+      console.error('Error invalidating map size:', error);
+    }
+  }, 100);
 
   try {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -49,13 +51,17 @@ export function MapLeaflet() {
   let markers = [];
 
   function updateMap(projects) {
-    // Retirer les anciens marqueurs
     if (markers.length > 0) {
-      markers.forEach((marker) => map.removeLayer(marker));
+      markers.forEach((marker) => {
+        try {
+          map.removeLayer(marker);
+        } catch (error) {
+          console.error('Error removing marker:', error);
+        }
+      });
     }
     markers = [];
 
-    // Ajouter de nouveaux marqueurs
     projects.forEach(function (project) {
       if (project.latitude && project.longitude) {
         try {
@@ -79,10 +85,8 @@ export function MapLeaflet() {
     });
   }
 
-  // Mise à jour initiale de la carte
   updateMap(initialCommuneData);
 
-  // Mettre à jour la carte lorsque l'événement custom est déclenché
   document.addEventListener('projectsUpdated', function (e) {
     updateMap(e.detail.projects);
   });
