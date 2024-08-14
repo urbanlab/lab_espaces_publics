@@ -52,8 +52,8 @@
     "@wordpress/i18n": "^5.0.0",
     "copyfiles": "^2.4.1",
     "leaflet": "^1.9.4",
-    "slick-carousel": "^1.8.1",
-    "swc-loader": "^0.2.6"
+    "swc-loader": "^0.2.6",
+    "swiper": "^11.1.9"
   },
   "resolutions": {
     "escape-string-regexp": "2.0.0"

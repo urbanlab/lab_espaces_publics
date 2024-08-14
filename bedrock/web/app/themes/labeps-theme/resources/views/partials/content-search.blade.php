@@ -10,6 +10,6 @@
     </header>
 
     <div class="entry-summary">
-      @php(the_excerpt())
+      <p>{{the_excerpt()}}</p>
     </div>
   </article>

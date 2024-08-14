@@ -16,7 +16,7 @@
     </div>
     <section>
       @include('partials.entry-meta')
-      @php(the_content())
+      {{the_content()}}
     </section>
     {!! wp_link_pages(['echo' => 0, 'before' => '<nav class="page-nav"><p>' . __('Pages:', 'labeps-theme'), 'after' => '</p></nav>']) !!}
   </div>

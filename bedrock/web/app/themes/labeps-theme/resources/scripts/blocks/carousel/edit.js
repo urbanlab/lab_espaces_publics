@@ -1,105 +1,140 @@
-import {__} from '@wordpress/i18n';
-import PropTypes from 'prop-types';
+import {useEffect} from '@wordpress/element';
+import {
+  SelectControl,
+  PanelBody,
+  RangeControl,
+  Button,
+} from '@wordpress/components';
 import {
   useBlockProps,
-  MediaUpload,
-  MediaUploadCheck,
-  BlockControls,
-  BlockIcon,
   InspectorControls,
-  MediaPlaceholder,
+  MediaUpload,
 } from '@wordpress/block-editor';
-import {
-  Button,
-  ToolbarGroup,
-  ToolbarButton,
-  PanelBody,
-} from '@wordpress/components';
-import {plus} from '@wordpress/icons';
+import apiFetch from '@wordpress/api-fetch';
+import PropTypes from 'prop-types';
 import './editor.scss';
 
 const Edit = ({attributes, setAttributes}) => {
-  const {images} = attributes;
+  const {images, columns, contentType, postSelections} = attributes;
   const blockProps = useBlockProps();
+
+  useEffect(() => {
+    if (contentType && contentType !== 'images') {
+      apiFetch({path: `/wp/v2/${contentType}?_embed&context=edit`})
+        .then((data) => {
+          const postsWithImages = data.map((post) => {
+            const featuredImage =
+              post._embedded &&
+              post._embedded['wp:featuredmedia'] &&
+              post._embedded['wp:featuredmedia'][0]
+                ? post._embedded['wp:featuredmedia'][0].source_url
+                : null;
+
+            return {...post, featured_media_src_url: featuredImage};
+          });
+
+          setAttributes({postSelections: postsWithImages});
+        })
+        .catch((error) => console.error('Error fetching posts:', error));
+    } else {
+      setAttributes({postSelections: []});
+    }
+  }, [contentType]);
 
   const onSelectImages = (newImages) => {
     setAttributes({
-      images: newImages.map((image) => ({url: image.url, alt: image.alt})),
+      images: newImages.map((img) => ({url: img.url, alt: img.alt})),
     });
   };
 
   const removeImage = (index) => {
-    const newImages = images.slice();
-    newImages.splice(index, 1);
+    const newImages = images.filter((_, i) => i !== index);
     setAttributes({images: newImages});
   };
 
   return (
     <div {...blockProps}>
-      <BlockControls>
-        <ToolbarGroup>
-          <MediaUploadCheck>
-            <MediaUpload
-              onSelect={onSelectImages}
-              allowedTypes={['image']}
-              multiple
-              gallery
-              render={({open}) => (
-                <ToolbarButton
-                  icon={<BlockIcon icon={plus} />}
-                  label={__('Add Images', 'theme')}
-                  onClick={open}
-                />
-              )}
-            />
-          </MediaUploadCheck>
-        </ToolbarGroup>
-      </BlockControls>
       <InspectorControls>
-        <PanelBody title={__('Images', 'theme')} initialOpen={true}>
-          <MediaUploadCheck>
+        <PanelBody title="Settings">
+          {/* Content Type SelectControl */}
+          <SelectControl
+            label="Content Type"
+            value={contentType}
+            options={[
+              {label: 'Images', value: 'images'},
+              {label: 'Posts', value: 'posts'},
+              {label: 'Inspiration', value: 'inspirations'},
+              {label: 'Projets', value: 'projects'},
+              {label: 'Boite à outil', value: 'ressources'},
+            ]}
+            onChange={(value) => setAttributes({contentType: value})}
+          />
+
+          <RangeControl
+            label="Columns"
+            value={columns}
+            onChange={(value) => setAttributes({columns: value})}
+            min={1}
+            max={5}
+          />
+        </PanelBody>
+      </InspectorControls>
+
+      {contentType === 'images' && (
+        <div className="image-container">
+          {images.length === 0 ? (
             <MediaUpload
               onSelect={onSelectImages}
               allowedTypes={['image']}
               multiple
               gallery
               render={({open}) => (
-                <Button onClick={open} variant="primary" isSecondary>
-                  {__('Upload Images', 'theme')}
+                <Button onClick={open} variant="primary">
+                  Select Images
                 </Button>
               )}
             />
-          </MediaUploadCheck>
-        </PanelBody>
-      </InspectorControls>
-      {images.length === 0 ? (
-        <MediaPlaceholder
-          icon="format-gallery"
-          labels={{
-            title: __('Carousel', 'theme'),
-            instructions: __(
-              'Drag images, upload new ones or select files from your library.',
-              'theme',
-            ),
-          }}
-          onSelect={onSelectImages}
-          allowedTypes={['image']}
-          multiple
-        />
-      ) : (
-        <div className="carousel">
-          {images.map((image, index) => (
-            <div key={index} className="carousel-image">
-              <img src={image.url} alt={image.alt} />
-              <Button
-                className="remove-image-button"
-                onClick={() => removeImage(index)}
-                icon="no-alt">
-                {__('Supprimé', 'theme')}
-              </Button>
+          ) : (
+            <div className="image-preview-wrapper">
+              {images.map((img, index) => (
+                <div key={index} className="image-preview-item">
+                  <img src={img.url} alt={img.alt} className="image-preview" />
+                  <Button
+                    onClick={() => removeImage(index)}
+                    variant="secondary"
+                    isDestructive>
+                    Supprimer
+                  </Button>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {contentType !== 'images' && postSelections.length > 0 && (
+        <div
+          className="post-thumbnail-container"
+          style={{gridTemplateColumns: `repeat(${columns}, 1fr)`}}>
+          {postSelections.map((post, index) => (
+            <div key={index} className="post-thumbnail-item">
+              {post.featured_media_src_url ? (
+                <img
+                  src={post.featured_media_src_url}
+                  alt={post.title ? post.title.rendered : 'No title'}
+                  className="post-thumbnail-image"
+                />
+              ) : (
+                <div>No Image Available</div>
+              )}
+              <h4 className="post-thumbnail-title">{post.title.rendered}</h4>
             </div>
           ))}
         </div>
+      )}
+
+      {contentType !== 'images' && postSelections.length === 0 && (
+        <p>No content available</p>
       )}
     </div>
   );
@@ -109,10 +144,21 @@ Edit.propTypes = {
   attributes: PropTypes.shape({
     images: PropTypes.arrayOf(
       PropTypes.shape({
-        url: PropTypes.string,
-        alt: PropTypes.string,
+        url: PropTypes.string.isRequired,
+        alt: PropTypes.string.isRequired,
       }),
-    ),
+    ).isRequired,
+    columns: PropTypes.number.isRequired,
+    contentType: PropTypes.string.isRequired,
+    postSelections: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.shape({
+          rendered: PropTypes.string.isRequired,
+        }),
+        featured_media_src_url: PropTypes.string,
+      }),
+    ).isRequired,
   }).isRequired,
   setAttributes: PropTypes.func.isRequired,
 };

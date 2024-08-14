@@ -1,25 +1,68 @@
-.carousel-container {
-  @apply relative flex justify-center overflow-visible;
+/* Conteneur principal */
+.swiper-container {
+  @apply relative w-full h-[600px] overflow-hidden m-10;
+
 }
 
-.carousel {
-  @apply relative overflow-visible w-10/12;
+.card-images-container{
+  @apply w-3/4 h-5/6;
+}
 
-  img {
-    @apply w-full h-auto;
+/* Slides */
+.swiper-slide {
+  @apply flex justify-center items-center shrink-0 w-auto;
+
+}
+
+/* Images dans les slides */
+.swiper-slide img {
+  @apply block w-full h-full object-cover;
+
+} 
+
+/* Pagination */
+.swiper-pagination {
+  @apply absolute bottom-3 left-0 w-full text-center z-10;
+
+}
+
+/* Flèches de navigation */
+.swiper-button-next, .swiper-button-prev {
+  @apply absolute flex justify-center items-center w-10 h-10 bg-secondary text-white rounded-full top-2/4 -translate-y-2/4 z-10 cursor-pointer;
+
+  &::after{
+    @apply text-base;
+
   }
+}
 
-  .slick-prev,
-  .slick-next {
-    @apply absolute top-1/2 transform -translate-y-1/2 ;
-    
-    &::before{
-      color: #158579;
-      font-size: 50px;
+.swiper-button-next:hover, .swiper-button-prev:hover {
+  @apply bg-secondary;
+
+}
+
+  .card-post-container{
+    @apply flex flex-row w-3/4;
+
+    .custom-post-image{
+      @apply block w-1/2 object-cover	;
+      
     }
+  
+    .custom-post-content{
+      @apply w-auto p-6;
+    
+      .custom-post-title{
+        @apply text-black text-base font-bold leading-6;
+      
+      }
+    
+    }
+
   }
 
-  .slick-prev {
-    left: -55px;
-  }
+
+.custom-post-card{
+  @apply bg-white p-6 shadow-md overflow-hidden;
+
 }
