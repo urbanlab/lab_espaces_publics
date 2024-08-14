@@ -1,7 +1,7 @@
 {
   "apiVersion": 3,
   "name": "labeps-theme/carousel",
-  "title": "Complex Carousel",
+  "title": "Carousel",
   "category": "design",
   "icon": "images-alt",
   "description": "A carousel block that supports images, posts, and custom post types.",
