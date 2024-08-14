@@ -12,12 +12,15 @@ registerBlockType('labeps-theme/carousel', {
 
 document.addEventListener('DOMContentLoaded', () => {
   const carousels = document.querySelectorAll('.swiper-container');
-  carousels.forEach((carousel) => {
-    initializeSwiper(carousel, {
-      slidesPerView:
-        carousel.getAttribute('data-columns') ||
-        SWIPER_DEFAULT_OPTIONS.slidesPerView,
-      autoplay: SWIPER_DEFAULT_OPTIONS.autoplay,
+
+  setTimeout(() => {
+    carousels.forEach((carousel) => {
+      initializeSwiper(carousel, {
+        slidesPerView:
+          carousel.getAttribute('data-columns') ||
+          SWIPER_DEFAULT_OPTIONS.slidesPerView,
+        autoplay: SWIPER_DEFAULT_OPTIONS.autoplay,
+      });
     });
-  });
+  }, 100); // Attendre un court moment pour s'assurer que tout est rendu
 });

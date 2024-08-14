@@ -5,8 +5,6 @@ import {SWIPER_DEFAULT_OPTIONS} from './swiper-config';
 
 export const initializeSwiper = (selector, options = {}) => {
   const mergedOptions = {...SWIPER_DEFAULT_OPTIONS, ...options};
-  console.log('Initializing Swiper on:', selector);
-  console.log('With options:', options);
   return new Swiper(selector, {
     slidesPerView: mergedOptions.slidesPerView || 1,
     spaceBetween: mergedOptions.spaceBetween,

@@ -13,6 +13,6 @@
         </a>
       </h3>
     </header>
-    {{the_excerpt()}}
+    <p>{{the_excerpt()}}</p>
   </div>
 </article>

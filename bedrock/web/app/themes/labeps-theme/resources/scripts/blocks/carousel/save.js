@@ -4,38 +4,42 @@ import PropTypes from 'prop-types';
 export default function save({attributes}) {
   const {images, columns, contentType, postSelections} = attributes;
   const blockProps = useBlockProps.save();
-
-  console.log('Attributes in save:', attributes);
-
   return (
     <div {...blockProps} className="swiper-container" data-columns={columns}>
       <div className="swiper-wrapper">
         {contentType === 'images' &&
           images.map((img, index) => (
             <div key={index} className="swiper-slide">
-              <img src={img.url} alt={img.alt} />
+              <div className="card-images-container">
+                <img src={img.url} alt={img.alt} />
+              </div>
             </div>
           ))}
 
         {contentType !== 'images' &&
           postSelections.map((post, index) => (
-            <div key={index} className="swiper-slide-post">
-              {post.featured_media_src_url ? (
-                <img
-                  src={post.featured_media_src_url}
-                  alt={post.title.rendered || 'No title'}
-                  className="custom-post-image"
-                />
-              ) : (
-                <div className="custom-no-image">
-                  <span>No Image Available</span>
+            <div key={index} className="swiper-slide">
+              <div className="card-post-container">
+                <figure className="custom-post-image">
+                  {post.featured_media_src_url ? (
+                    <img
+                      src={post.featured_media_src_url}
+                      alt={post.title.rendered || 'No title'}
+                    />
+                  ) : (
+                    <div className="custom-no-image">
+                      <span>No Image Available</span>
+                    </div>
+                  )}
+                </figure>
+                <div className="custom-post-content">
+                  <h2 className="custom-post-title">{post.title.rendered}</h2>
+                  <p
+                    className="custom-post-excerpt"
+                    dangerouslySetInnerHTML={{
+                      __html: post.excerpt.rendered,
+                    }}></p>
                 </div>
-              )}
-              <div className="custom-post-content">
-                <h2 className="custom-post-title">{post.title.rendered}</h2>
-                <p
-                  className="custom-post-excerpt"
-                  dangerouslySetInnerHTML={{__html: post.excerpt.rendered}}></p>
               </div>
             </div>
           ))}

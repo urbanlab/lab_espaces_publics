@@ -20,10 +20,8 @@ const Edit = ({attributes, setAttributes}) => {
 
   useEffect(() => {
     if (contentType && contentType !== 'images') {
-      // Fetch posts based on the selected content type with embedded media
-      apiFetch({path: `/wp/v2/${contentType}?_embed`})
+      apiFetch({path: `/wp/v2/${contentType}?_embed&context=edit`})
         .then((data) => {
-          // Map through posts to extract the featured image if it exists
           const postsWithImages = data.map((post) => {
             const featuredImage =
               post._embedded &&
@@ -35,12 +33,10 @@ const Edit = ({attributes, setAttributes}) => {
             return {...post, featured_media_src_url: featuredImage};
           });
 
-          // Update the postSelections attribute with the posts data
           setAttributes({postSelections: postsWithImages});
         })
         .catch((error) => console.error('Error fetching posts:', error));
     } else {
-      // If contentType is "images" or not set, clear postSelections
       setAttributes({postSelections: []});
     }
   }, [contentType]);

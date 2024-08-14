@@ -19,6 +19,8 @@ add_filter('excerpt_length', function() {
     return 20;
   });
 
+remove_filter('the_excerpt', 'wpautop');
+
 add_action('pre_get_posts', function ($query) {
     if (!is_admin() && $query->is_main_query()) {
         // Vérifiez si c'est une page d'archive (ou une condition spécifique)
