@@ -11,13 +11,19 @@ export function MapLeaflet() {
   }
   console.log('Map element found:', mapElement);
 
-  const initialCommuneData = window.projects;
+  // Tester avec des données par défaut si window.projects est undefined
+  const initialCommuneData = window.projects || [
+    {
+      title: 'Project Example',
+      latitude: 45.75,
+      longitude: 4.85,
+      simple_popup: 'Simple popup content',
+      detailed_popup: 'Detailed popup content',
+    },
+  ];
   console.log('Initial commune data:', initialCommuneData);
 
-  if (
-    typeof initialCommuneData === 'undefined' ||
-    initialCommuneData.length === 0
-  ) {
+  if (initialCommuneData.length === 0) {
     console.log('No projects found or projects is undefined.');
     return;
   }
@@ -31,7 +37,6 @@ export function MapLeaflet() {
     return;
   }
 
-  // Invalidate size after a slight delay to ensure the map is correctly displayed
   setTimeout(function () {
     console.log('Invalidating map size...');
     map.invalidateSize();
@@ -52,14 +57,12 @@ export function MapLeaflet() {
   function updateMap(projects) {
     console.log('Updating map with new projects:', projects);
 
-    // Remove existing markers
     if (markers.length > 0) {
       console.log('Removing existing markers...');
       markers.forEach((marker) => map.removeLayer(marker));
     }
     markers = [];
 
-    // Add new markers
     projects.forEach(function (project) {
       if (project.latitude && project.longitude) {
         try {
@@ -88,7 +91,6 @@ export function MapLeaflet() {
   console.log('Initial map update with commune data...');
   updateMap(initialCommuneData);
 
-  // Listen for custom event to update the map
   document.addEventListener('projectsUpdated', function (e) {
     console.log('projectsUpdated event detected:', e.detail.projects);
     updateMap(e.detail.projects);
