@@ -14,8 +14,15 @@ import apiFetch from '@wordpress/api-fetch';
 import PropTypes from 'prop-types';
 import './editor.scss';
 
-const Edit = ({attributes, setAttributes}) => {
-  const {images, columns, contentType, postSelections} = attributes;
+const Edit = ({
+  attributes: {
+    images = [],
+    columns = 1,
+    contentType = 'images',
+    postSelections = [],
+  } = {},
+  setAttributes,
+}) => {
   const blockProps = useBlockProps();
 
   useEffect(() => {

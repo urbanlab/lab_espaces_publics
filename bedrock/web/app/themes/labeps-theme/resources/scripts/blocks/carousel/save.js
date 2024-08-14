@@ -1,8 +1,14 @@
 import {useBlockProps} from '@wordpress/block-editor';
 import PropTypes from 'prop-types';
 
-export default function save({attributes}) {
-  const {images, columns, contentType, postSelections} = attributes;
+export default function save({
+  attributes: {
+    images = [],
+    columns = 1,
+    contentType = 'images',
+    postSelections = [],
+  } = {},
+}) {
   const blockProps = useBlockProps.save();
   return (
     <div {...blockProps} className="swiper-container" data-columns={columns}>
