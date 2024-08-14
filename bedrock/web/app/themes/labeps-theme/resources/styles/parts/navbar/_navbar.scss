@@ -18,7 +18,7 @@
                     .sub-menu{
                         @apply text-primary text-base font-normal py-1 px-0;
                         @screen md{
-                            @apply hidden absolute flex-col bg-white text-xs mt-[15px] p-2 border-t-2 border-primary;
+                            @apply hidden absolute flex-col bg-white text-xs p-2 border-t-2 border-primary;
 
                             margin-left: 0 !important;
                         }
