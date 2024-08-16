@@ -45,7 +45,7 @@
     "oscarotero/env": "^2.1",
     "roots/bedrock-autoloader": "^1.0",
     "roots/bedrock-disallow-indexing": "^2.0",
-    "roots/wordpress": "6.4.1",
+    "roots/wordpress": "6.6.1",
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.1.0",
     "wpackagist-theme/twentytwentyfour": "^1.0",
@@ -57,8 +57,6 @@
     "wpackagist-plugin/carousel-block": "^1.0",
     "wpackagist-plugin/svg-block": "^1.1",
     "wpackagist-plugin/copy-delete-posts": "^1.4",
-    "wpackagist-plugin/wp-carousel-free": "^2.6",
-    "wpackagist-plugin/ultimate-addons-for-gutenberg": "^2.12",
     "wpackagist-plugin/contact-form-7": "^5.9",
     "roots/acorn-mail": "^1.0",
     "wpackagist-plugin/wp-mail-smtp": "^4.0"
