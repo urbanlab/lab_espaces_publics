@@ -28,7 +28,7 @@
       <x-button id="filter-button" text="{{ __('FILTRER', 'labeps-theme') }}" class=" w-1/3 text-black border-2 border-black rounded-md p-2 mb-4 lg:hidden" icon="fas fa-filter" />
       @include('forms.filter', ['taxonomies' => $taxonomies])
   
-      <div id="list-view" class="view active md:w-3/4">
+      <div id="list-view" class="view md:w-3/4">
         <div id="results-container" class="flex flex-col md:grid md:grid-cols-1 lg:grid-cols-2 content-stretch gap-4 w-full">
           @while(have_posts()) @php(the_post())
             @include('partials.content-projects', ['post' => get_post()])
@@ -38,7 +38,7 @@
           {!! the_posts_pagination() !!}
         </div>
       </div>
-      <div id="map-view" class="view md:w-3/4 z-0">
+      <div id="map-view" class="view active md:w-3/4 z-0">
         <div id="map"></div>
         @if (!empty($projects))
         <script>
