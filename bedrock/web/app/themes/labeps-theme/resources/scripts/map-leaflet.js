@@ -8,6 +8,15 @@ export function MapLeaflet() {
     return;
   }
 
+  const markerIcon = L.icon({
+    iconSize: [25, 41],
+    iconAnchor: [10, 41],
+    popupAnchor: [2, -40],
+    // specify the path here
+    iconUrl: 'https://unpkg.com/leaflet@1.5.1/dist/images/marker-icon.png',
+    shadowUrl: 'https://unpkg.com/leaflet@1.5.1/dist/images/marker-shadow.png',
+  });
+
   const initialCommuneData = window.projects || [
     {
       title: 'Project Example',
@@ -65,9 +74,10 @@ export function MapLeaflet() {
     projects.forEach(function (project) {
       if (project.latitude && project.longitude) {
         try {
-          const marker = L.marker([project.latitude, project.longitude]).addTo(
-            map,
-          );
+          const marker = L.marker([project.latitude, project.longitude], {
+            icon: markerIcon,
+            draggable: true,
+          }).addTo(map);
           marker.bindTooltip(project.simple_popup);
           marker.bindPopup(project.detailed_popup);
           markers.push(marker);
