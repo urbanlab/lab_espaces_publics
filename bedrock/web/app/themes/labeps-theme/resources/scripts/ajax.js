@@ -40,8 +40,6 @@ export function callAjax(page = 1) {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
-
         const container = document.getElementById('results-container');
 
         if (data && data.success) {
