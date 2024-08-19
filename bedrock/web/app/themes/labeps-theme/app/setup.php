@@ -76,6 +76,8 @@ add_action('after_setup_theme', function () {
         'relative-urls',
     ]);
 
+    add_theme_support( 'align-wide' );
+
     /**
      * Disable full-site editing support.
      *

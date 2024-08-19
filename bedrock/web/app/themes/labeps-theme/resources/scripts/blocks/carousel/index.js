@@ -1,7 +1,8 @@
 import {registerBlockType} from '@wordpress/blocks';
+import Swiper from 'swiper/bundle';
+import 'swiper/css/bundle';
 import Edit from './edit';
 import save from './save';
-import {initializeSwiper} from './swiper-init';
 import {SWIPER_DEFAULT_OPTIONS} from './swiper-config';
 
 registerBlockType('labeps-theme/carousel', {
@@ -13,14 +14,24 @@ registerBlockType('labeps-theme/carousel', {
 document.addEventListener('DOMContentLoaded', () => {
   const carousels = document.querySelectorAll('.swiper-container');
 
-  setTimeout(() => {
-    carousels.forEach((carousel) => {
-      initializeSwiper(carousel, {
-        slidesPerView:
-          carousel.getAttribute('data-columns') ||
-          SWIPER_DEFAULT_OPTIONS.slidesPerView,
-        autoplay: SWIPER_DEFAULT_OPTIONS.autoplay,
-      });
+  carousels.forEach((carousel) => {
+    const columns = carousel.getAttribute('data-columns') || 1;
+
+    new Swiper(carousel, {
+      slidesPerView: columns,
+      spaceBetween: 0,
+      pagination: {
+        el: SWIPER_DEFAULT_OPTIONS.paginationEl,
+        clickable: true,
+        dynamicBullets: true,
+        dynamicMainBullets: 3,
+      },
+      navigation: {
+        nextEl: SWIPER_DEFAULT_OPTIONS.nextEl,
+        prevEl: SWIPER_DEFAULT_OPTIONS.prevEl,
+      },
+      autoplay: SWIPER_DEFAULT_OPTIONS.autoplay,
+      centeredSlides: SWIPER_DEFAULT_OPTIONS.centeredSlides,
     });
-  }, 100); // Attendre un court moment pour s'assurer que tout est rendu
+  });
 });

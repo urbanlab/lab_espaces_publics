@@ -17,8 +17,8 @@
   @endif
   <div class="view-switcher">
     <div class="container mx-auto">
-      <button id="list-view-button">List View</button>
-      <button id="map-view-button" class="active">Map View</button>
+      <button id="list-view-button">Afficher la liste</button>
+      <button id="map-view-button" class="active">Afficher la carte</button>
     </div>
   </div>
   <section class="container mx-auto my-4">

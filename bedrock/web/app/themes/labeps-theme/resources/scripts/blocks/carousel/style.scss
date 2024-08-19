@@ -1,6 +1,11 @@
 /* Conteneur principal */
 .swiper-container {
-  @apply relative w-full h-[600px] overflow-hidden m-10;
+  @apply relative w-full h-auto overflow-hidden m-10;
+
+}
+
+.swiper-wrapper{
+  @apply items-center	;
 
 }
 
@@ -13,6 +18,10 @@
 /* Pagination */
 .swiper-pagination {
   @apply absolute bottom-3 left-0 w-full text-center z-10;
+
+  .swiper-pagination-bullet-active{
+    @apply bg-secondary;
+  }
 
 }
 
@@ -27,7 +36,7 @@
 }
 
 .card-images-container{
-  @apply w-3/4 h-5/6;
+  @apply w-3/4 h-[500px] my-7 mx-5;
   img {
     @apply block w-full h-full object-cover;
   
@@ -43,7 +52,7 @@
   @apply flex flex-row w-3/4;
 
   .custom-post-image{
-    @apply block w-1/2 object-cover	;
+    @apply block w-4/5 object-cover	;
       
   }
   .custom-post-content{
@@ -60,5 +69,10 @@
 
 .custom-post-card{
   @apply bg-white p-6 shadow-md overflow-hidden;
+
+}
+
+.image-caption{
+  @apply text-xs p-0;
 
 }

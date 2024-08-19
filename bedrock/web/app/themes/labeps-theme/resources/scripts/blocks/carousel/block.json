@@ -5,6 +5,10 @@
   "category": "design",
   "icon": "images-alt",
   "description": "A carousel block that supports images, posts, and custom post types.",
+  "supports": {
+    "html": false,
+    "align": true
+  },
   "attributes": {
     "images": {
       "type": "array",
@@ -30,6 +34,10 @@
     "selectedPostId": {
       "type": "number",
       "default": 0
+    },
+    "categories": {
+      "type": "array",
+      "default": []
     }
   },
   "editorScript": "theme-carousel-block",
