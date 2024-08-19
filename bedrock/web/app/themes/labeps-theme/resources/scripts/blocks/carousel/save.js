@@ -19,6 +19,10 @@ export default function save({
             <div key={index} className="swiper-slide">
               <div className="card-images-container">
                 <img src={img.url} alt={img.alt} />
+                <p
+                  className="image-caption"
+                  dangerouslySetInnerHTML={{__html: img.caption}}
+                />
               </div>
             </div>
           ))}
