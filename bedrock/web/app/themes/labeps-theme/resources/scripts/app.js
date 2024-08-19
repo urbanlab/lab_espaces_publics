@@ -17,18 +17,9 @@ import {MapLeaflet} from './map-leaflet';
  * Application entrypoint
  */
 domReady(async () => {
-  console.log('DOM is ready.');
-
-  function isPage(urlFragment) {
-    return window.location.href.indexOf(urlFragment) > -1;
-  }
-
   // Vérifiez et exécutez MapLeaflet uniquement sur la page spécifique
-  if (isPage('/projets-pilotes/') && typeof MapLeaflet === 'function') {
-    console.log('Executing MapLeaflet...');
+  if (typeof MapLeaflet === 'function') {
     MapLeaflet();
-  } else {
-    console.log('MapLeaflet not executed.');
   }
 
   // Vérifiez et exécutez callAjax si nécessaire
@@ -52,7 +43,6 @@ domReady(async () => {
     }
   }
 
-  // Sélectionnez et ajoutez des écouteurs d'événements si les éléments existent
   const selectInputs = document.querySelectorAll(
     'select, input[type="checkbox"]',
   );
@@ -77,7 +67,6 @@ domReady(async () => {
     ViewTabs();
   }
 
-  // Sélectionnez les cases à cocher et ajoutez des écouteurs d'événements si les éléments existent
   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
   if (checkboxes.length > 0) {
     // Vérifiez et exécutez UpdateTags si nécessaire

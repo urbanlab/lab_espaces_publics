@@ -1,5 +1,5 @@
-.nav-links{
-    @apply flex justify-end space-x-4 text-primary font-bold text-base p-5;
+.page-numbers{
+    @apply flex justify-end space-x-4 text-primary font-bold text-base py-6;
     a{
         @apply space-x-4;
 
