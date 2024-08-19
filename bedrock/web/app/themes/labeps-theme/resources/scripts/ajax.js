@@ -1,4 +1,5 @@
 import {UpdateTags} from './filters/updateTags';
+import {attachPaginationListeners} from './pagnination';
 
 export function callAjax(page = 1) {
   const form = document.getElementById('taxonomy-filter-form');
@@ -15,7 +16,6 @@ export function callAjax(page = 1) {
     });
   });
 
-  // Initial update to handle pre-checked boxes
   handleFormChange(page);
   UpdateTags(checkboxes);
 
@@ -23,7 +23,7 @@ export function callAjax(page = 1) {
     const formData = new FormData(form);
     formData.append('action', 'filter_posts');
     formData.append('nonce', labeps.nonce);
-    formData.append('page_number', page);
+    formData.append('paged', page);
 
     fetch(labeps.ajax_url, {
       method: 'POST',
@@ -41,19 +41,27 @@ export function callAjax(page = 1) {
       })
       .then((data) => {
         const container = document.getElementById('results-container');
+        const paginationContainer = document.getElementById(
+          'pagination-container',
+        );
 
         if (data && data.success) {
           container.innerHTML = data.data.html;
+          paginationContainer.innerHTML = data.data.pagination;
 
-          // Trigger custom event to update the map
+          // Attacher les gestionnaires d'événements aux nouveaux liens de pagination
+          attachPaginationListeners();
+
+          // Déclenche l'événement pour mettre à jour la carte
           const event = new CustomEvent('projectsUpdated', {
             detail: {projects: data.data.projects},
           });
           document.dispatchEvent(event);
         } else {
           container.innerHTML = '<h3>Aucun post trouvé.</h3>';
+          paginationContainer.innerHTML = '';
 
-          // Trigger custom event to clear the map
+          // Déclenche l'événement pour vider la carte
           const event = new CustomEvent('projectsUpdated', {
             detail: {projects: []},
           });
