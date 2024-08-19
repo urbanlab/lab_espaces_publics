@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a4a0b9618bfc1dd709f7f2f3152900c9",
+    "content-hash": "02f2e3c58e87a17d23cfc1b272f3698e",
     "packages": [
         {
             "name": "brick/math",
@@ -5532,6 +5532,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/mappress-google-maps-for-wordpress/"
+        },
+        {
+            "name": "wpackagist-plugin/printfriendly",
+            "version": "5.5.5",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/printfriendly/",
+                "reference": "tags/5.5.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/printfriendly.5.5.5.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/printfriendly/"
         },
         {
             "name": "wpackagist-plugin/svg-block",

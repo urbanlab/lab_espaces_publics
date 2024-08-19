@@ -26,7 +26,7 @@ synthétiques de projets innovants réalisés en France et à l’étranger.'])
         @endwhile
       </div>
     </div>
-    <div id="pagination-container" class="grow self-end">
+    <div id="pagination-container" class="">
       {!! the_posts_pagination() !!}
     </div>
   </section>
