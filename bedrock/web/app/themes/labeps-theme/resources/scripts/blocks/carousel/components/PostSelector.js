@@ -1,6 +1,7 @@
 import {__} from '@wordpress/i18n';
 import PostThumbnail from './PostThumbnail';
 import PropTypes from 'prop-types';
+import '../editor.scss';
 
 const PostSelector = ({postSelections, columns}) => (
   <div

@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     new Swiper(carousel, {
       slidesPerView: columns,
-      spaceBetween: 0,
+      spaceBetween: SWIPER_DEFAULT_OPTIONS.spaceBetween || 10,
       setWrapperSize: true,
       roundLengths: true,
       pagination: {

@@ -1,226 +1,119 @@
-import {useEffect, useState} from '@wordpress/element';
-import {
-  SelectControl,
-  PanelBody,
-  RangeControl,
-  Button,
-} from '@wordpress/components';
+import {__} from '@wordpress/i18n';
+import PropTypes from 'prop-types';
 import {
   useBlockProps,
+  RichText,
   InspectorControls,
-  MediaUpload,
+  PanelColorSettings,
+  MediaPlaceholder,
 } from '@wordpress/block-editor';
-import apiFetch from '@wordpress/api-fetch';
-import PropTypes from 'prop-types';
-import {__} from '@wordpress/i18n';
+import {
+  PanelBody,
+  SelectControl,
+  TextControl,
+  Card,
+  CardBody,
+} from '@wordpress/components';
 import './editor.scss';
 
-const Edit = ({
-  attributes: {
-    images = [],
-    columns = 1,
-    contentType = 'images',
-    postSelections = [],
-    categories = [],
-  } = {},
-  setAttributes,
-}) => {
+export default function Edit({attributes, setAttributes}) {
+  const {
+    title = '',
+    subtitle = '',
+    iconUrl = '',
+    tags = [],
+    textColor = '',
+    fontWeight = 'normal',
+  } = attributes;
+
   const blockProps = useBlockProps();
-  const [availableCategories, setAvailableCategories] = useState([]);
 
-  // Fetch categories if the contentType is 'posts'
-  useEffect(() => {
-    if (contentType === 'posts') {
-      apiFetch({path: '/wp/v2/categories'})
-        .then((data) => {
-          setAvailableCategories(
-            data.map((cat) => ({
-              label: cat.name,
-              value: cat.id,
-            })),
-          );
-        })
-        .catch((error) =>
-          console.error(__('Error fetching categories:', 'text-domain'), error),
-        );
-    } else {
-      setAvailableCategories([]);
-    }
-  }, [contentType]);
-
-  // Fetch posts based on selected contentType and categories
-  useEffect(() => {
-    if (contentType && contentType !== 'images') {
-      const categoryQuery =
-        categories.length > 0 ? `&categories=${categories.join(',')}` : '';
-
-      apiFetch({
-        path: `/wp/v2/${contentType}?_embed&context=edit${categoryQuery}`,
-      })
-        .then((data) => {
-          const postsWithImages = data.map((post) => {
-            const featuredImage =
-              post._embedded &&
-              post._embedded['wp:featuredmedia'] &&
-              post._embedded['wp:featuredmedia'][0]
-                ? post._embedded['wp:featuredmedia'][0].source_url
-                : null;
-
-            return {...post, featured_media_src_url: featuredImage};
-          });
-
-          setAttributes({postSelections: postsWithImages});
-        })
-        .catch((error) =>
-          console.error(__('Error fetching posts:', 'text-domain'), error),
-        );
-    } else {
-      setAttributes({postSelections: []});
-    }
-  }, [contentType, categories]);
-
-  const onSelectImages = (newImages) => {
-    setAttributes({
-      images: newImages.map((img) => ({
-        url: img.url,
-        alt: img.alt,
-        caption: img.caption,
-      })),
-    });
-  };
-
-  const removeImage = (index) => {
-    const newImages = images.filter((_, i) => i !== index);
-    setAttributes({images: newImages});
-  };
+  const onChangeTitle = (value) => setAttributes({title: value});
+  const onChangeSubtitle = (value) => setAttributes({subtitle: value});
+  const onSelectIcon = (media) => setAttributes({iconUrl: media.url});
+  const onChangeTags = (value) =>
+    setAttributes({tags: value.split(',').map((tag) => tag.trim())});
+  const onChangeTextColor = (newColor) => setAttributes({textColor: newColor});
+  const onChangeFontWeight = (newWeight) =>
+    setAttributes({fontWeight: newWeight});
 
   return (
     <div {...blockProps}>
       <InspectorControls>
-        <PanelBody title={__('Settings', 'text-domain')}>
-          {/* Content Type SelectControl */}
-          <SelectControl
-            label={__('Content Type', 'text-domain')}
-            value={contentType}
-            options={[
-              {label: __('Images', 'text-domain'), value: 'images'},
-              {label: __('Posts', 'text-domain'), value: 'posts'},
-              {label: __('Inspiration', 'text-domain'), value: 'inspirations'},
-              {label: __('Projets', 'text-domain'), value: 'projects'},
-              {label: __('Boite à outil', 'text-domain'), value: 'ressources'},
-            ]}
-            onChange={(value) => setAttributes({contentType: value})}
+        <PanelBody title={__('Hero Settings', 'labeps-theme')}>
+          <TextControl
+            label={__('Tags', 'labeps-theme')}
+            value={tags.join(', ')}
+            onChange={onChangeTags}
+            help={__('Separate tags with commas.', 'labeps-theme')}
           />
-
-          {/* Category SelectControl (only shown for posts) */}
-          {contentType === 'posts' && (
-            <SelectControl
-              multiple
-              label={__('Select Categories', 'text-domain')}
-              value={categories}
-              options={availableCategories}
-              onChange={(selectedCategories) =>
-                setAttributes({categories: selectedCategories})
-              }
-            />
-          )}
-
-          <RangeControl
-            label={__('Columns', 'text-domain')}
-            value={columns}
-            onChange={(value) => setAttributes({columns: value})}
-            min={1}
-            max={5}
+          <SelectControl
+            label={__('Font Weight', 'labeps-theme')}
+            value={fontWeight}
+            options={[
+              {label: __('Normal', 'labeps-theme'), value: 'normal'},
+              {label: __('Bold', 'labeps-theme'), value: 'bold'},
+            ]}
+            onChange={onChangeFontWeight}
           />
         </PanelBody>
+        <PanelColorSettings
+          title={__('Color Settings', 'labeps-theme')}
+          initialOpen={true}
+          colorSettings={[
+            {
+              value: textColor,
+              onChange: onChangeTextColor,
+              label: __('Text Color', 'labeps-theme'),
+            },
+          ]}
+        />
       </InspectorControls>
-
-      {contentType === 'images' && (
-        <div className="image-container">
-          {images.length === 0 ? (
-            <MediaUpload
-              onSelect={onSelectImages}
-              allowedTypes={['image']}
-              multiple
-              gallery
-              render={({open}) => (
-                <Button onClick={open} variant="primary">
-                  {__('Select Images', 'text-domain')}
-                </Button>
-              )}
-            />
-          ) : (
-            <div className="image-preview-wrapper">
-              {images.map((img, index) => (
-                <div key={index} className="image-preview-item">
-                  <img src={img.url} alt={img.alt} className="image-preview" />
-                  <Button
-                    onClick={() => removeImage(index)}
-                    variant="secondary"
-                    isDestructive>
-                    {__('Supprimer', 'text-domain')}
-                  </Button>
-                </div>
+      <Card>
+        <CardBody>
+          <MediaPlaceholder
+            onSelect={onSelectIcon}
+            allowedTypes={['image']}
+            multiple={false}
+            labels={{title: __('Select Icon', 'labeps-theme')}}>
+            {iconUrl && <img src={iconUrl} alt={__('Icon', 'labeps-theme')} />}
+          </MediaPlaceholder>
+          <RichText
+            tagName="h2"
+            value={title}
+            onChange={onChangeTitle}
+            placeholder={__('Title...', 'labeps-theme')}
+          />
+          <RichText
+            tagName="p"
+            value={subtitle}
+            onChange={onChangeSubtitle}
+            placeholder={__('Subtitle...', 'labeps-theme')}
+            style={{color: textColor, fontWeight}}
+          />
+          {tags.length > 0 && (
+            <div className="tags">
+              {tags.map((tag, index) => (
+                <span key={index} className="tag">
+                  {tag}
+                </span>
               ))}
             </div>
           )}
-        </div>
-      )}
-
-      {contentType !== 'images' && postSelections.length > 0 && (
-        <div
-          className="post-thumbnail-container"
-          style={{gridTemplateColumns: `repeat(${columns}, 1fr)`}}>
-          {postSelections.map((post, index) => (
-            <div key={index} className="post-thumbnail-item">
-              {post.featured_media_src_url ? (
-                <img
-                  src={post.featured_media_src_url}
-                  alt={
-                    post.title
-                      ? post.title.rendered
-                      : __('No title', 'text-domain')
-                  }
-                  className="post-thumbnail-image"
-                />
-              ) : (
-                <div>{__('No Image Available', 'text-domain')}</div>
-              )}
-              <h4 className="post-thumbnail-title">{post.title.rendered}</h4>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {contentType !== 'images' && postSelections.length === 0 && (
-        <p>{__('No content available', 'text-domain')}</p>
-      )}
+        </CardBody>
+      </Card>
     </div>
   );
-};
+}
 
 Edit.propTypes = {
   attributes: PropTypes.shape({
-    images: PropTypes.arrayOf(
-      PropTypes.shape({
-        url: PropTypes.string.isRequired,
-        alt: PropTypes.string.isRequired,
-      }),
-    ).isRequired,
-    columns: PropTypes.number.isRequired,
-    contentType: PropTypes.string.isRequired,
-    postSelections: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        title: PropTypes.shape({
-          rendered: PropTypes.string.isRequired,
-        }),
-        featured_media_src_url: PropTypes.string,
-      }),
-    ).isRequired,
-    categories: PropTypes.arrayOf(PropTypes.number).isRequired,
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    iconUrl: PropTypes.string,
+    tags: PropTypes.arrayOf(PropTypes.string),
+    textColor: PropTypes.string,
+    fontWeight: PropTypes.string,
   }).isRequired,
   setAttributes: PropTypes.func.isRequired,
 };
-
-export default Edit;

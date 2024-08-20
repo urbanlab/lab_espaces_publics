@@ -3,10 +3,10 @@ import {useEffect, useState} from '@wordpress/element';
 import {useBlockProps, InspectorControls} from '@wordpress/block-editor';
 import apiFetch from '@wordpress/api-fetch';
 import PropTypes from 'prop-types';
-import './editor.scss';
 import ImageSelector from './components/ImageSelector';
 import InspectorControlsPanel from './components/InspectorControlsPanel';
 import PostSelector from './components/PostSelector';
+import './editor.scss';
 
 const Edit = ({
   attributes: {
@@ -60,7 +60,6 @@ const Edit = ({
             return {...post, featured_media_src_url: featuredImage};
           });
 
-          // Comparer avec les données existantes avant de mettre à jour
           if (
             JSON.stringify(postSelections) !== JSON.stringify(postsWithImages)
           ) {
@@ -71,12 +70,11 @@ const Edit = ({
           console.error(__('Error fetching posts:', 'text-domain'), error),
         );
     } else {
-      // Ne mettez à jour que si nécessaire
       if (postSelections.length > 0) {
         setAttributes({postSelections: []});
       }
     }
-  }, [contentType, categories]);
+  }, [contentType, categories, postSelections, setAttributes]);
 
   const onSelectImages = (newImages) => {
     setAttributes({
