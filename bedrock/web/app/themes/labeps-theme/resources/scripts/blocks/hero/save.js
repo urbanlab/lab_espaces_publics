@@ -1,3 +1,4 @@
+import {__} from '@wordpress/i18n';
 import {useBlockProps, RichText} from '@wordpress/block-editor';
 import PropTypes from 'prop-types';
 import './style.scss';
@@ -10,15 +11,14 @@ export default function Save({
     tags = [],
     textColor = '',
     fontWeight = 'normal',
-  } = {},
+  },
 }) {
   const blockProps = useBlockProps.save();
-
   return (
     <section {...blockProps} className="wp-block-group container">
       <div className="block-hero flex">
         <figure className="wp-block-image">
-          <img src={iconUrl} alt="Picto Lab" />
+          <img src={iconUrl} alt={__('Hero Icon', 'labeps-theme')} />
         </figure>
         <div className="block-heading-text w-full">
           <RichText.Content tagName="h2" value={title} />

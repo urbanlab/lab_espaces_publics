@@ -1,3 +1,4 @@
+import {__} from '@wordpress/i18n';
 import {useBlockProps} from '@wordpress/block-editor';
 import PropTypes from 'prop-types';
 import './style.scss';
@@ -18,7 +19,7 @@ export default function save({
           images.map((img, index) => (
             <div key={index} className="swiper-slide">
               <div className="card-images-container">
-                <img src={img.url} alt={img.alt} />
+                <img src={img.url} alt={img.alt || 'Image'} />
                 <p
                   className="image-caption"
                   dangerouslySetInnerHTML={{__html: img.caption}}
@@ -39,15 +40,15 @@ export default function save({
                     />
                   ) : (
                     <div className="custom-no-image">
-                      <span>No Image Available</span>
+                      <span>{__('No Image Available', 'text-domain')}</span>
                     </div>
                   )}
                 </figure>
                 <div className="custom-post-content">
                   <h2 className="custom-post-title">{post.title.rendered}</h2>
                   <p className="custom-post-excerpt">{post.excerpt.rendered}</p>
-                  <a href={post.link}>
-                    <button>En savoir plus</button>
+                  <a href={post.link} aria-label={post.title.rendered}>
+                    <button>{__('Learn more', 'text-domain')}</button>
                   </a>
                 </div>
               </div>

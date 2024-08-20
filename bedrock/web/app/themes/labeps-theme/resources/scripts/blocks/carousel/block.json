@@ -41,5 +41,6 @@
     }
   },
   "editorScript": "theme-carousel-block",
-  "style": "theme-carousel-block"
+  "style": "theme-carousel-block",
+  "editorStyle": "theme-carousel-block-editor"
 }

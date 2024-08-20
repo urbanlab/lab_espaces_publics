@@ -2,6 +2,7 @@ import {MediaUpload} from '@wordpress/block-editor';
 import {Button} from '@wordpress/components';
 import {__} from '@wordpress/i18n';
 import PropTypes from 'prop-types';
+import '../editor.scss';
 
 const ImageSelector = ({images, onSelectImages, removeImage}) => (
   <div className="image-container">

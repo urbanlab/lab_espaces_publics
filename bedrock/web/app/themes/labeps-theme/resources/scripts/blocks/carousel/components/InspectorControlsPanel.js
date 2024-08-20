@@ -1,6 +1,7 @@
 import {SelectControl, PanelBody, RangeControl} from '@wordpress/components';
 import {__} from '@wordpress/i18n';
 import PropTypes from 'prop-types';
+import '../editor.scss';
 
 const InspectorControlsPanel = ({
   contentType,
