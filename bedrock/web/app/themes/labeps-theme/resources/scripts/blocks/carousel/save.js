@@ -45,11 +45,10 @@ export default function save({
                 </figure>
                 <div className="custom-post-content">
                   <h2 className="custom-post-title">{post.title.rendered}</h2>
-                  <p
-                    className="custom-post-excerpt"
-                    dangerouslySetInnerHTML={{
-                      __html: post.excerpt.rendered,
-                    }}></p>
+                  <p className="custom-post-excerpt">{post.excerpt.rendered}</p>
+                  <a href={post.link}>
+                    <button>En savoir plus</button>
+                  </a>
                 </div>
               </div>
             </div>

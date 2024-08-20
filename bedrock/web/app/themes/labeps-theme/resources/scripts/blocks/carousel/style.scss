@@ -1,28 +1,25 @@
 /* Conteneur principal */
 .swiper-container {
-  @apply relative w-full h-auto overflow-hidden m-10;
+  @apply relative w-full h-auto overflow-hidden p-8 pb-12;
 
-}
+  .swiper-wrapper{
+    @apply items-center;
 
-.swiper-wrapper{
-  @apply items-center	;
+    .swiper-slide {
+      @apply flex justify-center items-center w-full shrink-0;
+    
+    }
+  
+  }
 
-}
-
-/* Slides */
-.swiper-slide {
-  @apply flex justify-center items-center shrink-0 w-auto;
-
-}
-
-/* Pagination */
+  /* Pagination */
 .swiper-pagination {
   @apply absolute bottom-3 left-0 w-full text-center z-10;
 
   .swiper-pagination-bullet-active{
     @apply bg-secondary;
-  }
 
+  }
 }
 
 /* Flèches de navigation */
@@ -33,39 +30,49 @@
     @apply text-base;
 
   }
-}
 
-.card-images-container{
-  @apply w-3/4 h-[500px] my-7 mx-5;
-  img {
-    @apply block w-full h-full object-cover;
-  
-  } 
 }
-
 .swiper-button-next:hover, .swiper-button-prev:hover {
   @apply bg-secondary;
 
 }
 
+}
+
+.card-images-container{
+  @apply w-3/4 h-min;
+  img {
+    @apply block w-full h-full object-contain;
+  
+  } 
+}
+
 .card-post-container{
-  @apply flex flex-row w-3/4;
+  @apply flex flex-row h-min w-5/6 p-3 rounded border-gray-200 overflow-hidden;
 
   .custom-post-image{
-    @apply block w-4/5 object-cover	;
+    @apply block w-5/12;
+
+    img{
+      @apply object-cover;
+
+    }
       
   }
   .custom-post-content{
-     @apply w-auto p-6;
+     @apply w-1/2 p-6;
     
     .custom-post-title{
       @apply text-black text-base font-bold leading-6;
       
     }
+    button{
+      @apply bg-secondary rounded-lg text-white self-center p-2;
+
+    }
     
   }
 }
-
 
 .custom-post-card{
   @apply bg-white p-6 shadow-md overflow-hidden;

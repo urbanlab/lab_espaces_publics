@@ -17,9 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
   carousels.forEach((carousel) => {
     const columns = carousel.getAttribute('data-columns') || 1;
 
+    console.log(SWIPER_DEFAULT_OPTIONS.spaceBetween);
+
     new Swiper(carousel, {
       slidesPerView: columns,
       spaceBetween: 0,
+      setWrapperSize: true,
+      roundLengths: true,
       pagination: {
         el: SWIPER_DEFAULT_OPTIONS.paginationEl,
         clickable: true,
