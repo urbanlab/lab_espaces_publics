@@ -14,8 +14,11 @@ registerBlockType('labeps-theme/carousel', {
 document.addEventListener('DOMContentLoaded', () => {
   const carousels = document.querySelectorAll('.swiper-container');
 
-  carousels.forEach((carousel) => {
-    const columns = carousel.getAttribute('data-columns') || 1;
+  setTimeout(() => {
+    carousels.forEach((carousel) => {
+      const columns =
+        carousel.getAttribute('data-columns') ||
+        SWIPER_DEFAULT_OPTIONS.slidesPerView;
 
     new Swiper(carousel, {
       slidesPerView: columns,
@@ -46,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         prevEl: SWIPER_DEFAULT_OPTIONS.prevEl,
       },
       centeredSlides: SWIPER_DEFAULT_OPTIONS.centeredSlides,
+
     });
-  });
+  }, 100);
 });

@@ -1,6 +1,16 @@
 import {__} from '@wordpress/i18n';
-import {useEffect, useState} from '@wordpress/element';
-import {useBlockProps, InspectorControls} from '@wordpress/block-editor';
+import {useEffect} from '@wordpress/element';
+import {
+  SelectControl,
+  PanelBody,
+  RangeControl,
+  Button,
+} from '@wordpress/components';
+import {
+  useBlockProps,
+  InspectorControls,
+  MediaUpload,
+} from '@wordpress/block-editor';
 import apiFetch from '@wordpress/api-fetch';
 import PropTypes from 'prop-types';
 import ImageSelector from './components/ImageSelector';
@@ -97,13 +107,28 @@ const Edit = ({
   return (
     <div {...blockProps}>
       <InspectorControls>
-        <InspectorControlsPanel
-          contentType={contentType}
-          setAttributes={setAttributes}
-          columns={columns}
-          availableCategories={availableCategories}
-          categories={categories}
-        />
+        <PanelBody title="Settings">
+          <SelectControl
+            label={__('Type de contenu', 'labeps-theme')}
+            value={contentType}
+            options={[
+              {label: 'Images', value: 'images'},
+              {label: 'Posts', value: 'posts'},
+              {label: 'Inspiration', value: 'inspirations'},
+              {label: 'Projets', value: 'projects'},
+              {label: 'Boite à outil', value: 'ressources'},
+            ]}
+            onChange={(value) => setAttributes({contentType: value})}
+          />
+
+          <RangeControl
+            label={__('Nombre de colonnes', 'labeps-theme')}
+            value={columns}
+            onChange={(value) => setAttributes({columns: value})}
+            min={1}
+            max={5}
+          />
+        </PanelBody>
       </InspectorControls>
 
       {contentType === 'images' ? (
