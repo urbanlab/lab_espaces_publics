@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "02f2e3c58e87a17d23cfc1b272f3698e",
+    "content-hash": "42a1eaecd49e52bc8596e40f87ff3866",
     "packages": [
         {
             "name": "brick/math",
@@ -5460,24 +5460,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/all-in-one-wp-security-and-firewall/"
-        },
-        {
-            "name": "wpackagist-plugin/carousel-block",
-            "version": "1.0.14",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/carousel-block/",
-                "reference": "tags/1.0.14"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/carousel-block.1.0.14.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/carousel-block/"
         },
         {
             "name": "wpackagist-plugin/contact-form-7",

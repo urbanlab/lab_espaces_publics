@@ -16,43 +16,26 @@ import {
 } from '@wordpress/components';
 import './editor.scss';
 
-const Edit = ({
-  attributes: {
+export default function Edit({attributes, setAttributes}) {
+  const {
     title = '',
     subtitle = '',
     iconUrl = '',
     tags = [],
     textColor = '',
     fontWeight = 'normal',
-  } = {},
-  setAttributes,
-}) => {
+  } = attributes;
+
   const blockProps = useBlockProps();
 
-  const onChangeTitle = (value) => {
-    setAttributes({title: value});
-  };
-
-  const onChangeSubtitle = (value) => {
-    setAttributes({subtitle: value});
-  };
-
-  const onSelectIcon = (media) => {
-    setAttributes({iconUrl: media.url});
-  };
-
-  const onChangeTags = (value) => {
-    const tagsArray = value.split(',').map((tag) => tag.trim());
-    setAttributes({tags: tagsArray});
-  };
-
-  const onChangeTextColor = (newColor) => {
-    setAttributes({textColor: newColor});
-  };
-
-  const onChangeFontWeight = (newWeight) => {
+  const onChangeTitle = (value) => setAttributes({title: value});
+  const onChangeSubtitle = (value) => setAttributes({subtitle: value});
+  const onSelectIcon = (media) => setAttributes({iconUrl: media.url});
+  const onChangeTags = (value) =>
+    setAttributes({tags: value.split(',').map((tag) => tag.trim())});
+  const onChangeTextColor = (newColor) => setAttributes({textColor: newColor});
+  const onChangeFontWeight = (newWeight) =>
     setAttributes({fontWeight: newWeight});
-  };
 
   return (
     <div {...blockProps}>
@@ -92,7 +75,7 @@ const Edit = ({
             onSelect={onSelectIcon}
             allowedTypes={['image']}
             multiple={false}
-            labels={{title: 'Select Icon'}}>
+            labels={{title: __('Select Icon', 'labeps-theme')}}>
             {iconUrl && <img src={iconUrl} alt={__('Icon', 'labeps-theme')} />}
           </MediaPlaceholder>
           <RichText
@@ -121,7 +104,7 @@ const Edit = ({
       </Card>
     </div>
   );
-};
+}
 
 Edit.propTypes = {
   attributes: PropTypes.shape({
@@ -134,5 +117,3 @@ Edit.propTypes = {
   }).isRequired,
   setAttributes: PropTypes.func.isRequired,
 };
-
-export default Edit;

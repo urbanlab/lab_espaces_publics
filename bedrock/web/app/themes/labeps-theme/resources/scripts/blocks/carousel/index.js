@@ -1,7 +1,8 @@
 import {registerBlockType} from '@wordpress/blocks';
+import Swiper from 'swiper/bundle';
+import 'swiper/css/bundle';
 import Edit from './edit';
 import save from './save';
-import {initializeSwiper} from './swiper-init';
 import {SWIPER_DEFAULT_OPTIONS} from './swiper-config';
 
 registerBlockType('labeps-theme/carousel', {

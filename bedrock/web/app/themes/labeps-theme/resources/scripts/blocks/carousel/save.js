@@ -1,3 +1,4 @@
+import {__} from '@wordpress/i18n';
 import {useBlockProps} from '@wordpress/block-editor';
 import PropTypes from 'prop-types';
 import './style.scss';
@@ -25,7 +26,11 @@ export default function save({
           images.map((img, index) => (
             <div key={index} className="swiper-slide">
               <div className="card-images-container">
-                <img src={img.url} alt={img.alt} />
+                <img src={img.url} alt={img.alt || 'Image'} />
+                <p
+                  className="image-caption"
+                  dangerouslySetInnerHTML={{__html: img.caption}}
+                />
               </div>
             </div>
           ))}

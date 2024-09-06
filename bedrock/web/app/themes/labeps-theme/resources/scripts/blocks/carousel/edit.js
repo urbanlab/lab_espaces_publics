@@ -13,6 +13,9 @@ import {
 } from '@wordpress/block-editor';
 import apiFetch from '@wordpress/api-fetch';
 import PropTypes from 'prop-types';
+import ImageSelector from './components/ImageSelector';
+import InspectorControlsPanel from './components/InspectorControlsPanel';
+import PostSelector from './components/PostSelector';
 import './editor.scss';
 
 const Edit = ({
@@ -21,14 +24,40 @@ const Edit = ({
     columns = 1,
     contentType = 'images',
     postSelections = [],
+    categories = [],
   } = {},
   setAttributes,
 }) => {
   const blockProps = useBlockProps();
+  const [availableCategories, setAvailableCategories] = useState([]);
+
+  useEffect(() => {
+    if (contentType === 'posts') {
+      apiFetch({path: '/wp/v2/categories'})
+        .then((data) => {
+          setAvailableCategories(
+            data.map((cat) => ({
+              label: cat.name,
+              value: cat.id,
+            })),
+          );
+        })
+        .catch((error) =>
+          console.error(__('Error fetching categories:', 'text-domain'), error),
+        );
+    } else {
+      setAvailableCategories([]);
+    }
+  }, [contentType]);
 
   useEffect(() => {
     if (contentType && contentType !== 'images') {
-      apiFetch({path: `/wp/v2/${contentType}?_embed&context=edit`})
+      const categoryQuery =
+        categories.length > 0 ? `&categories=${categories.join(',')}` : '';
+
+      apiFetch({
+        path: `/wp/v2/${contentType}?_embed&context=edit${categoryQuery}`,
+      })
         .then((data) => {
           const postsWithImages = data.map((post) => {
             const featuredImage =
@@ -41,17 +70,32 @@ const Edit = ({
             return {...post, featured_media_src_url: featuredImage};
           });
 
-          setAttributes({postSelections: postsWithImages});
+          if (
+            JSON.stringify(postSelections) !== JSON.stringify(postsWithImages)
+          ) {
+            setAttributes({postSelections: postsWithImages});
+          }
         })
-        .catch((error) => console.error('Error fetching posts:', error));
+        .catch((error) =>
+          console.error(__('Error fetching posts:', 'text-domain'), error),
+        );
     } else {
-      setAttributes({postSelections: []});
+      if (postSelections.length > 0) {
+        setAttributes({postSelections: []});
+      }
     }
-  }, [contentType]);
+  }, [contentType, categories, postSelections, setAttributes]);
 
   const onSelectImages = (newImages) => {
     setAttributes({
-      images: newImages.map((img) => ({url: img.url, alt: img.alt})),
+      images: [
+        ...images,
+        ...newImages.map((img) => ({
+          url: img.url,
+          alt: img.alt,
+          caption: img.caption,
+        })),
+      ],
     });
   };
 
@@ -87,61 +131,14 @@ const Edit = ({
         </PanelBody>
       </InspectorControls>
 
-      {contentType === 'images' && (
-        <div className="image-container">
-          {images.length === 0 ? (
-            <MediaUpload
-              onSelect={onSelectImages}
-              allowedTypes={['image']}
-              multiple
-              gallery
-              render={({open}) => (
-                <Button onClick={open} variant="primary">
-                  Select Images
-                </Button>
-              )}
-            />
-          ) : (
-            <div className="image-preview-wrapper">
-              {images.map((img, index) => (
-                <div key={index} className="image-preview-item">
-                  <img src={img.url} alt={img.alt} className="image-preview" />
-                  <Button
-                    onClick={() => removeImage(index)}
-                    variant="secondary"
-                    isDestructive>
-                    Supprimer
-                  </Button>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      )}
-
-      {contentType !== 'images' && postSelections.length > 0 && (
-        <div
-          className="post-thumbnail-container"
-          style={{gridTemplateColumns: `repeat(${columns}, 1fr)`}}>
-          {postSelections.map((post, index) => (
-            <div key={index} className="post-thumbnail-item">
-              {post.featured_media_src_url ? (
-                <img
-                  src={post.featured_media_src_url}
-                  alt={post.title ? post.title.rendered : 'No title'}
-                  className="post-thumbnail-image"
-                />
-              ) : (
-                <div>No Image Available</div>
-              )}
-              <h4 className="post-thumbnail-title">{post.title.rendered}</h4>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {contentType !== 'images' && postSelections.length === 0 && (
-        <p>No content available</p>
+      {contentType === 'images' ? (
+        <ImageSelector
+          images={images}
+          onSelectImages={onSelectImages}
+          removeImage={removeImage}
+        />
+      ) : (
+        <PostSelector postSelections={postSelections} columns={columns} />
       )}
     </div>
   );
@@ -166,6 +163,7 @@ Edit.propTypes = {
         featured_media_src_url: PropTypes.string,
       }),
     ).isRequired,
+    categories: PropTypes.arrayOf(PropTypes.number),
   }).isRequired,
   setAttributes: PropTypes.func.isRequired,
 };

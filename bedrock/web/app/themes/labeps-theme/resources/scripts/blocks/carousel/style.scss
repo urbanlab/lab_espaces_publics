@@ -12,8 +12,6 @@
   
   }
 
-}
-
 /* Slides */
 .swiper-slide {
   @apply flex justify-center items-center shrink-0 w-auto;
@@ -23,11 +21,14 @@
   }
 
 }
-
-/* Pagination */
+  /* Pagination */
 .swiper-pagination {
   @apply absolute bottom-3 left-0 w-full text-center z-10;
 
+  .swiper-pagination-bullet-active{
+    @apply bg-secondary;
+
+  }
 }
 
 /* Flèches de navigation */
@@ -38,19 +39,21 @@
     @apply text-base;
 
   }
+
+}
+.swiper-button-next:hover, .swiper-button-prev:hover {
+  @apply bg-secondary;
+
+}
+
 }
 
 .card-images-container{
-  @apply w-3/4 h-5/6;
+  @apply w-3/4 h-min;
   img {
     @apply block w-full h-full object-contain;
   
   } 
-}
-
-.swiper-button-next:hover, .swiper-button-prev:hover {
-  @apply bg-secondary;
-
 }
 
 .card-post-container{
@@ -67,18 +70,20 @@
       
   }
   .custom-post-content{
-     @apply w-auto p-6;
+     @apply w-1/2 p-6;
     
     .custom-post-title{
       @apply text-black text-base font-bold leading-6;
       
     }
+    button{
+      @apply bg-secondary rounded-lg text-white self-center p-2;
+
+    }
     
   }
 }
 
-
 .custom-post-card{
   @apply bg-white p-6 shadow-md overflow-hidden;
-
 }

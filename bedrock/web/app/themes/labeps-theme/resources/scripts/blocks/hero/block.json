@@ -4,9 +4,10 @@
   "title": "Hero",
   "category": "design",
   "icon": "megaphone",
-  "description": "A custom hero block with an icon, title, subtitle, and tags.",
+  "description": "A custom hero block featuring an icon, title, subtitle, and tags, ideal for prominent display sections.",
   "supports": {
     "html": false,
+    "align": true,
     "color": {
       "text": true
     },
@@ -32,9 +33,17 @@
     "tags": {
       "type": "array",
       "default": []
+    },
+    "textColor": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "fontWeight": {
+      "type": "string",
+      "default": "normal"
     }
   },
-
   "editorScript": "theme-hero-block",
-  "style": "theme-hero-block"
+  "style": "theme-hero-block",
+  "editorStyle": "theme-hero-block-editor"
 }
