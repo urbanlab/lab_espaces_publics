@@ -20,11 +20,12 @@
 
   a{
     @apply flex justify-center items-center;
+
   }
 
 }
 
-/* Pagination */
+  /* Pagination */
 .swiper-pagination {
   @apply absolute bottom-3 left-0 w-full text-center z-10;
 
