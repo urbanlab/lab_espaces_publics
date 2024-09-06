@@ -1,3 +1,4 @@
+import {__} from '@wordpress/i18n';
 import {useEffect} from '@wordpress/element';
 import {
   SelectControl,
@@ -63,9 +64,8 @@ const Edit = ({
     <div {...blockProps}>
       <InspectorControls>
         <PanelBody title="Settings">
-          {/* Content Type SelectControl */}
           <SelectControl
-            label="Content Type"
+            label={__('Type de contenu', 'labeps-theme')}
             value={contentType}
             options={[
               {label: 'Images', value: 'images'},
@@ -78,7 +78,7 @@ const Edit = ({
           />
 
           <RangeControl
-            label="Columns"
+            label={__('Nombre de colonnes', 'labeps-theme')}
             value={columns}
             onChange={(value) => setAttributes({columns: value})}
             min={1}

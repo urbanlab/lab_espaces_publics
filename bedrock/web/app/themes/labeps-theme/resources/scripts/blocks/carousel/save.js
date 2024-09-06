@@ -11,8 +11,15 @@ export default function save({
   } = {},
 }) {
   const blockProps = useBlockProps.save();
+
+  const containerClass =
+    contentType === 'images' ? 'image-content' : 'post-content';
+
   return (
-    <div {...blockProps} className="swiper-container" data-columns={columns}>
+    <div
+      {...blockProps}
+      className={`swiper-container ${containerClass}`}
+      data-columns={columns}>
       <div className="swiper-wrapper">
         {contentType === 'images' &&
           images.map((img, index) => (
@@ -26,28 +33,30 @@ export default function save({
         {contentType !== 'images' &&
           postSelections.map((post, index) => (
             <div key={index} className="swiper-slide">
-              <div className="card-post-container">
-                <figure className="custom-post-image">
-                  {post.featured_media_src_url ? (
-                    <img
-                      src={post.featured_media_src_url}
-                      alt={post.title.rendered || 'No title'}
-                    />
-                  ) : (
-                    <div className="custom-no-image">
-                      <span>No Image Available</span>
-                    </div>
-                  )}
-                </figure>
-                <div className="custom-post-content">
-                  <h2 className="custom-post-title">{post.title.rendered}</h2>
-                  <p
-                    className="custom-post-excerpt"
-                    dangerouslySetInnerHTML={{
-                      __html: post.excerpt.rendered,
-                    }}></p>
+              <a href={`${post.link}`} title={`${post.title}`}>
+                <div className="card-post-container">
+                  <figure className="custom-post-image">
+                    {post.featured_media_src_url ? (
+                      <img
+                        src={post.featured_media_src_url}
+                        alt={post.title.rendered || 'No title'}
+                      />
+                    ) : (
+                      <div className="custom-no-image">
+                        <span>No Image Available</span>
+                      </div>
+                    )}
+                  </figure>
+                  <div className="custom-post-content">
+                    <h2 className="custom-post-title">{post.title.rendered}</h2>
+                    <p
+                      className="custom-post-excerpt"
+                      dangerouslySetInnerHTML={{
+                        __html: post.excerpt.rendered,
+                      }}></p>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
           ))}
       </div>

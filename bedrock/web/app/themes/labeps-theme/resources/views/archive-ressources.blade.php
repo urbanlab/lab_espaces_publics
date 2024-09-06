@@ -26,7 +26,7 @@ disposition divers guides techniques, fiches thématiques (focus sur une thémat
   </div>
   </div>
   <div id="pagination-container" class="self-end">
-    {!! the_posts_pagination() !!}
+    {!! the_posts_pagination(array('class' => 'list-none')) !!}
   </div>
 </section>
 

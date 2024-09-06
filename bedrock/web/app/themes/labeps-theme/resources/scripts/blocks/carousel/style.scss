@@ -1,12 +1,26 @@
 /* Conteneur principal */
 .swiper-container {
-  @apply relative w-full h-[600px] overflow-hidden m-10;
+  @apply flex relative w-full overflow-hidden;
+
+  &.image-content {
+    @apply h-96 xl:h-[600px] px-10; 
+
+  }
+
+  &.post-content {
+    @apply h-auto lg:h-[auto]; 
+  
+  }
 
 }
 
 /* Slides */
 .swiper-slide {
   @apply flex justify-center items-center shrink-0 w-auto;
+
+  a{
+    @apply flex justify-center items-center;
+  }
 
 }
 
@@ -18,7 +32,7 @@
 
 /* Flèches de navigation */
 .swiper-button-next, .swiper-button-prev {
-  @apply absolute flex justify-center items-center w-10 h-10 bg-secondary text-white rounded-full top-2/4 -translate-y-2/4 z-10 cursor-pointer;
+  @apply hidden sm:flex absolute w-10 h-10 bg-secondary text-white rounded-full top-2/4 -translate-y-2/4 z-10 cursor-pointer;
 
   &::after{
     @apply text-base;
@@ -29,7 +43,7 @@
 .card-images-container{
   @apply w-3/4 h-5/6;
   img {
-    @apply block w-full h-full object-cover;
+    @apply block w-full h-full object-contain;
   
   } 
 }
@@ -40,10 +54,16 @@
 }
 
 .card-post-container{
-  @apply flex flex-row w-3/4;
+  @apply flex flex-col items-center w-2/3;
+
+  @screen lg {
+    @apply flex-row w-3/4;
+
+  }
 
   .custom-post-image{
-    @apply block w-1/2 object-cover	;
+    @apply block w-full lg:w-1/2 object-cover	;
+
       
   }
   .custom-post-content{
