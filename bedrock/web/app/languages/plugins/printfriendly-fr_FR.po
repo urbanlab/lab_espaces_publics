@@ -1,0 +1,582 @@
+# Translation of Plugins - Print, PDF, Email by PrintFriendly - Stable (latest release) in French (France)
+# This file is distributed under the same license as the Plugins - Print, PDF, Email by PrintFriendly - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-07-13 19:37:49+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: fr\n"
+"Project-Id-Version: Plugins - Print, PDF, Email by PrintFriendly - Stable (latest release)\n"
+
+#: views/tabs.php:312
+msgid "Restrict to specific categories"
+msgstr "Restreindre à des catégories spécifiques"
+
+#: views/tabs.php:308
+msgid "Taxonomy Index Pages"
+msgstr "Pages d’index de taxonomie"
+
+#: views/tabs.php:307
+msgid "Category Index Pages"
+msgstr "Pages d’index de catégorie"
+
+#: views/tabs.php:600
+msgid "File"
+msgstr "Fichier"
+
+#: views/tabs.php:599
+msgid "Inline Tag"
+msgstr "Balise en ligne"
+
+#: views/tabs.php:596
+msgid "Include Via"
+msgstr "Inclure via"
+
+#: views/tabs.php:267 views/tabs.php:284 views/tabs.php:589
+msgid "CSS"
+msgstr "CSS"
+
+#: views/tabs.php:266
+msgid "Default"
+msgstr "Par défaut"
+
+#: views/tabs.php:263
+msgid "Alignment Method"
+msgstr "Méthode d’alignement"
+
+#: views/tabs.php:356
+msgid "Use the shortcode"
+msgstr "Utiliser le code court"
+
+#: views/tabs.php:197
+msgid "Height"
+msgstr "Hauteur"
+
+#: views/tabs.php:195
+msgid "Width"
+msgstr "Largeur "
+
+#: views/tabs.php:495
+msgid "Features"
+msgstr "Fonctionnalités"
+
+#: views/tabs.php:96 views/tabs.php:341 views/tabs.php:349 views/tabs.php:363
+#: views/tabs.php:371
+msgid "Copy Code"
+msgstr "Copier le code"
+
+#: views/tabs.php:93
+msgid "Show Options Code"
+msgstr "Afficher le code des options"
+
+#: views/tabs.php:90
+msgid "We recommend setting this to \"Use existing rules to find content\" in production and to \"Show an error message\" in development."
+msgstr "Nous recommandons de définir ce réglage sur « Utiliser les règles existantes pour trouver le contenu » en production et sur « Afficher un message d’erreur » en développement."
+
+#: views/tabs.php:88
+msgid "This setting can be used to configure the behaviour of the plugin, when content CSS selector does not match any content."
+msgstr "Ce réglage peut être utilisé pour configurer le comportement de l’extension, lorsque le sélecteur CSS du contenu ne correspond à aucun contenu."
+
+#: views/tabs.php:85
+msgid "Show an error message"
+msgstr "Afficher un message d’erreur"
+
+#: views/tabs.php:81
+msgid "Use existing rules to find content"
+msgstr "Utiliser les règles existantes pour trouver du contenu"
+
+#: views/tabs.php:78
+msgid "Content Fallback Strategy"
+msgstr "Stratégie de repli du contenu"
+
+#: views/tabs.php:73
+msgid "Image Selector"
+msgstr "Sélecteur d’image"
+
+#: views/tabs.php:69
+msgid "Title Selector"
+msgstr "Sélecteur de titre"
+
+#: views/tabs.php:65
+msgid "Date Selector"
+msgstr "Sélecteur de date"
+
+#: views/tabs.php:61
+msgid "Content Selector"
+msgstr "Sélecteur de contenu"
+
+#: views/tabs.php:57
+msgid "Author Selector"
+msgstr "Sélecteur d’auteur ou d’autrice"
+
+#: views/tabs.php:51
+msgid "Custom CSS Selectors"
+msgstr "Sélecteurs CSS personnalisés"
+
+#: views/tabs.php:406
+msgid "By default PrintFriendly Pro will only show the visible content on the page. Select \"Yes\", if you want PrintFriendly to show hidden content. (Ex. Content in hidden tabs)"
+msgstr "Par défaut PrintFriendly Pro n’affichera que le contenu visible de la page. Sélectionnez « Oui » si vous souhaitez que PrintFriendly affiche le contenu masqué (par exemple, le contenu des onglets masqués)."
+
+#: views/tabs.php:400
+msgid "Show Hidden Content"
+msgstr "Afficher le contenu masqué"
+
+#: views/tabs.php:395
+msgid "Select \"Yes\" if your site is not publicly accessible or if your provider blocks image requests from third parties or if images are not present in PDF"
+msgstr "Sélectionnez « Oui » si votre site n’est pas accessible au public ou si votre fournisseur bloque les demandes d’images provenant de tiers ou si les images ne sont pas présentes dans le PDF."
+
+#: views/tabs.php:389
+msgid "Encode images"
+msgstr "Encoder les images"
+
+#: views/tabs.php:383
+msgid "Pro Exclusive Features"
+msgstr "Fonctionnalités exclusives Pro"
+
+#: views/tabs.php:654
+msgid "Currently in Debug Mode. This tab is visible in debug mode only"
+msgstr "Actuellement en mode débogage. Cet onglet est uniquement visible en mode débogage"
+
+#: views/tabs.php:645
+msgid "Debug options"
+msgstr "Options de débogage"
+
+#: views/tabs.php:609
+msgid "Custom CSS URL"
+msgstr "Custom CSS URL"
+
+#: views/tabs.php:582
+msgid "Custom CSS"
+msgstr "CSS personnalisé"
+
+#: views/tabs.php:528
+msgid "Remove Images"
+msgstr "Retirer les images"
+
+#: views/tabs.php:527
+msgid "Small"
+msgstr "Petit"
+
+#: views/tabs.php:526
+msgid "Medium"
+msgstr "Moyen"
+
+#: views/tabs.php:525
+msgid "Large"
+msgstr "Grand"
+
+#: views/tabs.php:524
+msgid "Full Size"
+msgstr "Taille réelle"
+
+#: views/tabs.php:521
+msgid "Image size"
+msgstr "Taille de l’image"
+
+#: views/tabs.php:412
+msgid "Learn More"
+msgstr "Apprendre plus"
+
+#: views/tabs.php:412
+msgid "These features require a Pro subscription."
+msgstr "Cette fonctionnalité nécessite un abonnement Pro."
+
+#: views/tabs.php:468
+msgid "Tagline (optional)"
+msgstr "Slogan (facultatif)"
+
+#: views/tabs.php:302
+msgid "Pages to show on"
+msgstr "Pages à afficher sur"
+
+#: views/tabs.php:297
+msgid "Button Display"
+msgstr "Bouton « Afficher »"
+
+#: views/tabs.php:253
+msgid "Placement"
+msgstr "Positionnement"
+
+#: views/tabs.php:273
+msgid "Alignment"
+msgstr "Alignement"
+
+#: views/tabs.php:235
+msgid "Preview"
+msgstr "Prévisualiser"
+
+#: views/tabs.php:229
+msgid "No Text"
+msgstr "Aucun texte"
+
+#: views/tabs.php:206
+msgid "No Image"
+msgstr "Aucune image"
+
+#: views/tabs.php:187 views/tabs.php:453
+msgid "Select Image"
+msgstr "Sélectionner une image"
+
+#: views/tabs.php:184
+msgid "Use Your Image"
+msgstr "Utiliser votre image"
+
+#: views/tabs.php:170
+msgid "Image"
+msgstr "Image"
+
+#: views/tabs.php:115
+msgid "Button Style"
+msgstr "Style du bouton"
+
+#: views/tabs.php:29
+msgid "Not available for WooCommerce"
+msgstr "Non disponible pour WooCommerce"
+
+#: views/tabs.php:20
+msgid "Select content using"
+msgstr "Sélectionner le contenu en utilisant"
+
+#: views/tabs.php:7
+msgid "Debug"
+msgstr "Déboguer"
+
+#: views/tabs.php:5
+msgid "Advanced"
+msgstr "Avancé"
+
+#: views/tabs.php:4
+msgid "Standard"
+msgstr "Standard"
+
+#: views/pro.php:78
+msgid "Add Free Development Domain"
+msgstr "Ajouter un domaine de développement gratuit"
+
+#: views/pro.php:78
+msgid "Have a development/staging domain?"
+msgstr "Vous avez un domaine de développement/staging ?"
+
+#: views/pro.php:76
+msgid "Email support"
+msgstr "Support par e-mail"
+
+#: views/pro.php:75
+msgid "Works on all sites (Password protected, Angular/React/Ember)"
+msgstr "Fonctionne sur tous les sites (protégé par un mot de passe, Angular/React/Ember)"
+
+#: views/pro.php:74
+msgid "Ad-Free for companies and organizations"
+msgstr "Sans publicité pour les entreprises et les organisations"
+
+#: views/pro.php:73
+msgid "Cache-free, so any updates are instantly included"
+msgstr "Sans cache, donc toute mise à jour est instantanément incluse"
+
+#: views/pro.php:72
+msgid "Faster, better experience for end-user"
+msgstr "Une expérience plus rapide et meilleure pour l’utilisateur final ou l’utilisatrice finale"
+
+#: views/pro.php:70
+msgid "Pro Features"
+msgstr "Fonctionnalités Pro"
+
+#: views/pro.php:61
+msgid "Please wait"
+msgstr "Veuillez patienter"
+
+#: views/pro.php:55
+msgid "Last Checked"
+msgstr "Dernière vérification"
+
+#: views/pro.php:50
+msgid "Buy Now"
+msgstr "Acheter maintenant"
+
+#: views/pro.php:46
+msgid "Free 30 days trial, no credit card required."
+msgstr "Essai gratuit de 30 jours, aucune carte de crédit obligatoire."
+
+#: views/pro.php:41
+msgid "Domain is invalid"
+msgstr "Le domaine est non valide"
+
+#: views/pro.php:38
+msgid "Website Domain"
+msgstr "Domaine du site"
+
+#: views/pro.php:33
+msgid "Email is invalid"
+msgstr "L’e-mail est non valide"
+
+#: views/pro.php:30
+msgid "To send account details"
+msgstr "Pour envoyer les détails du compte"
+
+#: views/pro.php:18
+msgid "Learn more"
+msgstr "Apprendre plus"
+
+#: views/settings.php:16
+msgid "If you like <strong>PrintFriendly</strong> please leave us a %s rating. A huge thanks in advance!"
+msgstr "Si vous aimez <strong>PrintFriendly</strong>, veuillez nous laisser une note de 5 étoiles %s. Un grand merci d’avance !"
+
+#: pf.php:1719
+msgid "You are currently using %1$s%2$s%3$s. You can copy its contents into the textbox if you want to update the styles."
+msgstr "Vous utilisez actuellement %1$s%2$s%3$s. Vous pouvez copier son contenu dans la zone de texte si vous souhaitez mettre à jour les styles."
+
+#: pf.php:1036 views/tabs.php:108 views/tabs.php:488
+msgid "Documentation"
+msgstr "Documentation"
+
+#: pf.php:983
+msgid "Please check Internet connection."
+msgstr "Veuillez vérifier votre connexion Internet."
+
+#: pf.php:982
+msgid "Expired"
+msgstr "Expiré"
+
+#: pf.php:981
+msgid "Active"
+msgstr "Actif"
+
+#: pf.php:980
+msgid "Active Trial"
+msgstr "Essai actif"
+
+#: pf.php:979 views/pro.php:45
+msgid "Activate"
+msgstr "Activer"
+
+#: pf.php:978
+msgid "Checking status"
+msgstr "Vérification de l’état"
+
+#: pf.php:977
+msgid "Activation"
+msgstr "Activation"
+
+#: pf.php:963
+msgid "Invalid Image URL"
+msgstr "URL d’image non valide"
+
+#: pf.php:962
+msgid "Use Image"
+msgstr "Utiliser l’image"
+
+#: pf.php:961 views/tabs.php:447
+msgid "Custom Image"
+msgstr "Image personnalisée"
+
+#. Author of the plugin
+#: pf.php
+msgid "Print, PDF, & Email by PrintFriendly"
+msgstr "Print, PDF, & Email by PrintFriendly"
+
+#. Plugin Name of the plugin
+#: pf.php
+msgid "Print, PDF & Email by PrintFriendly"
+msgstr "Print, PDF & Email by PrintFriendly"
+
+#. Description of the plugin
+#: pf.php
+msgid "PrintFriendly & PDF button for your website. Optimizes your pages and brand for print, pdf, and email."
+msgstr "Bouton d’impression et PDF pour votre site web. Optimise vos pages et votre marque pour impression, pdf et e-mail."
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: pf.php
+msgid "https://www.printfriendly.com"
+msgstr "https://www.printfriendly.com"
+
+#: views/settings.php:20
+msgid "Need help or have suggestions?"
+msgstr "Besoin d’aide ou des suggestions ?"
+
+#: views/settings.php:18
+msgid "Need professional options for your corporate, education, or agency developed website? Check out"
+msgstr "Besoin d’options professionnelles pour votre site web d’entreprise, d’éducation ou d’agence ? Vérifiez"
+
+#: views/tabs.php:419 views/tabs.php:631
+msgid "Cancel"
+msgstr "Annuler"
+
+#: views/tabs.php:418 views/tabs.php:630
+msgid "Save Options"
+msgstr "Enregistrer les options"
+
+#: views/tabs.php:44
+msgid "Content Algorithm"
+msgstr "Algorithme de contenu"
+
+#: views/tabs.php:37
+msgid "WP Template"
+msgstr "Modèle WP"
+
+#: views/tabs.php:107
+msgid "Change this setting if your content is not showing in the preview."
+msgstr "Changez ce réglage si votre contenu n’est pas affiché dans la prévisualisation."
+
+#: views/tabs.php:501
+msgid "Track in Google Analytics"
+msgstr "Suivre dans Google Analytics"
+
+#: views/tabs.php:393 views/tabs.php:404 views/tabs.php:504
+msgid "Yes"
+msgstr "Oui"
+
+#: views/tabs.php:392 views/tabs.php:403 views/tabs.php:505
+msgid "No"
+msgstr "Non"
+
+#: views/tabs.php:567
+msgid "Print"
+msgstr "Imprimer"
+
+#: views/tabs.php:562
+msgid "On localhost the images can not be included in the PDF. Once the website is live/public images will be included in the PDF."
+msgstr "Sur un hébergement local les images ne sont pas incluses dans le PDF. Une fois le site web en ligne, les images seront incluses dans le PDF."
+
+#: views/tabs.php:562
+msgid "Developer Note"
+msgstr "Note de développement"
+
+#: views/tabs.php:556
+msgid "PDF"
+msgstr "PDF"
+
+#: views/pro.php:30 views/tabs.php:546
+msgid "Email"
+msgstr "E-mail"
+
+#: views/tabs.php:537
+msgid "Center/Block"
+msgstr "Centrer/bloquer"
+
+#: views/tabs.php:540
+msgid "Align None"
+msgstr "Aucun alignement"
+
+#: views/tabs.php:539
+msgid "Align Left"
+msgstr "Aligner à gauche"
+
+#: views/tabs.php:538
+msgid "Align Right"
+msgstr "Aligner à droite"
+
+#: views/tabs.php:534
+msgid "Image style"
+msgstr "Style de l’image"
+
+#: views/tabs.php:515 views/tabs.php:550 views/tabs.php:560 views/tabs.php:571
+msgid "Not Allow"
+msgstr "Ne pas autoriser"
+
+#: views/tabs.php:514 views/tabs.php:549 views/tabs.php:559 views/tabs.php:570
+msgid "Allow"
+msgstr "Autoriser"
+
+#: views/tabs.php:511
+msgid "Click to delete"
+msgstr "Cliquer pour supprimer"
+
+#: views/tabs.php:440
+msgid "My Website Icon"
+msgstr "Icône de mon site web"
+
+#: views/tabs.php:431
+msgid "Page header"
+msgstr "En-tête de page"
+
+#: views/tabs.php:334
+msgid "Add direct to template"
+msgstr "Ajouter directement au modèle"
+
+#: views/tabs.php:306
+msgid "Homepage"
+msgstr "Page d’accueil"
+
+#: views/tabs.php:305
+msgid "Pages"
+msgstr "Pages"
+
+#: views/tabs.php:304
+msgid "Posts"
+msgstr "Articles"
+
+#: views/tabs.php:257
+msgid "Below Content"
+msgstr "Sous le contenu"
+
+#: views/tabs.php:256
+msgid "Above Content"
+msgstr "Au-dessus du contenu"
+
+#: views/tabs.php:278
+msgid "Center"
+msgstr "Centré"
+
+#: views/tabs.php:277
+msgid "Right Align"
+msgstr "Aligné à droite"
+
+#: views/tabs.php:276
+msgid "Left Align"
+msgstr "Aligné à gauche"
+
+#: views/tabs.php:247
+msgid "Button Position"
+msgstr "Position du bouton"
+
+#: views/tabs.php:219
+msgid "Text Size"
+msgstr "Taille du texte"
+
+#: views/tabs.php:211
+msgid "Text"
+msgstr "Texte"
+
+#: pf.php:1416 views/tabs.php:165
+msgid "Custom Button"
+msgstr "Bouton personnalisé"
+
+#: views/settings.php:3
+msgid "Print Friendly & PDF Settings"
+msgstr "Réglages de Print Friendly & PDF"
+
+#: pf.php:1607
+msgid "Only display when post is in:"
+msgstr "Afficher uniquement lorsque l’article est dans :"
+
+#: pf.php:1012
+msgid "Settings"
+msgstr "Réglages"
+
+#: pf.php:928
+msgid "Print Friendly & PDF"
+msgstr "Print Friendly & PDF"
+
+#: pf.php:928
+msgid "PrintFriendly Options"
+msgstr "Options de PrintFriendly"
+
+#: pf.php:821
+msgid "No valid custom logo url received, please enter a valid url to use a custom logo."
+msgstr "Aucune URL de logo personnalisé valide reçue, veuillez saisir une URL valide pour utiliser un logo personnalisé."
+
+#: pf.php:758
+msgid "The color you entered is not valid, it must be a valid hexadecimal RGB font color."
+msgstr "La couleur que vous avez saisie est non valide, ce doit être une couleur de police RGB hexadécimale valide."
+
+#: pf.php:750
+msgid "The text size you entered is invalid, please stay between 9px and 25px"
+msgstr "La taille du texte que vous avez saisi est non valide, veuillez rester entre 9 et 25 px."
+
+#: pf.php:742
+msgid "No valid custom image url received, please enter a valid url to use a custom image."
+msgstr "Aucune URL d’image personnalisée valide reçue, veuillez saisir une URL valide pour utiliser une image personnalisée."

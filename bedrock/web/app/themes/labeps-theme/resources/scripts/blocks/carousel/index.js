@@ -20,36 +20,36 @@ document.addEventListener('DOMContentLoaded', () => {
         carousel.getAttribute('data-columns') ||
         SWIPER_DEFAULT_OPTIONS.slidesPerView;
 
-      initializeSwiper(carousel, {
-        slidesPerView: columns,
-        autoplay: SWIPER_DEFAULT_OPTIONS.autoplay,
-        breakpoints: {
-          640: {
-            slidesPerView: SWIPER_DEFAULT_OPTIONS.slidesPerView,
-            spaceBetween: 10,
-          },
-          1024: {
-            slidesPerView: columns,
-            spaceBetween: 15,
-          },
-          1440: {
-            slidesPerView: columns,
-            spaceBetween: 20,
-          },
+    new Swiper(carousel, {
+      slidesPerView: columns,
+      autoplay: SWIPER_DEFAULT_OPTIONS.autoplay,
+      breakpoints: {
+        640: {
+          slidesPerView: SWIPER_DEFAULT_OPTIONS.slidesPerView,
+          spaceBetween: 10,
         },
-        speed: 400,
-        pagination: {
-          el: SWIPER_DEFAULT_OPTIONS.paginationEl,
-          clickable: true,
-          dynamicBullets: true,
-          dynamicMainBullets: 3,
+        1024: {
+          slidesPerView: columns,
+          spaceBetween: 15,
         },
-        navigation: {
-          nextEl: SWIPER_DEFAULT_OPTIONS.nextEl,
-          prevEl: SWIPER_DEFAULT_OPTIONS.prevEl,
+        1440: {
+          slidesPerView: columns,
+          spaceBetween: 20,
         },
-        centeredSlides: SWIPER_DEFAULT_OPTIONS.centeredSlides,
-      });
+      },
+      speed: 400,
+      pagination: {
+        el: SWIPER_DEFAULT_OPTIONS.paginationEl,
+        clickable: true,
+        dynamicBullets: true,
+        dynamicMainBullets: 3,
+      },
+      navigation: {
+        nextEl: SWIPER_DEFAULT_OPTIONS.nextEl,
+        prevEl: SWIPER_DEFAULT_OPTIONS.prevEl,
+      },
+      centeredSlides: SWIPER_DEFAULT_OPTIONS.centeredSlides,
+
     });
   }, 100);
 });

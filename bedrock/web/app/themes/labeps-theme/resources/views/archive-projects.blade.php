@@ -19,7 +19,6 @@
     <div class="container mx-auto">
       <button id="map-view-button" class="active">Map View</button>
       <button id="list-view-button">List View</button>
-
     </div>
   </div>
   <section class="container mx-auto my-4">
