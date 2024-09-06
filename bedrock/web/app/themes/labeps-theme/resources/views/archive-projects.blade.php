@@ -17,8 +17,9 @@
   @endif
   <div class="view-switcher">
     <div class="container mx-auto">
-      <button id="list-view-button">Afficher la liste</button>
-      <button id="map-view-button" class="active">Afficher la carte</button>
+      <button id="map-view-button" class="active">Map View</button>
+      <button id="list-view-button">List View</button>
+
     </div>
   </div>
   <section class="container mx-auto my-4">
@@ -35,7 +36,7 @@
           @endwhile
         </div>
         <div id="pagination-container">
-          {!! the_posts_pagination() !!}
+          {!! the_posts_pagination(array('class' => 'list-none')) !!}
         </div>
       </div>
       <div id="map-view" class="view active md:w-3/4 z-0">

@@ -14,28 +14,42 @@ registerBlockType('labeps-theme/carousel', {
 document.addEventListener('DOMContentLoaded', () => {
   const carousels = document.querySelectorAll('.swiper-container');
 
-  carousels.forEach((carousel) => {
-    const columns = carousel.getAttribute('data-columns') || 1;
+  setTimeout(() => {
+    carousels.forEach((carousel) => {
+      const columns =
+        carousel.getAttribute('data-columns') ||
+        SWIPER_DEFAULT_OPTIONS.slidesPerView;
 
-    console.log(SWIPER_DEFAULT_OPTIONS.spaceBetween);
-
-    new Swiper(carousel, {
-      slidesPerView: columns,
-      spaceBetween: SWIPER_DEFAULT_OPTIONS.spaceBetween || 10,
-      setWrapperSize: true,
-      roundLengths: true,
-      pagination: {
-        el: SWIPER_DEFAULT_OPTIONS.paginationEl,
-        clickable: true,
-        dynamicBullets: true,
-        dynamicMainBullets: 3,
-      },
-      navigation: {
-        nextEl: SWIPER_DEFAULT_OPTIONS.nextEl,
-        prevEl: SWIPER_DEFAULT_OPTIONS.prevEl,
-      },
-      autoplay: SWIPER_DEFAULT_OPTIONS.autoplay,
-      centeredSlides: SWIPER_DEFAULT_OPTIONS.centeredSlides,
+      initializeSwiper(carousel, {
+        slidesPerView: columns,
+        autoplay: SWIPER_DEFAULT_OPTIONS.autoplay,
+        breakpoints: {
+          640: {
+            slidesPerView: SWIPER_DEFAULT_OPTIONS.slidesPerView,
+            spaceBetween: 10,
+          },
+          1024: {
+            slidesPerView: columns,
+            spaceBetween: 15,
+          },
+          1440: {
+            slidesPerView: columns,
+            spaceBetween: 20,
+          },
+        },
+        speed: 400,
+        pagination: {
+          el: SWIPER_DEFAULT_OPTIONS.paginationEl,
+          clickable: true,
+          dynamicBullets: true,
+          dynamicMainBullets: 3,
+        },
+        navigation: {
+          nextEl: SWIPER_DEFAULT_OPTIONS.nextEl,
+          prevEl: SWIPER_DEFAULT_OPTIONS.prevEl,
+        },
+        centeredSlides: SWIPER_DEFAULT_OPTIONS.centeredSlides,
+      });
     });
-  });
+  }, 100);
 });

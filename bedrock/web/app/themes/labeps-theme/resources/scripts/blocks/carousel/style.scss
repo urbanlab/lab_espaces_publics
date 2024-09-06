@@ -1,17 +1,26 @@
 /* Conteneur principal */
 .swiper-container {
-  @apply relative w-full h-auto overflow-hidden p-8 pb-12;
+  @apply flex relative w-full overflow-hidden;
 
-  .swiper-wrapper{
-    @apply items-center;
+  &.image-content {
+    @apply h-96 xl:h-[600px] px-10; 
 
-    .swiper-slide {
-      @apply flex justify-center items-center w-full shrink-0;
-    
-    }
+  }
+
+  &.post-content {
+    @apply h-auto lg:h-[auto]; 
   
   }
 
+/* Slides */
+.swiper-slide {
+  @apply flex justify-center items-center shrink-0 w-auto;
+
+  a{
+    @apply flex justify-center items-center;
+  }
+
+}
   /* Pagination */
 .swiper-pagination {
   @apply absolute bottom-3 left-0 w-full text-center z-10;
@@ -24,7 +33,7 @@
 
 /* Flèches de navigation */
 .swiper-button-next, .swiper-button-prev {
-  @apply absolute flex justify-center items-center w-10 h-10 bg-secondary text-white rounded-full top-2/4 -translate-y-2/4 z-10 cursor-pointer;
+  @apply hidden sm:flex absolute w-10 h-10 bg-secondary text-white rounded-full top-2/4 -translate-y-2/4 z-10 cursor-pointer;
 
   &::after{
     @apply text-base;
@@ -48,15 +57,16 @@
 }
 
 .card-post-container{
-  @apply flex flex-row h-min w-5/6 p-3 rounded border-gray-200 overflow-hidden;
+  @apply flex flex-col items-center w-2/3;
+
+  @screen lg {
+    @apply flex-row w-3/4;
+
+  }
 
   .custom-post-image{
-    @apply block w-5/12;
+    @apply block w-full lg:w-1/2 object-cover	;
 
-    img{
-      @apply object-cover;
-
-    }
       
   }
   .custom-post-content{
@@ -76,10 +86,4 @@
 
 .custom-post-card{
   @apply bg-white p-6 shadow-md overflow-hidden;
-
-}
-
-.image-caption{
-  @apply text-xs p-0;
-
 }
