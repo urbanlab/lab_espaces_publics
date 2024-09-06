@@ -1,4 +1,4 @@
-<aside id="filters-menu" class="filters slide-in lg:static lg:translate-x-0 lg:flex-col lg:w-1/3 px-6 lg:max z-0">
+<aside id="filters-menu" class="filters slide-in pt-6 lg:static lg:translate-x-0 lg:flex-col lg:w-1/3 px-6 lg:max z-10">
 <h4 class="bold text-lg">Filtrer par :</h4>
 <div id="selected-filters" class="flex flex-wrap gap-2 mb-4"></div>
 
@@ -24,7 +24,7 @@
         </button>
         <div class="panel px-4 py-2 hidden">
             @php
-                $terms = get_terms(['taxonomy' => $taxonomy->name, 'hide_empty' => true, 'update_term_meta_cache' => false]);
+                $terms = get_terms(['taxonomy' => $taxonomy->name,'parent' => 0, 'hide_empty' => true, 'update_term_meta_cache' => false]);
             @endphp
 
             @if (!empty($terms) && !is_wp_error($terms))

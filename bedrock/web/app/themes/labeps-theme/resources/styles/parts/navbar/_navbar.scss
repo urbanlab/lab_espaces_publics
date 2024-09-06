@@ -5,7 +5,7 @@
         #menu-main-menu {
             @apply flex flex-col h-full text-lg font-bold ml-0;
             @screen md{
-                @apply flex-row justify-around items-end;
+                @apply flex-row justify-around items-center;
             }
             @screen lg{
                 @apply text-sm font-bold tracking-wide;
@@ -16,7 +16,7 @@
                         @apply px-2 text-xs;
                     }
                     .sub-menu{
-                        @apply text-primary text-base font-normal py-1 px-0;
+                        @apply flex flex-col text-primary text-base font-normal py-1 px-0;
                         @screen md{
                             @apply hidden absolute flex-col bg-white text-xs p-2 border-t-2 border-primary;
 

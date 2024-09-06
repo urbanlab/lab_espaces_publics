@@ -27,7 +27,7 @@ synthétiques de projets innovants réalisés en France et à l’étranger.'])
       </div>
     </div>
     <div id="pagination-container" class="">
-      {!! the_posts_pagination() !!}
+      {!! the_posts_pagination(array('class' => 'list-none')) !!}
     </div>
   </section>
 
