@@ -1,4 +1,4 @@
-<article id="post-{{ get_the_ID() }}" class='card self-stretch @php(get_post_class())'>
+<article id="post-{{ get_the_ID() }}" class="card self-stretch @php(get_post_class())">
     <a href="{{ get_permalink() }}">
       <figure>
         {!!get_the_post_thumbnail()!!}

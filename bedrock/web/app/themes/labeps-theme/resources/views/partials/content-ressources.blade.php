@@ -1,7 +1,7 @@
-<article id="post-{{ get_the_ID() }}" class='card flex flex-col content-center bg-white @php(get_post_class())'>
+<article id="post-{{ get_the_ID() }}" class="card @php(get_post_class())">
     <a href="{{ get_permalink() }}">
-      <figure class="w-full me-8 md:me-2 h-40">
-        {!!the_post_thumbnail('thumbnail', array('class' => ''))!!}
+      <figure>
+        {!!get_the_post_thumbnail()!!}
       </figure>
     </a>
     <div class="entry-summary md:p-4">
