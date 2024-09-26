@@ -77,6 +77,12 @@
   }
 }
 
+/* Bullet Navigation */
+.swiper-pagination-bullet-active{
+  @apply bg-secondary;
+  
+}
+
 
 .custom-post-card{
   @apply bg-white p-6 shadow-md overflow-hidden;
