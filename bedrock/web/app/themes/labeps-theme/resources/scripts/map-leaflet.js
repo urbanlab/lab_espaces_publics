@@ -12,7 +12,6 @@ export function MapLeaflet() {
     iconSize: [25, 41],
     iconAnchor: [10, 41],
     popupAnchor: [2, -40],
-    // specify the path here
     iconUrl: 'https://unpkg.com/leaflet@1.5.1/dist/images/marker-icon.png',
     shadowUrl: 'https://unpkg.com/leaflet@1.5.1/dist/images/marker-shadow.png',
   });
@@ -24,8 +23,11 @@ export function MapLeaflet() {
       longitude: 4.85,
       simple_popup: 'Simple popup content',
       detailed_popup: 'Detailed popup content',
+      status: 'default',
     },
   ];
+
+  console.log(initialCommuneData);
 
   if (initialCommuneData.length === 0) {
     console.warn('No projects found or projects is undefined.');
@@ -70,7 +72,7 @@ export function MapLeaflet() {
       });
     }
     markers = [];
-
+    console.log(projects);
     projects.forEach(function (project) {
       if (project.latitude && project.longitude) {
         try {

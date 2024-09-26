@@ -50,9 +50,10 @@ class MapComposer extends Composer
     {
         $communes = get_the_terms($post_id, 'commune');
         $defis = get_the_terms($post_id, 'defis');
-
+        $status = get_the_terms($post_id, 'statuts');
         $commune_names = !is_wp_error($communes) && !empty($communes) ? wp_list_pluck($communes, 'name') : [];
         $defi_names = !is_wp_error($defis) && !empty($defis) ? wp_list_pluck($defis, 'name') : [];
+        $status_states = !is_wp_error($status) && !empty($status) ? wp_list_pluck($status, 'name') : [];
 
         if (!empty($communes) && !is_wp_error($communes)) {
             $commune = $communes[0];
@@ -66,6 +67,7 @@ class MapComposer extends Composer
                     'longitude' => $longitude,
                     'commune' => implode(', ', $commune_names),
                     'defi' => implode(', ', $defi_names),
+                    'statuts' => implode(',', $status_states),
                     'excerpt' => get_the_excerpt($post_id),
                     'link' => get_permalink($post_id),
                     'button' => view('components.button', [

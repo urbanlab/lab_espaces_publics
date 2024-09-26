@@ -3,12 +3,12 @@
   @apply flex relative w-full overflow-hidden;
 
   &.image-content {
-    @apply h-96 xl:h-[600px] px-10; 
+    @apply h-auto px-10; 
 
   }
 
   &.post-content {
-    @apply h-auto lg:h-[auto]; 
+    @apply h-auto; 
   
   }
 
