@@ -12,7 +12,6 @@
         </h3>
         @foreach ((wp_get_post_terms($post->ID, 'commune')) as $item)
         <p class="w-fit text-xs py-1 px-2 m-1 me-8">📍{{$item->name}}</p>
-        @dump($item)
       @endforeach
         <p>{{the_excerpt()}}</p>
     </div>
