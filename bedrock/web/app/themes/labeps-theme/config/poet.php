@@ -225,7 +225,7 @@ return [
         ],
         'motscles' => [
             'links' => ['inspirations', 'ressources', 'projects'],
-            'meta_box' => 'radio',
+            'meta_box_cb' => true,
             'dashboard_glance' => true,
             'show_in_rest' => true,
             'hierarchical' => true,
