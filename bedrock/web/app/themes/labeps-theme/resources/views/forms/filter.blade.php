@@ -29,10 +29,20 @@
 
             @if (!empty($terms) && !is_wp_error($terms))
                 @foreach ($terms as $term)
+                @php
+                    $colors = [
+                        'Projet terminé' => 'bg-blue-600',
+                        'Projet en cours'=> 'bg-orange-600',
+                        'Projet évalué' => 'bg-green-500',
+                    ];
+
+                    $color = isset($colors[$term->name]) ? $colors[$term->name] : 'text-black';
+                @endphp
                     <label class="block">
-                        <input type="checkbox" name="{{ $taxonomy->name }}[]" value="{{ esc_attr($term->slug) }}" {{ in_array($term->slug, $current_taxonomies) ? 'checked' : '' }} class="mr-2">
+                        <input type="checkbox" name="{{ $taxonomy->name }}" value="{{ esc_attr($term->slug) }}" {{ in_array($term->slug, $current_taxonomies) ? 'checked' : '' }} class="mr-2 {{ $color }}">
                         {{ $term->name }}
                     </label>
+
                 @endforeach
             @endif
         </div>

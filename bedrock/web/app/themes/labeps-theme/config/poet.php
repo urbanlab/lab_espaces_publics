@@ -153,6 +153,11 @@ return [
                     'title'    => 'Commune',
                     'link'     => 'edit',
                 ],
+                'statuts' => [
+                    'taxonomy' => 'statuts',
+                    'title'    => 'Statuts',
+                    'link'     => 'edit',
+                ],
             ],
 
             'admin_filters' => [

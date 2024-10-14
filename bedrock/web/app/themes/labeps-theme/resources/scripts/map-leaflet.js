@@ -16,6 +16,13 @@ export function MapLeaflet() {
     shadowUrl: 'https://unpkg.com/leaflet@1.5.1/dist/images/marker-shadow.png',
   });
 
+  // Statut colors
+  const statusFilters = {
+    'Projet terminé': 'hue-rotate(0deg)',
+    'Projet en cours': 'hue-rotate(150deg)',
+    'Projet évalué': 'hue-rotate(240deg)',
+  };
+
   const initialCommuneData = window.projects || [
     {
       title: 'Project Example',
@@ -26,8 +33,6 @@ export function MapLeaflet() {
       status: 'default',
     },
   ];
-
-  console.log(initialCommuneData);
 
   if (initialCommuneData.length === 0) {
     console.warn('No projects found or projects is undefined.');
@@ -72,7 +77,6 @@ export function MapLeaflet() {
       });
     }
     markers = [];
-    console.log(projects);
     projects.forEach(function (project) {
       if (project.latitude && project.longitude) {
         try {
@@ -82,6 +86,14 @@ export function MapLeaflet() {
           }).addTo(map);
           marker.bindTooltip(project.simple_popup);
           marker.bindPopup(project.detailed_popup);
+
+          const markerElement = marker.getElement();
+          if (markerElement) {
+            const filter =
+              statusFilters[project.statuts] || statusFilters.default;
+            markerElement.style.filter = filter;
+          }
+
           markers.push(marker);
         } catch (error) {
           console.error(
