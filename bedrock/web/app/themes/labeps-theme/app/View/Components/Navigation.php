@@ -1,7 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\View\Components;
 
+use Illuminate\Contracts\{
+    Foundation\Application,
+    Support\Htmlable,
+    View\Factory,
+    View\View
+};
 use Illuminate\View\Component;
 use Log1x\Navi\Navi as NaviBuilder;
 
@@ -9,18 +17,18 @@ use function App\normalize_url;
 
 class Navigation extends Component
 {
-    public $primaryMenu;
+    public array $primaryMenu;
 
     public function __construct()
     {
-        $navi = new NaviBuilder(); 
-        $this->primaryMenu = $this->primary_menu($navi); 
+        $navi = new NaviBuilder();
+        $this->primaryMenu = $this->primary_menu($navi);
     }
 
-    protected function primary_menu($navi) 
+    protected function primary_menu(NaviBuilder $navi): array
     {
         $navigation = $navi->build('primary_navigation');
-    
+
         if ($navigation->isEmpty()) {
             return [
                 'id' => null,
@@ -28,11 +36,11 @@ class Navigation extends Component
                 'items' => [],
             ];
         }
-    
+
         $items = $navigation->toArray();
-        
+
         $cpts = get_post_types(['_builtin' => false], 'names');
-        
+
         foreach ($items as &$item) {
             $item_url = normalize_url($item->url);
             foreach ($cpts as $cpt) {
@@ -51,8 +59,8 @@ class Navigation extends Component
             'items' => $items,
         ];
     }
-    
-    public function render()
+
+    public function render(): View|Factory|Htmlable|\Closure|string|\Illuminate\View\View|Application
     {
         return view('components.navigation');
     }

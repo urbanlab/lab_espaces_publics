@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\View\Composers;
 
+use Illuminate\View\ComponentAttributeBag;
 use Roots\Acorn\View\Composer;
 use WP_Query;
 
@@ -11,7 +14,7 @@ class MapComposer extends Composer
         'archive-projects',
     ];
 
-    public function with()
+    public function with(): array
     {
         return [
             'projects' => $this->projects(),
@@ -19,7 +22,7 @@ class MapComposer extends Composer
         ];
     }
 
-    public function projects($filters = [])
+    public function projects(array $filters = []): array
     {
         $args = [
             'post_type' => 'projects',
@@ -46,7 +49,7 @@ class MapComposer extends Composer
         return $projects;
     }
 
-    private function format_project($post_id)
+    private function format_project($post_id): ?array
     {
         $communes = get_the_terms($post_id, 'commune');
         $defis = get_the_terms($post_id, 'defis');
@@ -71,7 +74,7 @@ class MapComposer extends Composer
                     'excerpt' => get_the_excerpt($post_id),
                     'link' => get_permalink($post_id),
                     'button' => view('components.button', [
-                        'attributes' => new \Illuminate\View\ComponentAttributeBag(['href' => get_permalink($post_id)]),
+                        'attributes' => new ComponentAttributeBag(['href' => get_permalink($post_id)]),
                         'class' => 'btn-primary',
                         'icon' => 'fas fa-info-circle',
                         'text' => 'En savoir plus'
@@ -85,7 +88,7 @@ class MapComposer extends Composer
         return null;
     }
 
-    private function create_detailed_popup($post_id, $commune_names, $defi_names)
+    private function create_detailed_popup($post_id, $commune_names, $defi_names): string
     {
         return '
             <h4>' . get_the_title($post_id) . '</h4>
@@ -93,7 +96,7 @@ class MapComposer extends Composer
             <p class="text-primary my-1">' . implode(', ', $defi_names) . '</p>
             <p class="mb-4">' . get_the_excerpt($post_id) . '</p>
             <a href=' . get_permalink($post_id) . '>' . view('components.button', [
-                'attributes' => new \Illuminate\View\ComponentAttributeBag(['onclick' => 'location.href=' . get_permalink($post_id), 'type' => "button", 'class' => 'text-white bg-secondary rounded-md p-2']),
+                'attributes' => new ComponentAttributeBag(['onclick' => 'location.href=' . get_permalink($post_id), 'type' => "button", 'class' => 'text-white bg-secondary rounded-md p-2']),
                 'class' => 'btn-primary',
                 'icon' => 'fas fa-info-circle',
                 'text' => 'En savoir plus'
@@ -101,15 +104,15 @@ class MapComposer extends Composer
         ';
     }
 
-    private function build_tax_query($filters)
+    private function build_tax_query($filters): array
     {
         $conditions = [];
         foreach ($filters as $key => $value) {
             if (taxonomy_exists($key)) {
                 $conditions[] = [
                     'taxonomy' => sanitize_key($key),
-                    'field'    => 'slug',
-                    'terms'    => is_array($value) ? array_map('sanitize_text_field', $value) : sanitize_text_field($value),
+                    'field' => 'slug',
+                    'terms' => is_array($value) ? array_map('sanitize_text_field', $value) : sanitize_text_field($value),
                 ];
             }
         }
@@ -117,7 +120,7 @@ class MapComposer extends Composer
         return $conditions ? ['relation' => 'AND', ...$conditions] : [];
     }
 
-    public function statuts()
+    public function statuts(): array
     {
         $terms = get_terms(['taxonomy' => 'statuts', 'hide_empty' => true]);
         $statuts = [];

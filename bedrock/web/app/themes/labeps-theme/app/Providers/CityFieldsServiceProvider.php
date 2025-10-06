@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Providers;
 
 use Roots\Acorn\Sage\SageServiceProvider;
@@ -11,7 +13,7 @@ class CityFieldsServiceProvider extends SageServiceProvider
         //
     }
 
-    public function boot()
+    public function boot(): void
     {
         add_action('commune_add_form_fields', [$this, 'addCityFields']);
         add_action('commune_edit_form_fields', [$this, 'editCityFields']);
@@ -21,7 +23,7 @@ class CityFieldsServiceProvider extends SageServiceProvider
         add_filter('manage_commune_custom_column', [$this, 'fillCustomColumns'], 10, 3);
     }
 
-    public function addCityFields()
+    public function addCityFields(): void
     {
         ?>
         <div class="form-field term-group">
@@ -39,7 +41,7 @@ class CityFieldsServiceProvider extends SageServiceProvider
         <?php
     }
 
-    public function editCityFields($term)
+    public function editCityFields($term): void
     {
         $address = get_term_meta($term->term_id, 'address', true);
         $latitude = get_term_meta($term->term_id, 'latitude', true);
@@ -66,7 +68,7 @@ class CityFieldsServiceProvider extends SageServiceProvider
         <?php
     }
 
-    public function saveCityFields($term_id)
+    public function saveCityFields($term_id): void
     {
         if (isset($_POST['latitude'])) {
             update_term_meta($term_id, 'latitude', sanitize_text_field($_POST['latitude']));
@@ -79,7 +81,7 @@ class CityFieldsServiceProvider extends SageServiceProvider
         }
     }
 
-    public function addCustomColumns($columns)
+    public function addCustomColumns($columns): array
     {
         // Remove the description column.
         unset($columns['description']);

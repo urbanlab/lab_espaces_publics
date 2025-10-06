@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\View\Components;
 
+use Illuminate\View\View;
 use Roots\Acorn\View\Component;
 use Log1x\Crumb\Facades\Crumb;
 
@@ -20,9 +23,9 @@ class Breadcrumb extends Component
     /**
      * The breadcrumb items.
      *
-     * @return string
+     * @return mixed[]
      */
-    public function items()
+    public function items(): array
     {
         return Crumb::build()->toArray();
     }
@@ -30,9 +33,9 @@ class Breadcrumb extends Component
     /**
      * Get the view / contents that represent the component.
      *
-     * @return \Illuminate\View\View|string
+     * @return View|string
      */
-    public function render()
+    public function render(): string|View
     {
         return $this->view('components.breadcrumb');
     }

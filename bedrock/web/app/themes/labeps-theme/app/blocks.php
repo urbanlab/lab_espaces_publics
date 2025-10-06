@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App;
 
 use function Roots\bundle;
@@ -16,8 +18,6 @@ add_action('enqueue_block_editor_assets', function () {
 add_action('wp_enqueue_scripts', function () {
     bundle('blocks')->enqueue();
 }, 100);
-
-
 
 /**
  * Register custom blocks.
@@ -42,7 +42,7 @@ add_action('init', function () {
             continue;
         }
 
-        if (!isset($block_data['title']) || empty($block_data['title'])) {
+        if (empty($block_data['title'])) {
             error_log('The block "' . $block_data['name'] . '" must have a title.');
             continue;
         }

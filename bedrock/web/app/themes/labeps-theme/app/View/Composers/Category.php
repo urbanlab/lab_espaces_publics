@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\View\Composers;
 
 use Roots\Acorn\View\Composer;
@@ -21,7 +23,7 @@ class Category extends Composer
      *
      * @return array
      */
-    public function with()
+    public function with(): array
     {
         $query = new \WP_Query([
             'category_name' => 'evenements',

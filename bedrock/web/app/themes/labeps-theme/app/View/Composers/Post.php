@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\View\Composers;
 
 use Roots\Acorn\View\Composer;
@@ -24,7 +26,7 @@ class Post extends Composer
      *
      * @return array
      */
-    public function override()
+    public function override(): array
     {
         return [
             'title' => $this->title(),
@@ -36,7 +38,7 @@ class Post extends Composer
      *
      * @return string
      */
-    public function title()
+    public function title(): string
     {
         if ($this->view->name() !== 'partials.hero') {
             return get_the_title();
@@ -56,7 +58,7 @@ class Post extends Composer
 
         if (is_search()) {
             return sprintf(
-                /* translators: %s is replaced with the search query */
+            /* translators: %s is replaced with the search query */
                 __('Search Results for %s', 'labeps-theme'),
                 get_search_query()
             );

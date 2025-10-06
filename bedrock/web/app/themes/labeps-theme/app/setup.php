@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Theme setup.
  */
@@ -28,14 +30,13 @@ add_action('enqueue_block_editor_assets', function () {
     bundle('editor')->enqueue();
 }, 100);
 
-
 /**
  * Register ajax.
  *
  * @return void
  */
 
- add_action('wp_enqueue_scripts', function () {
+add_action('wp_enqueue_scripts', function () {
     bundle('app')->enqueue()->localize('labeps', [
         'ajax_url' => admin_url('admin-ajax.php'),
         'nonce' => wp_create_nonce('filter_posts_nonce'),
@@ -56,7 +57,7 @@ add_action('wp_enqueue_scripts', function () {
     // bundle('app')->enqueue();
     // wp_enqueue_script('map-leaflet', get_template_directory_uri() . '/assets/scripts/map-leaflet.js', array('leaflet-js'), null, true);
     // wp_enqueue_script('ajax', get_template_directory_uri() . '/assets/scripts/ajax.js', array('map-leaflet'), null, true);
-  });
+});
 
 /**
  * Register the initial theme setup.
@@ -76,7 +77,7 @@ add_action('after_setup_theme', function () {
         'relative-urls',
     ]);
 
-    add_theme_support( 'align-wide' );
+    add_theme_support('align-wide');
 
     /**
      * Disable full-site editing support.
@@ -85,10 +86,10 @@ add_action('after_setup_theme', function () {
      */
     remove_theme_support('block-templates');
 
-    /** 
+    /**
      * * Make theme available for translation.
      * Translations can be filed in the /resources/lang/ directory.
-    */ 
+     */
     load_theme_textdomain('labeps-theme', get_template_directory() . '/resources/lang');
 
     /**
@@ -157,20 +158,20 @@ add_action('after_setup_theme', function () {
      */
     require_once __DIR__ . '/mail-custom.php';
 
-     // Register service providers.
-     app()->register(CityFieldsServiceProvider::class);
+    // Register service providers.
+    app()->register(CityFieldsServiceProvider::class);
 
-     // Register theme setup.
-     add_theme_support('title-tag');
-     add_theme_support('post-thumbnails');
-     add_theme_support('customize-selective-refresh-widgets');
-     add_theme_support('html5', ['comment-list', 'comment-form', 'search-form', 'gallery', 'caption']);
-     add_theme_support('custom-logo', [
-         'height' => 100,
-         'width' => 400,
-         'flex-height' => true,
-         'flex-width' => true,
-     ]);
+    // Register theme setup.
+    add_theme_support('title-tag');
+    add_theme_support('post-thumbnails');
+    add_theme_support('customize-selective-refresh-widgets');
+    add_theme_support('html5', ['comment-list', 'comment-form', 'search-form', 'gallery', 'caption']);
+    add_theme_support('custom-logo', [
+        'height' => 100,
+        'width' => 400,
+        'flex-height' => true,
+        'flex-width' => true,
+    ]);
 
 }, 20);
 
@@ -188,18 +189,18 @@ add_action('widgets_init', function () {
     ];
 
     register_sidebar([
-        'name'          => __('Primary Sidebar', 'labeps-theme'),
-        'id'            => 'primary-sidebar',
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget'  => '</div>',
-        'before_title'  => '<h2 class="widget-title">',
-        'after_title'   => '</h2>',
-    ] + $config);
+            'name' => __('Primary Sidebar', 'labeps-theme'),
+            'id' => 'primary-sidebar',
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget' => '</div>',
+            'before_title' => '<h2 class="widget-title">',
+            'after_title' => '</h2>',
+        ] + $config);
 
     register_sidebar([
-        'name' => __('Footer', 'labeps-theme'),
-        'id' => 'sidebar-footer',
-    ] + $config);
+            'name' => __('Footer', 'labeps-theme'),
+            'id' => 'sidebar-footer',
+        ] + $config);
 });
 
 /**
@@ -231,9 +232,3 @@ add_action('after_setup_theme', function () {
 //     // Add inline script to pass the data
 //     wp_add_inline_script('app', 'const locations = ' . json_encode($script_data['locations']) . ';', 'before');
 // }, 100);
-
-// add_action('template_redirect', function () {
-//     if (is_page('phpinfo')) {
-//         (new \App\Http\Controllers\PhpInfoController)->index();
-//     }
-// });
