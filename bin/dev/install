@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -eu
+
+source "$(dirname "$(realpath "${0}")")"/../global-vars.inc.bash
+source "${ROOT_PATH}"/bin/theme.inc.bash
+
+theme-title "Install Docker stack"
+"${ROOT_PATH}"/bin/dev/composer install -d bedrock/
+"${ROOT_PATH}"/bin/dev/start
+theme-ok
+
+theme-title "Waiting for mysql to be ready"
+until [ "$(docker inspect -f '{{.State.Health.Status}}' lep-mysql)" = "healthy" ]; do
+  echo "⏳ Waiting for lep-mysql to be healthy..."; sleep 2; done
+theme-ok
+
+theme-title "Creating database"
+docker exec -i lep-mysql mysql -u wordpress -pwordpress wordpress < "${ROOT_PATH}"/docker/dev/database.sql
+theme-ok
