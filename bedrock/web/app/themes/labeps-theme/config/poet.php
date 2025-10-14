@@ -1,7 +1,5 @@
 <?php
 
-use App\View\Composers\CustomTaxonomyField;
-
 return [
 
     /*
@@ -110,7 +108,7 @@ return [
                 'parent_item_colon' => 'Inspiration parente:',
                 'edit_item' => 'Editer inspiration',
                 'update_item' => 'Mettre à jour inspiration',
-                'add_new_item' => 'Ajouter une inspiration', 
+                'add_new_item' => 'Ajouter une inspiration',
                 'new_item_name' => 'Nouveau nom inspiration',
                 'menu_name' => 'Inspirations',
             ],
@@ -178,7 +176,7 @@ return [
                 'parent_item_colon' => 'Projet pilote parent:',
                 'edit_item' => 'Editer projet pilote',
                 'update_item' => 'Mettre à jour le projet pilote',
-                'add_new_item' => 'Ajouter un projet pilote', 
+                'add_new_item' => 'Ajouter un projet pilote',
                 'new_item_name' => 'Nouveau nom du projet pilote',
                 'menu_name' => 'Projet pilote',
             ],
@@ -223,7 +221,7 @@ return [
                 'parent_item_colon' => 'Défi parent:',
                 'edit_item' => 'Editer défi',
                 'update_item' => 'Mettre à jour le défi',
-                'add_new_item' => 'Ajouter un défi', 
+                'add_new_item' => 'Ajouter un défi',
                 'new_item_name' => 'Nouveau nom du défi',
                 'menu_name' => 'Défis',
             ],
@@ -286,7 +284,7 @@ return [
                 'all_items' => 'Toutes les CTM',
                 'edit_item' => 'Editer la CTM',
                 'update_item' => 'Mettre à jour la CTM',
-                'add_new_item' => 'Ajouter une CTM', 
+                'add_new_item' => 'Ajouter une CTM',
                 'new_item_name' => 'Nouveau nom de la CTM',
                 'menu_name' => 'Conférence territorial des maires',
             ],
@@ -345,7 +343,7 @@ return [
                 'all_items' => 'Tous les statuts',
                 'edit_item' => 'Editer le statut',
                 'update_item' => 'Mettre à jour le statut',
-                'add_new_item' => 'Ajouter un statut', 
+                'add_new_item' => 'Ajouter un statut',
                 'new_item_name' => 'Nouveau nom du statut',
                 'menu_name' => 'Statuts',
             ],
@@ -377,7 +375,7 @@ return [
                 'parent_item_colon' => 'Localisation Parente:',
                 'edit_item' => 'Editer localisation',
                 'update_item' => 'Mettre à jour localisation',
-                'add_new_item' => 'Ajouter une localisation', 
+                'add_new_item' => 'Ajouter une localisation',
                 'new_item_name' => 'Nouveau nom de localisation',
                 'menu_name' => 'Localisations',
             ],
@@ -409,7 +407,7 @@ return [
                 'parent_item_colon' => 'Type parent:',
                 'edit_item' => 'Editer type',
                 'update_item' => 'Mettre à jour le type',
-                'add_new_item' => 'Ajouter un type', 
+                'add_new_item' => 'Ajouter un type',
                 'new_item_name' => 'Nouveau nom du type',
                 'menu_name' => 'Types',
             ],
