@@ -2,6 +2,7 @@ version: '3'
 services:
     apache-dev:
         container_name: lep-php
+        user: ${DOCKER_UID}:${DOCKER_GID}
         profiles:
             - dev
         build:
@@ -36,6 +37,7 @@ services:
 
     node:
         container_name: lep-node
+        user: ${DOCKER_UID}:${DOCKER_GID}
         profiles:
             - dev
         image: node:lts
@@ -83,6 +85,7 @@ services:
 
     phpmyadmin:
         container_name: lep-phpmyadmin
+        user: ${DOCKER_UID}:${DOCKER_GID}
         profiles:
             - dev
         image: phpmyadmin
