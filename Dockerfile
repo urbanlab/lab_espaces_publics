@@ -1,4 +1,4 @@
-FROM composer:2.0 as vendor
+FROM composer:2 as vendor
 
 WORKDIR /app
 
@@ -12,7 +12,7 @@ WORKDIR /app/bedrock/web/app/themes/labeps-theme
 
 RUN composer install
 
-FROM node:lts as node 
+FROM node:lts as node
 
 WORKDIR /app
 
@@ -20,7 +20,7 @@ COPY --from=vendor /app/bedrock/ ./bedrock
 
 WORKDIR /app/bedrock/web/app/themes/labeps-theme
 
-RUN yarn install 
+RUN yarn install
 
 RUN yarn build
 
