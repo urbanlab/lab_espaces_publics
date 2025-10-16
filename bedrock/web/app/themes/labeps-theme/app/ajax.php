@@ -89,11 +89,12 @@ class AjaxHandler
                     'field' => 'slug',
                     'terms' => is_array($value) ? array_map('sanitize_text_field', $value) : sanitize_text_field($value),
                     'hide_empty' => true,
+                    'relation' => 'OR'
                 ];
             }
         }
 
-        return !empty($conditions) ? ['relation' => 'OR', ...$conditions] : $conditions;
+        return !empty($conditions) ? ['relation' => 'AND', ...$conditions] : $conditions;
     }
 }
 
