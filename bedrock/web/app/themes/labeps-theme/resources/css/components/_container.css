@@ -1,0 +1,23 @@
+@utility container {
+    padding: 1rem;
+
+    @variant sm {
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
+
+    @variant lg {
+        padding-left: 6rem;
+        padding-right: 6rem;
+    }
+
+    @variant xl {
+        padding-left: 7rem;
+        padding-right: 7rem;
+    }
+
+    @variant 2xl {
+        padding-left: 8rem;
+        padding-right: 8rem;
+    }
+}

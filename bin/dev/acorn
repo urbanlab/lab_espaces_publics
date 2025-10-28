@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -eu
+
+source "$(dirname "$(realpath "${0}")")"/../global-vars.inc.bash
+
+docker \
+    exec \
+        --tty \
+        -w /var/www/html/bedrock/web/app/themes/labeps-theme \
+        lep-php \
+        wp acorn "${@:-}"
+exit 0

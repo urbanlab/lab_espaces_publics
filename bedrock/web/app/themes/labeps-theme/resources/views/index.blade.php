@@ -5,7 +5,7 @@
 
   @if (! have_posts())
     <x-alert type="warning">
-      {!! __('Sorry, no results were found.', 'labeps-theme') !!}
+      {!! __('Sorry, no results were found.', 'sage') !!}
     </x-alert>
 
     {!! get_search_form(false) !!}
@@ -15,7 +15,7 @@
     @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
   @endwhile
 
-  {!! the_posts_pagination() !!}
+  {!! get_the_posts_navigation() !!}
 @endsection
 
 @section('sidebar')

@@ -1,61 +1,32 @@
 {
-  "name": "sage",
-  "private": true,
-  "browserslist": [
-    "extends @roots/browserslist-config"
-  ],
-  "engines": {
-    "node": ">=16.0.0"
-  },
-  "type": "module",
-  "scripts": {
-    "dev": "bud dev",
-    "build": "bud build",
-    "build:production": "NODE_ENV=production bud build",
-    "translate": "yarn translate:pot && yarn translate:update",
-    "translate:pot": "wp i18n make-pot . ./resources/lang/sage.pot --include=\"app,resources\"",
-    "translate:update": "wp i18n update-po ./resources/lang/sage.pot ./resources/lang/*.po",
-    "translate:compile": "yarn translate:mo && yarn translate:js",
-    "translate:js": "wp i18n make-json ./resources/lang --pretty-print",
-    "translate:mo": "wp i18n make-mo ./resources/lang ./resources/lang",
-    "lint": "yarn lint:js && yarn lint:css",
-    "lint:js": "eslint resources/scripts",
-    "lint:css": "stylelint \"resources/**/*.{css,scss,vue}\"",
-    "test": "yarn lint",
-    "copy-fonts": "copyfiles -f node_modules/@fortawesome/fontawesome-free/webfonts/* resources/webfonts"
-  },
-  "devDependencies": {
-    "@roots/bud": "6.20.0",
-    "@roots/bud-eslint": "6.20.0",
-    "@roots/bud-preset-wordpress": "^6.20.0",
-    "@roots/bud-prettier": "6.20.0",
-    "@roots/bud-sass": "6.20.0",
-    "@roots/bud-stylelint": "6.20.0",
-    "@roots/bud-swc": "^6.20.0",
-    "@roots/bud-tailwindcss": "6.20.0",
-    "@roots/eslint-config": "6.20.0",
-    "@roots/sage": "^6.20.0",
-    "browser-sync": "^2.29.3",
-    "browser-sync-webpack-plugin": "^2.3.0",
-    "flowbite": "^2.2.1"
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.6.0",
-    "@heroicons/react": "^2.1.5",
-    "@swc/cli": "^0.3.12",
-    "@swc/core": "^1.5.29",
-    "@swc/helpers": "^0.5.11",
-    "@wordpress/block-editor": "^13.0.0",
-    "@wordpress/blocks": "^13.0.0",
-    "@wordpress/components": "^28.0.0",
-    "@wordpress/element": "^6.0.0",
-    "@wordpress/i18n": "^5.0.0",
-    "copyfiles": "^2.4.1",
-    "leaflet": "^1.9.4",
-    "swc-loader": "^0.2.6",
-    "swiper": "^11.1.9"
-  },
-  "resolutions": {
-    "escape-string-regexp": "2.0.0"
-  }
+    "name": "sage",
+    "private": true,
+    "engines": {
+        "node": ">=20.0.0"
+    },
+    "type": "module",
+    "scripts": {
+        "dev": "vite build --watch",
+        "build": "vite build",
+        "translate": "npm run translate:pot && npm run translate:update",
+        "translate:pot": "wp i18n make-pot . ./resources/lang/sage.pot --include=\"theme.json,patterns,app,resources\"",
+        "translate:update": "for file in ./resources/lang/*.po; do wp i18n update-po ./resources/lang/sage.pot $file; done",
+        "translate:compile": "npm run translate:mo && npm run translate:js",
+        "translate:js": "wp i18n make-json ./resources/lang --pretty-print",
+        "translate:mo": "wp i18n make-mo ./resources/lang ./resources/lang"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^6.6.0",
+        "leaflet": "^1.9.4",
+        "prop-types": "^15.8.1",
+        "swiper": "^11.2.10"
+    },
+    "devDependencies": {
+        "@roots/vite-plugin": "^1.0.2",
+        "@tailwindcss/vite": "^4.0.9",
+        "flowbite": "^3.1.2",
+        "laravel-vite-plugin": "^1.2.0",
+        "tailwindcss": "^4.0.9",
+        "vite": "^6.2.0"
+    }
 }

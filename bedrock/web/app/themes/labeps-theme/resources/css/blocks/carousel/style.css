@@ -1,0 +1,76 @@
+/* Conteneur principal */
+.swiper-container {
+    @apply flex relative w-full overflow-hidden;
+
+    &.image-content {
+        @apply h-auto px-10;
+    }
+
+    &.post-content {
+        @apply h-auto;
+    }
+}
+
+/* Slides */
+.swiper-slide {
+    @apply flex justify-center items-center shrink-0 w-auto;
+
+    a {
+        @apply flex justify-center items-center;
+    }
+}
+
+/* Pagination */
+.swiper-pagination {
+    @apply absolute bottom-3 left-0 w-full text-center z-10;
+}
+
+/* Flèches de navigation */
+.swiper-button-next, .swiper-button-prev {
+    @apply hidden sm:flex absolute w-10 h-10 bg-secondary text-white rounded-full top-2/4 -translate-y-2/4 z-10 cursor-pointer;
+
+    &::after {
+        @apply text-white;
+    }
+}
+
+.card-images-container {
+    @apply w-3/4 h-5/6;
+    img {
+        @apply block w-full h-full object-contain;
+    }
+}
+
+.swiper-button-next:hover, .swiper-button-prev:hover {
+    @apply bg-secondary;
+}
+
+.card-post-container {
+    @apply flex flex-col items-center w-2/3;
+
+    @variant lg {
+        @apply flex-row w-3/4;
+    }
+
+    .custom-post-image {
+        @apply block w-full lg:w-1/2 object-cover;
+    }
+
+    .custom-post-content {
+        @apply w-auto p-6;
+
+        .custom-post-title {
+            @apply text-black text-base font-bold leading-6;
+        }
+    }
+}
+
+/* Bullet Navigation */
+.swiper-pagination-bullet-active {
+    @apply bg-secondary;
+}
+
+
+.custom-post-card {
+    @apply bg-white p-6 shadow-md overflow-hidden;
+}

@@ -1,8 +1,0 @@
-article {
-    p{
-        @apply text-xs;
-        @screen md{
-            @apply text-sm;
-        }
-    }
-}
