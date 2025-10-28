@@ -1,0 +1,40 @@
+@import "tailwindcss" theme(static);
+/*@import "flowbite/src/themes/default";*/
+@plugin "flowbite/plugin";
+
+@theme {
+    --color-primary: #E2092F;
+    --color-secondary: #158579;
+    --color-orange: #FA743E;
+    --color-pink: #FA3EBA;
+    --color-lightgreen: #2EAE2B;
+    --color-purple: #4D2BAE;
+    --color-grey: #989898;
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'Roboto', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+
+    --text-xs: 0.875rem;
+    --text-sm: 1rem;
+    --text-base: 1.25rem;
+    --text-lg: 1.563rem;
+    --text-xl: 1.875rem;
+    --text-2xl: 2.5rem;
+    --text-3xl: 3.75rem;
+
+    --text-3xl--line-height: 3.5rem;
+
+    --container-padding: 1rem;
+    --container-padding-sm: 4rem;
+    --container-padding-lg: 6rem;
+    --container-padding-xl: 7rem;
+    --container-padding-2xl: 8rem;
+}
+
+:root {
+    --swiper-theme-color: #158579;
+    --swiper-navigation-size: 1.5rem;
+}

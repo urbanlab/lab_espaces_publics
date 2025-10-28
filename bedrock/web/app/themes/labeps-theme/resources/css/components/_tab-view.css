@@ -1,0 +1,21 @@
+.view-switcher {
+    @apply bg-secondary pb-5;
+
+    button {
+        @apply font-bold bg-white text-secondary px-3 py-2 border-2 border-secondary rounded-t-lg -translate-y-13;
+    }
+}
+
+.view {
+    display: none;
+}
+
+.view.active {
+    @apply flex;
+
+}
+
+.view-switcher button.active {
+    @apply bg-secondary text-white;
+
+}

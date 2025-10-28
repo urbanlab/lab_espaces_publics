@@ -6,11 +6,11 @@ COPY ./bedrock ./bedrock
 
 WORKDIR /app/bedrock
 
-RUN composer update
+RUN composer update --no-dev
 
 WORKDIR /app/bedrock/web/app/themes/labeps-theme
 
-RUN composer install
+RUN composer install --no-dev
 
 FROM node:lts as node
 
@@ -25,7 +25,6 @@ RUN yarn install
 RUN yarn build
 
 RUN rm -r node_modules
-
 
 FROM php:8.3-apache
 

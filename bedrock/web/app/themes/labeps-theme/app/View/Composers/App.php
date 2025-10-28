@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\View\Composers;
 
 use Roots\Acorn\View\Composer;
@@ -18,21 +16,7 @@ class App extends Composer
     ];
 
     /**
-     * Data to be passed to view before rendering.
-     *
-     * @return array
-     */
-    public function with(): array
-    {
-        return [
-            'siteName' => $this->siteName(),
-        ];
-    }
-
-    /**
-     * Returns the site name.
-     *
-     * @return string
+     * Retrieve the site name.
      */
     public function siteName(): string
     {

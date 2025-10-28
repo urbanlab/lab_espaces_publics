@@ -44,6 +44,10 @@ class Navigation extends Component
         foreach ($items as &$item) {
             $item_url = normalize_url($item->url);
             foreach ($cpts as $cpt) {
+                $link = get_post_type_archive_link($cpt);
+                if (is_string($link) === false) {
+                    continue;
+                }
                 $archive_url = normalize_url(get_post_type_archive_link($cpt));
                 if (is_post_type_archive($cpt) && $item_url === $archive_url) {
                     $item->active = true;

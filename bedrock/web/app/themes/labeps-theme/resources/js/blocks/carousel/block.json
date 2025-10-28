@@ -1,0 +1,50 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "labeps-theme/carousel",
+    "version": "0.1.0",
+    "title": "Carousel",
+    "category": "design",
+    "icon": "images-alt",
+    "description": "A carousel block that supports images, posts, and custom post types.",
+    "supports": {
+        "html": false,
+        "align": true
+    },
+    "textdomain": "labeps-theme",
+    "attributes": {
+        "className": {
+            "type": "string",
+            "default": "wp-block-labeps-theme-carousel",
+            "images": {
+                "type": "array",
+                "default": []
+            },
+            "columns": {
+                "type": "number",
+                "default": 1
+            },
+            "contentType": {
+                "type": "string",
+                "default": "images",
+                "enum": ["images", "posts", "inspirations", "projects", "ressources"]
+            },
+            "posts": {
+                "type": "array",
+                "default": []
+            },
+            "postSelections": {
+                "type": "array",
+                "default": []
+            },
+            "selectedPostId": {
+                "type": "number",
+                "default": 0
+            },
+            "categories": {
+                "type": "array",
+                "default": []
+            }
+        }
+    }
+}

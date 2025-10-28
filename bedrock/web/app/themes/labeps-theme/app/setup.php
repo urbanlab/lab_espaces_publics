@@ -1,63 +1,72 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Theme setup.
  */
 
 namespace App;
 
-use function Roots\bundle;
-use App\Providers\CityFieldsServiceProvider;
-
+use Illuminate\Support\Facades\Vite;
 
 /**
- * Register the theme assets.
+ * Inject styles into the block editor.
+ *
+ * @return array
+ */
+add_filter('block_editor_settings_all', function ($settings) {
+    $style = Vite::asset('resources/css/editor.css');
+
+    $settings['styles'][] = [
+        'css' => "@import url('{$style}')",
+    ];
+
+    return $settings;
+});
+
+/**
+ * Inject scripts into the block editor.
  *
  * @return void
  */
+add_filter('admin_head', function () {
+    if (! get_current_screen()?->is_block_editor()) {
+        return;
+    }
+
+    $dependencies = json_decode(Vite::content('editor.deps.json'));
+
+    foreach ($dependencies as $dependency) {
+        if (! wp_script_is($dependency)) {
+            wp_enqueue_script($dependency);
+        }
+    }
+
+    echo Vite::withEntryPoints([
+        'resources/js/editor.js',
+    ])->toHtml();
+});
+
+/**
+ * Use the generated theme.json file.
+ *
+ * @return string
+ */
+add_filter('theme_file_path', function ($path, $file) {
+    return $file === 'theme.json'
+        ? public_path('build/assets/theme.json')
+        : $path;
+}, 10, 2);
+
 add_action('wp_enqueue_scripts', function () {
-    bundle('app')->enqueue();
-}, 100);
+    wp_register_script('labeps-data', false, [], null, true);
+    wp_enqueue_script('labeps-data');
 
-/**
- * Register the theme assets with the block editor.
- *
- * @return void
- */
-add_action('enqueue_block_editor_assets', function () {
-    bundle('editor')->enqueue();
-}, 100);
-
-/**
- * Register ajax.
- *
- * @return void
- */
-
-add_action('wp_enqueue_scripts', function () {
-    bundle('app')->enqueue()->localize('labeps', [
-        'ajax_url' => admin_url('admin-ajax.php'),
-        'nonce' => wp_create_nonce('filter_posts_nonce'),
-        'ajax_action' => 'filter_posts',
+    wp_localize_script('labeps-data', 'labeps', [
+        'ajax_url'   => admin_url('admin-ajax.php'),
+        'nonce'      => wp_create_nonce('filter_posts_nonce'),
+        'ajax_action'=> 'filter_posts',
     ]);
 }, 100);
-
-/**
- * Register Leaflet.
- *
- * @return void
- */
-add_action('wp_enqueue_scripts', function () {
-    // Enqueue the Leaflet CSS and JS files
-    wp_enqueue_style('leaflet-css', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css', [], null);
-    wp_enqueue_script('leaflet-js', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', [], null, true);
-
-    // bundle('app')->enqueue();
-    // wp_enqueue_script('map-leaflet', get_template_directory_uri() . '/assets/scripts/map-leaflet.js', array('leaflet-js'), null, true);
-    // wp_enqueue_script('ajax', get_template_directory_uri() . '/assets/scripts/ajax.js', array('map-leaflet'), null, true);
-});
 
 /**
  * Register the initial theme setup.
@@ -66,20 +75,6 @@ add_action('wp_enqueue_scripts', function () {
  */
 add_action('after_setup_theme', function () {
     /**
-     * Enable features from the Soil plugin if activated.
-     *
-     * @link https://roots.io/plugins/soil/
-     */
-    add_theme_support('soil', [
-        'clean-up',
-        'nav-walker',
-        'nice-search',
-        'relative-urls',
-    ]);
-
-    add_theme_support('align-wide');
-
-    /**
      * Disable full-site editing support.
      *
      * @link https://wptavern.com/gutenberg-10-5-embeds-pdfs-adds-verse-block-color-options-and-introduces-new-patterns
@@ -87,18 +82,12 @@ add_action('after_setup_theme', function () {
     remove_theme_support('block-templates');
 
     /**
-     * * Make theme available for translation.
-     * Translations can be filed in the /resources/lang/ directory.
-     */
-    load_theme_textdomain('labeps-theme', get_template_directory() . '/resources/lang');
-
-    /**
      * Register the navigation menus.
      *
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'labeps-theme'),
+        'primary_navigation' => __('Primary Navigation', 'sage'),
     ]);
 
     /**
@@ -150,29 +139,6 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/add_theme_support/#customize-selective-refresh-widgets
      */
     add_theme_support('customize-selective-refresh-widgets');
-
-    /**
-     * mail CF7
-     *
-     * @return void
-     */
-    require_once __DIR__ . '/mail-custom.php';
-
-    // Register service providers.
-    app()->register(CityFieldsServiceProvider::class);
-
-    // Register theme setup.
-    add_theme_support('title-tag');
-    add_theme_support('post-thumbnails');
-    add_theme_support('customize-selective-refresh-widgets');
-    add_theme_support('html5', ['comment-list', 'comment-form', 'search-form', 'gallery', 'caption']);
-    add_theme_support('custom-logo', [
-        'height' => 100,
-        'width' => 400,
-        'flex-height' => true,
-        'flex-width' => true,
-    ]);
-
 }, 20);
 
 /**
@@ -204,6 +170,31 @@ add_action('widgets_init', function () {
 });
 
 /**
+ * Register block types using block.json metadata from the theme's blocks directory.
+ * This function will scan the 'resources/js/blocks' directory for block.json files.
+ */
+add_action('init', function () {
+    $blocks_dir = get_template_directory() . '/resources/js/blocks';
+    if (!is_dir($blocks_dir)) {
+        return;
+    }
+
+    $block_folders = scandir($blocks_dir);
+
+    foreach ($block_folders as $folder) {
+        if ($folder === '.' || $folder === '..') {
+            continue;
+        }
+
+        $block_json_path = $blocks_dir . '/' . $folder . '/block.json';
+
+        if (file_exists($block_json_path)) {
+            register_block_type($block_json_path);
+        }
+    }
+}, 10);
+
+/**
  * Register custom logo
  *
  * @return void
@@ -217,18 +208,3 @@ add_theme_support('custom-logo', [
 add_action('after_setup_theme', function () {
     new \App\AjaxHandler();
 });
-
-
-
-// add_action('wp_enqueue_scripts', function () {
-//     bundle('app')->enqueue();
-
-//     // Prepare the data to pass to the script
-//     $locations = (new \App\View\Composers\MapComposer)->locations();
-//     $script_data = [
-//         'locations' => $locations,
-//     ];
-
-//     // Add inline script to pass the data
-//     wp_add_inline_script('app', 'const locations = ' . json_encode($script_data['locations']) . ';', 'before');
-// }, 100);

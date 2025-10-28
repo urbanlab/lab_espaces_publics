@@ -37,17 +37,19 @@ services:
 
     node:
         container_name: lep-node
-        user: ${DOCKER_UID}:${DOCKER_GID}
         profiles:
             - dev
-        image: node:lts
-        working_dir: /var/www/html/bedrock/web/app/themes/labeps-theme
+        build:
+            context: .
+            dockerfile: docker/dev/node/Dockerfile
         volumes:
             - ./bedrock/web/app/themes/labeps-theme:/var/www/html/bedrock/web/app/themes/labeps-theme:delegated
-            - node_modules:/var/www/html/bedrock/web/app/themes/labeps-theme/node_modules
+            - /var/www/html/bedrock/web/app/themes/labeps-theme/node_modules
+        ports:
+            - '5173:5173'
         depends_on:
             - apache-dev
-        command: sh -lc "yarn install && yarn dev"
+
 
     mysql-dev:
         container_name: lep-mysql
@@ -99,6 +101,3 @@ services:
             - "8081:80"
         depends_on:
             - mysql-dev
-
-volumes:
-    node_modules:

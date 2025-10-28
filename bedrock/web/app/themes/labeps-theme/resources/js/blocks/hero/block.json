@@ -1,0 +1,57 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "theme/hero",
+    "version": "0.1.0",
+    "title": "Hero",
+    "category": "design",
+    "icon": "megaphone",
+    "description": "A custom hero block featuring an icon, title, subtitle, and tags, ideal for prominent display sections.",
+    "example": [],
+    "supports": {
+        "html": false,
+        "align": true,
+        "color": {
+            "text": true
+        },
+        "typography": {
+            "fontWeight": true
+        }
+    },
+    "textdomain": "theme",
+    "editorScript": "theme-hero-block",
+    "style": "theme-hero-block",
+    "editorStyle": "theme-hero-block-editor",
+    "attributes": {
+        "className": {
+            "type": "string",
+            "default": "wp-block-theme-hero"
+        },
+        "title": {
+            "type": "string",
+            "source": "html",
+            "selector": "h2"
+        },
+        "subtitle": {
+            "type": "string",
+            "source": "html",
+            "selector": "p"
+        },
+        "iconUrl": {
+            "type": "string",
+            "default": "@asset('images/picto-hero.svg')"
+        },
+        "tags": {
+            "type": "array",
+            "default": []
+        },
+        "textColor": {
+            "type": "string",
+            "default": "#000000"
+        },
+        "fontWeight": {
+            "type": "string",
+            "default": "normal"
+        }
+    }
+}

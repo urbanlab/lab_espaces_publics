@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -eu
+
+source "$(dirname "$(realpath "${0}")")"/../global-vars.inc.bash
+
+docker \
+    exec \
+        --tty \
+        lep-node \
+        yarn "${@:-}"
+exit 0
