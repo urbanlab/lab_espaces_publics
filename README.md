@@ -28,7 +28,7 @@ By default the stack will start with the following services:
 ### Production
 
 Start the stack:
-`docker-compose up --profile prod -d`
+`docker-compose --profile prod up -d`
 
 ## Notes
 
