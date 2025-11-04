@@ -14,7 +14,7 @@ export default function Save({
                              }) {
     const blockProps = useBlockProps.save();
     return (
-        <section {...blockProps} className="wp-block-theme-hero wp-block-group container mx-auto my-10">
+        <section {...blockProps} className="wp-block-theme-hero wp-block-group container mx-auto">
             <div className="block-hero flex">
                 <figure className="wp-block-image">
                     <img src={iconUrl} alt={__('Hero Icon', 'labeps-theme')} />

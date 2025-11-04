@@ -5,7 +5,7 @@
       </figure>
     </a>
     <div class="entry-summary md:p-4">
-        <h3 class="entry-title text-base leading-7 py-1 font-bold lg:text-lg break-words">
+        <h3 class="entry-title text-base! leading-7 py-1! font-bold! lg:text-lg! break-words">
           <a href="{{ get_permalink() }}">
             {!! $title !!}
           </a>

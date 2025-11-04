@@ -75,8 +75,9 @@ export default function Edit({attributes, setAttributes}) {
                         onSelect={onSelectIcon}
                         allowedTypes={['image']}
                         multiple={false}
-                        labels={{title: __('Select Icon', 'labeps-theme')}}>
-                        {iconUrl && <img src={iconUrl} alt={__('Icon', 'labeps-theme')} />}
+                        labels={{title: __('Select Icon', 'labeps-theme')}}
+                    >
+                        {iconUrl && <figure class='max-w-1/3'><img src={iconUrl} alt={__('Icon', 'labeps-theme')} /></figure>}
                     </MediaPlaceholder>
                     <RichText
                         tagName="h2"

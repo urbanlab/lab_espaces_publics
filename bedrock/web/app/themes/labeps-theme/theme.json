@@ -2,9 +2,49 @@
   "__preprocessed__": "This file is used to build the theme.json file in the `public/build/assets` directory. The built artifact includes Tailwind's colors, fonts, and font sizes.",
   "$schema": "https://schemas.wp.org/trunk/theme.json",
   "version": 3,
+  "customTemplates": [
+    {
+      "name": "home-page",
+      "title": "Home",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
+      "name": "about-page",
+      "title": "About",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
+      "name": "ressources-page",
+      "title": "Ressources",
+      "postTypes": [
+        "post"
+      ]
+    },
+    {
+      "name": "actualités-page",
+      "title": "Actualités",
+      "postTypes": [
+        "articles"
+      ]
+    },
+    {
+      "name": "archives-page",
+      "title": "Archives cpt",
+      "postTypes": [
+        "cpt"
+      ]
+    }
+  ],
   "settings": {
+    "appearanceTools": false,
+    "useRootPaddingAwareAlignments": true,
     "layout": {
-      "contentSize": "48rem"
+      "contentSize": "840px",
+      "wideSize": "1100px"
     },
     "background": {
       "backgroundImage": true
@@ -16,10 +56,18 @@
       "defaultDuotone": false,
       "defaultGradients": false,
       "defaultPalette": false,
-      "duotone": []
+      "duotone": [],
+      "gradients": [],
+      "text": true,
+      "link": true
     },
     "custom": {
-      "spacing": {},
+      "spacing": {
+        "margin": false,
+        "padding": false,
+        "blockGap": false,
+        "spacingScale": {}
+      },
       "typography": {
         "font-size": {},
         "line-height": {}
@@ -30,8 +78,27 @@
       "units": ["px", "%", "em", "rem", "vw", "vh"]
     },
     "typography": {
+      "fluid": true,
       "defaultFontSizes": false,
-      "customFontSize": false
+      "customFontSize": false,
+      "fontWeight": false,
+      "fontStyle": false,
+      "letterSpacing": false,
+      "textDecoration": false,
+      "textTransform": false,
+      "lineHeight": true,
+      "fontFamilies": [
+        {
+          "name": "Inter",
+          "slug": "sans",
+          "fontFamily": "var(--font-sans)"
+        },
+        {
+          "name": "Roboto",
+          "slug": "mono",
+          "fontFamily": "var(--font-mono)"
+        }
+      ]
     }
   }
 }
