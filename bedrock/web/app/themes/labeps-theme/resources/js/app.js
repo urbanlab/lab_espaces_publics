@@ -89,10 +89,7 @@ if (checkboxes.length > 0) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('loaded')
     const carousels = document.querySelectorAll('.swiper-container');
-
-    console.log(carousels)
     setTimeout(() => {
         carousels.forEach((carousel) => {
             const columns =

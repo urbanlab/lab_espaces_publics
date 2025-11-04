@@ -1,5 +1,8 @@
 export function UpdateTags(checkboxes) {
   const selectedFilters = document.getElementById('selected-filters');
+  if (!selectedFilters) {
+    return;
+  }
   selectedFilters.innerHTML = '';
 
   if (!checkboxes || checkboxes.length === 0) {
