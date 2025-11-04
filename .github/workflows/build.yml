@@ -21,15 +21,3 @@ jobs:
         with:
           push: true
           tags: erasme/labeps-wordpress:${{ github.ref == 'refs/heads/main' && 'latest' || 'dev' }}
-  redeploy:
-    name: Redeploy Workload
-    runs-on: ubuntu-latest
-    needs: push_to_registry
-    steps:
-      - name: Make API Request
-        uses: fjogeleit/http-request-action@master
-        with:
-          url: ${{ secrets.RANCHER_BASE_URL }}/v3/project/c-m-ls255pvz:p-czbsx/workloads/deployment:labdesespacespublics:wordpress?action=redeploy
-          method: 'POST'
-          bearerToken: ${{ secrets.RANCHER_TOKEN }}
-          data: '{"scale": 2}'
