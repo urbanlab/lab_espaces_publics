@@ -83,3 +83,13 @@ p {
   border-radius: 3px;
   @apply font-bold;
 }
+
+.tag {
+  --tw-bg-opacity: 1;
+  background-color: #d1d5db;
+  background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
+  border-radius: .25rem;
+  display: inline-block;
+  margin-right: .5rem;
+  padding: .5rem .25rem;
+}
