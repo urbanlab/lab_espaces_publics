@@ -1,0 +1,14 @@
+.nav_menu-3{
+    @apply bg-black p-4 w-full;
+    .menu-menu-footer-container{
+        .menu{
+            @apply flex flex-col flex-wrap text-white list-none ml-0;
+            @variant md{
+                @apply w-full flex-row justify-around;
+            }
+            li{
+                @apply px-1;
+            }
+        }
+    }
+}

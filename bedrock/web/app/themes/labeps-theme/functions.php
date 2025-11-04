@@ -1,5 +1,7 @@
 <?php
 
+use Roots\Acorn\Application;
+
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
@@ -11,8 +13,8 @@
 |
 */
 
-if (!file_exists($composer = __DIR__ . '/vendor/autoload.php')) {
-    wp_die(__('Error locating autoloader. Please run <code>composer install</code>.', 'labeps-theme'));
+if (! file_exists($composer = __DIR__.'/vendor/autoload.php')) {
+    wp_die(__('Error locating autoloader. Please run <code>composer install</code>.', 'sage'));
 }
 
 require $composer;
@@ -28,20 +30,17 @@ require $composer;
 | the IoC container for the system binding all of the various parts.
 |
 */
-
-if (!function_exists('\Roots\bootloader')) {
-    wp_die(
-        __('You need to install Acorn to use this theme.', 'labeps-theme'),
-        '',
-        [
-            'link_url' => 'https://roots.io/acorn/docs/installation/',
-            'link_text' => __('Acorn Docs: Installation', 'labeps-theme'),
-        ]
-    );
-}
-
-\Roots\bootloader()->boot();
-
+add_action('after_setup_theme', function () {
+    Application::configure()
+        ->withProviders(
+            [
+                App\Providers\ThemeServiceProvider::class,
+                App\Providers\CityFieldsServiceProvider::class
+            ]
+        )
+        ->withRouting(wordpress: true)
+        ->boot();
+}, 0);
 
 /*
 |--------------------------------------------------------------------------
@@ -55,12 +54,12 @@ if (!function_exists('\Roots\bootloader')) {
 |
 */
 
-collect(['setup', 'filters', 'ajax', 'helper', 'blocks', 'mail-custom'])
+collect(['setup', 'filters', 'helper', 'ajax', 'mail-custom'])
     ->each(function ($file) {
-        if (!locate_template($file = "app/{$file}.php", true, true)) {
+        if (! locate_template($file = "app/{$file}.php", true, true)) {
             wp_die(
                 /* translators: %s is replaced with the relative file path */
-                sprintf(__('Error locating <code>%s</code> for inclusion.', 'labeps-theme'), $file)
+                sprintf(__('Error locating <code>%s</code> for inclusion.', 'sage'), $file)
             );
         }
     });

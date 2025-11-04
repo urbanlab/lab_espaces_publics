@@ -1,0 +1,36 @@
+.wp-block-theme-hero {
+    @apply my-10;
+}
+
+.wp-block-theme-hero.container {
+    max-width: 1200px;
+    padding-left: 0;
+}
+
+.wp-block-theme-hero .wp-block-image {
+    @apply hidden lg:flex mr-4;
+}
+
+.wp-block-theme-hero .wp-block-image img {
+    @apply object-contain;
+}
+
+.wp-block-theme-hero .block-heading-text {
+    @apply flex-col;
+}
+
+.wp-block-theme-hero .block-heading-text h2 {
+    @apply text-2xl md:text-3xl font-bold;
+}
+
+.wp-block-theme-hero .block-heading-text p {
+    @apply text-sm md:text-base pt-4;
+}
+
+.wp-block-theme-hero .tags {
+    @apply mt-0;
+}
+
+.wp-block-theme-hero .tags .tag {
+    @apply mr-2 bg-primary text-white;
+}

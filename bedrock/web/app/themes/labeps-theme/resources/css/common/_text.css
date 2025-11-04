@@ -1,0 +1,18 @@
+p {
+    @apply text-pretty;
+
+    overflow-wrap: break-word;
+
+}
+
+h1,h2,h3,h4,h5,h6 {
+    @apply text-wrap;
+}
+
+a{
+    cursor: pointer;
+}
+
+.number-title{
+    @apply text-[90px] font-extrabold;
+}

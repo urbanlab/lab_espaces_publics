@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -eu
+
+source "$(dirname "$(realpath "${0}")")"/../global-vars.inc.bash
+source "${ROOT_PATH}"/bin/theme.inc.bash
+
+theme-title "Start Docker stack"
+
+DOCKER_UID="$(id -u)" \
+DOCKER_GID="$(id -g)" \
+  docker compose down
+
+DOCKER_UID="$(id -u)" \
+DOCKER_GID="$(id -g)" \
+  docker compose --profile dev up --detach --build --force-recreate
+theme-ok
+
+theme-title "Prepare environment for dev"
+"${ROOT_PATH}"/bin/dev/composer install -d bedrock/web/app/themes/labeps-theme/
+theme-ok
+
+printf "\n\e[0;32mLe Lab des Espaces Publiques project is started.\e[0m\n"
+printf "\e[0;32mSite: http://localhost:8080/.\e[0m\n"

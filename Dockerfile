@@ -1,4 +1,4 @@
-FROM composer:2.0 as vendor
+FROM composer:2 as vendor
 
 WORKDIR /app
 
@@ -6,13 +6,13 @@ COPY ./bedrock ./bedrock
 
 WORKDIR /app/bedrock
 
-RUN composer update
+RUN composer update --no-dev
 
 WORKDIR /app/bedrock/web/app/themes/labeps-theme
 
-RUN composer install
+RUN composer install --no-dev
 
-FROM node:lts as node 
+FROM node:lts as node
 
 WORKDIR /app
 
@@ -20,12 +20,11 @@ COPY --from=vendor /app/bedrock/ ./bedrock
 
 WORKDIR /app/bedrock/web/app/themes/labeps-theme
 
-RUN yarn install 
+RUN yarn install
 
 RUN yarn build
 
 RUN rm -r node_modules
-
 
 FROM php:8.3-apache
 

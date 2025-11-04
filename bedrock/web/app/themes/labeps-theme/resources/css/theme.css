@@ -1,0 +1,95 @@
+@import "tailwindcss" theme(static);
+@plugin "flowbite/plugin";
+
+@theme {
+  --color-primary: #E2092F;
+  --color-secondary: #158579;
+  --color-orange: #FA743E;
+  --color-pink: #FA3EBA;
+  --color-lightgreen: #2EAE2B;
+  --color-purple: #4D2BAE;
+  --color-grey: #989898;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'Roboto', sans-serif;
+  --font-serif: false;
+
+  --text-xs: 0.875rem;
+  --text-sm: 1rem;
+  --text-base: 1.25rem;
+  --text-lg: 1.563rem;
+  --text-xl: 1.875rem;
+  --text-2xl: 2.5rem;
+  --text-3xl: 3.75rem;
+  --text-4xl: false;
+  --text-5xl: false;
+  --text-6xl: false;
+  --text-7xl: false;
+  --text-8xl: false;
+  --text-9xl: false;
+
+  --text-3xl--line-height: 3.5rem;
+
+  --container-padding: 1rem;
+  --container-padding-sm: 4rem;
+  --container-padding-lg: 6rem;
+  --container-padding-xl: 7rem;
+  --container-padding-2xl: 8rem;
+}
+
+:root {
+  --swiper-theme-color: #158579;
+  --swiper-navigation-size: 1.5rem;
+  --wp--preset--font-size--small: 1rem;
+}
+
+h1, h2 {
+  @apply text-primary;
+}
+
+.wp-block-heading {
+  @apply font-bold;
+  @apply font-sans;
+  margin-top: var(--wp--preset--spacing--50);
+  margin-bottom: var(--wp--preset--spacing--50);
+  line-height: 1.2;
+}
+
+p {
+  @apply font-mono;
+  @apply text-base;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  line-height: 1.75rem;
+}
+
+.wp-block-list > li {
+  @apply text-sm;
+  @apply font-mono;
+  padding-bottom: 1rem;
+  line-height: 1.5rem;
+}
+
+.wp-block-group {
+  padding: 2.5rem 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.wp-block-button .wp-block-button__link {
+  padding: .5rem 1.5rem;
+  border-radius: 3px;
+  @apply font-bold;
+}
+
+.tag {
+  --tw-bg-opacity: 1;
+  background-color: #d1d5db;
+  background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
+  border-radius: .25rem;
+  display: inline-block;
+  margin-right: .5rem;
+  padding: .5rem .25rem;
+}

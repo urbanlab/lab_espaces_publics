@@ -1,0 +1,82 @@
+.home-hero {
+    @apply px-0;
+
+    .wp-block-columns {
+        .wp-block-column {
+            figure {
+                @apply w-32;
+            }
+        }
+    }
+
+    h1 {
+        @apply flow-root relative -top-10 left-16 text-3xl md:mt-0;
+
+        width: 75vw;
+
+        span {
+            @apply font-light text-2xl;
+        }
+
+        @variant md {
+            @apply w-max top-16 -left-16;
+        }
+        @variant lg {
+
+            @apply flex flex-col -top-16 left-24;
+
+            width: 30vw;
+        }
+        @variant xl {
+
+            @apply -top-16 left-20;
+
+            width: 20vw;
+        }
+    }
+
+    p {
+        @apply py-0;
+
+        @variant md {
+            width: 70vw;
+        }
+
+        @variant lg {
+            width: 50vw;
+        }
+        @variant xl {
+            width: 40vw;
+        }
+        @variant 2xl {
+            width: 30vw;
+        }
+    }
+
+    .wp-block-column:nth-child(2) {
+        @apply hidden;
+        @variant lg {
+            @apply flex;
+        }
+
+        figure {
+            @apply w-full;
+        }
+    }
+
+    .is-layout-flow > .alignleft {
+        @apply me-2;
+    }
+
+    .wp-block-buttons {
+        @apply md:mt-20 lg:mt-0;
+    }
+}
+
+.block-hero {
+    @apply items-start;
+
+    h2 {
+        @apply text-primary;
+    }
+}

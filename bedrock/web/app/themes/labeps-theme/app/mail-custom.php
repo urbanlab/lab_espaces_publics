@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App;
 
 use Illuminate\Support\Facades\Mail;
@@ -10,7 +12,7 @@ add_action('wpcf7_before_send_mail', function ($contact_form) {
 
     if ($submission) {
         $data = $submission->get_posted_data();
-        
+
         $mail = $contact_form->prop('mail');
 
         $to = $mail['recipient'];
@@ -26,9 +28,9 @@ add_action('wpcf7_before_send_mail', function ($contact_form) {
 
         Mail::raw($body, function ($message) use ($to, $subject, $headers) {
             $message->to($to)
-                    ->subject($subject)
-                    ->setHeaders($headers)
-                    ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
+                ->subject($subject)
+                ->setHeaders($headers)
+                ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
         });
 
         // Prevent CF7 from sending its own email

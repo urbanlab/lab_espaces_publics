@@ -15,30 +15,14 @@ class Post extends Composer
         'partials.page-header',
         'partials.content',
         'partials.content-*',
-        'partials.category',
-        'partials.hero',
     ];
 
     /**
-     * Data to be passed to view before rendering, but after merging.
-     *
-     * @return array
+     * Retrieve the post title.
      */
-    public function override()
+    public function title(): string
     {
-        return [
-            'title' => $this->title(),
-        ];
-    }
-
-    /**
-     * Returns the post title.
-     *
-     * @return string
-     */
-    public function title()
-    {
-        if ($this->view->name() !== 'partials.hero') {
+        if ($this->view->name() !== 'partials.page-header') {
             return get_the_title();
         }
 
@@ -47,25 +31,37 @@ class Post extends Composer
                 return get_the_title($home);
             }
 
-            return __('Latest Posts', 'labeps-theme');
+            return __('Latest Posts', 'sage');
         }
 
         if (is_archive()) {
-            return post_type_archive_title('', false);
+            return get_the_archive_title();
         }
 
         if (is_search()) {
             return sprintf(
                 /* translators: %s is replaced with the search query */
-                __('Search Results for %s', 'labeps-theme'),
+                __('Search Results for %s', 'sage'),
                 get_search_query()
             );
         }
 
         if (is_404()) {
-            return __('Not Found', 'labeps-theme');
+            return __('Not Found', 'sage');
         }
 
         return get_the_title();
+    }
+
+    /**
+     * Retrieve the pagination links.
+     */
+    public function pagination(): string
+    {
+        return wp_link_pages([
+            'echo' => 0,
+            'before' => '<p>'.__('Pages:', 'sage'),
+            'after' => '</p>',
+        ]);
     }
 }

@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - WP Sync for Notion &#8211; Notion to WordPress - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-24 14:10:06+0000\n"
+"PO-Revision-Date: 2025-03-05 10:41:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,11 @@ msgstr ""
 "X-Generator: GlotPress/4.0.1\n"
 "Language: fr\n"
 "Project-Id-Version: Plugins - WP Sync for Notion &#8211; Notion to WordPress - Stable (latest release)\n"
+
+#. Plugin URI of the plugin
+#: notion-wp-sync.php
+msgid "https://wpconnect.co/notion-wordpress-integration/"
+msgstr "https://wpconnect.co/notion-wordpress-integration/"
 
 #. Plugin Name of the plugin
 #: notion-wp-sync.php
@@ -41,11 +46,11 @@ msgstr "En cours… %s"
 msgid "Upgrade to Pro Version"
 msgstr "Mettre à niveau vers la version Pro"
 
-#: includes/admin/class-notion-wp-sync-admin-connection.php:98
+#: includes/admin/class-notion-wp-sync-admin-connection.php:97
 msgid "Canceling..."
 msgstr "Annulation…"
 
-#: includes/admin/class-notion-wp-sync-admin-connection.php:97
+#: includes/admin/class-notion-wp-sync-admin-connection.php:96
 #: includes/admin/metaboxes/class-notion-wp-sync-metabox-import-infos.php:92
 msgid "In progress..."
 msgstr "En cours…"
@@ -265,7 +270,7 @@ msgstr "Avez-vous ajouté la connexion que vous venez de créer aux pages Notion
 
 #: views/metabox-notion-settings.php:28
 msgid "To get your secret token and create an internal integration, please follow <a href=\"https://www.notion.so/help/create-integrations-with-the-notion-api#create-an-internal-integration\" target=\"_blank\">these instructions.</a>"
-msgstr "Pour obtenir votre jeton secret et créer une intégration interne, veuillez suivre <a href=\"https://www.notion.so/help/create-integrations-with-the-notion-api#create-an-internal-integration\" target=\"_blank\">les instructions suivantes</a>."
+msgstr "Pour obtenir votre jeton secret et créer une intégration interne, veuillez suivre les <a href=\"https://www.notion.so/fr/help/create-integrations-with-the-notion-api#create-an-internal-integration\" target=\"_blank\">instructions suivantes</a>."
 
 #: views/metabox-notion-settings.php:23 views/metabox-notion-settings.php:73
 #: views/metabox-post-settings.php:65 views/metabox-post-settings.php:75
@@ -367,59 +372,59 @@ msgstr "Champ personnalisé... (version Pro)"
 msgid "Featured Image"
 msgstr "Image mise en avant"
 
-#: includes/class-notion-wp-sync.php:207
+#: includes/class-notion-wp-sync.php:192
 msgid "No Connections found in Trash"
 msgstr "Aucune connexion trouvée dans la corbeille"
 
-#: includes/class-notion-wp-sync.php:206
+#: includes/class-notion-wp-sync.php:191
 msgid "No Connections found"
 msgstr "Aucune connexion trouvée"
 
-#: includes/class-notion-wp-sync.php:205
+#: includes/class-notion-wp-sync.php:190
 msgid "Search Connections"
 msgstr "Recherche de connexions"
 
-#: includes/class-notion-wp-sync.php:204
+#: includes/class-notion-wp-sync.php:189
 msgid "View Connection"
 msgstr "Voir la connexion"
 
-#: includes/class-notion-wp-sync.php:203
+#: includes/class-notion-wp-sync.php:188
 msgid "New Connection"
 msgstr "Nouvelle connexion"
 
-#: includes/class-notion-wp-sync.php:202
+#: includes/class-notion-wp-sync.php:187
 msgid "Edit Connection"
 msgstr "Modifier la connexion"
 
-#: includes/class-notion-wp-sync.php:201
+#: includes/class-notion-wp-sync.php:186
 msgid "Add New Connection"
 msgstr "Ajouter une nouvelle connexion"
 
-#: includes/class-notion-wp-sync.php:199
+#: includes/class-notion-wp-sync.php:184
 msgid "Connection"
 msgstr "Connexion"
 
-#: includes/class-notion-wp-sync.php:198
+#: includes/class-notion-wp-sync.php:183
 msgid "Connections"
 msgstr "Connexions"
 
-#: includes/class-notion-wp-sync.php:184
+#: includes/class-notion-wp-sync.php:169
 msgid "Every 30 minutes"
 msgstr "Toutes les 30 minutes"
 
-#: includes/class-notion-wp-sync.php:180
+#: includes/class-notion-wp-sync.php:165
 msgid "Every 10 minutes"
 msgstr "Toutes les 10 minutes"
 
-#: includes/class-notion-wp-sync.php:176
+#: includes/class-notion-wp-sync.php:161
 msgid "Every 5 minutes"
 msgstr "Toutes les 5 minutes"
 
-#: includes/class-notion-wp-sync.php:132
+#: includes/class-notion-wp-sync.php:131
 msgid "WP Sync for Notion and Notion WP Sync Pro should not be active at the same time. We've automatically deactivated Notion WP Sync Pro."
 msgstr "WP Sync for Notion et Notion WP Sync Pro ne devraient pas être actifs en même temps. Nous avons automatiquement désactivé Notion WP Sync Pro."
 
-#: includes/class-notion-wp-sync.php:130
+#: includes/class-notion-wp-sync.php:129
 msgid "WP Sync for Notion and Notion WP Sync Pro should not be active at the same time. We've automatically deactivated WP Sync for Notion."
 msgstr "WP Sync for Notion et Notion WP Sync Pro ne devraient pas être actifs en même temps. Nous avons automatiquement désactivé WP Sync for Notion."
 
@@ -530,7 +535,7 @@ msgstr "Réglages"
 
 #: includes/admin/class-notion-wp-sync-admin.php:68
 #: includes/admin/class-notion-wp-sync-admin.php:69
-#: includes/class-notion-wp-sync.php:200
+#: includes/class-notion-wp-sync.php:185
 msgid "Add New"
 msgstr "Ajouter"
 
@@ -581,71 +586,71 @@ msgstr "Type de publication"
 msgid "Last Modified On"
 msgstr "Dernière modification le"
 
-#: includes/admin/class-notion-wp-sync-admin-connection.php:264
+#: includes/admin/class-notion-wp-sync-admin-connection.php:266
 msgid "Thank you for using the Free Version of our plugin! You already have an active connection. To be able to create as many active connections as you want, <a href=\"https://wpconnect.co/notion-wordpress-integration/#pricing-plan\" target=\"_blank\">Upgrade to Pro Version</a>."
 msgstr "Merci d’utiliser la version gratuite de notre extension ! Vous avez déjà une connexion active. Afin de pouvoir créer autant de connexions actives que vous le souhaitez, passez <a href=\"https://wpconnect.co/notion-wordpress-integration/#pricing-plan\" target=\"_blank\">à la version Pro</a>."
 
 #. translators: %s: Number of connections.
-#: includes/admin/class-notion-wp-sync-admin-connection.php:234
+#: includes/admin/class-notion-wp-sync-admin-connection.php:236
 msgid "%s connection restored from the Trash."
 msgid_plural "%s connections restored from the Trash."
 msgstr[0] "%s connexion restaurée à partir de la corbeille."
 msgstr[1] "%s connexions restaurées à partir de la corbeille."
 
 #. translators: %s: Number of connections.
-#: includes/admin/class-notion-wp-sync-admin-connection.php:232
+#: includes/admin/class-notion-wp-sync-admin-connection.php:234
 msgid "%s connection moved to the Trash."
 msgid_plural "%s connections moved to the Trash."
 msgstr[0] "%s connexion déplacée vers la corbeille."
 msgstr[1] "%s connexions déplacées vers la corbeille."
 
 #. translators: %s: Number of connections.
-#: includes/admin/class-notion-wp-sync-admin-connection.php:230
+#: includes/admin/class-notion-wp-sync-admin-connection.php:232
 msgid "%s connection permanently deleted."
 msgid_plural "%s connections permanently deleted."
 msgstr[0] "%s connexion définitivement supprimée."
 msgstr[1] "%s connexions définitivement supprimées."
 
 #. translators: %s: Number of connections.
-#: includes/admin/class-notion-wp-sync-admin-connection.php:228
+#: includes/admin/class-notion-wp-sync-admin-connection.php:230
 msgid "%s connection not updated, somebody is editing it."
 msgid_plural "%s connections not updated, somebody is editing them."
 msgstr[0] "%s connexion non mise à jour, quelqu’un est en train de la modifier."
 msgstr[1] "%s connexions non mises à jour, quelqu’un est en train de les modifier."
 
-#: includes/admin/class-notion-wp-sync-admin-connection.php:226
+#: includes/admin/class-notion-wp-sync-admin-connection.php:228
 msgid "1 connection not updated, somebody is editing it."
 msgstr "1 connexion non mise à jour, quelqu’un est en train de la modifier."
 
 #. translators: %s: Number of connections.
-#: includes/admin/class-notion-wp-sync-admin-connection.php:225
+#: includes/admin/class-notion-wp-sync-admin-connection.php:227
 msgid "%s connection updated."
 msgid_plural "%s connections updated."
 msgstr[0] "%s connexion mise à jour."
 msgstr[1] "%s connexions mises à jour."
 
-#: includes/admin/class-notion-wp-sync-admin-connection.php:206
+#: includes/admin/class-notion-wp-sync-admin-connection.php:208
 msgid "Connection draft updated."
 msgstr "Brouillon de connexion mis à jour."
 
-#: includes/admin/class-notion-wp-sync-admin-connection.php:205
+#: includes/admin/class-notion-wp-sync-admin-connection.php:207
 msgid "Connection saved."
 msgstr "Connexion sauvegardée."
 
-#: includes/admin/class-notion-wp-sync-admin-connection.php:204
+#: includes/admin/class-notion-wp-sync-admin-connection.php:206
 msgid "Connection published."
 msgstr "Connexion publiée."
 
-#: includes/admin/class-notion-wp-sync-admin-connection.php:202
-#: includes/admin/class-notion-wp-sync-admin-connection.php:203
+#: includes/admin/class-notion-wp-sync-admin-connection.php:204
+#: includes/admin/class-notion-wp-sync-admin-connection.php:205
 msgid "Connection updated."
 msgstr "Connexion mise à jour."
 
-#: includes/admin/class-notion-wp-sync-admin-connection.php:195
+#: includes/admin/class-notion-wp-sync-admin-connection.php:197
 msgid "Back to list"
 msgstr "Retour à la liste"
 
-#: includes/admin/class-notion-wp-sync-admin-connection.php:96
+#: includes/admin/class-notion-wp-sync-admin-connection.php:95
 #: includes/admin/class-notion-wp-sync-admin-connections-list.php:123
 msgid "You have a Custom Post Type declared using this connection. Are you sure to delete it?"
 msgstr "Vous avez un type de publication personnalisé déclaré utilisant cette connexion. Confirmez-vous vouloir la supprimer ?"
@@ -672,11 +677,6 @@ msgstr "WP connect"
 #: notion-wp-sync.php
 msgid "Swiftly sync Notion to your WordPress website!"
 msgstr "Synchronisez rapidement Notion avec votre site WordPress !"
-
-#. Plugin URI of the plugin
-#: notion-wp-sync.php
-msgid "https://wpconnect.co/notion-wp-sync-plugin/"
-msgstr "https://wpconnect.co/notion-wp-sync-plugin/"
 
 #: includes/admin/class-notion-wp-sync-admin.php:52
 #: includes/admin/class-notion-wp-sync-admin.php:53 views/header.php:22

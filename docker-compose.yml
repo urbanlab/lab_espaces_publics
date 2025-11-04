@@ -1,66 +1,102 @@
 version: '3'
 services:
-  apache-dev:
-    image: olivpi/wp-labeps 
-    profiles:
-      - dev 
-    build:
-      context: .
-    environment:
-      - WP_ENV=${WP_ENV:-development}
-      - WP_HOME=${WP_HOME:-http://localhost:${EXPOSED_WORDPRESS_PORT}}
-      - WP_SITEURL=${WP_SITEURL:-http://localhost:${EXPOSED_WORDPRESS_PORT}/wp}
-      - DATABASE_URL=${DATABASE_URL:-mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@mysql:3306/${MYSQL_DATABASE}}
-    volumes:
-      - ./bedrock/web/app:/var/www/html/bedrock/web/app
-      - ./bedrock/web/index.php:/var/www/html/bedrock/web/index.php
-      - ./bedrock/web/wp-config.php:/var/www/html/bedrock/web/wp-config.php
-    ports:
-      - ${EXPOSED_WORDPRESS_PORT:-8080}:80
-    depends_on:
-      - mysql
+    apache-dev:
+        container_name: lep-php
+        user: ${DOCKER_UID}:${DOCKER_GID}
+        profiles:
+            - dev
+        build:
+            context: .
+            dockerfile: docker/dev/apache/Dockerfile
+        environment:
+            - WP_ENV=${WP_ENV:-development}
+            - WP_HOME=${WP_HOME:-http://localhost:${EXPOSED_WORDPRESS_PORT}}
+            - WP_SITEURL=${WP_SITEURL:-http://localhost:${EXPOSED_WORDPRESS_PORT}/wp}
+            - DATABASE_URL=${DATABASE_URL:-mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@mysql:3306/${MYSQL_DATABASE}}
+        volumes:
+            - ./bedrock/:/var/www/html/bedrock:delegated
+        ports:
+            - ${EXPOSED_WORDPRESS_PORT:-8080}:80
+        depends_on:
+            - mysql-dev
 
-    
+    apache-prod:
+        profiles:
+            - prod
+        build:
+            context: .
+        environment:
+            - WP_ENV=${WP_ENV:-production}
+            - WP_HOME=${WP_HOME:-http://localhost:${EXPOSED_WORDPRESS_PORT}}
+            - WP_SITEURL=${WP_SITEURL:-http://localhost:${EXPOSED_WORDPRESS_PORT}/wp}
+            - DATABASE_URL=${DATABASE_URL:-mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@mysql:3306/${MYSQL_DATABASE}}
+        ports:
+            - ${EXPOSED_WORDPRESS_PORT:-8080}:80
+        depends_on:
+            - mysql
 
-  apache-prod:
-    profiles:
-      - prod 
-    build:
-      context: .
-    environment:
-      - WP_ENV=${WP_ENV:-production}
-      - WP_HOME=${WP_HOME:-http://localhost:${EXPOSED_WORDPRESS_PORT}}
-      - WP_SITEURL=${WP_SITEURL:-http://localhost:${EXPOSED_WORDPRESS_PORT}/wp}
-      - DATABASE_URL=${DATABASE_URL:-mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@mysql:3306/${MYSQL_DATABASE}}
-    ports:
-      - ${EXPOSED_WORDPRESS_PORT:-8080}:80
-    depends_on:
-      - mysql
+    node:
+        container_name: lep-node
+        profiles:
+            - dev
+        build:
+            context: .
+            dockerfile: docker/dev/node/Dockerfile
+        volumes:
+            - ./bedrock/web/app/themes/labeps-theme:/var/www/html/bedrock/web/app/themes/labeps-theme:delegated
+        ports:
+            - '5173:5173'
+        depends_on:
+            - apache-dev
 
 
-  mysql:
-    profiles:
-      - dev 
-      - prod
-    image: mysql:latest
-    environment:
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-wordpress}
-      - MYSQL_DATABASE=${MYSQL_DATABASE:-wordpress}
-      - MYSQL_USER=${MYSQL_USER:-wordpress}
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD:-wordpress}
-    volumes:
-      - ./db:/var/lib/mysql
+    mysql-dev:
+        container_name: lep-mysql
+        profiles:
+            - dev
+        image: mysql:latest
+        environment:
+            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-wordpress}
+            - MYSQL_DATABASE=${MYSQL_DATABASE:-wordpress}
+            - MYSQL_USER=${MYSQL_USER:-wordpress}
+            - MYSQL_PASSWORD=${MYSQL_PASSWORD:-wordpress}
+        volumes:
+            - ./db:/var/lib/mysql
+            - ./docker/dev/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+        ports:
+            - '3307:3306'
+        healthcheck:
+            test: [ "CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:-wordpress}" ]
+            interval: 5s
+            timeout: 3s
+            retries: 30
+            start_period: 10s
 
-  phpmyadmin:
-    profiles:
-      - dev 
-    image: phpmyadmin/phpmyadmin
-    environment:
-      - PMA_HOST=mysql
-      - PMA_PORT=3306
-      - PMA_USER=${MYSQL_USER:-wordpress}
-      - PMA_PASSWORD=${MYSQL_PASSWORD:-wordpress}
-    ports:
-      - "8081:80"
-    depends_on:
-      - mysql
+    mysql:
+        profiles:
+            - prod
+        image: mysql:latest
+        environment:
+            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-wordpress}
+            - MYSQL_DATABASE=${MYSQL_DATABASE:-wordpress}
+            - MYSQL_USER=${MYSQL_USER:-wordpress}
+            - MYSQL_PASSWORD=${MYSQL_PASSWORD:-wordpress}
+        volumes:
+            - ./db:/var/lib/mysql
+
+    phpmyadmin:
+        container_name: lep-phpmyadmin
+        user: ${DOCKER_UID}:${DOCKER_GID}
+        profiles:
+            - dev
+        image: phpmyadmin
+        environment:
+            - PMA_HOST=mysql-dev
+            - PMA_PORT=3306
+            - PMA_USER=${MYSQL_USER:-wordpress}
+            - PMA_PASSWORD=${MYSQL_PASSWORD:-wordpress}
+            - UPLOAD_LIMIT=100M
+        ports:
+            - "8081:80"
+        depends_on:
+            - mysql-dev

@@ -1,0 +1,13 @@
+@import './carousel/editor.css';
+@import './carousel/style.css';
+
+@import "./_card.css";
+@import "./_hero.css";
+@import "./_table.css";
+@import "./_block-cards-home.css";
+@import "./_block-cards-icons.css";
+@import "./_title-block-defi.css";
+@import "./_carrousel-posts.css";
+@import "./_map-contact.css";
+
+@import "../../js/blocks/hero/style.css";

@@ -1,24 +1,34 @@
 # Wordpress
 This wordpress stack uses bedrock for easy wordpress development.
 
+## Requirements
+- You need to have docker installed on your machine.
+- Copy .env.example to .env and fill in the required variables.
 
 ## Getting started
 
-First you need to install the dependencies. This is done by running the following command:
+### Dev
 
-**Update bedrock with composer"
+Install the stack (first start only):
 ```
-cd bedrock
-docker run --rm -v $(pwd):/app -u $(id -u):$(id -g) composer update
+bin/dev/install
 ```
 
-You can now start the stack by running the following command:
-`docker-compose up --profile dev -d`
+Next time you only have to start the stack using the following command:
+```
+bin/dev/start
+```
 
 By default the stack will start with the following services:
 - wordpress : http://localhost:8080
 - phpmyadmin : http://localhost:8081
 - mysql
+- node
+
+### Production
+
+Start the stack:
+`docker-compose --profile prod up -d`
 
 ## Notes
 

@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use Log1x\Crumb\CrumbServiceProvider;
 use Roots\Acorn\Sage\SageServiceProvider;
+
 class ThemeServiceProvider extends SageServiceProvider
 {
     /**
@@ -13,6 +15,8 @@ class ThemeServiceProvider extends SageServiceProvider
     public function register()
     {
         parent::register();
+
+        $this->app->register(CrumbServiceProvider::class);
     }
 
     /**
@@ -23,23 +27,5 @@ class ThemeServiceProvider extends SageServiceProvider
     public function boot()
     {
         parent::boot();
-
-        add_filter('nav_menu_css_class', [$this, 'addActiveClassToCptMenu'], 10, 2);
-
     }
-
-
-    public function addActiveClassToCptMenu($classes, $item)
-    {
-        if (is_singular('your_cpt_slug') || is_post_type_archive('your_cpt_slug')) {
-            $cpt_archive_link = get_post_type_archive_link('your_cpt_slug');
-
-            if (trim($item->url, '/') === trim($cpt_archive_link, '/')) {
-                $classes[] = 'current_page_item'; // Ajoutez la classe si cela correspond
-            }
-        }
-
-        return $classes;
-    }
-
 }

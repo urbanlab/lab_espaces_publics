@@ -1,0 +1,16 @@
+.block-cards-home{
+    .block-card-button{
+        @apply px-4 py-3 border-2 border-black rounded-md;
+        .wp-block-columns{
+            .wp-block-column{
+                flex-basis: 0 !important;
+                @variant md{
+                    flex-basis: 100% !important;
+                }
+            }
+        }
+    }
+    .wp-block-buttons{
+        @apply my-3;
+    }
+}
