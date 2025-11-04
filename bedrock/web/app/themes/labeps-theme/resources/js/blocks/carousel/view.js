@@ -12,9 +12,7 @@
     // Function to initialize a block
     function initBlock(block) {
       // Example: Add click event listener
-        console.log('aaa', block)
         document.addEventListener('DOMContentLoaded', () => {
-            console.log('loaded')
             const carousels = document.querySelectorAll('.swiper-container');
 
             setTimeout(() => {
