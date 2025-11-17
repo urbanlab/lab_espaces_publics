@@ -9,10 +9,6 @@
     padding: 0;
 }
 
-.egal-flex-colonnes>* {
-    flex: 1 1 0%;
-}
-
 .nav_menu-3 {
     @apply bg-black p-4 w-full;
 
