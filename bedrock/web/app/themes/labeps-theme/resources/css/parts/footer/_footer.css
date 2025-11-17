@@ -1,12 +1,30 @@
-.nav_menu-3{
+.wp-block-group.footer-one {
+    margin-bottom: 0px;
+    background-color: #F5F5F5;
+}
+
+.wp-block-group.footer-logo {
+    column-gap: 60px;
+    margin: 0;
+    padding: 0;
+}
+
+.egal-flex-colonnes>* {
+    flex: 1 1 0%;
+}
+
+.nav_menu-3 {
     @apply bg-black p-4 w-full;
-    .menu-menu-footer-container{
-        .menu{
+
+    .menu-menu-footer-container {
+        .menu {
             @apply flex flex-col flex-wrap text-white list-none ml-0;
-            @variant md{
+
+            @variant md {
                 @apply w-full flex-row justify-around;
             }
-            li{
+
+            li {
                 @apply px-1;
             }
         }
