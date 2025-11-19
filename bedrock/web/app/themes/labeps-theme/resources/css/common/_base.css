@@ -11,7 +11,8 @@ body {
 }
 
 #app {
-    @apply min-h-screen    flex flex-col;
+    @apply min-h-screen flex flex-col;
+
     main {
         @apply flex-1;
 
@@ -34,10 +35,18 @@ img {
     @apply rounded-md;
 }
 
-.current-menu-item > a {
+.current-menu-item>a {
     color: #f00;
 }
 
 a {
     text-decoration: none;
+}
+
+.chart-columns {
+    @apply gap-x-10;
+}
+
+.mt-80 {
+    margin-top: var(--wp--preset--spacing--80);
 }
