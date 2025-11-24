@@ -45,7 +45,8 @@
   --wp--preset--font-size--small: 1rem;
 }
 
-h1, h2 {
+h1,
+h2 {
   @apply text-primary;
 }
 
@@ -65,7 +66,7 @@ p {
   line-height: 1.75rem;
 }
 
-.wp-block-list > li {
+.wp-block-list>li {
   @apply text-sm;
   @apply font-mono;
   padding-bottom: 1rem;
@@ -92,4 +93,8 @@ p {
   display: inline-block;
   margin-right: .5rem;
   padding: .5rem .25rem;
+}
+
+figure {
+  margin-bottom: 0;
 }
