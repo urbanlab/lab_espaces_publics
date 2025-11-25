@@ -45,7 +45,8 @@
     "log1x/navi": "^3.1",
     "log1x/poet": "^2.1",
     "log1x/sage-svg": "^2.0",
-    "roots/acorn": "^5.0"
+    "roots/acorn": "^5.0",
+    "log1x/sage-directives": "^2.0.6"
   },
   "require-dev": {
     "imagewize/sage-native-block": "^2.0",
