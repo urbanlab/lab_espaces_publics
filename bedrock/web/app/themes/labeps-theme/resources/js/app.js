@@ -14,10 +14,14 @@ import {MapLeaflet} from './map-leaflet';
 import Swiper from 'swiper/bundle';
 import {SWIPER_DEFAULT_OPTIONS} from './swiper-config';
 
-import.meta.glob([
-    '../images/**',
-    '../fonts/**',
-]);
+// Assurer l'inclusion des assets statiques (images, polices) dans le build Vite
+// en important de manière « eager » et en exposant une référence pour éviter le tree-shaking.
+const __imageAssets = import.meta.glob('../images/**/*', { as: 'url', eager: true });
+const __fontAssets = import.meta.glob('../fonts/**/*', { as: 'url', eager: true });
+// Prévenir l'élimination par tree-shaking en gardant une référence globale
+// (aucun impact fonctionnel côté runtime)
+// eslint-disable-next-line no-underscore-dangle
+window.__ASSETS__ = { ...__imageAssets, ...__fontAssets };
 
 /**
  * Application entrypoint
@@ -134,4 +138,3 @@ document.addEventListener('DOMContentLoaded', () => {
 if (typeof Matomo === 'function') {
     Matomo();
 }
-// });

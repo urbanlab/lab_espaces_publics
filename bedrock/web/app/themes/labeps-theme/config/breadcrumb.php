@@ -58,7 +58,7 @@ return [
     |
     */
 
-    'search' => __('Search results for "%s"', 'labeps-theme'),
+    'search' => __('Résultats pour "%s"', 'labeps-theme'),
 
     /*
     |--------------------------------------------------------------------------

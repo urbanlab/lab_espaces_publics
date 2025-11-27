@@ -2,20 +2,19 @@
 
 @section('content')
     @include('partials.page-header')
-    @include('partials.hero')
-    <section class="container mx-auto my-4">
-        @if (! have_posts())
-            <x-alert type="warning">
-                {!! __('Sorry, no results were found.', 'labeps-theme') !!}
-            </x-alert>
-
-            {!! get_search_form(false) !!}
-        @endif
-
-        @while(have_posts()) @php(the_post())
-        @include('partials.content-search')
-        @endwhile
-
-        {!! the_posts_pagination() !!}
+    @include(
+        'partials.hero',
+        [
+            'title' => 'Recherche',
+            'pageIntro' => 'Résultats de votre recherche pour : ' . request()->get('s')
+        ]
+    )
+    <section class="container mx-auto">
+        <x-grid>
+            @while(have_posts())
+                @php(the_post())
+                @include('partials.content-search', ['post' => get_post()])
+            @endwhile
+        </x-grid>
     </section>
 @endsection

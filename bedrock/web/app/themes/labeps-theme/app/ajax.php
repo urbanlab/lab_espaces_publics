@@ -28,7 +28,7 @@ class AjaxHandler
 
         $args = [
             'post_type' => $contentType,
-            'posts_per_page' => 12,
+            'posts_per_page' => 6,
             'tax_query' => $tax_query,
             'paged' => $paged,
             'post_status' => 'publish',
@@ -48,8 +48,8 @@ class AjaxHandler
             'current' => $paged,
             'format' => '?paged=%#%',
             'mid_size' => 2,
-            'prev_text' => __('&laquo; Retour', 'textdomain'),
-            'next_text' => __('Suivant &raquo;', 'textdomain'),
+            'prev_text' => __('Retour', 'textdomain'),
+            'next_text' => __('Suivant', 'textdomain'),
             'type' => 'list',
         ]);
 

@@ -48,7 +48,7 @@ return [
                 ),
             ],
             'archive' => [
-                'posts_per_page' => 12,
+                'posts_per_page' => 6,
             ],
             'labels' => [
                 'singular' => 'Boite à outils',
@@ -96,7 +96,7 @@ return [
                 ],
             ],
             'archive' => [
-                'posts_per_page' => 10,
+                'posts_per_page' => 6,
             ],
             'labels' => [
                 'singular' => 'Inspiration',
@@ -164,7 +164,7 @@ return [
 			]
             ],
             'archive' => [
-                'posts_per_page' => 10,
+                'posts_per_page' => 6,
             ],
             'labels' => [
                 'singular' => 'Projet pilote',
