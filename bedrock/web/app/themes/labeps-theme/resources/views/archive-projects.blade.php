@@ -21,7 +21,7 @@
         </div>
     </div>
     <x-filterable-archive :taxonomies="$taxonomies">
-        <div id="list-view" class="view md:w-3/4">
+        <div id="list-view" class="view">
             <x-grid columnClasses="grid-cols-1 md:grid-cols-2">
                 @while(have_posts())
                     @php(the_post())
@@ -29,7 +29,7 @@
                 @endwhile
             </x-grid>
         </div>
-        <div id="map-view" class="view active md:w-3/4 z-0">
+        <div id="map-view" class="view active z-0">
             <div id="map"></div>
             @if (!empty($projects))
                 <script>

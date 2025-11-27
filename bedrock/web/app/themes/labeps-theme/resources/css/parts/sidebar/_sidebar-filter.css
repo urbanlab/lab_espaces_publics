@@ -66,11 +66,13 @@
     padding: 1rem;
     overflow: auto;
     height: 80vh;
+    width: 80%;
 
     @variant md {
         height: auto;
         overflow: unset;
         display: block;
+        width: 30%
     }
 }
 

@@ -7,6 +7,8 @@
     />
     <div class="flex flex-col lg:flex-row">
         @include('forms.filter', ['taxonomies' => $taxonomies])
-        {{$slot}}
+        <div class="lg:flex-grow lg:w-1/2">
+            {{$slot}}
+        </div>
     </div>
 </section>
