@@ -17,6 +17,7 @@ class FilterPosts extends Composer
         'archive-ressources',
         'archive-inspirations',
         'archive-projects',
+        'archive-events',
     ];
 
     /**

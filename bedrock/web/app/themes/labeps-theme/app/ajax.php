@@ -34,6 +34,13 @@ class AjaxHandler
             'post_status' => 'publish',
         ];
 
+        if ($contentType === 'events') {
+            $args['meta_key'] = 'event_datetime';
+            $args['meta_type'] = 'DATETIME';
+            $args['orderby'] = 'meta_value';
+            $args['order'] = 'DESC';
+        }
+
         $query = new \WP_Query($args);
 
         if (!$query->have_posts()) {
