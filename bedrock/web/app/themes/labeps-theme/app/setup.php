@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 /**
  * Theme setup.
@@ -29,14 +30,14 @@ add_filter('block_editor_settings_all', function ($settings) {
  * @return void
  */
 add_filter('admin_head', function () {
-    if (! get_current_screen()?->is_block_editor()) {
+    if (!get_current_screen()?->is_block_editor()) {
         return;
     }
 
     $dependencies = json_decode(Vite::content('editor.deps.json'));
 
     foreach ($dependencies as $dependency) {
-        if (! wp_script_is($dependency)) {
+        if (!wp_script_is($dependency)) {
             wp_enqueue_script($dependency);
         }
     }
@@ -62,9 +63,9 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_script('labeps-data');
 
     wp_localize_script('labeps-data', 'labeps', [
-        'ajax_url'   => admin_url('admin-ajax.php'),
-        'nonce'      => wp_create_nonce('filter_posts_nonce'),
-        'ajax_action'=> 'filter_posts',
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'nonce' => wp_create_nonce('filter_posts_nonce'),
+        'ajax_action' => 'filter_posts',
     ]);
 }, 100);
 
@@ -204,7 +205,3 @@ add_theme_support('custom-logo', [
     'width' => 130,
     'flex-width' => true,
 ]);
-
-add_action('after_setup_theme', function () {
-    new \App\AjaxHandler();
-});
