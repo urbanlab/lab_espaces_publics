@@ -80,7 +80,7 @@ export default function Edit({attributes, setAttributes}) {
                         {iconUrl && <figure class='max-w-1/3'><img src={iconUrl} alt={__('Icon', 'labeps-theme')} /></figure>}
                     </MediaPlaceholder>
                     <RichText
-                        tagName="h2"
+                        tagName="h1"
                         value={title}
                         onChange={onChangeTitle}
                         placeholder={__('Title...', 'labeps-theme')}

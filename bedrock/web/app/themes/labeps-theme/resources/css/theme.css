@@ -4,11 +4,6 @@
 @theme {
   --color-primary: #E2092F;
   --color-secondary: #158579;
-  --color-orange: #FA743E;
-  --color-pink: #FA3EBA;
-  --color-lightgreen: #2EAE2B;
-  --color-purple: #4D2BAE;
-  --color-grey: #989898;
   --color-white: #FFFFFF;
   --color-black: #000000;
 
@@ -16,21 +11,19 @@
   --font-mono: 'Roboto', sans-serif;
   --font-serif: false;
 
-  --text-xs: 0.875rem;
+  --text-xs: 0.625rem;
   --text-sm: 1rem;
   --text-base: 1.25rem;
-  --text-lg: 1.563rem;
-  --text-xl: 1.875rem;
-  --text-2xl: 2.5rem;
-  --text-3xl: 3.75rem;
-  --text-4xl: false;
-  --text-5xl: false;
+  --text-lg: 1.25rem;
+  --text-xl: 1.563rem;
+  --text-2xl: 1.875rem;
+  --text-3xl: 2.5rem;
+  --text-4xl: 3.75rem;
+  --text-5xl: 5rem;
   --text-6xl: false;
   --text-7xl: false;
   --text-8xl: false;
   --text-9xl: false;
-
-  --text-3xl--line-height: 3.5rem;
 
   --container-padding: 1rem;
   --container-padding-sm: 4rem;
@@ -55,7 +48,6 @@ h2 {
   @apply font-sans;
   margin-top: var(--wp--preset--spacing--50);
   margin-bottom: var(--wp--preset--spacing--50);
-  line-height: 1.2;
 }
 
 p {
@@ -63,14 +55,12 @@ p {
   @apply text-base;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  line-height: 1.75rem;
 }
 
-.wp-block-list>li {
-  @apply text-sm;
+.wp-block-list > li {
+  @apply text-base;
   @apply font-mono;
   padding-bottom: 1rem;
-  line-height: 1.5rem;
 }
 
 .wp-block-group {

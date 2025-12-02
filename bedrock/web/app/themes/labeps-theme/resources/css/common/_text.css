@@ -1,58 +1,43 @@
 p {
     @apply text-pretty;
-
     overflow-wrap: break-word;
 }
 
 h1,
 h2,
 h3,
-h4,
-h5,
-h6 {
+h4 {
     @apply text-wrap;
-}
-
-h1, h2 {
-    color:var(--wp--preset--color--primary);
-}
-
-h1{
-    font-size: var(--text-3xl);    
-    line-height: var(--text-3xl--line-height);
+    color: var(--wp--preset--color--primary);
     font-weight: var(--font-weight-bold);
 
 }
 
-h2
-{
-    font-size:var(--wp--preset--font-size--2-xl);
+h1 {
+    font-size: var(--text-4xl);
 }
 
+h2 {
+    font-size: var(--text-3xl);
+}
 
-.green,
-.number-title{
-    color:var(--wp--preset--color--secondary);
+h3 {
+    font-size: var(--text-2xl);
 }
 
 a {
     cursor: pointer;
 }
 
-.intro{
-    font-family:var(--font-sans);
-    color:var(--wp--preset--color--secondary);
-    font-size: var(--wp--preset--font-size--lg);
+.intro {
+    font-family: var(--font-sans);
+    color: var(--wp--preset--color--secondary);
+    font-size: var(--text-2xl);
     font-weight: var(--font-weight-bold);
- }
-
-.intro--red {
-    color: var(--wp--preset--color--primary);
 }
 
-
-.number-title{
-    font-family :var(--font-sans);
+.number-title {
+    font-family: var(--font-sans);
     font-weight: var(--font-weight-bold);
-    font-size: var(--wp--preset--font-size--3-xl);
+    font-size: var(--text-5xl);
 }
