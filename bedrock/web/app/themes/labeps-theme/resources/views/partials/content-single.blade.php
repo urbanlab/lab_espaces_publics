@@ -10,7 +10,7 @@
             <figure class="hidden lg:flex mr-4">
                 @svg('resources.images.icon-hero-single')
             </figure>
-            <h1 class="text-xl md:text-3xl leading-7 md:leading-[3.5rem] font-bold">
+            <h1>
                 {!! $title !!}
             </h1>
         </div>

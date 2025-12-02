@@ -11,12 +11,12 @@
   --font-mono: 'Roboto', sans-serif;
   --font-serif: false;
 
-  --text-xs: 0.625rem;
+  --text-xs: 0.75rem;
   --text-sm: 1rem;
   --text-base: 1.25rem;
-  --text-lg: 1.25rem;
-  --text-xl: 1.563rem;
-  --text-2xl: 1.875rem;
+  --text-lg: 1.5rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2rem;
   --text-3xl: 2.5rem;
   --text-4xl: 3.75rem;
   --text-5xl: 5rem;
@@ -38,15 +38,10 @@
   --wp--preset--font-size--small: 1rem;
 }
 
-h1,
-h2 {
-  @apply text-primary;
-}
-
 .wp-block-heading {
   @apply font-bold;
   @apply font-sans;
-  margin-top: var(--wp--preset--spacing--50);
+  margin-top: var(--wp--preset--spacing--80);
   margin-bottom: var(--wp--preset--spacing--50);
 }
 

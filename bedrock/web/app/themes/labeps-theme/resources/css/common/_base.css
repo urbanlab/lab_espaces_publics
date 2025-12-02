@@ -41,3 +41,7 @@ img {
 a {
     text-decoration: none;
 }
+.wp-block-columns{
+    margin-top:var(--wp--preset--spacing--60);
+    column-gap:6rem;
+}
