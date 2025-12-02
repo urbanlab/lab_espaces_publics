@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -eu
+
+source "$(dirname "$(realpath "${0}")")"/../global-vars.inc.bash
+source "${ROOT_PATH}"/bin/theme.inc.bash
+
+theme-title "Prepare environment for dev"
+"${ROOT_PATH}"/bin/dev/composer install -d bedrock/
+"${ROOT_PATH}"/bin/dev/composer install -d bedrock/web/app/themes/labeps-theme/
+"${ROOT_PATH}"/bin/dev/acorn optimize:clear
+theme-ok

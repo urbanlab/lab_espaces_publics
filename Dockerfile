@@ -6,7 +6,7 @@ COPY ./bedrock ./bedrock
 
 WORKDIR /app/bedrock
 
-RUN composer update --no-dev
+RUN composer install --no-dev
 
 WORKDIR /app/bedrock/web/app/themes/labeps-theme
 
@@ -63,6 +63,7 @@ RUN mv wp-cli.phar /usr/local/bin/wp
 RUN echo "upload_max_filesize = 100M" > /usr/local/etc/php/conf.d/uploads.ini
 RUN echo "post_max_size = 100M" >> /usr/local/etc/php/conf.d/uploads.ini
 
-
+USER www-data
+RUN php /var/www/html/bedrock/vendor/bin/acorn optimize:clear --no-ansi --no-interaction
 
 ENTRYPOINT [ "apache2-foreground" ]
