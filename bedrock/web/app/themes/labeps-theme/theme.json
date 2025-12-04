@@ -59,7 +59,13 @@
       "duotone": [],
       "gradients": [],
       "text": true,
-      "link": true    
+      "link": true,
+      "palette": [
+        { "slug": "primary",   "name": "Primary",   "color": "#E2092F" },
+        { "slug": "secondary", "name": "Secondary", "color": "#158579" },
+        { "slug": "black",   "name": "Black",   "color": "#000000" },
+        { "slug": "white", "name": "White", "color": "#FFFFFF" }
+      ]
     },
     "custom": {
       "spacing": {

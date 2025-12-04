@@ -1,85 +1,88 @@
-@import "tailwindcss";
+@import "tailwindcss" theme(static);
+
 @plugin "flowbite/plugin";
 
 @theme {
-  --color-primary: #E2092F;
-  --color-secondary: #158579;
-  --color-white: #FFFFFF;
-  --color-black: #000000;
+    --color-primary: #E2092F;
+    --color-secondary: #158579;
+    --color-white: #FFFFFF;
+    --color-black: #000000;
 
-  --font-sans: 'Inter', sans-serif;
-  --font-mono: 'Roboto', sans-serif;
-  --font-serif: false;
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'Roboto', sans-serif;
+    --font-serif: false;
 
-  --text-xs: 0.75rem;
-  --text-sm: 1rem;
-  --text-base: 1.25rem;
-  --text-lg: 1.5rem;
-  --text-xl: 1.75rem;
-  --text-2xl: 2rem;
-  --text-3xl: 2.5rem;
-  --text-4xl: 3.75rem;
-  --text-5xl: 5rem;
-  --text-6xl: false;
-  --text-7xl: false;
-  --text-8xl: false;
-  --text-9xl: false;
+    --text-xs: 0.75rem;
+    --text-sm: 1rem;
+    --text-base: 1.25rem;
+    --text-lg: 1.5rem;
+    --text-xl: 1.75rem;
+    --text-2xl: 2rem;
+    --text-3xl: 2.5rem;
+    --text-4xl: 3.75rem;
+    --text-5xl: 5rem;
+    --text-6xl: false;
+    --text-7xl: false;
+    --text-8xl: false;
+    --text-9xl: false;
 
-  --container-padding: 1rem;
-  --container-padding-sm: 4rem;
-  --container-padding-lg: 6rem;
-  --container-padding-xl: 7rem;
-  --container-padding-2xl: 8rem;
+    --container-padding: 1rem;
+    --container-padding-sm: 4rem;
+    --container-padding-lg: 6rem;
+    --container-padding-xl: 7rem;
+    --container-padding-2xl: 8rem;
 }
 
 :root {
-  --swiper-theme-color: #158579;
-  --swiper-navigation-size: 1.5rem;
-  --wp--preset--font-size--small: 1rem;
+    --swiper-theme-color: #158579;
+    --swiper-navigation-size: 1.5rem;
+    --wp--preset--font-size--small: 1rem;
+    --color-primary: var(--wp--preset--color--primary);
+    --color-secondary: var(--wp--preset--color--secondary);
 }
 
 .wp-block-heading {
-  @apply font-bold;
-  @apply font-sans;
-  margin-top: var(--wp--preset--spacing--80);
-  margin-bottom: var(--wp--preset--spacing--50);
+    @apply font-bold;
+    @apply font-sans;
+    margin-top: var(--wp--preset--spacing--80);
+    margin-bottom: var(--wp--preset--spacing--50);
 }
 
 p {
-  @apply font-mono;
-  @apply text-base;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+    @apply font-mono;
+    @apply text-base;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .wp-block-list > li {
-  @apply text-base;
-  @apply font-mono;
-  padding-bottom: 1rem;
+    @apply text-base;
+    @apply font-mono;
+    padding-bottom: 1rem;
 }
 
 .wp-block-group {
-  padding: 2.5rem 1.5rem;
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
+    padding: 2.5rem 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
 }
 
 .wp-block-button .wp-block-button__link {
-  padding: .5rem 1.5rem;
-  border-radius: 3px;
-  @apply font-bold;
+    padding: .5rem 1.5rem;
+    border-radius: 3px;
+    @apply font-bold;
 }
 
 .tag {
-  --tw-bg-opacity: 1;
-  background-color: #d1d5db;
-  background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
-  border-radius: .25rem;
-  display: inline-block;
-  margin-right: .5rem;
-  padding: .5rem .25rem;
+    --tw-bg-opacity: 1;
+    background-color: #d1d5db;
+    background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
+    border-radius: .25rem;
+    display: inline-block;
+    margin-right: .5rem;
+    padding: .5rem .25rem;
 }
 
 figure {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
