@@ -32,7 +32,7 @@ a {
 .intro {
     font-family: var(--font-sans);
     color: var(--wp--preset--color--secondary);
-    font-size: var(--text-2xl);
+    font-size: var(--text-xl);
     font-weight: var(--font-weight-bold);
 }
 

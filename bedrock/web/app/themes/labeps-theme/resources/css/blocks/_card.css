@@ -1,14 +1,40 @@
-.card{
+.card {
     @apply px-2 py-3 border-2 border-black rounded-md overflow-hidden;
-    figure{
+
+    figure {
         @apply flex md:h-32;
-        img{
+
+        img {
             @apply rounded-md object-cover;
         }
     }
 }
 
-.card-simple{
+.card-simple {
     @apply px-2 py-3 border-2 border-black rounded-md;
+}
 
+.card-group {
+    @apply items-stretch gap-12 mb-8;
+}
+
+.challenge-card {
+    @apply px-5 pb-4 border-2 border-black rounded-md lg:w-1/3;
+
+    .cart-inside {
+        @apply flex flex-col h-full justify-between gap-4 py-4;
+    }
+
+    .cart-title-block {
+        @apply gap-3 items-start leading-normal;
+
+        h3 {
+
+            @apply leading-normal text-xl;
+        }
+
+        p {
+            @apply leading-normal p-0;
+        }
+    }
 }
