@@ -1,6 +1,6 @@
 <x-content-card>
     <x-slot name="title">
-        {{$title}}
+        {!! $title !!}
     </x-slot>
     <x-slot name="tags">
         <p class="bg-secondary tags">
