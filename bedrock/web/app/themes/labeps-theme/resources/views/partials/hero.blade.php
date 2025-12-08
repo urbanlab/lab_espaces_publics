@@ -4,7 +4,7 @@
         @svg('resources.images.picto-hero')
       </div>
       <div class="block-heading-text shrink w-3/4">
-        <h2 class="text-2xl md:text-3xl font-bold	">{!! $title !!}</h2>
+        <h1 class="text-2xl md:text-3xl font-bold	">{!! $title !!}</h1>
         <p>{!! isset($pageIntro) ? $pageIntro : "" !!}</p>
       </div>
     </div>

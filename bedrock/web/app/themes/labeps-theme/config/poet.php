@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 return [
 
@@ -27,38 +28,41 @@ return [
             'order' => 'ASC',
             'admin_cols' => [
                 'featured_image' => [
-                    'title'          => 'Image',
+                    'title' => 'Image',
                     'featured_image' => 'thumbnail'
                 ],
                 'types' => [
                     'taxonomy' => 'types',
-                    'title'    => 'Types',
-                    'link'     => 'edit',
+                    'title' => 'Types',
+                    'link' => 'edit',
                 ],
                 'motscles' => [
                     'taxonomy' => 'motscles',
-                    'title'    => 'Mots clés',
-                    'link'     => 'edit',
+                    'title' => 'Mots clés',
+                    'link' => 'edit',
                     'meta_box' => 'radio',
                 ],
                 'published' => array(
-                    'title'       => 'Published',
-                    'meta_key'    => 'published_date',
+                    'title' => 'Published',
+                    'meta_key' => 'published_date',
                     'date_format' => 'd/m/Y'
                 ),
             ],
             'archive' => [
-                'posts_per_page' => 12,
+                'posts_per_page' => 6,
             ],
             'labels' => [
                 'singular' => 'Boite à outils',
-                'plural'   => 'Boite à outils',
-                'slug'     => 'ressources',
+                'plural' => 'Boite à outils',
+                'slug' => 'ressources',
+                'update_item' => 'Mettre à jour boite à outils',
+                'add_new_item' => 'Ajouter une boite à outils',
+                'new_item_name' => 'Nouvelle boite à outils',
             ],
         ],
         'inspirations' => [
             'enter_title_here' => 'Ajoutez votre inspiration',
-            'menu_icon'    => 'dashicons-cover-image',
+            'menu_icon' => 'dashicons-cover-image',
             'supports' => ['title', 'editor', 'author', 'excerpt', 'thumbnail'],
             'show_in_rest' => true,
             'has_archive' => true,
@@ -69,39 +73,39 @@ return [
             'menu_position' => 5,
             'admin_cols' => [
                 'featured_image' => [
-                    'title'          => 'Image',
+                    'title' => 'Image',
                     'featured_image' => 'thumbnail',
-                    'width'          => 80,
-                    'height'         => 80,
+                    'width' => 80,
+                    'height' => 80,
                 ],
                 'published' => [
-                    'title'       => 'Publiée',
-                    'meta_key'    => 'published_date',
+                    'title' => 'Publiée',
+                    'meta_key' => 'published_date',
                     'date_format' => 'd/m/Y'
                 ],
                 'motscles' => [
                     'taxonomy' => 'motscles',
-                    'title'    => 'Mots clés',
-                    'link'     => 'edit',
+                    'title' => 'Mots clés',
+                    'link' => 'edit',
                 ],
                 'defis' => [
                     'taxonomy' => 'defis',
-                    'title'    => 'Défis',
-                    'link'     => 'edit',
+                    'title' => 'Défis',
+                    'link' => 'edit',
                 ],
                 'localisation' => [
                     'taxonomy' => 'localisation-inspiration',
-                    'title'    => 'Localisation',
-                    'link'     => 'edit',
+                    'title' => 'Localisation',
+                    'link' => 'edit',
                 ],
             ],
             'archive' => [
-                'posts_per_page' => 10,
+                'posts_per_page' => 6,
             ],
             'labels' => [
                 'singular' => 'Inspiration',
-                'plural'   => 'Inspirations',
-                'slug'     => 'inspirations',
+                'plural' => 'Inspirations',
+                'slug' => 'inspirations',
                 'search_items' => 'Rechercher une inspiration',
                 'all_items' => 'Toutes les inspirations',
                 'parent_item' => 'Inspiration parente',
@@ -115,7 +119,7 @@ return [
         ],
         'projects' => [
             'enter_title_here' => 'Ajouter un projet',
-            'menu_icon'    => 'dashicons-buddicons-topics',
+            'menu_icon' => 'dashicons-buddicons-topics',
             'supports' => ['title', 'editor', 'author', 'excerpt', 'thumbnail', 'custom-fields'],
             'show_in_rest' => true,
             'has_archive' => true,
@@ -126,50 +130,50 @@ return [
             'menu_position' => 6,
             'admin_cols' => [
                 'featured_image' => [
-                    'title'          => 'Image',
+                    'title' => 'Image',
                     'featured_image' => 'thumbnail',
-                    'width'          => 80,
-                    'height'         => 80,
+                    'width' => 80,
+                    'height' => 80,
                 ],
                 'published' => [
-                    'title'       => 'Publiée',
-                    'meta_key'    => 'published_date',
+                    'title' => 'Publiée',
+                    'meta_key' => 'published_date',
                     'date_format' => 'd/m/Y'
                 ],
                 'motscles' => [
                     'taxonomy' => 'motscles',
-                    'title'    => 'Mots clés',
-                    'link'     => 'edit',
+                    'title' => 'Mots clés',
+                    'link' => 'edit',
                 ],
                 'defis' => [
                     'taxonomy' => 'defis',
-                    'title'    => 'Défis',
-                    'link'     => 'edit',
+                    'title' => 'Défis',
+                    'link' => 'edit',
                 ],
                 'commune' => [
                     'taxonomy' => 'commune',
-                    'title'    => 'Commune',
-                    'link'     => 'edit',
+                    'title' => 'Commune',
+                    'link' => 'edit',
                 ],
                 'statuts' => [
                     'taxonomy' => 'statuts',
-                    'title'    => 'Statuts',
-                    'link'     => 'edit',
+                    'title' => 'Statuts',
+                    'link' => 'edit',
                 ],
             ],
 
             'admin_filters' => [
-			'genre' => [
-				'taxonomy' => 'commune',
-			]
+                'genre' => [
+                    'taxonomy' => 'commune',
+                ]
             ],
             'archive' => [
-                'posts_per_page' => 10,
+                'posts_per_page' => 6,
             ],
             'labels' => [
                 'singular' => 'Projet pilote',
-                'plural'   => 'Projets pilotes',
-                'slug'     => 'projets-pilotes',
+                'plural' => 'Projets pilotes',
+                'slug' => 'projets-pilotes',
                 'search_items' => 'Rechercher projet pilote',
                 'all_items' => 'Tous les projets pilotes',
                 'parent_item' => 'Projet pilote parent',
@@ -179,6 +183,67 @@ return [
                 'add_new_item' => 'Ajouter un projet pilote',
                 'new_item_name' => 'Nouveau nom du projet pilote',
                 'menu_name' => 'Projet pilote',
+            ],
+        ],
+        'events' => [
+            'enter_title_here' => 'Ajouter un événement',
+            'menu_icon' => 'dashicons-calendar-alt',
+            'supports' => ['title', 'editor', 'author', 'excerpt', 'thumbnail', 'custom-fields'],
+            'show_in_rest' => true,
+            'has_archive' => true,
+            'hierarchical' => false,
+            'show_in_feed' => false,
+            'public' => true,
+            'show_in_nav_menus' => true,
+            'menu_position' => 7,
+            'admin_cols' => [
+                'featured_image' => [
+                    'title' => 'Image',
+                    'featured_image' => 'thumbnail',
+                    'width' => 80,
+                    'height' => 80,
+                ],
+                'event_datetime' => [
+                    'title' => 'Date événement',
+                    'meta_key' => 'event_datetime',
+                    'date_format' => 'd/m/Y H:i',
+                ],
+                'published' => [
+                    'title' => 'Publiée',
+                    'meta_key' => 'published_date',
+                    'date_format' => 'd/m/Y'
+                ],
+                'commune' => [
+                    'taxonomy' => 'commune',
+                    'title' => 'Commune',
+                    'link' => 'edit',
+                ]
+            ],
+            'admin_filters' => [
+                'genre' => [
+                    'taxonomy' => 'commune',
+                ]
+            ],
+            'archive' => [
+                'posts_per_page' => 6,
+                'meta_key' => 'event_datetime',
+                'meta_type' => 'DATETIME',
+                'orderby' => 'meta_value',
+                'order' => 'DESC'
+            ],
+            'labels' => [
+                'singular' => 'Événement',
+                'plural' => 'Événéments',
+                'slug' => 'events',
+                'search_items' => 'Rechercher événement',
+                'all_items' => 'Tous les événements',
+                'parent_item' => 'Événement parent',
+                'parent_item_colon' => 'Événement parent:',
+                'edit_item' => 'Editer événement',
+                'update_item' => 'Mettre à jour l\'événement',
+                'add_new_item' => 'Ajouter un événement',
+                'new_item_name' => 'Nouveau nom du événement',
+                'menu_name' => 'Événement',
             ],
         ],
     ],
@@ -206,8 +271,8 @@ return [
             'rewrite' => array('slug' => 'defis'),
             'admin_cols' => [
                 'updated' => array(
-                    'title'       => 'Updated',
-                    'meta_key'    => 'updated_date',
+                    'title' => 'Updated',
+                    'meta_key' => 'updated_date',
                     'date_format' => 'd/m/Y'
                 ),
             ],
@@ -227,7 +292,7 @@ return [
             ],
         ],
         'motscles' => [
-            'links' => ['inspirations', 'ressources', 'projects'],
+            'links' => ['inspirations', 'ressources', 'projects', 'events'],
             'meta_box_cb' => true,
             'dashboard_glance' => true,
             'show_in_rest' => true,
@@ -238,9 +303,9 @@ return [
             'rewrite' => array('slug' => 'motscles'),
             'admin_cols' => [
                 'updated' => array(
-                'title' => 'Updated',
-                'meta_key' => 'updated_date',
-                'date_format' => 'd/m/Y',
+                    'title' => 'Updated',
+                    'meta_key' => 'updated_date',
+                    'date_format' => 'd/m/Y',
                 ),
             ],
             'labels' => [
@@ -264,15 +329,15 @@ return [
             'dashboard_glance' => true,
             'show_in_rest' => true,
             'hierarchical' => true,
-			'has_archive' => true,
+            'has_archive' => true,
             'show_ui' => true,
             'show_admin_column' => true,
             'query_var' => true,
             'rewrite' => array('slug' => 'motscles'),
             'admin_cols' => [
                 'updated' => array(
-                    'title'       => 'Updated',
-                    'meta_key'    => 'updated_date',
+                    'title' => 'Updated',
+                    'meta_key' => 'updated_date',
                     'date_format' => 'd/m/Y'
                 ),
             ],
@@ -290,7 +355,7 @@ return [
             ],
         ],
         'commune' => [
-            'links' => ['projects'],
+            'links' => ['projects', 'events'],
             'meta_box' => 'radio',
             'dashboard_glance' => true,
             'show_in_rest' => true,
@@ -301,8 +366,8 @@ return [
             'rewrite' => array('slug' => 'motscles'),
             'admin_cols' => [
                 'updated' => [
-                    'title'       => 'Updated',
-                    'meta_key'    => 'updated_date',
+                    'title' => 'Updated',
+                    'meta_key' => 'updated_date',
                     'date_format' => 'd/m/Y',
                 ],
             ],
@@ -330,8 +395,8 @@ return [
             'rewrite' => array('slug' => 'statuts'),
             'admin_cols' => [
                 'updated' => array(
-                    'title'       => 'Updated',
-                    'meta_key'    => 'updated_date',
+                    'title' => 'Updated',
+                    'meta_key' => 'updated_date',
                     'date_format' => 'd/m/Y'
                 ),
             ],
@@ -352,7 +417,7 @@ return [
             'links' => ['inspirations'],
             'dashboard_glance' => true,
             'show_in_rest' => true,
-			'has_archive' => true,
+            'has_archive' => true,
             'hierarchical' => true,
             'show_ui' => true,
             'show_admin_column' => true,
@@ -360,8 +425,8 @@ return [
             'rewrite' => array('slug' => 'localisation-inspiration'),
             'admin_cols' => [
                 'updated' => array(
-                    'title'       => 'Updated',
-                    'meta_key'    => 'updated_date',
+                    'title' => 'Updated',
+                    'meta_key' => 'updated_date',
                     'date_format' => 'd/m/Y'
                 ),
             ],
@@ -392,8 +457,8 @@ return [
             'rewrite' => array('slug' => 'types'),
             'admin_cols' => [
                 'updated' => array(
-                    'title'       => 'Updated',
-                    'meta_key'    => 'updated_date',
+                    'title' => 'Updated',
+                    'meta_key' => 'updated_date',
                     'date_format' => 'd/m/Y'
                 ),
             ],

@@ -1,10 +1,22 @@
-.page-numbers{
-    @apply flex justify-end space-x-4 text-primary font-bold text-base py-6;
-    a{
-        @apply space-x-4;
+#pagination-container {
+    nav {
+        ul, .nav-links {
+            @apply flex justify-end space-x-4 text-primary font-bold text-base py-6;
 
-    }
-    span{
-        @apply underline;
+            a {
+                @apply space-x-4;
+            }
+
+            * {
+                font-weight: normal;
+                &:hover {
+                    font-weight: bold;
+                }
+            }
+
+            .current {
+                font-weight: bold;
+            }
+        }
     }
 }

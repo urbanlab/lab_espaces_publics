@@ -1,13 +1,13 @@
-ol{
+ol {
     list-style-type: decimal;
     margin-left: 30px;
 }
 
-ul{
+ul {
     list-style-type: disc;
     margin-left: 30px;
 }
 
-.page-numbers{
+.page-numbers {
     list-style-type: none;
 }

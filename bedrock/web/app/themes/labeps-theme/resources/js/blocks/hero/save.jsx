@@ -20,7 +20,7 @@ export default function Save({
                     <img src={iconUrl} alt={__('Hero Icon', 'labeps-theme')} />
                 </figure>
                 <div className="block-heading-text w-full">
-                    <RichText.Content tagName="h2" value={title} />
+                    <RichText.Content tagName="h1" value={title} />
                     <RichText.Content
                         tagName="p"
                         value={subtitle}

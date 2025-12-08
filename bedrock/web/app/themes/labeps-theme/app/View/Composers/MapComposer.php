@@ -26,7 +26,7 @@ class MapComposer extends Composer
     {
         $args = [
             'post_type' => 'projects',
-            'posts_per_page' => -1,
+            'posts_per_page' => 6,
             'tax_query' => !empty($filters) ? $this->build_tax_query($filters) : [],
         ];
 

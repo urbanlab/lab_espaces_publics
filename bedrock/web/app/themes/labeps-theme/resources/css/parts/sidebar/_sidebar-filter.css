@@ -1,41 +1,52 @@
 @layer components {
     .slide-in {
-      @apply fixed top-36 left-0 h-full w-3/4 bg-white transform -translate-x-full transition-transform duration-300 ease-in-out z-40;
+        @apply fixed top-36 left-0 h-full w-3/4 bg-white transform -translate-x-full transition-transform duration-300 ease-in-out z-40;
     }
+
     .slide-in.show {
-      @apply translate-x-0;
+        @apply translate-x-0;
     }
+
     .hidden {
         display: none;
-      }
-      .fixed {
+    }
+
+    .fixed {
         position: fixed;
-      }
-      .inset-0 {
+    }
+
+    .inset-0 {
         inset: 0;
-      }
-      .bg-black {
+    }
+
+    .bg-black {
         background-color: black;
-      }
-      .opacity-50 {
+    }
+
+    .opacity-50 {
         opacity: 0.5;
-      }
-      .accordion .fa-chevron-right {
+    }
+
+    .accordion .fa-chevron-right {
         transition: transform 0.3s ease;
-      }
-      .accordion.active .fa-chevron-right {
+    }
+
+    .accordion.active .fa-chevron-right {
         transform: rotate(90deg);
-      }
-      .panel {
+    }
+
+    .panel {
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.8s ease-out;
-      }
-      .panel.open {
+    }
+
+    .panel.open {
         max-height: 1000px !important;
         transition: max-height 0.8s ease-in;
-      }
-      .tag {
+    }
+
+    .tag {
         display: inline-flex;
         align-items: center;
         background-color: #e5e7eb;
@@ -43,9 +54,28 @@
         border-radius: 9999px;
         font-size: 0.875rem;
         font-weight: 500;
-      }
-      .tag .remove-tag {
+    }
+
+    .tag .remove-tag {
         margin-left: 0.5rem;
         cursor: pointer;
-      }
-  }
+    }
+}
+
+#filters-menu {
+    padding: 1rem;
+    overflow: auto;
+    height: 80vh;
+    width: 80%;
+
+    @variant md {
+        height: auto;
+        overflow: unset;
+        display: block;
+        width: 30%
+    }
+}
+
+body:has(#filters-menu.show) {
+    overflow: hidden;
+}

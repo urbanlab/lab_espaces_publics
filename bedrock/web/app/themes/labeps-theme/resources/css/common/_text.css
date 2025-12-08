@@ -1,18 +1,43 @@
 p {
     @apply text-pretty;
-
     overflow-wrap: break-word;
-
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4 {
     @apply text-wrap;
+    color: var(--wp--preset--color--primary);
+    font-weight: var(--font-weight-bold);
+
 }
 
-a{
+h1 {
+    font-size: var(--text-4xl);
+}
+
+h2 {
+    font-size: var(--text-3xl);
+}
+
+h3 {
+    font-size: var(--text-2xl);
+}
+
+a {
     cursor: pointer;
 }
 
-.number-title{
-    @apply text-[90px] font-extrabold;
+.intro {
+    font-family: var(--font-sans);
+    color: var(--wp--preset--color--secondary);
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-bold);
+}
+
+.number-title {
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--text-5xl);
 }

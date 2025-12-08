@@ -1,8 +1,0 @@
-article {
-    p {
-        @apply text-xs;
-        @variant md {
-            @apply text-sm;
-        }
-    }
-}
