@@ -29,7 +29,6 @@
         @apply gap-3 items-start leading-normal;
 
         h3 {
-
             @apply leading-normal text-xl;
         }
 

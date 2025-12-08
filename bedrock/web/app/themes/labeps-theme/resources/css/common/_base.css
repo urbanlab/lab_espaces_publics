@@ -12,9 +12,9 @@ body {
 
 #app {
     @apply min-h-screen    flex flex-col;
+
     main {
         @apply flex-1;
-
     }
 }
 
@@ -41,7 +41,8 @@ img {
 a {
     text-decoration: none;
 }
-.wp-block-columns{
-    margin-top:var(--wp--preset--spacing--60);
-    column-gap:6rem;
+
+.wp-block-columns {
+    margin-top: var(--wp--preset--spacing--60);
+    column-gap: 6rem;
 }
