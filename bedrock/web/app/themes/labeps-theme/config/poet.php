@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 return [
@@ -42,18 +43,18 @@ return [
                     'link' => 'edit',
                     'meta_box' => 'radio',
                 ],
-                'published' => array(
-                    'title' => 'Published',
-                    'meta_key' => 'published_date',
+                'published' => [
+                    'title' => 'Publiée le',
+                    'post_field' => 'post_date',
                     'date_format' => 'd/m/Y'
-                ),
+                ]
             ],
             'archive' => [
                 'posts_per_page' => 6,
             ],
             'labels' => [
                 'singular' => 'Boite à outils',
-                'plural' => 'Boite à outils',
+                'plural' => 'Boites à outils',
                 'slug' => 'ressources',
                 'update_item' => 'Mettre à jour boite à outils',
                 'add_new_item' => 'Ajouter une boite à outils',
@@ -78,11 +79,6 @@ return [
                     'width' => 80,
                     'height' => 80,
                 ],
-                'published' => [
-                    'title' => 'Publiée',
-                    'meta_key' => 'published_date',
-                    'date_format' => 'd/m/Y'
-                ],
                 'motscles' => [
                     'taxonomy' => 'motscles',
                     'title' => 'Mots clés',
@@ -98,6 +94,11 @@ return [
                     'title' => 'Localisation',
                     'link' => 'edit',
                 ],
+                'published' => [
+                    'title' => 'Publiée le',
+                    'post_field' => 'post_date',
+                    'date_format' => 'd/m/Y'
+                ]
             ],
             'archive' => [
                 'posts_per_page' => 6,
@@ -135,11 +136,6 @@ return [
                     'width' => 80,
                     'height' => 80,
                 ],
-                'published' => [
-                    'title' => 'Publiée',
-                    'meta_key' => 'published_date',
-                    'date_format' => 'd/m/Y'
-                ],
                 'motscles' => [
                     'taxonomy' => 'motscles',
                     'title' => 'Mots clés',
@@ -160,6 +156,11 @@ return [
                     'title' => 'Statuts',
                     'link' => 'edit',
                 ],
+                'published' => [
+                    'title' => 'Publié le',
+                    'post_field' => 'post_date',
+                    'date_format' => 'd/m/Y'
+                ]
             ],
 
             'admin_filters' => [
@@ -205,18 +206,25 @@ return [
                 ],
                 'event_datetime' => [
                     'title' => 'Date événement',
-                    'meta_key' => 'event_datetime',
-                    'date_format' => 'd/m/Y H:i',
-                ],
-                'published' => [
-                    'title' => 'Publiée',
-                    'meta_key' => 'published_date',
-                    'date_format' => 'd/m/Y'
+                    'function' => function ($post) {
+                        $date = get_post_meta($post->ID, 'event_datetime', true);
+
+                        if ($date) {
+                            $datetime = DateTime::createFromFormat('Ymd', $date) ?: DateTime::createFromFormat('Y-m-d', $date);
+
+                            echo $datetime ? $datetime->format('d/m/Y') : $date;
+                        }
+                    },
                 ],
                 'commune' => [
                     'taxonomy' => 'commune',
                     'title' => 'Commune',
                     'link' => 'edit',
+                ],
+                'published' => [
+                    'title' => 'Publié le',
+                    'post_field' => 'post_date',
+                    'date_format' => 'd/m/Y'
                 ]
             ],
             'admin_filters' => [
