@@ -8,29 +8,15 @@ use Illuminate\View\ComponentAttributeBag;
 use Roots\Acorn\View\Composer;
 use WP_Query;
 
+//@todo: ne pas utiliser un Composer car les données sont récupérées en ajax
 class MapComposer extends Composer
 {
     protected static $views = [
         'archive-projects',
     ];
 
-    public function with(): array
+    public function projects(WP_Query $query): array
     {
-        return [
-            'projects' => $this->projects(),
-            'statuts' => $this->statuts(),
-        ];
-    }
-
-    public function projects(array $filters = []): array
-    {
-        $args = [
-            'post_type' => 'projects',
-            'posts_per_page' => 6,
-            'tax_query' => !empty($filters) ? $this->build_tax_query($filters) : [],
-        ];
-
-        $query = new WP_Query($args);
         $projects = [];
 
         if ($query->have_posts()) {
@@ -120,7 +106,7 @@ class MapComposer extends Composer
         return $conditions ? ['relation' => 'AND', ...$conditions] : [];
     }
 
-    public function statuts(): array
+    public function status(): array
     {
         $terms = get_terms(['taxonomy' => 'statuts', 'hide_empty' => true]);
         $statuts = [];
