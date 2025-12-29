@@ -31,12 +31,6 @@
         </div>
         <div id="map-view" class="view active z-0">
             <div id="map"></div>
-            @if (!empty($projects))
-                <script>
-                    window.projects = @json($projects);
-                    window.statuts = @json($statuts);
-                </script>
-            @endif
         </div>
     </x-filterable-archive>
 @endsection

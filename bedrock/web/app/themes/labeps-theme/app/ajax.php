@@ -74,7 +74,7 @@ class AjaxHandler
         // Si le type de contenu est "projects", récupérer les données pour la carte
         if ($contentType === 'projects') {
             $mapComposer = new MapComposer();
-            $response['projects'] = $mapComposer->projects($_POST, false);
+            $response['projects'] = $mapComposer->projects($query);
         }
 
         wp_send_json_success($response);
