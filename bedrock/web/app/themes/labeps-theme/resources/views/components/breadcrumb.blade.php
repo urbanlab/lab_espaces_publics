@@ -8,7 +8,7 @@
         @foreach ($items as $item)
             @if (empty($item['url']))
                 <span class="p-2 font-medium cursor-default">
-          {{ $item['label'] }}
+          {!! $item['label'] !!}
         </span>
             @else
                 <span class="p-2" property="itemListElement" typeof="ListItem">
