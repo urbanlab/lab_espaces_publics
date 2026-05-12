@@ -61,7 +61,7 @@
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.1.0",
     "wpackagist-theme/twentytwentyfour": "^1.0",
-    "roots/acorn": "^5.0",
+    "roots/acorn": "^6.0",
     "wpackagist-plugin/all-in-one-wp-security-and-firewall": "^5.2",
     "wpackagist-plugin/wordpress-seo": "^27.0",
     "wpackagist-plugin/mappress-google-maps-for-wordpress": "^2.88",
