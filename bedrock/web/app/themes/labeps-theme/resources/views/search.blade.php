@@ -6,7 +6,7 @@
         'partials.hero',
         [
             'title' => 'Recherche',
-            'pageIntro' => 'Résultats de votre recherche pour : ' . request()->get('s')
+            'pageIntro' => 'Résultats de votre recherche pour : ' . esc_html(get_search_query())
         ]
     )
     <section class="container mx-auto">
