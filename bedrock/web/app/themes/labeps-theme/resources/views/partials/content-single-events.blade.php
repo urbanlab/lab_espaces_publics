@@ -8,7 +8,7 @@
     <header class="hero-single">
         <x-breadcrumb/>
         <figure class="flex w-screen h-[40vh] md:h-96">
-            {{the_post_thumbnail('full')}}
+            {!! get_the_post_thumbnail(null, 'full', ['class' => 'w-full h-full object-cover']) !!}
         </figure>
     </header>
     <div class="e-content container mx-auto mb-10">
