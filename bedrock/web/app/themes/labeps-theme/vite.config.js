@@ -14,6 +14,10 @@ export default defineConfig({
                 'resources/css/editor.css',
                 'resources/js/editor.js'
             ],
+            assets: [
+                'resources/images/**',
+                'resources/fonts/**',
+            ],
             refresh: true,
         }),
 
@@ -34,5 +38,10 @@ export default defineConfig({
             '@fonts': '/resources/fonts',
             '@images': '/resources/images',
         },
-    }
+    },
+    esbuild: {
+        jsx: 'transform',
+        jsxFactory: 'wp.element.createElement',
+        jsxFragment: 'wp.element.Fragment',
+    },
 })

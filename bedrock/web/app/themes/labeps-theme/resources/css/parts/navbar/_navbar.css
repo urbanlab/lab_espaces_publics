@@ -1,3 +1,20 @@
+@variant max-md {
+    #navbar-hamburger {
+        @apply absolute top-full right-0 left-0 z-10 bg-white;
+        height: calc(100vh - 100%);
+        overflow-y: auto;
+        transition: transform 300ms ease-out;
+    }
+
+    #navbar-hamburger.hidden {
+        display: flex !important;
+        transform: translateX(-100%);
+        pointer-events: none;
+        visibility: hidden;
+        transition: transform 300ms ease-out, visibility 0s 300ms;
+    }
+}
+
 .nav-primary {
     /*@apply h-full items-center z-50;*/
 
