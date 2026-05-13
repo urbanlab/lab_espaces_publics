@@ -63,6 +63,7 @@
 }
 
 #filters-menu {
+    z-index: 9999;
     padding: 1rem;
     overflow: auto;
     height: 80vh;
