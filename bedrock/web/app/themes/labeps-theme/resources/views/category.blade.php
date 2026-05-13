@@ -2,17 +2,14 @@
 
 @section('content')
     @include('partials.page-header')
-
-    @include('partials.hero', [
-        'title' => 'Actualités',
-        'pageIntro' => 'Retrouvez toutes les actus du Lab : organisation d’évènements, publication de nouveaux outils, informations sur l’accompagnement des projets pilotes…',
-    ])
-
-    @include('components.loop-posts')
-
+    @include(
+        'partials.hero',
+        [
+            'title' => single_cat_title('', false),
+            'pageIntro' => strip_tags(category_description()) ?: 'Articles de la catégorie ' . single_cat_title('', false),
+        ]
+    )
     <section class="container mx-auto">
-        <h2 class="text-primary py-5 text-xl md:text-2xl font-bold">Dernières actus</h2>
-
         @if (! have_posts())
             <x-alert type="warning">
                 {!! __('Désolé le contenu que vous cherchez n\'est pas ici.', 'labeps-theme') !!}
@@ -31,8 +28,4 @@
             {!! get_the_posts_navigation() !!}
         </div>
     </section>
-@endsection
-
-@section('sidebar')
-    @include('sections.sidebar')
 @endsection

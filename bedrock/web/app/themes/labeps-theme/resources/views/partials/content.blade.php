@@ -1,6 +1,6 @@
 <article id="post-{{ get_the_ID() }}" class='card flex flex-col w-full bg-white p-4 my-6 md:flex-row @php(get_post_class())'>
-    <a href="{{ get_permalink() }}" class="flex">
-        <figure class="size-auto">
+    <a href="{{ get_permalink() }}" class="flex md:w-1/3">
+        <figure>
             {!!the_post_thumbnail('large', ['class' => 'img-rounded', 'title' => 'Feature image'])!!}
         </figure>
     </a>
