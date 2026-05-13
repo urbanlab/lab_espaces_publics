@@ -26,10 +26,6 @@ mark {
     @apply p-1;
 }
 
-img {
-    @apply min-h-full min-w-full object-cover;
-}
-
 .img-rounded {
     @apply rounded-md;
 }
