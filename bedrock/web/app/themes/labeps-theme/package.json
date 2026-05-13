@@ -24,7 +24,7 @@
     "devDependencies": {
         "@roots/vite-plugin": "^1.0.2",
         "@tailwindcss/vite": "^4.3",
-        "flowbite": "^3.1.2",
+        "flowbite": "^4.0.1",
         "laravel-vite-plugin": "^1.2.0",
         "tailwindcss": "^4.3",
         "vite": "^6.4.2"
