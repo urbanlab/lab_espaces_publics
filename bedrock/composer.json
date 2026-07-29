@@ -41,11 +41,11 @@
       "type": "package",
       "package": {
         "name": "advanced-custom-fields/advanced-custom-fields-pro",
-        "version": "6.8.0",
+        "version": "6.8.6",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
-          "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.6.8.0.zip"
+          "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.6.8.6.zip"
         }
       }
     }
@@ -57,13 +57,12 @@
     "oscarotero/env": "^2.1",
     "roots/bedrock-autoloader": "^1.0",
     "roots/bedrock-disallow-indexing": "^2.0",
-    "roots/wordpress": "^6.8",
+    "roots/wordpress": "^7.0.2",
     "roots/wp-config": "1.0.0",
-    "roots/wp-password-bcrypt": "1.1.0",
     "wpackagist-theme/twentytwentyfour": "^1.0",
     "roots/acorn": "^6.0",
-    "wpackagist-plugin/all-in-one-wp-security-and-firewall": "^5.2",
-    "wpackagist-plugin/wordpress-seo": "^27.0",
+    "wpackagist-plugin/all-in-one-wp-security-and-firewall": "^5.4",
+    "wpackagist-plugin/wordpress-seo": "^28.0",
     "wpackagist-plugin/mappress-google-maps-for-wordpress": "^2.88",
     "wpackagist-plugin/svg-block": "^1.1",
     "wpackagist-plugin/copy-delete-posts": "^1.4",
