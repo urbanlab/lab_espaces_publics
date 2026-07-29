@@ -59,7 +59,6 @@
     "roots/bedrock-disallow-indexing": "^2.0",
     "roots/wordpress": "^7.0.2",
     "roots/wp-config": "1.0.0",
-    "roots/wp-password-bcrypt": "1.1.0",
     "wpackagist-theme/twentytwentyfour": "^1.0",
     "roots/acorn": "^6.0",
     "wpackagist-plugin/all-in-one-wp-security-and-firewall": "^5.4",
