@@ -41,11 +41,11 @@
       "type": "package",
       "package": {
         "name": "advanced-custom-fields/advanced-custom-fields-pro",
-        "version": "6.8.6",
+        "version": "6.8.8",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
-          "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.6.8.6.zip"
+          "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.6.8.8.zip"
         }
       }
     }
