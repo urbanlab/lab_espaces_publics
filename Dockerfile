@@ -8,6 +8,10 @@ WORKDIR /app/bedrock
 
 RUN composer install --no-dev
 
+RUN if [ -f web/app/plugins/wp-health/src/Core/MuPlugins/InitUmbrella.php ]; then \
+        cp web/app/plugins/wp-health/src/Core/MuPlugins/InitUmbrella.php web/app/mu-plugins/InitUmbrella.php; \
+    fi
+
 WORKDIR /app/bedrock/web/app/themes/labeps-theme
 
 RUN composer install --no-dev
