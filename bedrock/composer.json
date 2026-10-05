@@ -39,7 +39,7 @@
     }
   ],
   "require": {
-    "php": ">=8.2",
+    "php": ">=8.4.1",
     "composer/installers": "^2.2",
     "vlucas/phpdotenv": "^5.5",
     "oscarotero/env": "^2.1",
@@ -53,7 +53,6 @@
     "wpackagist-plugin/mappress-google-maps-for-wordpress": "^2.97.14",
     "wpackagist-plugin/svg-block": "^1.1",
     "wpackagist-plugin/copy-delete-posts": "^1.5.7",
-    "wpackagist-plugin/contact-form-7": "^6.1",
     "wpackagist-plugin/advanced-custom-fields": "^6.8.10",
     "wpackagist-plugin/wp-health": "^2.27"
   },
@@ -69,7 +68,7 @@
       "roots/wordpress-core-installer": true
     },
     "platform": {
-      "php": "8.3"
+      "php": "8.5"
     }
   },
   "minimum-stability": "dev",

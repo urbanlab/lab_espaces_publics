@@ -13,6 +13,14 @@ services:
             - WP_HOME=${WP_HOME:-http://localhost:${EXPOSED_WORDPRESS_PORT}}
             - WP_SITEURL=${WP_SITEURL:-http://localhost:${EXPOSED_WORDPRESS_PORT}/wp}
             - DATABASE_URL=${DATABASE_URL:-mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@mysql:3306/${MYSQL_DATABASE}}
+            - AUTH_KEY=${AUTH_KEY}
+            - SECURE_AUTH_KEY=${SECURE_AUTH_KEY}
+            - LOGGED_IN_KEY=${LOGGED_IN_KEY}
+            - NONCE_KEY=${NONCE_KEY}
+            - AUTH_SALT=${AUTH_SALT}
+            - SECURE_AUTH_SALT=${SECURE_AUTH_SALT}
+            - LOGGED_IN_SALT=${LOGGED_IN_SALT}
+            - NONCE_SALT=${NONCE_SALT}
         volumes:
             - ./bedrock/:/var/www/html/bedrock:delegated
         ports:
@@ -30,6 +38,19 @@ services:
             - WP_HOME=${WP_HOME:-http://localhost:${EXPOSED_WORDPRESS_PORT}}
             - WP_SITEURL=${WP_SITEURL:-http://localhost:${EXPOSED_WORDPRESS_PORT}/wp}
             - DATABASE_URL=${DATABASE_URL:-mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@mysql:3306/${MYSQL_DATABASE}}
+            - AUTH_KEY=${AUTH_KEY}
+            - SECURE_AUTH_KEY=${SECURE_AUTH_KEY}
+            - LOGGED_IN_KEY=${LOGGED_IN_KEY}
+            - NONCE_KEY=${NONCE_KEY}
+            - AUTH_SALT=${AUTH_SALT}
+            - SECURE_AUTH_SALT=${SECURE_AUTH_SALT}
+            - LOGGED_IN_SALT=${LOGGED_IN_SALT}
+            - NONCE_SALT=${NONCE_SALT}
+        volumes:
+            - prod-plugins:/var/www/html/bedrock/web/app/plugins
+            - prod-wp:/var/www/html/bedrock/web/wp
+            - prod-languages:/var/www/html/bedrock/web/app/languages
+            - prod-uploads:/var/www/html/bedrock/web/app/uploads
         ports:
             - ${EXPOSED_WORDPRESS_PORT:-8080}:80
         depends_on:
@@ -100,3 +121,9 @@ services:
             - "8081:80"
         depends_on:
             - mysql-dev
+
+volumes:
+    prod-plugins:
+    prod-wp:
+    prod-languages:
+    prod-uploads:

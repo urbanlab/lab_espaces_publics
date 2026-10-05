@@ -39,7 +39,7 @@
     }
   },
   "require": {
-    "php": "8.3",
+    "php": ">=8.4.1",
     "johnbillion/extended-cpts": "^5.1",
     "log1x/acf-composer": "^3.4",
     "log1x/crumb": "^1.1",
@@ -61,7 +61,7 @@
     "preferred-install": "dist",
     "sort-packages": true,
     "platform": {
-      "php": "8.3"
+      "php": "8.5"
     }
   },
   "minimum-stability": "dev",
