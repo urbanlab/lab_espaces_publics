@@ -30,7 +30,7 @@ RUN yarn build
 
 RUN rm -r node_modules
 
-FROM php:8.3-apache
+FROM php:8.5-apache
 
 # install php extensions mysqli PHP
 RUN docker-php-ext-install mysqli pdo pdo_mysql
@@ -41,6 +41,7 @@ RUN apt-get update && apt-get install -y \
     libpng-dev \
     libwebp-dev \
     libxpm-dev \
+    rsync \
     zlib1g-dev && \
     docker-php-ext-configure gd --enable-gd --with-webp --with-jpeg \
     --with-xpm --with-freetype && \
@@ -57,6 +58,15 @@ COPY --from=node /app/bedrock /var/www/html/bedrock
 
 RUN chown -R www-data:www-data /var/www/html/
 
+RUN mkdir -p /opt/labeps \
+    && cp -a /var/www/html/bedrock/web/app/plugins /opt/labeps/plugins \
+    && cp -a /var/www/html/bedrock/web/wp /opt/labeps/wp \
+    && cp -a /var/www/html/bedrock/web/app/languages /opt/labeps/languages
+
+COPY ./docker/prod/sync-helper.php /usr/local/lib/labeps/sync-helper.php
+COPY ./docker/prod/entrypoint.sh /usr/local/bin/labeps-entrypoint
+RUN chmod 0755 /usr/local/bin/labeps-entrypoint
+
 # install wp-cli
 RUN apt-get update && apt-get install less
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
@@ -70,4 +80,5 @@ RUN echo "post_max_size = 100M" >> /usr/local/etc/php/conf.d/uploads.ini
 USER www-data
 RUN php /var/www/html/bedrock/vendor/bin/acorn optimize:clear --no-ansi --no-interaction
 
-ENTRYPOINT [ "apache2-foreground" ]
+ENTRYPOINT [ "labeps-entrypoint" ]
+CMD [ "apache2-foreground" ]

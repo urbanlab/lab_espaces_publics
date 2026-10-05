@@ -54,7 +54,7 @@ add_action('after_setup_theme', function () {
 |
 */
 
-collect(['setup', 'filters', 'helper', 'ajax', 'mail-custom'])
+collect(['setup', 'filters', 'helper', 'ajax'])
     ->each(function ($file) {
         if (! locate_template($file = "app/{$file}.php", true, true)) {
             wp_die(
